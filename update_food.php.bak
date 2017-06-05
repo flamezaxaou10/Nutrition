@@ -1,0 +1,35 @@
+<?php
+session_start();
+if($_SESSION["Username"]=="") // ตรวจสอบว่าผ่านการ login หรือไม่
+{
+header('location:login.php');
+exit();
+}
+
+?>
+
+<html>
+<body>
+<?php
+
+	$idfood  = $_POST['idfood'];
+	$name    = $_POST['name'];
+	$id      = $_POST['id'];
+	include("conn.php");
+	$sql  = "update `cpa`.`type_food` set `id_type`='".$idfood."',`type_name`='".$name."'";
+	$result  = mysql_query($sql);
+	if(!$result){
+		die('ไม่สามารแก้ไขข้อมูลได้ เกิดข้อผิิดพลาดบางประการ'.mysql_error());
+	}
+
+?>
+
+<script>
+		
+		location="typefood.php";
+
+</script>
+
+
+</body>
+</html>

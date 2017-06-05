@@ -1,0 +1,199 @@
+.navbar{
+    min-height: 10px;
+}
+#imagereport {
+    width: 70%;
+    border-radius: 30px;
+    border: medium none;
+    box-shadow: unset;
+    background-color: transparent;
+}
+#imageclose {
+    width: 35%;
+    border-radius: 30px;
+    border: medium none;
+    box-shadow: unset;
+}
+#logoindex {
+    /*width: 35%;*/
+    border-radius: 30px;
+    border: medium none;
+    box-shadow: unset;
+    background-color: transparent;
+}
+#imagelogo {
+    width: 75%;
+    border-radius: 30px;
+    border: medium none;
+    box-shadow: unset;
+    background-color: transparent;
+    margin: -22px 0px 0px -10px;
+}
+.navbar-color{
+    background-color: rgb(255, 214, 169);
+}
+.navbar-default .navbar-text{
+    color: #000000;
+}
+.links-web{
+    font-size: 18px;
+}
+.navbar-default .navbar-nav > li > a {
+    color: #000000;
+    font-size: 14px;
+}
+.navbar-default .navbar-brand {
+    color: #000000;
+    font-size: 14px;
+}
+.navbar-default .navbar-brand:hover {
+    color: orange;
+    background-color: transparent;
+}
+.navbar-default .navbar-nav > li > a:hover {
+    color: #46b8da;
+    background-color: transparent;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Montserrat-Regular'), url(http://fonts.gstatic.com/s/montserrat/v6/zhcz-_WihjSQC0oHJ9TCYPk_vArhqVIZ0nv9q090hN8.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+/* latin */
+@font-face {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    src: local('Montserrat-Bold'), url(http://fonts.gstatic.com/s/montserrat/v6/IQHow_FEYlDC4Gzy_m8fcoWiMMZ7xLd792ULpGE4W_Y.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+
+.bgcolor{
+    background-color: #2b2b2b;
+    background-size: cover;
+    font-family: Montserrat;
+}
+.panel-info2{
+    position: absolute;
+    left: 50%;
+    margin: 10px 10px 0px -175px;
+}
+.panel-info{
+    width: 350px;
+    height: 280px;
+}
+
+.form-horizontal {
+    width: 320px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    border-top: 5px solid #f78d1d;
+    margin: 0 auto;
+}
+
+.form-horizontal .form-group{
+    margin-bottom: 0px;
+}
+
+.form-horizontal h1 {
+    text-align: center;
+    color: #000;
+    font-size: 18px;
+    text-transform: uppercase;
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-family: Montserrat;
+}
+/*page setting*/
+#fixfont{
+    font-family: Montserrat;
+    font-size: 12px;
+}
+.form-horizontal input {
+    margin-bottom: 10px;
+    padding: 10px;
+    width: 100%;
+    height: 42px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    font-family: Montserrat;
+    outline: none;
+}
+.form-horizontal #username,#password {
+    width: 100%;
+    height: 42px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    padding: 0 20px 0 50px;
+    font-size: 14px;
+    font-family: Montserrat;
+
+    outline: none;
+}
+
+.form-horizontal input#username {
+    background: #fff url('http://grade-report.icit.kmutnb.ac.th/image/image1.png') 20px top no-repeat;
+    background-size: 16px 80px;
+}
+
+.form-horizontal input#username:focus {
+    background: #fff url('http://grade-report.icit.kmutnb.ac.th/image/image1.png') 20px bottom no-repeat;
+    background-size: 16px 80px;
+}
+
+.form-horizontal input#password {
+    background: #fff url('http://grade-report.icit.kmutnb.ac.th/image/image2.png') 20px top no-repeat;
+    background-size: 16px 80px;
+}
+
+.form-horizontal input#password:focus {
+    background: #fff url('http://grade-report.icit.kmutnb.ac.th/image/image2.png') 20px bottom no-repeat;
+    background-size: 16px 80px;
+}
+
+.form-horizontal input:active, .login-block input:focus {
+    /*border: 1px solid #ff656c;*/
+}
+
+.form-horizontal button {
+    width: 100%;
+    height: 40px;
+    background: #f78d1d;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: 1px solid #f47c20;
+    color: #fff;
+    /*font-weight: bold;*/
+    text-transform: uppercase;
+    font-size: 14px;
+    font-family: Montserrat;
+    outline: none;
+    cursor: pointer;
+}
+
+.form-horizontal button:hover {
+    background: #f47c20;
+}
+
+.tablenonedata{
+    text-align: center;
+    width: 90%;height: 300px;
+    background-color: #FFFFFF;
+    box-shadow: black 0.5em 0.5em 0.3em;
+    border: 1px solid;
+    border-radius: 4px;
+}
+
+.tablenonedata td{
+    text-align: center;
+    color: red;
+    font-size: 100%;
+}

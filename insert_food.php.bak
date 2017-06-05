@@ -1,0 +1,34 @@
+<?php
+include ('conn.php');
+session_start();
+if($_SESSION["Username"]=="") // ตรวจสอบว่าผ่านการ login หรือไม่
+{
+header('location:login.php');
+exit();
+}
+
+$command = "INSERT INTO type_food (id_type,type_name) VALUES				('".$_POST['id_food']."','".$_POST['name_food']."')"; 
+		  $insert = mysql_query($command);
+          echo( "<script> alert('เพิ่มข้อมูลสำเร็จ');
+		  window.location='typefood.php';</script>");
+
+
+if(!$insert){
+	echo( "<script> alert('ไม่สามารถเพิ่มข้อมูลได้ เกิดข้อผิิดพลาดบางประการ');
+		  window.location='typefood.php';</script>");
+
+
+/*}
+
+$submit = $_POST['submit'];
+$sql2 = "SELECT * FROM fpatient_info where hn = '".$_POST["hn"]."'"; 
+$objQuery2 = mysql_query($sql2, $connect2);
+
+$objReSult2 = mysql_fetch_array($objQuery2);
+
+$sql = "INSERT into order_diss (hn, fname, lname, type_food, detail_food, clinic, dep_name) values ('".$objReSult2['hn']."', '".$objReSult2['fname']."', '".$objReSult2['lname']."', '".$_POST['food']."', '".$_POST['detail']."', '".$objReSult2['clinic']."', '".$objReSult2['clinicdescribe']."') ";
+
+echo $sql;
+mysql_query($sql, $connect1);
+echo "complete <BR>";*/
+?>
