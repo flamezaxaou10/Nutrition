@@ -225,9 +225,9 @@ exit();
     </div>
 
     <div class="col-sm-3">
-      <p class="text-center"><strong><font size ="5px">ควย</font></strong></p>
-      <a href="insert_stock.php">
-        <img src="img/logo9.png" class="img-circle person" alt="Random Name" width="255" height="255">
+      <p class="text-center"><strong><font size ="5px">การรับวัตถุดิบเข้าคลัง</font></strong></p>
+      <a href="stockanddetail.php">
+        <img src="img/logo_stock.png" class="img-circle person" alt="Random Name" width="255" height="255">
       </a>
     </div>
 
