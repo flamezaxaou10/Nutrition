@@ -64,7 +64,7 @@ include 'header.php';
 
 <?
   $ID = $_GET['id_stock'];
-  $sql = "SELECT SUM(count),stock_detail.mat_id,mat_name,unit_name FROM stock_detail LEFT JOIN material ON stock_detail.mat_id = material.mat_id
+  $sql = "SELECT SUM(count),stock_detail.mat_id,mat_name,feed_name,unit_name FROM stock_detail LEFT JOIN material ON stock_detail.mat_id = material.mat_id
                                       LEFT JOIN feed ON stock_detail.mat_id = feed.feed_id JOIN unit ON unit.unit_id = stock_detail.unit_id
                                       WHERE stock_id = '$ID' GROUP BY stock_detail.mat_id";
   $objQuery = mysql_query($sql,$connect1);

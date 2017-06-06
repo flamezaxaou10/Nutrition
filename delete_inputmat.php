@@ -8,6 +8,7 @@
   }
   include "conn.php";
   $ID = $_GET['id'];
+
   $sql = "DELETE FROM input_material WHERE id_inputmat = '$ID'";
   $objQuery = mysql_query($sql,$connect1);
 

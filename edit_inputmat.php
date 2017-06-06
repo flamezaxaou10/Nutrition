@@ -18,6 +18,7 @@ include 'header.php';
         <p>แก้ไขข้อมูลการรับเข้า</p>
         <?php
           $ID = $_GET['id'];
+    
           $sql = "SELECT * FROM input_material WHERE id_inputmat = '$ID'";
           $objQuery = mysql_query($sql,$connect1);
           $row = mysql_fetch_array($objQuery);
@@ -32,7 +33,7 @@ include 'header.php';
                         รหัสการสั่งซื้อ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;
                         <select class="" name="id_mat">
                           <?php
-                              $sql = "SELECT * FROM buymeterial";
+                              $sql = "SELECT * FROM buymeterial WHERE status = '0'";
                               $select = mysql_query($sql,$connect1);
                               while ($row = mysql_fetch_array($select)) {
                           ?>
@@ -73,6 +74,28 @@ include 'header.php';
               $id_stock = $_POST['id_stock'];
               $sql = "UPDATE input_material SET id_mat = '$id_mat',date = '$date',id_stock = '$id_stock' WHERE id_inputmat = '$id_input'";
               $objQuery = mysql_query($sql,$connect1);
+
+              // update detail
+
+              $sqldetail = "SELECT * FROM input_material JOIN detail_buymat ON detail_buymat.id_mat = input_material.id_mat
+                                                    LEFT JOIN feed ON feed.feed_id = detail_buymat.mat_id
+                                                    LEFT JOIN material ON material.mat_id = detail_buymat.mat_id
+                                                    WHERE input_material.id_inputmat = '$id_input'";
+              $detail = mysql_query($sqldetail,$connect1);
+              while ($row = mysql_fetch_array($detail)) {
+              $mat_id;
+              $count = $row['count'];
+              $unit = $row['unit_id'];
+              if ($row['feed_id'] != NULL) {
+                $mat_id = $row['feed_id'];
+              }
+              else {
+                $mat_id = $row['mat_id'];
+              }
+              $sql = "UPDATE detail_inputmat SET mat_id = '$mat_id',count = '$count',unit_id = '$unit' WHERE id_inputmat = '$ID'";
+              $objQuery = mysql_query($sql,$connect1);
+            }
+
             } while (!$objQuery);
           if(!$objQuery){
            echo( "<script> alert('ไม่สามารถแก้ไขข้อมูลได้ เกิดข้อผิดพลาดบางประการ');
