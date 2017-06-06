@@ -142,7 +142,7 @@ exit();
 
   <tr>
     <td align=center>
-      <a href="detail_inputmat.php"><img src="img/logo_search.png" width=180 height=180></a>
+      <a href="checkstock.php"><img src="img/logo_search.png" width=180 height=180></a>
     </td>
   </tr>
 

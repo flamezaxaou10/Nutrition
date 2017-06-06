@@ -11,6 +11,9 @@
   $sql = "DELETE FROM input_material WHERE id_inputmat = '$ID'";
   $objQuery = mysql_query($sql,$connect1);
 
+  $sql = "DELETE FROM detail_inputmat WHERE id_inputmat = '$ID'";
+  $objQuery = mysql_query($sql,$connect1);
+
   echo( "<script> alert('ลบข้อมูลเรียบร้อย');
 		  window.location='mat_to_stock.php';</script>");
 

@@ -15,7 +15,7 @@ include 'header.php';
 <div class="container">
   <div class="jumbotron">
          <br>
-        <p>ข้อมูลการรับเข้า</p>
+        <p>ตรวจสอบสต๊อก</p>
         <?php
           $num = 0;
           $sql = "SELECT COUNT(id_stock) FROM stock";
@@ -28,7 +28,7 @@ include 'header.php';
          ?>
     <div class="modal-body">
        <div class="modal-body">
-           <form method="GET" action="#" onsubmit="return confirm('ต้องการเพิ่มข้อมูลนี้?');">
+           <form method="GET" action="#">
                         รหัสการับเข้า &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;
                         <select class="" name="id_stock">
                           <?php
@@ -56,34 +56,31 @@ include 'header.php';
     <th colspan="4"><div class="text-center">รหัสสต๊อก <?php echo $_GET['id_stock']; ?></div></th>
   </tr>
   <tr class="warning">
-    <th><div align="center">รหัสการรับเข้า</div></th>
+    <th><div align="center">ลำดับ</div></th>
     <th><div align="center">วัสถุดิบ</div></th>
     <th><div align="center">จำนวน</div></th>
-
+    <th><div align="center">หน่วยนับ</div></th>
   </tr>
 
 <?
   $ID = $_GET['id_stock'];
-  $sql = "SELECT * FROM detail_inputmat JOIN input_material ON detail_inputmat.id_inputmat = input_material.id_inputmat
-                                        JOIN buymeterial ON buymeterial.id_mat = input_material.id_mat
-                                        JOIN detail_buymat ON detail_buymat.id_mat = buymeterial.id_mat
-                                        LEFT JOIN feed ON feed.feed_id = detail_buymat.mat_id
-                                        LEFT JOIN material ON material.mat_id = detail_buymat.mat_id
-                                        WHERE input_material.id_stock = '$ID'";
+  $sql = "SELECT SUM(count),stock_detail.mat_id,mat_name,unit_name FROM stock_detail LEFT JOIN material ON stock_detail.mat_id = material.mat_id
+                                      LEFT JOIN feed ON stock_detail.mat_id = feed.feed_id JOIN unit ON unit.unit_id = stock_detail.unit_id
+                                      WHERE stock_id = '$ID' GROUP BY stock_detail.mat_id";
   $objQuery = mysql_query($sql,$connect1);
-
+  $i = 1;
 while ($objReSult = mysql_fetch_array($objQuery)) {
 
 ?>
   <tr class ="info">
-    <td><div align = "left"><? echo $objReSult["id_inputmat"];?></div></td>
+    <td><div class="text-center"><?php echo $i++; ?></div></td>
     <?php if ($objReSult["feed_name"] != NULL): ?>
       <td><div align = "left"><? echo $objReSult["feed_name"];?></div></td>
     <?php else: ?>
       <td><div align = "left"><? echo $objReSult["mat_name"];?></div></td>
     <?php endif; ?>
-    <td><div align = "left"><? echo $objReSult["count"];?></div></td>
-
+    <td><div align = "left"><? echo $objReSult["SUM(count)"];?></div></td>
+    <td><div align = "left"><? echo $objReSult["unit_name"];?></div></td>
     </tr>
   <?
 }

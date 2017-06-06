@@ -36,7 +36,7 @@ include 'header.php';
                         รหัสการสั่งซื้อ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;
                         <select class="" name="id_mat">
                           <?php
-                              $sql = "SELECT * FROM buymeterial";
+                              $sql = "SELECT * FROM buymeterial WHERE status = '0'";
                               $select = mysql_query($sql,$connect1);
                               while ($row = mysql_fetch_array($select)) {
                           ?>
@@ -81,8 +81,40 @@ include 'header.php';
               $stockid = 'IPMAT-'.$num;
             } while (!$objQuery);
 
-            $sql = "INSERT INTO detail_inputmat VALUES ('$id_detail','$id_input')";
+            // นำของใส่ detail_inputmat
+
+            $sql = "SELECT * FROM input_material JOIN detail_buymat ON detail_buymat.id_mat = input_material.id_mat
+                                                  LEFT JOIN feed ON feed.feed_id = detail_buymat.mat_id
+                                                  LEFT JOIN material ON material.mat_id = detail_buymat.mat_id
+                                                  WHERE input_material.id_inputmat = '$id_input'";
+            $adddetail = mysql_query($sql,$connect1);
+
+          while ($row = mysql_fetch_array($adddetail)) {
+            $mat_id;
+            $count = $row['count'];
+            $unit = $row['unit_id'];
+            if ($row['feed_id'] != NULL) {
+              $mat_id = $row['feed_id'];
+            }
+            else {
+              $mat_id = $row['mat_id'];
+            }
+            $sql = "INSERT INTO detail_inputmat VALUES ('$id_detail','$id_input','$mat_id','$count','$unit')";
             $detail = mysql_query($sql,$connect1);
+          }
+
+          //นำของเข้า stock
+
+          $sql = "SELECT * FROM detail_inputmat WHERE id_inputdetail = '$id_detail'";
+          $query = mysql_query($sql,$connect1);
+           while ($row = mysql_fetch_array($query)) {
+              $count = $row['count'];
+              $mat_id = $row['mat_id'];
+              $unit = $row['unit_id'];
+              $instock = "INSERT INTO stock_detail (stock_id,mat_id,count,unit_id)VALUES ('$id_stock','$mat_id','$count','$unit')";
+              mysql_query($instock,$connect1);
+          }
+
           if(!$objQuery){
            echo( "<script> alert('ไม่สามารถเพิ่มข้อมูลได้ เกิดข้อผิดพลาดบางประการ');
                </script>");
