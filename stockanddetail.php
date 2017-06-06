@@ -142,9 +142,9 @@ exit();
 
   <tr>
     <td align=center>
-<a href="insert_menu.php"><img src="img/logo_search.png" width=180 height=180></a></td></tr>
-
-
+      <a href="detail_inputmat.php"><img src="img/logo_search.png" width=180 height=180></a>
+    </td>
+  </tr>
 
 </div>
  </div>
