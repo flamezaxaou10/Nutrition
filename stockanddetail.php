@@ -134,6 +134,7 @@ exit();
   <tr>
     <td align=center>
         <a href="insert_stock.php"><img src="img/logo_stock1.png" width=180 height=180></a></td><td align=center>
+        <a href="mat_to_stock.php"><img src="img/logo_stock2.png" width=180 height=180></a></td>
     </tr>
 
 
