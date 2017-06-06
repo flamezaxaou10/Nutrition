@@ -29,39 +29,21 @@ include 'header.php';
     <div class="modal-body">
        <div class="modal-body">
            <form method="POST" action="#" onsubmit="return confirm('ต้องการเพิ่มข้อมูลนี้?');">
-                      <h4> รหัสการรับเข้า &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;<input type="text" name="id" value="IPMAT-<?php echo $num ?>" readonly=""></h4>
-                      <h4> วันที่การรับเข้า &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <input type="date" name="date" required></h4>
-                      <h4> รหัสเจ้าหน้าที่ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;<input type="text" name="username" value="<? echo $_SESSION["Username"];?>" readonly=""></h4>
-                      <h4>
-                        รหัสการสั่งซื้อ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;
-                        <select class="" name="id_mat">
+                        รหัสการับเข้า &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;
+                        <select class="" name="detail_id">
                           <?php
-                              $sql = "SELECT * FROM buymeterial";
+                              $sql = "SELECT * FROM detail_inputmat";
                               $select = mysql_query($sql,$connect1);
                               while ($row = mysql_fetch_array($select)) {
                           ?>
-                                <option value="<?php echo $row['id_mat'] ?>"><?php echo $row['id_mat'] ?> <?php echo $row['res_name'] ?></option>
-                          <?php
-                              }
-                           ?>
-                        </select>
-                      </h4>
-                      <h4>
-                        รหัสการสต๊อก &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;
-                        <select class="" name="id_stock">
-                          <?php
-                              $sql = "SELECT * FROM stock";
-                              $select = mysql_query($sql,$connect1);
-                              while ($row = mysql_fetch_array($select)) {
-                          ?>
-                                <option value="<?php echo $row['id_stock'] ?>"><?php echo $row['id_stock'] ?> <?php echo $row['name_stock'] ?></option>
+                                <option value="<?php echo $row['id_inputdetail'] ?>"><?php echo $row['id_inputdetail'] ?></option>
                           <?php
                               }
                            ?>
                         </select>
                       </h4>
            <div class="modal-footer">
-            <input type="submit" class="btn btn-success" value="เพิ่มข้อมูล" name = "submit" onclick="submitModal()"> &nbsp;&nbsp;&nbsp;
+            <input type="submit" class="btn btn-success" value="ดุรายละเอียดการรับเข้า" name = "submit" onclick="submitModal()"> &nbsp;&nbsp;&nbsp;
            &nbsp;&nbsp; <a href="mat_to_stock.php"><button type="button" class="btn btn-danger" data-dismiss="modal" onclick="return confirm('ต้องการยกเลิกการเพิ่มข้อมูลนี้?')">ยกเลิก</button></a>
           </div>
           </form>
@@ -94,14 +76,7 @@ include 'header.php';
         }
      ?>
   </div>
-<form method="get" action="?Search=1">
-  <div class="text-right">
-    <font color=white> ค้นหาจากรหัสการรับเข้า : </font></label> <input type="text" name="sen" >
-    <input type="submit" class="btn btn-success" name="submit2" value="ค้นหา">
-  </div>
-</form>
-<br>
-
+<?php if ($_GET): ?>
 <table class="table table-striped table-bordered">
   <tr class="warning">
     <th><div align="center">รหัสการรับเข้า</div></th>
@@ -112,7 +87,7 @@ include 'header.php';
     <th><div align="center">แก้ไขข้อมูล</div></th>
     <th><div align="center">ลบข้อมูล</div></th>
   </tr>
-  <?php if ($_GET): ?>
+
     <?php
           $see=$_GET["sen"];
           $strSQL = "SELECT * FROM input_material where id_inputmat like '%$see%' order by id_inputmat";
@@ -127,7 +102,6 @@ include 'header.php';
           echo( "<script>window.location='mat_to_stock.php';</script>");
         }
      ?>
-  <?php endif; ?>
 <?
 
 
@@ -150,6 +124,7 @@ while ($objReSult = mysql_fetch_array($objQuery)) {
 
 ?>
 </table>
+<?php endif; ?>
 </div>
 
-<?php include 'footer.php'; ?>
+<?php include 'footer.php' ?>
