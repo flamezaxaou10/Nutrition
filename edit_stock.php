@@ -15,10 +15,10 @@ include 'header.php';
 <div class="container">
   <div class="jumbotron">
          <br>
-        <p>ข้อมูลหน่วยนับ</p>
+        <p>แก้ไขข้อมูลสต๊อก</p>
         <?php
           $ID = $_GET['id'];
-          $sql = "SELECT * FROM stock";
+          $sql = "SELECT * FROM stock WHERE id_stock = '$ID'";
           $objQuery = mysql_query($sql,$connect1);
           $row = mysql_fetch_array($objQuery);
          ?>
@@ -29,7 +29,7 @@ include 'header.php';
                       <h4> ประเภทสต๊อก : &nbsp;<input value="<?php echo $row['name_stock'] ?>"type="text" name="name" required oninvalid="this.setCustomValidity('กรุณากรอกข้อมูล')"><font color="red"> &nbsp;</font><?php if($flag==1)echo "<font color=red>*ชื่อนี้มีในระบบแล้ว</font>"; ?></h4>
            <div class="modal-footer">
             <input type="submit" class="btn btn-success" value="แก้ไขข้อมูล" name = "submit" onclick="submitModal()"> &nbsp;&nbsp;&nbsp;
-           &nbsp;&nbsp; <a href="matandunit.php"><button type="button" class="btn btn-danger" data-dismiss="modal" onclick="return confirm('ต้องการยกเลิกการเพิ่มข้อมูลนี้?')">ยกเลิก</button></a>
+           &nbsp;&nbsp; <a href="insert_stock.php"><button type="button" class="btn btn-danger" data-dismiss="modal" onclick="return confirm('ต้องการยกเลิกการเพิ่มข้อมูลนี้?')">ยกเลิก</button></a>
           </div>
           </form>
       </div>

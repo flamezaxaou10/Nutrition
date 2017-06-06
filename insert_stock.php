@@ -20,8 +20,9 @@ include 'header.php';
           $sql = "SELECT COUNT(id_stock) FROM stock";
           $objQuery = mysql_query($sql,$connect1);
           $row = mysql_fetch_array($objQuery);
-          $num = $row['COUNT(id_stock)'] + 1;
-          $sql = "SELECT * FROM stock";
+          $num = sprintf("%02d",$row['COUNT(id_stock)'] + 1);
+
+          $sql = "SELECT * FROM stock ORDER BY id_stock";
           $objQuery = mysql_query($sql,$connect1);
          ?>
     <div class="modal-body">
@@ -32,19 +33,23 @@ include 'header.php';
 
            <div class="modal-footer">
             <input type="submit" class="btn btn-success" value="เพิ่มข้อมูล" name = "submit" onclick="submitModal()"> &nbsp;&nbsp;&nbsp;
-           &nbsp;&nbsp; <a href="matandunit.php"><button type="button" class="btn btn-danger" data-dismiss="modal" onclick="return confirm('ต้องการยกเลิกการเพิ่มข้อมูลนี้?')">ยกเลิก</button></a>
+           &nbsp;&nbsp; <a href="insert_stock.php"><button type="button" class="btn btn-danger" data-dismiss="modal" onclick="return confirm('ต้องการยกเลิกการเพิ่มข้อมูลนี้?')">ยกเลิก</button></a>
           </div>
           </form>
       </div>
     </div>
     <?php
         if($_POST){
-          $stockid = $_POST['id'];
-          $stockname = $_POST['name'];
-          $sql = "INSERT INTO stock (id_stock,name_stock) VALUES ('$stockid','$stockname')";
-          $objQuery = mysql_query($sql,$connect1);
-
+            $stockid = $_POST['id'];
+            do {
+              $stockname = $_POST['name'];
+              $sql = "INSERT INTO stock (id_stock,name_stock) VALUES ('$stockid','$stockname')";
+              $objQuery = mysql_query($sql,$connect1);
+              $num = sprintf("%02d",$row['COUNT(id_stock)'] + 2);
+              $stockid = 'stock-'.$num;
+            } while (!$objQuery);
           if(!$objQuery){
+          echo( "<script>window.location='insert_stock.php';</script>");
            echo( "<script> alert('ไม่สามารถเพิ่มข้อมูลได้ เกิดข้อผิดพลาดบางประการ');
                </script>");
           }

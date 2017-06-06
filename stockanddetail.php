@@ -133,7 +133,8 @@ exit();
   <td align=center width=300><strong><h4>จัดการข้อมูลการรับวัตถุดิบเข้าคลัง</h4></strong></td></tr>
   <tr>
     <td align=center>
-<a href="insert_stock.php"><img src="img/logo_stock1.png" width=180 height=180></a></td><td align=center><a href="unit.php"><img src="img/logo_stock2.png" width=180 height=180></a></td></tr>
+        <a href="insert_stock.php"><img src="img/logo_stock1.png" width=180 height=180></a></td><td align=center>
+    </tr>
 
 
 <tr><td align=center width=300><br /><strong><h4>ตรวจสอบสต๊อก</h4></strong></td>
