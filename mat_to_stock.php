@@ -61,11 +61,8 @@ include 'header.php';
             do {
               $pname = $_POST['username'];
               $date = $_POST['date'];
-              $id_stock = $_POST['id_stock'];
               $sql = "INSERT INTO input_material (id_inputmat,id_mat,username,date) VALUES ('$id_input','$id_mat','$pname','$date')";
               $objQuery = mysql_query($sql,$connect1);
-              $num = sprintf("%05d",$row['COUNT(id_input)']++);
-              $stockid = 'IPMAT-'.$num;
             } while (!$objQuery);
 
             // นำของใส่ detail_inputmat
@@ -141,6 +138,7 @@ include 'header.php';
   <input type="hidden" name="mat_id<?php echo $i; ?>" value="<?php echo $objReSult['mat_id']; ?>">
   <input type="hidden" name="count<?php echo $i; ?>" value="<?php echo $objReSult['count']; ?>">
   <input type="hidden" name="unit_id<?php echo $i; ?>" value="<?php echo $objReSult['unit_id']; ?>">
+  <input type="hidden" name="id_mat" value="<?php echo $id_mat; ?>">
   <?
   $i++;
 }
@@ -156,12 +154,8 @@ include 'header.php';
 <?php
 
     if ($_GET) {
-      $id_mat0;
-        $chk = "SELECT * FROM input_materail WHERE id_inputmat = '$id_input'";
-        $result = mysql_query($sql,$connect1);
-        while ($row = mysql_fetch_array($result)) {
-          $id_mat0 = $row['id_mat'];
-        }
+
+        $id_mat0 = $_GET['id_mat'];
         $sql = "SELECT * FROM detail_buymat WHERE id_mat = '$id_mat0'";
         $query = mysql_query($sql,$connect1);
         $i = 1;
