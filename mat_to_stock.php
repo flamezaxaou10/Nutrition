@@ -116,8 +116,13 @@ include 'header.php';
 ?>
   <tr class ="info">
     <td><div align = "center"><?php echo $i; ?></div></td>
-    <td><div align = "left"><? echo $objReSult["mat_id"];?></div></td>
-    <td><div align = "left"><? echo $objReSult["mat_name"];?></div></td>
+    <?php if ($objReSult['feed_id'] != NULL): ?>
+      <td><div align = "left"><? echo $objReSult["feed_id"];?></div></td>
+      <td><div align = "left"><? echo $objReSult["feed_name"];?></div></td>
+    <?php else: ?>
+      <td><div align = "left"><? echo $objReSult["mat_id"];?></div></td>
+      <td><div align = "left"><? echo $objReSult["mat_name"];?></div></td>
+    <?php endif; ?>
     <td><div align = "left"><? echo $objReSult["count"];?></div></td>
     <td><div align = "left"><? echo $objReSult["unit_name"];?></div></td>
     <td>
@@ -135,7 +140,11 @@ include 'header.php';
       </select>
     </td>
   </tr>
-  <input type="hidden" name="mat_id<?php echo $i; ?>" value="<?php echo $objReSult['mat_id']; ?>">
+  <?php if ($objReSult['feed_id'] != NULL): ?>
+    <input type="hidden" name="mat_id<?php echo $i; ?>" value="<?php echo $objReSult['feed_id']; ?>">
+  <?php else: ?>
+    <input type="hidden" name="mat_id<?php echo $i; ?>" value="<?php echo $objReSult['mat_id']; ?>">
+  <?php endif; ?>
   <input type="hidden" name="count<?php echo $i; ?>" value="<?php echo $objReSult['count']; ?>">
   <input type="hidden" name="unit_id<?php echo $i; ?>" value="<?php echo $objReSult['unit_id']; ?>">
   <input type="hidden" name="id_mat" value="<?php echo $id_mat; ?>">
