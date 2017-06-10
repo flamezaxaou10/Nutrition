@@ -232,8 +232,8 @@ exit();
     </div>
 
     <div class="col-sm-3">
-      <p class="text-center"><strong><font size ="5px">การเบิกวัตถุดิบออกจากคลัง</font></strong></p>
-      <a href="out_to_stock.php">
+      <p class="text-center"><strong><font size ="5px">การเบิกวัตถุดิบออกคลัง</font></strong></p>
+      <a href="out_stock.php">
         <img src="img/logo_stock.png" class="img-circle person" alt="Random Name" width="255" height="255">
       </a>
     </div>

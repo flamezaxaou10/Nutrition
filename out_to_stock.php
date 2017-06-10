@@ -16,20 +16,12 @@ include 'header.php';
          <br>
         <p>ข้อมูลการเบิกวัตถุดิบ</p>
         <?php
-          $num = 0;
-          $sql = "SELECT COUNT(id_inputmat) FROM input_material";
-          $objQuery = mysql_query($sql,$connect1);
-          $row = mysql_fetch_array($objQuery);
-          $num = sprintf("%05d",$row['COUNT(id_inputmat)'] + 1);
-          $id_detail = 'ipdetail-'.$num;
-          $id_input = "IPMAT-$num";
-          $sql = "SELECT * FROM input_material ORDER BY id_inputmat";
-          $objQuery = mysql_query($sql,$connect1);
+          $id_output = $_GET['id'];
          ?>
     <div class="modal-body">
        <div class="modal-body">
            <form method="POST" action="#" onsubmit="return confirm('ต้องการเพิ่มข้อมูลนี้?');">
-                      <h4> รหัสการเบิก &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;<input type="text" name="id" value="<?php echo $id_input; ?>" readonly=""></h4>
+                      <h4> รหัสการเบิก &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;<input type="text" name="id" value="<?php echo $id_output; ?>" readonly=""></h4>
                       <h4> รหัสเจ้าหน้าที่ &nbsp;&nbsp;: &nbsp;<input type="text" name="username" value="<? echo $_SESSION["Username"];?>" readonly=""></h4>
                       <h4>
                         รหัสวัตถุดิบ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;
