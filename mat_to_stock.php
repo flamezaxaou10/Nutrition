@@ -79,108 +79,35 @@ include 'header.php';
             $unit = $row['unit_id'];
             if ($row['feed_id'] != NULL) {
               $mat_id = $row['feed_id'];
+              $idstock = $row['id_stock2'];
             }
             else {
               $mat_id = $row['mat_id'];
+              $idstock = $row['id_stock'];
             }
-            $sql = "INSERT INTO detail_inputmat (id_inputmat,mat_id,count,unit_id) VALUES ('$id_input','$mat_id','$count','$unit')";
+            $sql = "INSERT INTO detail_inputmat (id_inputmat,mat_id,count,unit_id,id_stock) VALUES ('$id_input','$mat_id','$count','$unit','$idstock')";
             $detail = mysql_query($sql,$connect1);
           }
+          header("Location:insert_to_stock.php?id=$id_mat&idinputmat=$id_input");
 
         }
      ?>
+
   </div>
 <br>
-<?php if ($_POST): ?>
-<form action="" method="get">
-<table class="table table-striped table-bordered">
-  <tr class="warning">
-    <th><div align="center">ลำดับ</div></th>
-    <th><div align="center">รหัสวัตถุดิบ</div></th>
-    <th><div align="center">ชื่อวัตถุดิบ</div></th>
-    <th><div align="center">จำนวน</div></th>
-    <th><div align="center">หน่วยนับ</div></th>
-    <th><div align="center">รหัสสต๊อก</div></th>
-  </tr>
-
-
-<?
-    $sql = "SELECT * FROM detail_buymat LEFT JOIN feed ON feed.feed_id = detail_buymat.mat_id
-                                        LEFT JOIN material ON material.mat_id = detail_buymat.mat_id
-                                        JOIN unit ON unit.unit_id = detail_buymat.unit_id
-                                        WHERE detail_buymat.id_mat = '$id_mat'";
-    $objQuery = mysql_query($sql,$connect1);
-    $i = 1;
-    while ($objReSult = mysql_fetch_array($objQuery)) {
-
-?>
-  <tr class ="info">
-    <td><div align = "center"><?php echo $i; ?></div></td>
-    <?php if ($objReSult['feed_id'] != NULL): ?>
-      <td><div align = "left"><? echo $objReSult["feed_id"];?></div></td>
-      <td><div align = "left"><? echo $objReSult["feed_name"];?></div></td>
-    <?php else: ?>
-      <td><div align = "left"><? echo $objReSult["mat_id"];?></div></td>
-      <td><div align = "left"><? echo $objReSult["mat_name"];?></div></td>
-    <?php endif; ?>
-    <td><div align = "left"><? echo $objReSult["count"];?></div></td>
-    <td><div align = "left"><? echo $objReSult["unit_name"];?></div></td>
-    <td>
-      <select class="" name="id_stock<?php echo $i; ?>" required>
-        <option value="" disabled selected>เลือก สต๊อกที่เก็บ</option>
-        <?php
-            $sql = "SELECT * FROM stock";
-            $select = mysql_query($sql,$connect1);
-            while ($row = mysql_fetch_array($select)) {
-        ?>
-              <option value="<?php echo $row['id_stock'] ?>"><?php echo $row['id_stock'] ?> <?php echo $row['name_stock'] ?></option>
-        <?php
-            }
-         ?>
-      </select>
-    </td>
-  </tr>
-  <?php if ($objReSult['feed_id'] != NULL): ?>
-    <input type="hidden" name="mat_id<?php echo $i; ?>" value="<?php echo $objReSult['feed_id']; ?>">
-  <?php else: ?>
-    <input type="hidden" name="mat_id<?php echo $i; ?>" value="<?php echo $objReSult['mat_id']; ?>">
-  <?php endif; ?>
-  <input type="hidden" name="count<?php echo $i; ?>" value="<?php echo $objReSult['count']; ?>">
-  <input type="hidden" name="unit_id<?php echo $i; ?>" value="<?php echo $objReSult['unit_id']; ?>">
-  <input type="hidden" name="id_mat" value="<?php echo $id_mat; ?>">
-  <?
-  $i++;
-}
-
-?>
-  <tr>
-    <td colspan="6" class="text-right"><input type="submit" class="btn btn-success" value="เก็บใส่สต๊อก"></td>
-  </tr>
-</table>
-</form>
-<?php endif; ?>
+    <table class="table table-striped table-bordered">
+      <tr class="warning">
+        <th>วันที่</th>
+        <th>รหัสการรรับเข้า</th>
+        <th>รหัสเจ้าหน้าที่</th>
+        <th>รหัสการสั่งซื้อ</th>
+        <th>แก้ไข</th>
+        <th>ดูข้อมูล</th>
+      </tr>
+      <tr class ="info">
+        
+      </tr>
+    </table>
 </div>
-<?php
 
-    if ($_GET) {
-
-        $id_mat0 = $_GET['id_mat'];
-        $sql = "SELECT * FROM detail_buymat WHERE id_mat = '$id_mat0'";
-        $query = mysql_query($sql,$connect1);
-        $i = 1;
-        //นำของเข้า stock
-         while ($row = mysql_fetch_array($query)) {
-            $id_stock = $_GET["id_stock$i"];
-            $count = $_GET["count$i"];
-            $mat_id = $_GET["mat_id$i"];
-            $unit = $_GET["unit_id$i"];
-            $instock = "INSERT INTO stock_detail (stock_id,mat_id,count,unit_id) VALUES ('$id_stock','$mat_id','$count','$unit')";
-            mysql_query($instock,$connect1);
-            $i++;
-        }
-      echo( "<script> alert('เพิ่มข้อมูลลงสต๊อกสำเร็จ');</script>");
-      echo( "<script>window.location='mat_to_stock.php';</script>");
-    }
-
- ?>
 <?php include 'footer.php'; ?>

@@ -134,6 +134,7 @@ exit();
     $id=$_POST['id'];
     $name=$_POST['name'];
     $feed = $_POST['store'];
+    $id_stock = $_POST['stock'];
     @include('conn.php');
     $strSQL = "SELECT * FROM feed";
     $objQuery = mysql_query($strSQL, $connect1);
@@ -146,7 +147,7 @@ exit();
 }
 if($flag==0){
   @include('conn.php');
-  $insert = "INSERT INTO feed  VALUES  ('".$id."','".$name."','".$feed."')";
+  $insert = "INSERT INTO feed  VALUES  ('$id','$name','$feed','$id_stock')";
        $query = mysql_query($insert,$connect1);
             echo( "<script> alert('เพิ่มข้อมูลสำเร็จ');</script>");
 
@@ -174,6 +175,21 @@ if($flag==0){
 
                     <h4> รหัสอาหารทางสายยาง : &nbsp;<input type="text" name="id" value="<?php echo $id; ?>" readonly=""></h4>
                     <h4> ชื่ออาหารทางสายยาง &nbsp;&nbsp;: &nbsp;<input type="text" name="name" required oninvalid="this.setCustomValidity('กรุณากรอกข้อมูล')" onKeyUp="if(!(isNaN(this.value))) { alert('กรุณากรอกอักษร'); this.value='';}"><font color="red">&nbsp;*</font><?php if($flag==1)echo "<font color=red>ชื่ออาหารทางสายยางนี้มีในระบบแล้ว</font>"; ?></h4>
+                    <h4>ประเภทวัตถุดิบ :  &nbsp;&nbsp;
+                      <select name="stock">
+                        <option>------กรุณาเลือกประเภทวัตถุดิบ-----</option>
+                    <?php
+                      $sql = "SELECT * FROM stock";
+                      $result = mysql_query($sql, $connect1);
+                      while ($row = mysql_fetch_array($result)){
+                    ?>
+                      <option value="<?php echo $row['id_stock2']; ?>"><?php echo $row['name_stock']; ?></option>
+                    <?php
+                      }
+                     ?>
+                     </select>
+                     <font color="red">&nbsp;*</font>
+                    </h4>
                      <?php
                        $strSQL = "SELECT * FROM restaurant where type = '2'";
                        $objQuery = mysql_query($strSQL, $connect1);
@@ -208,7 +224,7 @@ if($flag==0){
                   </h4>
          <div class="modal-footer">
           <input type="submit" class="btn btn-success" value="เพิ่มข้อมูล" name = "submit"
-            onclick="submitModal()"">&nbsp;&nbsp;
+            onclick="submitModal()">&nbsp;&nbsp;
          &nbsp;&nbsp; <a href="matandunit.php"><button type="button" class="btn btn-danger" data-dismiss="modal" onclick="return confirm('ต้องการยกเลิกการเพิ่มข้อมูลนี้?')">ยกเลิก</button></a>
 
         </form>
@@ -227,7 +243,7 @@ if($flag==0){
 <?php
 @include('conn.php');
 $see=$_POST["sen"];
-$strSQL = "SELECT * FROM feed a join restaurant b on a.res_id = b.res_id where feed_name like '%$see%' order by feed_id";
+$strSQL = "SELECT * FROM feed a join restaurant b on a.res_id = b.res_id JOIN stock ON a.id_stock2 = stock.id_stock where feed_name like '%$see%' order by feed_id";
 $objQuery = mysql_query($strSQL,$connect1) or die("Error Query [".$strSQL."]");
 $num=mysql_num_rows($objQuery);
 if($num==0){
@@ -244,9 +260,10 @@ echo"</script>";
   <tr class="warning">
     <th><div align="center">รหัสอาหารทางสายยาง</div></th>
     <th><div align="center">ชื่ออาหารทางสายยาง</div></th>
-     <th><div align="center">ตัวแทนจำหน่ายอาหารทางสายยาง</div></th>
+    <th><div align="center">ตัวแทนจำหน่ายอาหารทางสายยาง</div></th>
+    <th><div align="center">ประเภทวัตถุดิบ</div></th>
     <th><div align="center">แก้ไขข้อมูล</div></th>
-     <th><div align="center">ลบข้อมูล</div></th>
+    <th><div align="center">ลบข้อมูล</div></th>
 
   </tr>
 
@@ -258,6 +275,7 @@ while ($objReSult = mysql_fetch_array($objQuery)) {
   <td><div align = "center"><?php echo $objReSult["feed_id"];?></div></td>
   <td><div align = "left"><? echo $objReSult["feed_name"];?></div></td>
   <td><div align = "left"><? echo $objReSult["res_name"];?></div></td>
+  <td><div align = "left"><? echo $objReSult["name_stock"];?></div></td>
   <td><div align = "center"><a href='edit_feed2.php?id=<? echo $objReSult['feed_id'];?>&id2=<? echo $objReSult['feed_name']?>&id3=<? echo $objReSult['res_name'];?>' onclick="return confirm('ต้องการแก้ไขข้อมูลนี้?')"><b><font color="blue"><img src='img/edit.png' width=25></font></b></a></td>
   <td><div align = "center"><a href='delete_feed2.php?id=<? echo $objReSult['feed_id'];?>'
   onclick="return confirm('ยืนยันการลบข้อมูล')"><b><font color="red"><img src='img/delete.png' width=25></font></b></a></td>

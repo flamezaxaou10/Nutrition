@@ -232,8 +232,8 @@ $username=$_SESSION["Username"];
 
 
    							 ?>
-                  <tr class ="info"><td><div colspan=5 align="right">ราคารวม(บาท)</td>
-                  
+                  <tr class ="info"><td colspan=5><div align="right">ราคารวม(บาท)</td>
+
                   <td><div align=right><?php echo number_format($sum,2); ?></td>
    							 </tr></div>
 

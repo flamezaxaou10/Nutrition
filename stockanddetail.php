@@ -129,22 +129,14 @@ exit();
 
   <div class="modal-body">
 <table align=center>
-  <tr><td align=center width=300><strong><h4>จัดการข้อมูลประเภทสต๊อก</h4></strong></td>
+  <tr><td align=center width=300><strong><h4>ตรวจสอบสต๊อก</h4></strong></td>
   <td align=center width=300><strong><h4>จัดการข้อมูลการรับวัตถุดิบเข้าคลัง</h4></strong></td></tr>
   <tr>
     <td align=center>
-        <a href="insert_stock.php"><img src="img/logo_stock1.png" width=180 height=180></a></td><td align=center>
+      <a href="checkstock.php"><img src="img/logo_search.png" width=180 height=180></a>
+    </td><td align=center>
         <a href="mat_to_stock.php"><img src="img/logo_stock2.png" width=180 height=180></a></td>
     </tr>
-
-
-<tr><td align=center width=300><br /><strong><h4>ตรวจสอบสต๊อก</h4></strong></td>
-
-  <tr>
-    <td align=center>
-      <a href="checkstock.php"><img src="img/logo_search.png" width=180 height=180></a>
-    </td>
-  </tr>
 
 </div>
  </div>

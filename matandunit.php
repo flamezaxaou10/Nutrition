@@ -129,18 +129,31 @@ exit();
 
   <div class="modal-body">
 <table align=center>
-  <tr><td align=center width=300><strong><h4>จัดการข้อมูลประเภทอาหาร</h4></strong></td>
-  <td align=center width=300><strong><h4>จัดการข้อมูลหน่วยนับ</h4></strong></td></tr>
+  <tr>
+    <td align=center width=300><strong><h4>จัดการข้อมูลประเภทอาหาร</h4></strong></td>
+    <td align=center width=300><strong><h4>จัดการข้อมูลหน่วยนับ</h4></strong></td>
+  </tr>
   <tr>
     <td align=center>
 <a href="typefood.php"><img src="img/typefood.png" width=180 height=180></a></td><td align=center><a href="unit.php"><img src="img/logo997.png" width=180 height=180></a></td></tr>
 
 
-<tr><td align=center width=300><br /><strong><h4>จัดการข้อมูลเมนูอาหาร</h4></strong></td>
-  <td align=center width=300><br /><strong><h4>จัดการข้อมูลประเภทร้านค้า</h4></strong></td></tr>
-  <tr>
+<tr>
+  <td align=center width=300><br /><strong><h4>จัดการข้อมูลเมนูอาหาร</h4></strong></td>
+  <td align=center width=300><br /><strong><h4>จัดการข้อมูลประเภทร้านค้า</h4></strong></td>
+</tr>
+<tr>
     <td align=center>
-<a href="insert_menu.php"><img src="img/logomenu1.png" width=180 height=180></a></td><td align=center><a href="typestore.php"><img src="img/logores.png" width=180 height=180></a></td></tr>
+<a href="insert_menu.php"><img src="img/logomenu1.png" width=180 height=180></a></td><td align=center><a href="typestore.php"><img src="img/logores.png" width=180 height=180></a>
+    </td>
+</tr>
+<tr>
+  <td align=center width=300><br><strong><h4>ประเภทวัตถุดิบ</h4></strong></td>
+</tr>
+<tr>
+  <td align=center>
+      <a href="insert_stock.php"><img src="img/logo_stock1.png" width=180 height=180></a></td>
+</tr>
 
 
 

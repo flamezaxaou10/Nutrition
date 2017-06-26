@@ -16,6 +16,7 @@ include 'header.php';
          <br>
         <p>ข้อมูลสต๊อก</p>
         <?php
+          $flag = 0;
           $num = 0;
           $sql = "SELECT COUNT(id_stock) FROM stock";
           $objQuery = mysql_query($sql,$connect1);
@@ -25,11 +26,40 @@ include 'header.php';
           $sql = "SELECT * FROM stock ORDER BY id_stock";
           $objQuery = mysql_query($sql,$connect1);
          ?>
+         <?php
+             if($_POST){
+                 $stockid = $_POST['id'];
+                 do {
+                   $stockname = $_POST['name'];
+
+                   $chk = "SELECT * FROM stock";
+                   $rechk = mysql_query($chk,$connect1);
+                   while ($rowchk = mysql_fetch_array($rechk)) {
+                     $chkname = $rowchk['name_stock'];
+                     if ($stockname == $chkname){
+                       $flag = 1;
+                     }
+                   }
+                   if($flag == 0){
+                     $sql = "INSERT INTO stock (id_stock,name_stock) VALUES ('$stockid','$stockname')";
+                     $objQuery = mysql_query($sql,$connect1);
+                     echo( "<script> alert('เพิ่มข้อมูลสำเร็จ');</script>");
+                     echo( "<script>window.location='insert_stock.php';</script>");
+                   }
+                   if($flag == 1){
+                    echo( "<script> alert('ไม่สามารถแก้ไขข้อมูลได้ เกิดข้อผิดพลาดบางประการ');
+                        </script>");
+                   }
+                   $num = sprintf("%02d",$row['COUNT(id_stock)'] + 2);
+                   $stockid = 'stock-'.$num;
+                 } while (!$objQuery);
+             }
+          ?>
     <div class="modal-body">
        <div class="modal-body">
            <form method="POST" action="#" onsubmit="return confirm('ต้องการเพิ่มข้อมูลนี้?');">
-                      <h4> รหัสสต๊อก &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;<input type="text" name="id" value="stock-<?php echo $num; ?>" readonly=""></h4>
-                      <h4> ประเภทสต๊อก : &nbsp;<input type="text" name="name" required oninvalid="this.setCustomValidity('กรุณากรอกข้อมูล')"><font color="red"> &nbsp;</font><?php if($flag==1)echo "<font color=red>*ชื่อนี้มีในระบบแล้ว</font>"; ?></h4>
+                      <h4> รหัสประเภทวัตถุดิบ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;<input type="text" name="id" value="MT-<?php echo $num; ?>" readonly=""></h4>
+                      <h4> ชื่อประเภทวัตถุดิบ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : &nbsp;<input type="text" name="name" required oninvalid="this.setCustomValidity('กรุณากรอกข้อมูล')" onKeyUp="if(!(isNaN(this.value))) { alert('กรุณากรอกอักษร'); this.value='';}" ><font color="red"> *</font><?php if($flag==1)echo "<font color=red>ชื่อนี้มีในระบบแล้ว</font>"; ?></h4>
 
            <div class="modal-footer">
             <input type="submit" class="btn btn-success" value="เพิ่มข้อมูล" name = "submit" onclick="submitModal()"> &nbsp;&nbsp;&nbsp;
@@ -38,31 +68,11 @@ include 'header.php';
           </form>
       </div>
     </div>
-    <?php
-        if($_POST){
-            $stockid = $_POST['id'];
-            do {
-              $stockname = $_POST['name'];
-              $sql = "INSERT INTO stock (id_stock,name_stock) VALUES ('$stockid','$stockname')";
-              $objQuery = mysql_query($sql,$connect1);
-              $num = sprintf("%02d",$row['COUNT(id_stock)'] + 2);
-              $stockid = 'stock-'.$num;
-            } while (!$objQuery);
-          if(!$objQuery){
-          echo( "<script>window.location='insert_stock.php';</script>");
-           echo( "<script> alert('ไม่สามารถเพิ่มข้อมูลได้ เกิดข้อผิดพลาดบางประการ');
-               </script>");
-          }
-          else {
-            echo( "<script> alert('เพิ่มข้อมูลสำเร็จ');</script>");
-            echo( "<script>window.location='insert_stock.php';</script>");
-          }
-        }
-     ?>
+
   </div>
 <form method="get" action="?Search=1">
   <div class="text-right">
-    <font color=white> ค้นหาจากประเภทสต๊อก : </font></label> <input type="text" name="sen" >
+    <font color=white> ค้นหาจากประเภทวัตถุดิบ : </font></label> <input type="text" name="sen" >
     <input type="submit" class="btn btn-success" name="submit2" value="ค้นหา">
   </div>
 </form>
@@ -70,8 +80,8 @@ include 'header.php';
 
 <table class="table table-striped table-bordered">
   <tr class="warning">
-    <th><div align="center">รหัสสต๊อก</div></th>
-    <th><div align="center">ประเภทสต๊อก</div></th>
+    <th><div align="center">รหัสประเภทวัตถุดิบ</div></th>
+    <th><div align="center">ชื่อประเภทวัตถุดิบ</div></th>
     <th><div align="center">แก้ไขข้อมูล</div></th>
     <th><div align="center">ลบข้อมูล</div></th>
   </tr>
