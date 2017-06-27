@@ -104,9 +104,23 @@ include 'header.php';
         <th>แก้ไข</th>
         <th>ดูข้อมูล</th>
       </tr>
+    <?php
+      $table = "SELECT * FROM input_material";
+      $result = mysql_query($table,$connect1);
+      while ($row = mysql_fetch_array($result)){
+        $idedit = $row['id_inputmat'];
+      ?>
       <tr class ="info">
-        
+        <td><?php echo $row['date']; ?></td>
+        <td><?php echo $row['id_inputmat']; ?></td>
+        <td><?php echo $row['username']; ?></td>
+        <td><?php echo $row['id_mat']; ?></td>
+        <td><div align = "center"><a href="edit_mat_to_stock.php?id=<?php echo $idedit; ?>" onclick="return confirm('ต้องการแก้ไขข้อมูลนี้?')"><b><font color="blue"><img src='img/edit.png' width=25></font></b></a></td>
+				<td><div align = "center"><a href="select_mat_to_stock.php?id=<?php echo $idedit; ?>" ><img src='img/sssss.png' width=25></a></div></td>
       </tr>
+      <?php
+      }
+      ?>
     </table>
 </div>
 
