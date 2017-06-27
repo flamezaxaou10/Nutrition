@@ -52,7 +52,7 @@ include 'header.php';
 </div>
 <?php
   if($_POST){
-    $date = $_POST['date'];.
+    $date = $_POST['date'];
     $user  = $_POST['username'];
     $id_mat = $_POST['id_mat'];
 
@@ -60,7 +60,7 @@ include 'header.php';
     mysql_query($update,$connect1);
     $del = "DELETE FROM detail_inputmat WHERE id_inputmat = '$id_input'";
     mysql_query($del,$connect1);
-    
+
         $sql = "SELECT * FROM input_material JOIN detail_buymat ON detail_buymat.id_mat = input_material.id_mat
                                               LEFT JOIN feed ON feed.feed_id = detail_buymat.mat_id
                                               LEFT JOIN material ON material.mat_id = detail_buymat.mat_id

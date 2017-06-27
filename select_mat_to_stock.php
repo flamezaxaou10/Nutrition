@@ -15,7 +15,7 @@ include 'header.php';
   <div class="jumbotron">
     <div class="modal-body">
        <div class="modal-body">
-         <p>ข้อมูลการรับเข้า</p>
+         <p>รายละเอียดการรับเข้า</p>
          <table  class="table table-striped table-bordered">
            <tr class="warning">
              <th>ลำดับ</th>
