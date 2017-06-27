@@ -58,6 +58,30 @@ include 'header.php';
 
     $update = "UPDATE input_material SET date = '$date',id_mat = '$id_mat' ,username = '$user' WHERE id_inputmat = '$id_input'";
     mysql_query($update,$connect1);
+    $del = "DELETE FROM detail_inputmat WHERE id_inputmat = '$id_input'";
+    mysql_query($del,$connect1);
+    
+        $sql = "SELECT * FROM input_material JOIN detail_buymat ON detail_buymat.id_mat = input_material.id_mat
+                                              LEFT JOIN feed ON feed.feed_id = detail_buymat.mat_id
+                                              LEFT JOIN material ON material.mat_id = detail_buymat.mat_id
+                                              WHERE detail_buymat.id_mat = '$id_mat'";
+        $adddetail = mysql_query($sql,$connect1);
+
+      while ($row = mysql_fetch_array($adddetail)) {
+        $mat_id;
+        $count = $row['count'];
+        $unit = $row['unit_id'];
+        if ($row['feed_id'] != NULL) {
+          $mat_id = $row['feed_id'];
+          $idstock = $row['id_stock2'];
+        }
+        else {
+          $mat_id = $row['mat_id'];
+          $idstock = $row['id_stock'];
+        }
+        $sql = "INSERT INTO detail_inputmat (id_inputmat,mat_id,count,unit_id,id_stock) VALUES ('$id_input','$mat_id','$count','$unit','$idstock')";
+        $detail = mysql_query($sql,$connect1);
+      }
     header("Location:edit_mat_to_stock_con.php?id=$id_input");
   }
  ?>
