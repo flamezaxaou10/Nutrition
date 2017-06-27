@@ -105,6 +105,7 @@ include 'header.php';
         <th>ดูข้อมูล</th>
       </tr>
     <?php
+      $idedit = $id_input;
       $table = "SELECT * FROM input_material";
       $result = mysql_query($table,$connect1);
       while ($row = mysql_fetch_array($result)){

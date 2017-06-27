@@ -42,7 +42,6 @@ include 'header.php';
         <th><div align="center">จำนวนที่สั่งซื้อ</div></th>
         <th><div align="center">หน่วยนับ</div></th>
         <th><div align="center">จำนวนที่รับ</div></th>
-        <th><div align="center"></div></th>
       </tr>
 
 
@@ -85,7 +84,7 @@ include 'header.php';
 
     ?>
       <tr>
-        <td colspan="6" class="text-right"><input type="submit" class="btn btn-success" value="เก็บใส่สต๊อก"></td>
+        <td colspan="6" class="text-right"><input type="submit" class="btn btn-success" value="บันทึกการรับเข้า"></td>
       </tr>
     </table>
     </form>
