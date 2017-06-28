@@ -101,7 +101,6 @@ include 'header.php';
         <th>รหัสการรรับเข้า</th>
         <th>รหัสเจ้าหน้าที่</th>
         <th>รหัสการสั่งซื้อ</th>
-        <th>แก้ไข</th>
         <th>ดูข้อมูล</th>
       </tr>
     <?php
@@ -116,8 +115,7 @@ include 'header.php';
         <td><?php echo $row['id_inputmat']; ?></td>
         <td><?php echo $row['username']; ?></td>
         <td><?php echo $row['id_mat']; ?></td>
-        <td><div align = "center"><a href="edit_mat_to_stock.php?id=<?php echo $idedit; ?>" onclick="return confirm('ต้องการแก้ไขข้อมูลนี้?')"><b><font color="blue"><img src='img/edit.png' width=25></font></b></a></td>
-				<td><div align = "center"><a href="select_mat_to_stock.php?id=<?php echo $idedit; ?>" ><img src='img/sssss.png' width=25></a></div></td>
+        <td><div align = "center"><a href="select_mat_to_stock.php?id=<?php echo $idedit; ?>" ><img src='img/sssss.png' width=25></a></div></td>
       </tr>
       <?php
       }
