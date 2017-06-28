@@ -70,7 +70,7 @@ include 'header.php';
             $sql = "SELECT * FROM input_material JOIN detail_buymat ON detail_buymat.id_mat = input_material.id_mat
                                                   LEFT JOIN feed ON feed.feed_id = detail_buymat.mat_id
                                                   LEFT JOIN material ON material.mat_id = detail_buymat.mat_id
-                                                  WHERE detail_buymat.id_mat = '$id_mat'";
+                                                  WHERE detail_buymat.id_mat = '$id_mat' AND input_material.id_inputmat = '$id_input'";
             $adddetail = mysql_query($sql,$connect1);
 
           while ($row = mysql_fetch_array($adddetail)) {

@@ -30,7 +30,7 @@ include 'header.php';
                                                         LEFT JOIN feed f ON d.mat_id = f.feed_id
                                                         JOIN unit u ON d.unit_id = u.unit_id
                                                         JOIN stock s ON d.id_stock = s.id_stock
-                                                        WHERE d.id_inputmat = '$id_mat'";
+                                                        WHERE d.id_inputmat = '$id_mat' AND stat = '1'";
                $objQuery = mysql_query($sql,$connect1);
                $i = 1;
                while ($objReSult = mysql_fetch_array($objQuery)) {
