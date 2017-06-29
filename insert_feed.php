@@ -254,12 +254,12 @@ while ($objReSult = mysql_fetch_array($objQuery)) {
 				<td><div align = "center"><? echo $objReSult["res_name"];?></div></td>
 				<td><div align = "right"><? echo number_format($objReSult["total_mat"],2);?></div></td>
 				<?php
-				if($objReSult["status"]==0){
+				if($objReSult["status"]!=1){
 				 ?>
 				<td><div align = "center"><a href="select_feed.php?id=<? echo $objReSult['id_mat'];?>" onclick="return confirm('ต้องการแก้ไขข้อมูลนี้?')"><b><font color="blue"><img src='img/edit.png' width=25></font></b></a></td>
 				<td><div align = "center"><a href="success_feed.php?id=<? echo $objReSult['id_mat'];?>"><b><font color="blue"><img src='img/print.png' width=25></font></b></a></td>
 
-				
+
 				<?php
 				}else{ ?>
 					<td colspan=2><div align = "center"><img src='img/close.png' width=25></div></td>

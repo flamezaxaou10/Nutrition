@@ -123,11 +123,11 @@ include 'header.php';
                 }
               }
               if ($flag) {
-                $upstat = "UPDATE input_material SET stat = '1' WHERE id_mat = '$id_mat'";
+                $upstat = "UPDATE input_material SET stat = '1' WHERE id_mat = '$id_mat' AND id_inputmat = '$id_input'";
                 mysql_query($upstat,$connect1);
               }
               else {
-                $upstat = "UPDATE input_material SET stat = '2' WHERE id_mat = '$id_mat'";
+                $upstat = "UPDATE input_material SET stat = '2' WHERE id_mat = '$id_mat' AND id_inputmat = '$id_input'";
                 mysql_query($upstat,$connect1);
                 $upstat = "UPDATE buymeterial SET status = '2' WHERE id_mat = '$id_mat'";
                 mysql_query($upstat,$connect1);

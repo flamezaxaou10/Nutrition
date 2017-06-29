@@ -21,6 +21,7 @@ include 'header.php';
   $row = mysql_fetch_array($query);
   $count0 = $row['count'];
   $count1 = $count+$count0;
+
   if (isset($_GET['All']) && $_GET['All'] == 'รับทั้งหมด') {
     $update = "SELECT * FROM detail_buymat WHERE id_mat = '$idbuy'";
     $result = mysql_query($update,$connect1);

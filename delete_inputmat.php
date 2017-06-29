@@ -9,7 +9,7 @@
   include "conn.php";
   $ID = $_GET['idinputmat'];
 
-  $sql = "DELETE FROM input_material WHERE id_inputmat = '$ID'";
+  $sql = "UPDATE input_material SET stat = '0' WHERE id_inputmat = '$ID'";
   mysql_query($sql,$connect1);
 
   $sql = "DELETE FROM detail_inputmat WHERE id_inputmat = '$ID'";
@@ -36,11 +36,11 @@
   $sql = "DELETE FROM stock_detail WHERE id_inputmat = '$ID'";
   mysql_query($sql,$connect1);
 
-  echo( "<script> alert('ลบข้อมูลเรียบร้อย');
+   echo( "<script> alert('ลบข้อมูลเรียบร้อย');
 		  window.location='mat_to_stock.php';</script>");
 
 	if(!$objQuery){
 	echo( "<script> alert('ไม่สามารถลบข้อมูลได้ เกิดข้อผิิดพลาดบางประการ');
-		  window.location='mat_to_stock.php';</script>");
-}
+	 	  window.location='mat_to_stock.php';</script>");
+  }
 ?>
