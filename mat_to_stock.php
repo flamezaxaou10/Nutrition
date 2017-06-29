@@ -75,7 +75,7 @@ include 'header.php';
 
           while ($row = mysql_fetch_array($adddetail)) {
             $mat_id;
-            $count = $row['count'];
+            $balance = $row['count'];
             $unit = $row['unit_id'];
             if ($row['feed_id'] != NULL) {
               $mat_id = $row['feed_id'];
@@ -85,7 +85,7 @@ include 'header.php';
               $mat_id = $row['mat_id'];
               $idstock = $row['id_stock'];
             }
-            $sql = "INSERT INTO detail_inputmat (id_inputmat,mat_id,count,unit_id,id_stock) VALUES ('$id_input','$mat_id','$count','$unit','$idstock')";
+            $sql = "INSERT INTO detail_inputmat (id_inputmat,mat_id,count,unit_id,id_stock) VALUES ('$id_input','$mat_id','0','$unit','$idstock')";
             $detail = mysql_query($sql,$connect1);
           }
           header("Location:insert_to_stock.php?id=$id_mat&idinputmat=$id_input");
@@ -97,25 +97,51 @@ include 'header.php';
 <br>
     <table class="table table-striped table-bordered">
       <tr class="warning">
-        <th>วันที่</th>
-        <th>รหัสการรรับเข้า</th>
-        <th>รหัสเจ้าหน้าที่</th>
+        <th>ลำดับ</th>
+        <th>วันทีรับเข้า</th>
+        <th>รหัสการรับเข้า</th>
         <th>รหัสการสั่งซื้อ</th>
-        <th>ดูข้อมูล</th>
+        <th>เจ้าหน้าที่</th>
+        <th><div align = "center">สถานะ</div></th>
+        <th><div align = "center">รายละเอียด</div></th>
+        <th><div align = "center">คำสั่ง</div></th>
       </tr>
     <?php
       $idedit = $id_input;
       $table = "SELECT * FROM input_material";
       $result = mysql_query($table,$connect1);
+      $i = 0;
       while ($row = mysql_fetch_array($result)){
         $idedit = $row['id_inputmat'];
+        $i++;
       ?>
       <tr class ="info">
+        <td><?php echo $i; ?></td>
         <td><?php echo $row['date']; ?></td>
         <td><?php echo $row['id_inputmat']; ?></td>
-        <td><?php echo $row['username']; ?></td>
         <td><?php echo $row['id_mat']; ?></td>
+        <td><?php echo $row['username']; ?></td>
+        <td align="center">
+          <?php if ($row['stat'] == 0): ?>
+            <div style="color:red;">ยกเลิก</div>
+          <?php elseif ($row['stat'] == 1): ?>
+            ยังไม่ครบ
+          <?php elseif ($row['stat'] == 2): ?>
+            <div style="color:green;">รับเสร็จสิ้น</div>
+          <?php endif; ?>
+        </td>
         <td><div align = "center"><a href="select_mat_to_stock.php?id=<?php echo $idedit; ?>" ><img src='img/sssss.png' width=25></a></div></td>
+        <?php if ($row['stat'] == 2): ?>
+          <td align="center">
+            <div style="color:red;">ไม่สามารถลบได้</div>
+        </td>
+        <?php else: ?>
+          <td align="center">
+            <a href='delete_inputmat.php?idinputmat=<? echo $row['id_inputmat'];?>'
+          onclick="return confirm('ยืนยันการลบข้อมูล')"><b><font color="red"><img src='img/delete.png' width=25></font></b></a>
+        </td>
+        <?php endif; ?>
+
       </tr>
       <?php
       }

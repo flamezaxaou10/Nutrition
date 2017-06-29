@@ -169,7 +169,7 @@ $username=$_SESSION["Username"];
 								die('ไม่สามารแก้ไขข้อมูลได้ เกิดข้อผิิดพลาดบางประการ'.mysql_error());
 							}
               @include('conn.php');
-              $insert = "INSERT INTO detail_buymat  VALUES  ('".$idd."','".$namemat."','".$count."','".$unit."','".$count*$price."','".$id."')";
+              $insert = "INSERT INTO detail_buymat  VALUES  ('".$idd."','".$namemat."','".$count."','".$unit."','".$count*$price."','".$id."','$count')";
                     $query = mysql_query($insert,$connect1);
 
 
