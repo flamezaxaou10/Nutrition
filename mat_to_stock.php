@@ -26,16 +26,19 @@ include 'header.php';
           $id_input = "IPMAT-$num";
           $sql = "SELECT * FROM input_material ORDER BY input_material.date DESC";
           $objQuery = mysql_query($sql,$connect1);
+          date_default_timezone_set("Asia/Bangkok") ;
+          $datethis = date("Y-m-d");
          ?>
     <div class="modal-body">
        <div class="modal-body">
            <form method="POST" action="#" onsubmit="return confirm('ต้องการเพิ่มข้อมูลนี้?');">
                       <h4> รหัสการรับเข้า &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;<input type="text" name="id" value="<?php echo $id_input; ?>" readonly=""></h4>
-                      <h4> วันที่การรับเข้า &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <input type="date" name="date" required></h4>
+                      <h4> วันที่การรับเข้า &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <input type="date" name="date" required value="<?php echo $datethis; ?>">  <i style="color:red;">*</i></h4>
                       <h4> รหัสเจ้าหน้าที่ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;<input type="text" name="username" value="<? echo $_SESSION["Username"];?>" readonly=""></h4>
                       <h4>
                         รหัสการสั่งซื้อ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;
                         <select class="" name="id_mat">
+                          <option disabled selected>--------เลือกใบสั่งซื้อ---------</option>
                           <?php
                               $sql = "SELECT * FROM buymeterial WHERE status = '0'";
                               $select = mysql_query($sql,$connect1);
@@ -45,7 +48,7 @@ include 'header.php';
                           <?php
                               }
                            ?>
-                        </select>
+                        </select> <i style="color:red;">*</i>
                       </h4>
            <div class="modal-footer">
             <input type="submit" class="btn btn-success" value="เพิ่มข้อมูล" name = "submit" onclick="submitModal()"> &nbsp;&nbsp;&nbsp;
