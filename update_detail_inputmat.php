@@ -28,6 +28,10 @@ include 'header.php';
     while ($row = mysql_fetch_array($result)) {
       $mat_id = $row['mat_id'];
       $count = $row['balance'];
+      $sum = "SELECT * FROM detail_inputmat WHERE mat_id = '$mat_id' AND id_inputmat = '$id_input'";
+      $resum = mysql_query($sum,$connect1);
+      $addsum = mysql_fetch_array($resum);
+      $count = $row['balance'] + $addsum['count'];
       $sql  = "UPDATE detail_inputmat SET count = '$count',stat = '1' WHERE id_inputmat = '$id_input' AND mat_id = '$mat_id'";
       mysql_query($sql,$connect1);
     }
