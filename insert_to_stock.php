@@ -68,7 +68,11 @@ include 'header.php';
           <td><div align = "left"><? echo $objReSult["unit_name"];?></div></td>
           <form class="" action="update_detail_inputmat.php" method="GET">
           <td align="center">
-            <input type="number" name="count" min="1" max="<?php echo $objReSult["balance"];?>" required>
+            <?php if ($objReSult["balance"] <= 0): ?>
+              <input type="number" name="count" min="1" max="<?php echo $objReSult["balance"];?>" disabled>
+            <?php else: ?>
+              <input type="number" name="count" min="1" max="<?php echo $objReSult["balance"];?>" required>
+            <?php endif; ?>
           </td>
           <?php if ($objReSult['feed_id'] != NULL): ?>
             <input type="hidden" name="mat_id" value="<?php echo $objReSult['feed_id']; ?>">

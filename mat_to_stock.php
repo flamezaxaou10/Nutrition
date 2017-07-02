@@ -24,7 +24,7 @@ include 'header.php';
           $num = sprintf("%05d",$row['COUNT(id_inputmat)'] + 1);
           $id_detail = 'ipdetail-'.$num;
           $id_input = "IPMAT-$num";
-          $sql = "SELECT * FROM input_material ORDER BY id_inputmat";
+          $sql = "SELECT * FROM input_material ORDER BY input_material.date DESC";
           $objQuery = mysql_query($sql,$connect1);
          ?>
     <div class="modal-body">
@@ -104,11 +104,10 @@ include 'header.php';
         <th>เจ้าหน้าที่</th>
         <th><div align = "center">สถานะ</div></th>
         <th><div align = "center">รายละเอียด</div></th>
-        <th><div align = "center">คำสั่ง</div></th>
       </tr>
     <?php
       $idedit = $id_input;
-      $table = "SELECT * FROM input_material";
+      $table = "SELECT * FROM input_material ORDER BY input_material.date DESC";
       $result = mysql_query($table,$connect1);
       $i = 0;
       while ($row = mysql_fetch_array($result)){
@@ -122,26 +121,13 @@ include 'header.php';
         <td><?php echo $row['id_mat']; ?></td>
         <td><?php echo $row['username']; ?></td>
         <td align="center">
-          <?php if ($row['stat'] == 0): ?>
-            <div style="color:red;">ยกเลิก</div>
-          <?php elseif ($row['stat'] == 1): ?>
-            ยังไม่ครบ
+          <?php if ($row['stat'] == 1): ?>
+            รับไม่ครบ
           <?php elseif ($row['stat'] == 2): ?>
-            <div style="color:green;">รับเสร็จสิ้น</div>
+            <div style="color:green;">รับครบ</div>
           <?php endif; ?>
         </td>
         <td><div align = "center"><a href="select_mat_to_stock.php?id=<?php echo $idedit; ?>" ><img src='img/sssss.png' width=25></a></div></td>
-        <?php if ($row['stat'] == 2): ?>
-          <td align="center">
-            <div style="color:red;">ไม่สามารถลบได้</div>
-        </td>
-        <?php else: ?>
-          <td align="center">
-            <a href='delete_inputmat.php?idinputmat=<? echo $row['id_inputmat'];?>'
-          onclick="return confirm('ยืนยันการลบข้อมูล')"><b><font color="red"><img src='img/delete.png' width=25></font></b></a>
-        </td>
-        <?php endif; ?>
-
       </tr>
       <?php
       }

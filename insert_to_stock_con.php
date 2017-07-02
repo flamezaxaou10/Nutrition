@@ -107,7 +107,7 @@ include 'header.php';
                     $id_stock = $rowchk['id_stock'];
                     $balance = $rowchk['balance'] - $rowchk['count'];
                   }
-                  $instock = "INSERT INTO stock_detail (stock_id,mat_id,count,unit_id,id_inputmat) VALUES ('$id_stock','$mat_id','$count','$unit','$id_input')";
+                  $instock = "INSERT INTO stock_detail (stock_id,mat_id,count,unit_id) VALUES ('$id_stock','$mat_id','$count','$unit')";
                   mysql_query($instock,$connect1);
                   $i++;
               }
@@ -127,7 +127,7 @@ include 'header.php';
                 mysql_query($upstat,$connect1);
               }
               else {
-                $upstat = "UPDATE input_material SET stat = '2' WHERE id_mat = '$id_mat' AND id_inputmat = '$id_input'";
+                $upstat = "UPDATE input_material SET stat = '2' WHERE id_mat = '$id_mat'";
                 mysql_query($upstat,$connect1);
                 $upstat = "UPDATE buymeterial SET status = '2' WHERE id_mat = '$id_mat'";
                 mysql_query($upstat,$connect1);

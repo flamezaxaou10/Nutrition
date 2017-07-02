@@ -9,7 +9,7 @@
   include "conn.php";
   $ID = $_GET['idinputmat'];
 
-  $sql = "UPDATE input_material SET stat = '0' WHERE id_inputmat = '$ID'";
+  $sql = "DELETE FROM input_material WHERE id_inputmat = '$ID'";
   mysql_query($sql,$connect1);
 
   $sql = "DELETE FROM detail_inputmat WHERE id_inputmat = '$ID'";
