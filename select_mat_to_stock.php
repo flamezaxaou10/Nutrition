@@ -22,6 +22,7 @@ include 'header.php';
              <th>ประเภทวัตถุดิบ</th>
              <th>ชื่อวัตถุดิบ</th>
              <th>จำนวน</th>
+             <th>คงเหลือ</th>
              <th>หน่วยนับ</th>
            </tr>
            <?php
@@ -41,10 +42,19 @@ include 'header.php';
              <td><div align = "left"><? echo $objReSult["name_stock"];?></div></td>
              <?php if ($objReSult['feed_id'] != NULL): ?>
                <td><div align = "left"><? echo $objReSult["feed_name"];?></div></td>
+               <?php $mat = $objReSult["feed_id"]; ?>
              <?php else: ?>
                <td><div align = "left"><? echo $objReSult["mat_name"];?></div></td>
+               <?php $mat = $objReSult["mat_id"]; ?>
              <?php endif; ?>
+             <?php
+
+                $sqlb = "SELECT * FROM detail_buymat JOIN input_material ON detail_buymat.id_mat = input_material.id_mat WHERE detail_buymat.mat_id = '$mat' AND input_material.id_inputmat = '$id_mat'";
+                $query = mysql_query($sqlb,$connect1);
+                $row = mysql_fetch_array($query);
+              ?>
              <td><div align = "left"><? echo $objReSult["count"];?></div></td>
+             <td><div align = "left"><? echo $row["balance"];?></div></td>
              <td><div align = "left"><? echo $objReSult["unit_name"];?></div></td>
            </tr>
            <?
