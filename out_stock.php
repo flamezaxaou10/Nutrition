@@ -74,7 +74,7 @@ include 'header.php';
       $result = mysql_query($table,$connect1);
       $i = 0;
       while ($row = mysql_fetch_array($result)){
-        $idedit = $row['id_outputmat'];
+        $id = $row['id_outputmat'];
         $i++;
       ?>
       <tr class ="info">
@@ -82,7 +82,7 @@ include 'header.php';
         <td><?php echo $row['date']; ?></td>
         <td><?php echo $row['id_outputmat']; ?></td>
         <td><?php echo $row['user']; ?></td>
-        <td><div align = "center"><a href="select_mat_out_stock.php?id=<?php echo $idedit; ?>" ><img src='img/sssss.png' width=25></a></div></td>
+        <td><div align = "center"><a href="select_mat_out_stock.php?id=<?php echo $id; ?>" ><img src='img/sssss.png' width=25></a></div></td>
         <td><div align = "center"><a href="print_output.php?id=<? echo $row['id_outputmat'];?>"><img src='img/print.png' width=25></a></div></td>
       </tr>
       <?php

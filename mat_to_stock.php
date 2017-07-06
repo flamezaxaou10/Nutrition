@@ -37,7 +37,7 @@ include 'header.php';
                       <h4> รหัสเจ้าหน้าที่ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;<? echo $_SESSION["Username"];?>&nbsp;<input type="hidden" name="username" value="<? echo $_SESSION["Username"];?>" readonly=""></h4>
                       <h4>
                         รหัสการสั่งซื้อ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;
-                        <select class="" name="id_mat">
+                        <select class="" name="id_mat" required>
                           <option disabled selected>--------เลือกใบสั่งซื้อ---------</option>
                           <?php
                               $sql = "SELECT * FROM buymeterial WHERE status = '0'";
