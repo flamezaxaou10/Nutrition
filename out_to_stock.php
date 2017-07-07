@@ -42,10 +42,11 @@ include 'header.php';
                         </select> <input type="submit" value="เปิด" class="btn btn-success">
                       </h4>
                     </form>
-          <form method="GET" action="#" onsubmit="return confirm('ต้องการเพิ่มข้อมูลนี้?');">
+          <form method="GET" action="out_to_stock_con.php">
            <div class="modal-footer">
+             <input type="hidden" name="idoutputmat" value="<?php echo $id_output; ?>">
             <input type="submit" class="btn btn-success" value="เสร็จสิ้น" name = "submit" onclick="submitModal()"> &nbsp;&nbsp;&nbsp;
-           &nbsp;&nbsp; <a href="delete_out_stock.php"><button type="button" class="btn btn-danger" data-dismiss="modal" onclick="return confirm('ต้องการยกเลิกการเพิ่มข้อมูลนี้?')">ยกเลิก</button></a>
+           &nbsp;&nbsp; <a href="delete_out_stock.php?id=<?php echo $id_output; ?>"><button type="button" class="btn btn-danger" data-dismiss="modal" onclick="return confirm('ต้องการยกเลิกการเพิ่มข้อมูลนี้?')">ยกเลิก</button></a>
           </div>
           </form>
       </div>
@@ -71,7 +72,7 @@ include 'header.php';
       <th>เบิก</th>
     </tr>
     <?php
-      $sql = "SELECT stock_detail.count,stock_detail.mat_id,mat_name,feed_name,unit_name,stock_detail.unit_id FROM stock_detail LEFT JOIN material ON stock_detail.mat_id = material.mat_id
+      $sql = "SELECT SUM(count),stock_detail.mat_id,mat_name,feed_name,unit_name,stock_detail.unit_id FROM stock_detail LEFT JOIN material ON stock_detail.mat_id = material.mat_id
                                           LEFT JOIN feed ON stock_detail.mat_id = feed.feed_id JOIN unit ON unit.unit_id = stock_detail.unit_id
                                           WHERE stock_id = '$ID' GROUP BY stock_detail.mat_id";
       $objQuery = mysql_query($sql,$connect1);
@@ -88,9 +89,9 @@ include 'header.php';
       <?php else: ?>
         <td><div align = "left"><? echo $objReSult["mat_name"];?></div></td>
       <?php endif; ?>
-      <td><div align = "left"><? echo $objReSult["count"];?></div></td>
+      <td><div align = "left"><? echo $objReSult["SUM(count)"];?></div></td>
       <td><div align = "left"><? echo $objReSult["unit_name"];?></div></td>
-      <td><div align = "center"><input type="number" name="count" min="1" max="<? echo $objReSult["count"];?>" required></div></td>
+      <td><div align = "center"><input type="number" name="count" min="1" max="<? echo $objReSult["SUM(count)"];?>" required></div></td>
       <td><div align = "center">
               <button type="submit" name="button" class = "btn btn-success">เบิก +</button>
               <input type="hidden" name="mat_id" value="<?php echo $objReSult['mat_id']; ?>">
