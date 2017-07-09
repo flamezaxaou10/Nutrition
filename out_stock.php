@@ -83,7 +83,7 @@ include 'header.php';
         <td><?php echo $row['id_outputmat']; ?></td>
         <td><?php echo $row['user']; ?></td>
         <td><div align = "center"><a href="select_mat_out_stock.php?id=<?php echo $id; ?>" ><img src='img/sssss.png' width=25></a></div></td>
-        <td><div align = "center"><a href="print_output.php?id=<? echo $row['id_outputmat'];?>"><img src='img/print.png' width=25></a></div></td>
+        <td><div align = "center"><a target="_blank"  href="print_output.php?id=<? echo $row['id_outputmat'];?>"><img src='img/print.png' width=25></a></div></td>
       </tr>
       <?php
       }

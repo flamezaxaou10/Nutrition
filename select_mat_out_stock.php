@@ -10,12 +10,23 @@ exit();
 }
 $username=$_SESSION["Username"];
 include 'header.php';
+$id_output = $_GET['id'];
 ?>
 <div class="container">
   <div class="jumbotron">
     <div class="modal-body">
+      <p>รายละเอียดการเบิก</p>
+      <br>
+        <?php
+            $sql = "SELECT * FROM output_material WHERE id_outputmat = '$id_output'";
+            $query = mysql_query($sql,$connect1);
+            $row = mysql_fetch_array($query);
+
+         ?>
+             <h4> รหัสการเบิก &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : <?php echo $id_output; ?></h4>
+             <h4> วันที่การเบิก &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : <?php echo $row['date']; ?></h4>
+             <h4> รหัสเจ้าหน้าที่ &nbsp;&nbsp; : <? echo $row['user'];?></h4>
        <div class="modal-body">
-         <p>รายละเอียดการรับเข้า</p>
          <table  class="table table-striped table-bordered">
            <tr class="warning">
              <th>ลำดับ</th>
@@ -26,7 +37,7 @@ include 'header.php';
              <th>หน่วยนับ</th>
            </tr>
            <?php
-              $id_output = $_GET['id'];
+
                $sql = "SELECT d.mat_id,f.feed_id,f.feed_name,m.mat_name,d.count,u.unit_name FROM detail_outputmat d LEFT JOIN material m ON d.mat_id = m.mat_id
                                                         LEFT JOIN feed f ON d.mat_id = f.feed_id
                                                         JOIN unit u ON d.unit_id = u.unit_id

@@ -2,7 +2,7 @@
 <html>
 <head>
   <?php include 'conn.php'; ?>
-	<title>ระบบจัดการข้อมูลการสั่งซื้อวัตถุดิบ</title>
+	<title>ระบบจัดการข้อมูลโรงพยาบาลเจ้าพยาอภัยภูเบศ</title>
 	<meta http-equiv=Content-Type content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
