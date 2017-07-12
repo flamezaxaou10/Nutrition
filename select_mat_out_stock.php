@@ -38,10 +38,10 @@ $id_output = $_GET['id'];
            </tr>
            <?php
 
-               $sql = "SELECT d.mat_id,f.feed_id,f.feed_name,m.mat_name,d.count,u.unit_name FROM detail_outputmat d LEFT JOIN material m ON d.mat_id = m.mat_id
+               $sql = "SELECT d.mat_id,f.feed_id,f.feed_name,m.mat_name,SUM(count),u.unit_name FROM detail_outputmat d LEFT JOIN material m ON d.mat_id = m.mat_id
                                                         LEFT JOIN feed f ON d.mat_id = f.feed_id
                                                         JOIN unit u ON d.unit_id = u.unit_id
-                                                        WHERE d.id_outputmat = '$id_output'";
+                                                        WHERE d.id_outputmat = '$id_output' GROUP BY mat_id";
                $objQuery = mysql_query($sql,$connect1);
                $i = 1;
                while ($objReSult = mysql_fetch_array($objQuery)) {
@@ -61,7 +61,7 @@ $id_output = $_GET['id'];
              <?php else: ?>
                <td><div align = "left"><? echo $objReSult["mat_name"];?></div></td>
              <?php endif; ?>
-             <td><div align = "left"><? echo $objReSult["count"];?></div></td>
+             <td><div align = "left"><? echo $objReSult["SUM(count)"];?></div></td>
              <td><div align = "left"><? echo $row["SUM(count)"];?></div></td>
              <td><div align = "left"><? echo $objReSult["unit_name"];?></div></td>
            </tr>
