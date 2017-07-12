@@ -31,10 +31,10 @@ include 'header.php';
            </tr>
 
          <?
-             $sql = "SELECT d.mat_id,f.feed_id,f.feed_name,m.mat_name,d.count,u.unit_name,u.unit_id FROM detail_outputmat d LEFT JOIN material m ON d.mat_id = m.mat_id
+             $sql = "SELECT d.mat_id,f.feed_id,f.feed_name,m.mat_name,SUM(count),u.unit_name,u.unit_id FROM detail_outputmat d LEFT JOIN material m ON d.mat_id = m.mat_id
                                                       LEFT JOIN feed f ON d.mat_id = f.feed_id
                                                       JOIN unit u ON d.unit_id = u.unit_id
-                                                      WHERE d.id_outputmat = '$id_output'";
+                                                      WHERE d.id_outputmat = '$id_output' GROUP BY mat_id";
              $objQuery = mysql_query($sql,$connect1);
              $i = 1;
              while ($objReSult = mysql_fetch_array($objQuery)) {
@@ -54,10 +54,10 @@ include 'header.php';
              <?php else: ?>
                <td><div align = "left"><? echo $objReSult["mat_name"];?></div></td>
              <?php endif; ?>
-             <td><div align = "left"><? echo $objReSult["count"];?></div></td>
+             <td><div align = "left"><? echo $objReSult["SUM(count)"];?></div></td>
              <td><div align = "left"><? echo $objReSult["unit_name"];?></div></td>
                <td align="center">
-                 <a href="delete_detail_outputmat.php?idoutputmat=<?php echo $id_output; ?>&mat_id=<?php echo $mat; ?>&count=<?php echo $objReSult["count"]; ?>&stock_id=<?php echo $row['stock_id']; ?>&unit_id=<?php echo $objReSult["unit_id"]; ?>"
+                 <a href="delete_detail_outputmat.php?idoutputmat=<?php echo $id_output; ?>&mat_id=<?php echo $mat; ?>&count=<?php echo $objReSult["SUM(count)"]; ?>&stock_id=<?php echo $row['stock_id']; ?>&unit_id=<?php echo $objReSult["unit_id"]; ?>"
                  onclick="return confirm('ยืนยันการลบข้อมูล')"><b><font color="red"><img src='img/delete.png' width=25></font></b></a>
                </td>
            </tr>
@@ -67,7 +67,7 @@ include 'header.php';
          ?>
            <tr>
              <td colspan="7" class="text-right">
-               <a href="out_to_stock.php?idoutputmat=<?php echo $id_output; ?>"><input type="button" class="btn btn-danger" value="ย้อนกลับ"></a>
+               <a href="out_to_stock.php?idoutputmat=<?php echo $id_output; ?>&id_stock=<?php echo $row['stock_id']; ?>"><input type="button" class="btn btn-danger" value="ย้อนกลับ"></a>
                <input type="submit" class="btn btn-success" name = "บันทึกข้อมูลการเบิก" value="บันทึกข้อมูลการเบิก">
              </td>
            </tr>
