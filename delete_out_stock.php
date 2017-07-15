@@ -12,7 +12,7 @@ exit();
 ?>
 
 <?php
-    $id_output = $_GET['id'];
+    $id_output = $_GET['idoutputmat'];
     $sql = "SELECT d.count,s.stock_id,d.mat_id,d.unit_id FROM detail_outputmat d JOIN stock_detail s ON d.mat_id = s.mat_id WHERE d.id_outputmat = '$id_output' GROUP BY d.mat_id";
     $result = mysql_query($sql,$connect1);
     while ($row = mysql_fetch_array($result)) {

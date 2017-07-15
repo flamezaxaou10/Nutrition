@@ -29,18 +29,16 @@ include 'header.php';
           $datethis = date("Y-m-d");
          ?>
     <div class="modal-body">
-       <div class="modal-body">
            <form method="POST" action="#" onsubmit="return confirm('ต้องการเพิ่มข้อมูลนี้?');">
                       <h4> รหัสการเบิก &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : <?php echo $id_output; ?><input type="hidden" name="id" value="<?php echo $id_output; ?>" readonly=""></h4>
                       <h4> วันที่การเบิก &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : <?php echo $datethis; ?><input type="hidden" name="date" required value="<?php echo $datethis; ?>" > </h4>
                       <h4> รหัสเจ้าหน้าที่ &nbsp;&nbsp; : <? echo $_SESSION["Username"];?><input type="hidden" name="username" value="<? echo $_SESSION["Username"];?>" readonly=""></h4>
 
-           <div class="modal-footer">
-            <input type="submit" class="btn btn-success" value="เพิ่มข้อมูล" name = "submit" onclick="submitModal()"> &nbsp;&nbsp;&nbsp;
-           &nbsp;&nbsp; <a href="stockanddetail.php"><button type="button" class="btn btn-danger" data-dismiss="modal" onclick="return confirm('ต้องการยกเลิกการเพิ่มข้อมูลนี้?')">ยกเลิก</button></a>
-          </div>
+           <div class="modal-footer" style="padding-bottom : 0px;">
+              <input type="submit" class="btn btn-success" value="เพิ่มข้อมูล" name = "submit" onclick="submitModal()"> &nbsp;&nbsp;&nbsp;
+             &nbsp;&nbsp; <a href="index.php"><button type="button" class="btn btn-danger" data-dismiss="modal">ย้อนกลับ</button></a>
+            </div>
           </form>
-      </div>
     </div>
     <?php
         if($_POST){

@@ -23,5 +23,5 @@ exit();
   $sql = "INSERT INTO stock_detail (stock_id,mat_id,count,unit_id) VALUES ('$stock_id','$mat_id','$count','$unit_id');";
   mysql_query($sql,$connect1);
 
-  header("LOCATION:out_to_stock_con.php?idoutputmat=$id_output");
+  header("LOCATION:out_to_stock.php?idoutputmat=$id_output&id_stock=$stock_id");
  ?>
