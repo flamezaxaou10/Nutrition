@@ -167,7 +167,7 @@ exit();
  <div class="col-md-3">
       <p class="text-center"><strong><font size ="5px">ข้อมูลร้านค้า</font></strong></p>
       <a href="insert_restaurant.php">
-        <img src="img/logo6.png" class="img-circle person" alt="Random Name" width="255" height="255">
+        <img src="img/logoshop.png" class="img-circle person" alt="Random Name" width="255" height="255">
       </a>
     </div>
 
@@ -206,7 +206,7 @@ exit();
   <div class="col-sm-3">
       <p class="text-center"><strong><font size ="5px">สั่งซื้อวัตถุดิบ</font></strong></p>
       <a href="insert_buymaterial.php">
-        <img src="img/logo8.png" class="img-circle person" alt="Random Name" width="255" height="255">
+        <img src="img/logobuy.png" class="img-circle person" alt="Random Name" width="255" height="255">
       </a>
     </div>
     <div class="col-sm-3">
@@ -235,6 +235,13 @@ exit();
       <p class="text-center"><strong><font size ="5px">การเบิกวัตถุดิบ</font></strong></p>
       <a href="out_stock.php">
         <img src="img/logo_pick.png" class="img-circle person" alt="Random Name" width="255" height="255">
+      </a>
+    </div>
+
+    <div class="col-sm-3">
+      <p class="text-center"><strong><font size ="5px">การขายอาหารทางสายยาง</font></strong></p>
+      <a href="out_stock.php">
+        <img src="img/logosell.png" class="img-circle person" alt="Random Name" width="255" height="255">
       </a>
     </div>
 
