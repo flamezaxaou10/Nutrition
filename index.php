@@ -240,7 +240,7 @@ exit();
 
     <div class="col-sm-3">
       <p class="text-center"><strong><font size ="5px">การขายอาหารทางสายยาง</font></strong></p>
-      <a href="out_stock.php">
+      <a href="sale_feed.php">
         <img src="img/logosell.png" class="img-circle person" alt="Random Name" width="255" height="255">
       </a>
     </div>
