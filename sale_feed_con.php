@@ -27,6 +27,7 @@ include 'header.php';
             padding-bottom : 20px;
           }
         </style>
+        <form action="" method="post">
          <table>
            <tr >
              <td>รหัสการขายอาหารทางสายยาง </td>
@@ -44,10 +45,15 @@ include 'header.php';
              <td> <?php echo $row['date']; ?></td>
            </tr>
            <tr>
+             <td>ชื่อผู้ซื้อ </td>
+             <td>&nbsp;&nbsp; : &nbsp;&nbsp;</td>
+             <td> <?php echo $row['customer']; ?></td>
+           </tr>
+           <tr>
              <td>เลือกอาหารทางสายยาง</td>
              <td>&nbsp;&nbsp; : &nbsp;&nbsp;</td>
              <td>
-               <select name="feed_id">
+               <select name="feed_id" required>
                <?php
                   $sel = "SELECT * FROM stock_detail s JOIN feed f ON s.mat_id = f.feed_id WHERE s.stock_id = 'MT-06' GROUP BY s.mat_id";
                   $res = mysql_query($sel,$connect1);
@@ -61,21 +67,93 @@ include 'header.php';
              </td>
              <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
              <td>จำนวน</td>
-              <td>&nbsp;&nbsp; : &nbsp;&nbsp;</td>
-             <td><input type="number" name="count" min="1"></td>
+             <td>&nbsp;&nbsp; : &nbsp;&nbsp;</td>
+             <td><input type="number" name="count" min="1" required></td>
+           </tr>
+           <tr>
+             <td>ราคาต่อหน่วย </td>
+             <td>&nbsp;&nbsp; : &nbsp;&nbsp;</td>
+             <td><input type="number" name="price" min="1" required> บาท</td>
              <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-             <td><a href="update_detail_salefeed.php?salefeed_id=<?php echo $salefeed_id; ?>"><button class="btn btn-success" type="button" name="button">เพิ่มสินค้า</button></a></td>
+             <td>หน่วยนับ </td>
+             <td>&nbsp;&nbsp; : &nbsp;&nbsp;</td>
+             <td>
+               <select name="unit_id" required>
+               <?php
+                  $sel = "SELECT * FROM unit";
+                  $res = mysql_query($sel,$connect1);
+                  while ($rows = mysql_fetch_array($res)) {
+              ?>
+                <option value="<?php echo $rows['unit_id']; ?>"><?php echo $rows['unit_name']; ?></option>
+              <?php
+                  }
+                ?>
+                </select>
+             </td>
            </tr>
          </table>
+         <div class="modal-footer" style="padding-bottom : 0px;">
+             <input class="btn btn-success" type="submit" name="button" value="เพิ่มสินค้า">
+             <input class="btn btn-danger" type="reset" name="button" value="ยกเลิก">
+         </div>
+        </form>
+          <?php
+            if ($_POST) {
+              $feed_id = $_POST['feed_id'];
+              $count = $_POST['count'];
+              $price = $_POST['price'];
+              $unit_id = $_POST['unit_id'];
+
+              $sql = "INSERT INTO detail_sale_feed (salefeed_id,feed_id,count,price,unit_id) VALUES ('$salefeed_id','$feed_id','$count','$price','$unit_id')";
+              mysql_query($sql,$connect1);
+            }
+          ?>
     </h4>
     </div>
-    <div class="modal-footer" style="padding-bottom : 0px;">
-      <form class="" action="sale_feed.php" method="post">
-        <input type="submit" class="btn btn-success" value="บันทึกการขาย" name = "submit" onclick="submitModal()">
-        <a href="delete_salefeed.php"><button type="button" class="btn btn-danger" data-dismiss="modal">ยกเลิก</button></a>
-      </form>
-    </div>
   </div>
-
+  <table class="table table-striped table-bordered">
+    <tr class="warning">
+      <th>ลำดับ</th>
+      <th>รหัสวัตถุดิบ</th>
+      <th>ชื่อวัตถุดิบ</th>
+      <th>จำนวน</th>
+      <th>หน่วยนับ</th>
+      <th>ราคารวม</th>
+      <th><div align = "center">ลบ</div></th>
+    </tr>
+  <?php
+    $table = "SELECT d.feed_id,f.feed_name,SUM(d.count),u.unit_name,d.price FROM detail_sale_feed d
+                      JOIN feed f ON d.feed_id = f.feed_id
+                      JOIN unit u ON d.unit_id = u.unit_id
+                      WHERE salefeed_id = '$salefeed_id' GROUP BY f.feed_id";
+    $result = mysql_query($table,$connect1);
+    $i = 0;
+    $total = 0;
+    while ($row = mysql_fetch_array($result)){
+      $i++;
+    ?>
+    <tr class ="info">
+      <td><?php echo $i; ?></td>
+      <td><?php echo $row['feed_id']; ?></td>
+      <td><?php echo $row['feed_name']; ?></td>
+      <td><?php echo $row['SUM(d.count)']; ?></td>
+      <td><?php echo $row['unit_name']; ?></td>
+      <td align="right"><?php echo $row['SUM(d.count)']*$row['price']; ?></td>
+      <td><div align = "center"><a href="delete_detail_salefeed.php?salefeed_id=<?php echo $salefeed_id; ?>&feed_id=<?php echo $row['feed_id']; ?>" ><img src='img/delete.png' width=25></a></div></td>
+    </tr>
+    <?php
+     $total += $row['SUM(d.count)']*$row['price'];
+    }
+    ?>
+    <tr class ="info">
+      <td colspan="5" align="right"><b>ราคาทั้งหมด : </b></td>
+      <td align="right"><b><?php echo $total; ?></b></td>
+      <td><b>บาท</b></td>
+    </tr>
+  </table>
+  <div class="modal-footer">
+      <a href="sale_feed.php"><input type="submit" class="btn btn-success" value="บันทึกการขาย" name = "submit"></a>
+      <a href="delete_salefeed.php?salefeed_id=<?php echo $salefeed_id; ?>"><button type="button" class="btn btn-danger" data-dismiss="modal">ยกเลิก</button></a>
+  </div>
 </div>
 <?php include 'footer.php'; ?>
