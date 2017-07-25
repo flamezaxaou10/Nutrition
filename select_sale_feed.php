@@ -35,11 +35,6 @@ include 'header.php';
            <td> <?php echo $salefeed_id; ?></td>
          </tr>
          <tr>
-           <td>รหัสพนักงาน </td>
-           <td>&nbsp;&nbsp; : &nbsp;&nbsp;</td>
-           <td> <?php echo $row['username'];?></td>
-         </tr>
-         <tr>
            <td>วันที่ขาย </td>
            <td>&nbsp;&nbsp; : &nbsp;&nbsp;</td>
            <td> <?php echo $row['date']; ?></td>

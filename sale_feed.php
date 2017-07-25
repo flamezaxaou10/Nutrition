@@ -12,7 +12,7 @@ $username=$_SESSION["Username"];
 include 'header.php';
 ?>
 <div class="container">
-  <form class="" action="#" method="post">
+  <form class="" action="#" method="post" onsubmit="return confirm('ต้องการเพิ่มข้อมูลนี้?');">
   <div class="jumbotron">
       <p>การขายอาหารทางสายยาง</p>
       <?php
@@ -52,7 +52,7 @@ include 'header.php';
     </h4>
     </div>
     <div class="modal-footer" style="padding-bottom : 0px;">
-        <input type="submit" class="btn btn-success" value="เพิ่มข้อมูล" name = "submit" onclick="submitModal()">
+        <input type="submit" class="btn btn-success" value="เพิ่มข้อมูล" name = "submit" onclick="submitModal()" >
         <a href="index.php"><button type="button" class="btn btn-danger" data-dismiss="modal">ย้อนกลับ</button></a>
     </div>
   </div>
