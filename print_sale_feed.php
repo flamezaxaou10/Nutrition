@@ -86,6 +86,9 @@ include 'header.php';
   </table>
   </div>
 </div>
+  <div class="col-md-3" align="right">
+    <p>.............................................. ผู้จ่ายยา</p>
+  </div>
 <script type="text/javascript">
   window.print();
 </script>
