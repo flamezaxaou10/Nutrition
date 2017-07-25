@@ -30,21 +30,23 @@ include 'header.php';
          <table>
 
            <tr>
-
-             <td><h4>รหัสการขายอาหารทางสายยาง </h4></td>
-             <td><h4>&nbsp;&nbsp; : &nbsp;&nbsp;</h4></td>
-             <td><h4> <?php echo $salefeed_id; ?></h4></td>
+             <td style="padding-bottom:0px;"><h4>รหัสการขายอาหารทางสายยาง </h4></td>
+             <td style="padding-bottom:0px;"><h4>&nbsp;&nbsp; : &nbsp;&nbsp;</h4></td>
+             <td style="padding-bottom:0px;"><h4> <?php echo $salefeed_id; ?></h4></td>
 
            </tr>
            <tr>
-             <td><h4>วันที่ขาย </h4></td>
-             <td><h4>&nbsp;&nbsp; : &nbsp;&nbsp;</h4></td>
-             <td><h4> <?php echo $row['date']; ?></h4></td>
+             <td style="padding-bottom:0px;"><h4>วันที่ขาย </h4></td>
+             <td style="padding-bottom:0px;"><h4>&nbsp;&nbsp; : &nbsp;&nbsp;</h4></td>
+             <td style="padding-bottom:0px;"><h4> <?php echo $row['date']; ?></h4></td>
            </tr>
            <tr>
-             <td><h4>ชื่อผู้ป่วย </h4></td>
-             <td><h4>&nbsp;&nbsp; : &nbsp;&nbsp;</h4></td>
-             <td><h4> <?php echo $row['customer']; ?></h4></td>
+             <td style="padding-bottom:0px;"><h4>ชื่อผู้ป่วย </h4></td>
+             <td style="padding-bottom:0px;"><h4>&nbsp;&nbsp; : &nbsp;&nbsp;</h4></td>
+             <td style="padding-bottom:0px;"><h4> <?php echo $row['customer']; ?></h4></td>
+           </tr>
+           <tr>
+             <td></td>
            </tr>
            <tr>
              <table class="table table-striped table-bordered">
