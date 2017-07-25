@@ -27,7 +27,6 @@ include 'header.php';
             padding-bottom : 20px;
           }
         </style>
-        <form action="" method="post">
          <table>
            <tr >
              <td>รหัสการขายอาหารทางสายยาง </td>
@@ -35,68 +34,54 @@ include 'header.php';
              <td> <?php echo $salefeed_id; ?></td>
            </tr>
            <tr>
-             <td>รหัสพนักงาน </td>
-             <td>&nbsp;&nbsp; : &nbsp;&nbsp;</td>
-             <td> <?php echo $row['username'];?></td>
-           </tr>
-           <tr>
              <td>วันที่ขาย </td>
              <td>&nbsp;&nbsp; : &nbsp;&nbsp;</td>
              <td> <?php echo $row['date']; ?></td>
            </tr>
            <tr>
-             <td>ชื่อผู้ซื้อ </td>
+             <td>ชื่อผู้ป่วย </td>
              <td>&nbsp;&nbsp; : &nbsp;&nbsp;</td>
              <td> <?php echo $row['customer']; ?></td>
            </tr>
            <tr>
-             <td>เลือกอาหารทางสายยาง</td>
-             <td>&nbsp;&nbsp; : &nbsp;&nbsp;</td>
-             <td>
-               <select name="feed_id" required>
+             <table class="table table-striped table-bordered">
+               <tr class="warning">
+                 <th>รหัสวัตถุดิบ</th>
+                 <th>ชื่อวัตถุดิบ</th>
+                 <th>จำนวนในคลัง</th>
+                 <th>จำนวนที่ซื้อ</th>
+                 <th>ราคาต่อหน่วย</th>
+                 <th>หน่วยนับ</th>
+                 <th><div align = "center">ซื้อ</div></th>
+               </tr>
                <?php
-                  $sel = "SELECT * FROM stock_detail s JOIN feed f ON s.mat_id = f.feed_id WHERE s.stock_id = 'MT-06' GROUP BY s.mat_id";
-                  $res = mysql_query($sel,$connect1);
-                  while ($rows = mysql_fetch_array($res)) {
-              ?>
-                <option value="<?php echo $rows['feed_id']; ?>"><?php echo $rows['feed_name']; ?></option>
-              <?php
-                  }
+                 $table = "SELECT SUM(s.count),f.feed_id,f.feed_name,u.unit_name,u.unit_id FROM stock_detail s
+                                 JOIN feed f ON s.mat_id = f.feed_id
+                                 JOIN unit u ON s.unit_id = u.unit_id
+                                 GROUP BY f.feed_id";
+                 $result = mysql_query($table,$connect1);
+                 while ($row = mysql_fetch_array($result)){
+                 ?>
+                <form action="" method="post">
+                 <tr class ="info">
+                   <td><?php echo $row['feed_id']; ?></td>
+                   <td><?php echo $row['feed_name']; ?></td>
+                   <td><?php echo $row['SUM(s.count)']; ?></td>
+                   <td><input type="number" name="count" min="1" max="<?php echo $row['SUM(s.count)']; ?>" style="width:100px;" required></td>
+                   <td><input type="number" name="price" min="1" style="width:100px;" required></td>
+                   <td><?php echo $row['unit_name']; ?></td>
+                   <td align="center"><input type="submit" class="btn btn-success" value="เพิ่มในรายการ"></td>
+                  </tr>
+                  <input type="hidden" name="feed_id" value="<?php echo $row['feed_id']; ?>">
+                  <input type="hidden" name="unit_id" value="<?php echo $row['unit_id']; ?>">
+                </form>
+                <?php
+                 }
                 ?>
-                </select>
-             </td>
-             <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-             <td>จำนวน</td>
-             <td>&nbsp;&nbsp; : &nbsp;&nbsp;</td>
-             <td><input type="number" name="count" min="1" required></td>
-           </tr>
-           <tr>
-             <td>ราคาต่อหน่วย </td>
-             <td>&nbsp;&nbsp; : &nbsp;&nbsp;</td>
-             <td><input type="number" name="price" min="1" required> บาท</td>
-             <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-             <td>หน่วยนับ </td>
-             <td>&nbsp;&nbsp; : &nbsp;&nbsp;</td>
-             <td>
-               <select name="unit_id" required>
-               <?php
-                  $sel = "SELECT * FROM unit";
-                  $res = mysql_query($sel,$connect1);
-                  while ($rows = mysql_fetch_array($res)) {
-              ?>
-                <option value="<?php echo $rows['unit_id']; ?>"><?php echo $rows['unit_name']; ?></option>
-              <?php
-                  }
-                ?>
-                </select>
-             </td>
+             </table>
            </tr>
          </table>
-         <div class="modal-footer" style="padding-bottom : 0px;">
-             <input class="btn btn-success" type="submit" name="button" value="เพิ่มสินค้า">
-             <input class="btn btn-danger" type="reset" name="button" value="ยกเลิก">
-         </div>
-        </form>
+
           <?php
             if ($_POST) {
               $feed_id = $_POST['feed_id'];

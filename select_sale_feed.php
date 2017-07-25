@@ -59,7 +59,6 @@ include 'header.php';
       <th>จำนวน</th>
       <th>หน่วยนับ</th>
       <th>ราคารวม</th>
-      <th><div align = "center">ลบ</div></th>
     </tr>
   <?php
     $table = "SELECT d.feed_id,f.feed_name,SUM(d.count),u.unit_name,d.price FROM detail_sale_feed d
@@ -80,7 +79,6 @@ include 'header.php';
       <td><?php echo $row['SUM(d.count)']; ?></td>
       <td><?php echo $row['unit_name']; ?></td>
       <td align="right"><?php echo $row['SUM(d.count)']*$row['price']; ?></td>
-      <td><div align = "center"><a href="delete_detail_salefeed.php?id=<?php echo $id; ?>" ><img src='img/delete.png' width=25></a></div></td>
     </tr>
     <?php
      $total += $row['SUM(d.count)']*$row['price'];
@@ -88,8 +86,7 @@ include 'header.php';
     ?>
     <tr class ="info">
       <td colspan="5" align="right"><b>ราคาทั้งหมด : </b></td>
-      <td align="right"><b><?php echo $total; ?></b></td>
-      <td><b>บาท</b></td>
+      <td align="right"><b><?php echo $total; ?></b> <b>บาท</b></td>
     </tr>
   </table>
     <p align="right"><a href="sale_feed.php"><button type="button" class="btn btn-danger" name="button">ย้อนกลับ</button></a></p>

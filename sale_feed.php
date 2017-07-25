@@ -39,17 +39,12 @@ include 'header.php';
              <td> <?php echo $salefeed_id; ?></td>
            </tr>
            <tr>
-             <td>รหัสพนักงาน </td>
-             <td>&nbsp;&nbsp; : &nbsp;&nbsp;</td>
-             <td> <?php echo $username ;?></td>
-           </tr>
-           <tr>
              <td>วันที่ขาย </td>
              <td>&nbsp;&nbsp; : &nbsp;&nbsp;</td>
              <td> <?php echo $datethis; ?></td>
            </tr>
            <tr>
-             <td>ชื่อผู้ซื้อ </td>
+             <td>ชื่อผู้ป่วย </td>
              <td>&nbsp;&nbsp; : &nbsp;&nbsp;</td>
              <td> <input type="text" name="customer" required></td>
            </tr>
@@ -65,7 +60,7 @@ include 'header.php';
   <br>
   <div class="text-right">
     <form class="" action="#" method="get">
-      <b style="color:white;">ค้นหาชื่อผู้ซื้อ : </b>
+      <b style="color:white;">ค้นหาชื่อผู้ป่วย : </b>
       <input type="search" name="search" value="">
       <input  class="btn btn-success" type="submit" name="" value="ค้นหา">
     </form>
@@ -75,8 +70,7 @@ include 'header.php';
       <th>ลำดับ</th>
       <th>วันทีขาย</th>
       <th>รหัสการขาย</th>
-      <th>เจ้าหน้าที่</th>
-      <th>ผู้ซื้อ</th>
+      <th>ผู้ป่วย</th>
       <th>แก้ไข</th>
       <th><div align = "center">ดูข้อมูล</div></th>
       <th><div align = "center">พิมพ์ใบเสร็จรับเงิน</div></th>
@@ -98,9 +92,8 @@ include 'header.php';
       <td><?php echo $i; ?></td>
       <td><?php echo $row['date']; ?></td>
       <td><?php echo $row['salefeed_id']; ?></td>
-      <td><?php echo $row['username']; ?></td>
       <td><?php echo $row['customer']; ?></td>
-      <td><div align = "center"><a href="select_sale_feed.php?id=<?php echo $id; ?>" ><img src='img/sssss.png' width=25></a></div></td>
+      <td><div align = "center"><a href="sale_feed_con.php?salefeed_id=<?php echo $id; ?>" ><img src='img/edit.png' width=25></a></div></td>
       <td><div align = "center"><a href="select_sale_feed.php?id=<?php echo $id; ?>" ><img src='img/sssss.png' width=25></a></div></td>
       <td><div align = "center"><a target="_blank"  href="print_sale_feed.php?salefeed_id=<? echo $row['salefeed_id'];?>"><img src='img/print.png' width=25></a></div></td>
     </tr>
@@ -113,7 +106,7 @@ include 'header.php';
 <?php
   if ($_POST) {
     $customer = $_POST['customer'];
-    $sql = "INSERT INTO sale_feed VALUES('$salefeed_id','$username','$datethis','$customer')";
+    $sql = "INSERT INTO sale_feed VALUES('$salefeed_id','$datethis','$customer')";
     mysql_query($sql,$connect1);
     header("LOCATION:sale_feed_con.php?salefeed_id=$salefeed_id");
   }
