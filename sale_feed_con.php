@@ -88,9 +88,7 @@ include 'header.php';
               $count = $_POST['count'];
               $price = $_POST['price'];
               $unit_id = $_POST['unit_id'];
-
-              $sql = "INSERT INTO detail_sale_feed (salefeed_id,feed_id,count,price,unit_id) VALUES ('$salefeed_id','$feed_id','$count','$price','$unit_id')";
-              mysql_query($sql,$connect1);
+              header("location:update_detail_salefeed.php?salefeed_id=$salefeed_id&feed_id=$feed_id&count=$count&price=$price&unit_id=$unit_id");
             }
           ?>
     </h4>
