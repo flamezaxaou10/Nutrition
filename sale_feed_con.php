@@ -75,7 +75,20 @@ include 'header.php';
                    <td><input type="number" name="count" min="1" max="<?php echo $row['SUM(s.count)']; ?>" style="width:100px;" required></td>
                    <td><input type="number" name="price" min="1" style="width:100px;" required></td>
                    <td><?php echo $row['unit_name']; ?></td>
-                   <td align="center"><input type="submit" class="btn btn-success" value="เพิ่มในรายการ"></td>
+                   <td align="center">
+                     <?php
+                      $sel = "SELECT * FROM detail_sale_feed WHERE salefeed_id = '$salefeed_id'";
+                      $res = mysql_query($sel,$connect1);
+                      while ($rw = mysql_fetch_array($res)) {
+                      ?>
+                     <?php if ($row['feed_id'] == $rw['feed_id']): $chk = "disabled"; break; ?>
+                     <?php else: $chk = ""; ?>
+                     <?php endif; ?>
+                     <?php
+                      }
+                      ?>
+                      <input type="submit" class="btn btn-success" value="เพิ่มในรายการ" <?php echo $chk; ?>>
+                   </td>
                   </tr>
                   <input type="hidden" name="feed_id" value="<?php echo $row['feed_id']; ?>">
                   <input type="hidden" name="unit_id" value="<?php echo $row['unit_id']; ?>">
