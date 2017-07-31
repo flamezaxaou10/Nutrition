@@ -93,7 +93,7 @@ include 'header.php';
       <td><?php echo $row['date']; ?></td>
       <td><?php echo $row['salefeed_id']; ?></td>
       <td><?php echo $row['customer']; ?></td>
-      <td><div align = "center"><a href="sale_feed_con.php?salefeed_id=<?php echo $id; ?>" ><img src='img/edit.png' width=25></a></div></td>
+      <td><div align = "center"><a href="update_salefeed.php?salefeed_id=<?php echo $id; ?>" ><img src='img/edit.png' width=25></a></div></td>
       <td><div align = "center"><a href="select_sale_feed.php?id=<?php echo $id; ?>" ><img src='img/sssss.png' width=25></a></div></td>
       <td><div align = "center"><a target="_blank"  href="print_sale_feed.php?salefeed_id=<? echo $row['salefeed_id'];?>"><img src='img/print.png' width=25></a></div></td>
     </tr>
