@@ -135,6 +135,7 @@ exit();
     $name=$_POST['name'];
     $feed = $_POST['store'];
     $id_stock = $_POST['stock'];
+    $price = $_POST['price'];
     @include('conn.php');
     $strSQL = "SELECT * FROM feed";
     $objQuery = mysql_query($strSQL, $connect1);
@@ -147,7 +148,7 @@ exit();
 }
 if($flag==0){
   @include('conn.php');
-  $insert = "INSERT INTO feed  VALUES  ('$id','$name','$feed','$id_stock')";
+  $insert = "INSERT INTO feed  VALUES  ('$id','$name','$feed','$id_stock','$price')";
        $query = mysql_query($insert,$connect1);
             echo( "<script> alert('เพิ่มข้อมูลสำเร็จ');</script>");
 
@@ -183,7 +184,7 @@ if($flag==0){
                       $result = mysql_query($sql, $connect1);
                       while ($row = mysql_fetch_array($result)){
                     ?>
-                      <option value="<?php echo $row['id_stock2']; ?>"><?php echo $row['name_stock']; ?></option>
+                      <option value="<?php echo $row['id_stock']; ?>"><?php echo $row['name_stock']; ?></option>
                     <?php
                       }
                      ?>
@@ -218,6 +219,9 @@ if($flag==0){
                 }
                 ?>
                 </select><font color="red">&nbsp;*</font>
+                </h4>
+                <h4>
+                  ราคาต่อหน่วย : <input type="number" name="price" value=""> บาท
                 </h4>
 
                      <!--<input type="submit" name="search" value="Search"/>-->
@@ -262,6 +266,7 @@ echo"</script>";
     <th><div align="center">ชื่ออาหารทางสายยาง</div></th>
     <th><div align="center">ตัวแทนจำหน่ายอาหารทางสายยาง</div></th>
     <th><div align="center">ประเภทวัตถุดิบ</div></th>
+    <th><div align="center">ราคาต่อหน่วย</div></th>
     <th><div align="center">แก้ไขข้อมูล</div></th>
     <th><div align="center">ลบข้อมูล</div></th>
 
@@ -276,6 +281,7 @@ while ($objReSult = mysql_fetch_array($objQuery)) {
   <td><div align = "left"><? echo $objReSult["feed_name"];?></div></td>
   <td><div align = "left"><? echo $objReSult["res_name"];?></div></td>
   <td><div align = "left"><? echo $objReSult["name_stock"];?></div></td>
+  <td><? echo $objReSult["price"];?></td>
   <td><div align = "center"><a href='edit_feed2.php?id=<? echo $objReSult['feed_id'];?>&id2=<? echo $objReSult['feed_name']?>&id3=<? echo $objReSult['res_name'];?>' onclick="return confirm('ต้องการแก้ไขข้อมูลนี้?')"><b><font color="blue"><img src='img/edit.png' width=25></font></b></a></td>
   <td><div align = "center"><a href='delete_feed2.php?id=<? echo $objReSult['feed_id'];?>'
   onclick="return confirm('ยืนยันการลบข้อมูล')"><b><font color="red"><img src='img/delete.png' width=25></font></b></a></td>

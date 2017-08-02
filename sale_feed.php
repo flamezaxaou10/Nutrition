@@ -71,9 +71,8 @@ include 'header.php';
       <th>วันทีขาย</th>
       <th>รหัสการขาย</th>
       <th>ผู้ป่วย</th>
-      <th>แก้ไข</th>
       <th><div align = "center">ดูข้อมูล</div></th>
-      <th><div align = "center">พิมพ์ใบเสร็จรับเงิน</div></th>
+      <th><div align = "center">พิมพ์ใบสั่งยา</div></th>
     </tr>
   <?php
     $table = "SELECT * FROM sale_feed ORDER BY sale_feed.salefeed_id DESC";
@@ -93,7 +92,6 @@ include 'header.php';
       <td><?php echo $row['date']; ?></td>
       <td><?php echo $row['salefeed_id']; ?></td>
       <td><?php echo $row['customer']; ?></td>
-      <td><div align = "center"><a href="update_salefeed.php?salefeed_id=<?php echo $id; ?>" ><img src='img/edit.png' width=25></a></div></td>
       <td><div align = "center"><a href="select_sale_feed.php?id=<?php echo $id; ?>" ><img src='img/sssss.png' width=25></a></div></td>
       <td><div align = "center"><a target="_blank"  href="print_sale_feed.php?salefeed_id=<? echo $row['salefeed_id'];?>"><img src='img/print.png' width=25></a></div></td>
     </tr>
