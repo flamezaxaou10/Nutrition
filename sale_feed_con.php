@@ -135,7 +135,7 @@ include 'header.php';
       <td><?php echo $row['feed_name']; ?></td>
       <td><?php echo $row['SUM(d.count)']; ?></td>
       <td><?php echo $row['unit_name']; ?></td>
-      <td align="right"><?php echo $row['SUM(d.count)']*$row['price']; ?></td>
+      <td align="right"><?php echo number_format($row['SUM(d.count)']*$row['price'],2); ?></td>
       <td><div align = "center"><a href="delete_detail_salefeed.php?salefeed_id=<?php echo $salefeed_id; ?>&feed_id=<?php echo $row['feed_id']; ?>" ><img src='img/delete.png' width=25 data-dismiss="modal" onclick="return confirm('ต้องการลบรายการนี้?')"></a></div></td>
     </tr>
     <?php
@@ -144,7 +144,7 @@ include 'header.php';
     ?>
     <tr class ="info">
       <td colspan="5" align="right"><b>ราคาทั้งหมด : </b></td>
-      <td align="right"><b><?php echo $total; ?></b></td>
+      <td align="right"><b><?php echo number_format($total,2); ?></b></td>
       <td><b>บาท</b></td>
     </tr>
   </table>
@@ -193,7 +193,7 @@ include 'header.php';
             ?>
             <tr class ="info">
               <td colspan="5" align="right"><b>ราคาทั้งหมด : </b></td>
-              <td align="right"><b><?php echo $total; ?></b></td>
+              <td align="right"><b><?php echo number_format($total,2); ?></b></td>
               <td align="center"><b>บาท</b></td>
             </tr>
         </table>
