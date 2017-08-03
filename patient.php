@@ -154,21 +154,24 @@ error_reporting(0);
 ?>
 </select>
 
-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <?php
     date_default_timezone_set("Asia/Bangkok") ;
     $time = date("H");
-    echo "Time : ".date("H:i:s");
     if ($time >= "05" && $time <= "09") {
       $val = 4;
+      echo " มื้ออาหาร : เช้า";
     }
     else if ($time >= "10" && $time <= "14") {
       $val = 5;
+      echo " มื้ออาหาร : กลางวัน";
     }
     else if ($time >= "15" && $time <= "19") {
       $val = 6;
+      echo " มื้ออาหาร : เย็น";
     }
  ?>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <input type="hidden" name="eats" value="<?php echo $val; ?>">
 <input type="checkbox" name="check_food1" value="t1">
 <label>สามัญทั้งหมด</label>
@@ -213,7 +216,6 @@ $objQuery = mysql_query($strSQL) or die("Error Query [".$strSQL."]");
     <th><div align="center">เลขที่ผู่ป่วย</div></th>
     <th><div align="center">ชื่อ</div></th>
     <th><div align="center">นามสกุล</div></th>
-    <th><div align="center">มื้ออาหาร</div></th>
     <th><div align="center">สามัญ</div></th>
     <th><div align="center">พิเศษ</div></th>
     <th><div align="center">อาหารเฉพาะโรค</div></th>
@@ -233,31 +235,7 @@ $i++;
   <td><div align = "center"><? echo $objReSult["an"];?></div></td>
   <td><div><? echo $objReSult["fname"];?></div></td>
   <td><div><? echo $objReSult["lname"];?></div></td>
-  <td><div align = "center">
-  <? if ($eats == 4) {
-    # code...
-    echo "เช้า";
-    ?>
-    <input type=hidden name="eats" value = "<? echo $eats;?>">
-    <?
-    }
-
-      elseif ($eats == 5) {
-      echo "กลางวัน";
-      ?>
-    <input type=hidden name="eats" value = "<? echo $eats;?>">
-    <?
-    }
-    elseif ($eats == 6) {
-      # code...
-      echo "เย็น";
-      ?>
-            <input type=hidden name="eats" value = "<? echo $eats;?>">
-            <?
-    }
-  ?>
-  </div>
-  </td>
+  <input type=hidden name="eats" value = "<? echo $eats;?>">
   <td><div>
   <center>
     <input type="radio" name="chkfood<?echo "$i";?>" value="1_<? echo $objReSult["hn"];?>" <?php
