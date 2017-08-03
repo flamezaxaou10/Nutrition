@@ -127,8 +127,10 @@ exit();
 
   <div class="modal-body">
   <?php
-  $id=$_GET['id'];
-  $name=$_GET['id2'];
+  $id=$_GET['feed_id'];
+  $name=$_GET['feed_name'];
+  $id_stock = $_GET['id_stock'];
+  $price = $_GET['price'];
   $flag=0;
   if(isset($_POST['submit'])){
     $id=$_POST['id'];
@@ -172,8 +174,14 @@ if($flag==0){
                       $sql = "SELECT * FROM stock";
                       $result = mysql_query($sql, $connect1);
                       while ($row = mysql_fetch_array($result)){
+                        if ($row['id_stock'] = $id_stock) {
+                          $select = "selected";
+                        }
+                        else {
+                          $select = "";
+                        }
                     ?>
-                      <option value="<?php echo $row['id_stock']; ?>"><?php echo $row['name_stock']; ?></option>
+                      <option value="<?php echo $row['id_stock']; ?>" <?php echo $select; ?>><?php echo $row['name_stock']; ?></option>
                     <?php
                       }
                      ?>
@@ -187,16 +195,22 @@ if($flag==0){
                     <h4> ร้านค้า : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                       <select name = "store">
                         <option>------กรุณาเลือกร้านค้า-----</option>
-                      <?php while ($objReSult = mysql_fetch_array($objQuery)) {?>
-                        <option value="<?php echo $objReSult['res_id'];?>"
-                        <?php if($_GET['id3']==$objReSult['res_name']){echo "selected";}?>>
+                      <?php while ($objReSult = mysql_fetch_array($objQuery)) {
+                        if ($row['id_stock'] = $id_stock) {
+                          $select = "selected";
+                        }
+                        else {
+                          $select = "";
+                        }
+                        ?>
+                        <option value="<?php echo $objReSult['res_id'];?>" <?php echo $select; ?> >
                         <?php echo $objReSult['res_name'];?>
                         </option>
                       <?php }?>
                       </select><font color="red"> &nbsp;*</font>
                     </h4>
                     <h4>
-                      ราคาต่อหน่วย : <input type="number" name="price" value=""> บาท
+                      ราคาต่อหน่วย : <input type="number" name="price" value="<?php echo $price; ?>"> บาท
                     </h4>
 
          <div class="modal-footer">
