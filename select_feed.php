@@ -303,7 +303,7 @@ $username=$_SESSION["Username"];
               </tr>
 							<?php
               $no=1;
-              $strSQL = "SELECT * FROM detail_buymat a,feed b,unit c where a.mat_id=b.feed_id and a.unit_id=c.unit_id AND a.id_mat='$id'";
+              $strSQL = "SELECT a.id_detail,b.feed_name,a.count,c.unit_name,a.price FROM detail_buymat a,feed b,unit c where a.mat_id=b.feed_id and a.unit_id=c.unit_id AND a.id_mat='$id'";
 
               $objQuery = mysql_query($strSQL,$connect1) or die("Error Query [".$strSQL."]");
               while ($objReSult = mysql_fetch_array($objQuery)) {
