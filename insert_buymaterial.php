@@ -232,7 +232,7 @@ $username=$_SESSION["Username"];
 
 			<div class="jumbotron">
 <?php
-$strSQL = "SELECT * FROM buymeterial WHERE typebuy= '1' order by date desc";
+$strSQL = "SELECT * FROM buymeterial WHERE typebuy= '1' order by id_mat desc";
 $objQuery = mysql_query($strSQL,$connect1) or die("Error Query [".$strSQL."]");
  ?>
 		 <h4>ประวัติการสั่งซื้อวัตถุดิบ</h4>

@@ -220,7 +220,7 @@ $username=$_SESSION["Username"];
 
 			<div class="jumbotron">
 <?php
-$strSQL = "SELECT * FROM buymeterial WHERE typebuy= '2' order by date desc";
+$strSQL = "SELECT * FROM buymeterial WHERE typebuy= '2' order by id_mat DESC";
 $objQuery = mysql_query($strSQL,$connect1) or die("Error Query [".$strSQL."]");
  ?>
 		 <h4>ประวัติการสั่งซื้ออาหารทางสายยาง</h4>
