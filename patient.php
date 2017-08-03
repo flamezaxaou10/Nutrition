@@ -20,7 +20,7 @@ exit();
 
 <link rel="icon" href="img/icon300.ico" type="image/x-icon"/>
 
- 
+
   <link rel="stylesheet" href="css/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/css/bootstrap.css">
   <link rel="stylesheet" type="text/css" href="css/css/myStyle2.css">
@@ -98,11 +98,11 @@ $eats = "0";
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
         <li><a href="index.php">HOME</a></li>
-       
+
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">NUTRITION
           <span class="caret"></span></a>
-          
+
            <ul class="dropdown-menu">
               <li align = "center"><a href="HN_patient.php">ข้อมูลผู้ป่วย</a></li>
             <li align = "center"><a href="user.php">ข้อมูลเจ้าหน้าที่</a></li>
@@ -154,13 +154,22 @@ error_reporting(0);
 ?>
 </select>
 
-<label for="department">&nbsp;&nbsp;มื้อ :&nbsp;&nbsp; </label><select id="eats" name="eats"    onchange="document.getElementById('selected_text').value=this.options[this.selectedIndex].text">
-<option value="o" <?if ($_POST['eats']=="0") {echo"selected";}?> >-------กรุณาเลือกมื้ออาหาร-------</option>
-     <option value=4 <?if ($_POST["eats"]=="4") {echo"selected";} ?>>เช้า</option>
-     <option value=5 <? if ($_POST["eats"]=="5"){echo"selected";}?>>กลางวัน</option>
-     <option value=6 <? if ($_POST["eats"]=="6"){echo"selected";}?>>เย็น</option>
-</select>
 
+<?php
+    date_default_timezone_set("Asia/Bangkok") ;
+    $time = date("H");
+    echo "Time : ".date("H:i:s");
+    if ($time >= "05" && $time <= "09") {
+      $val = 4;
+    }
+    else if ($time >= "10" && $time <= "14") {
+      $val = 5;
+    }
+    else if ($time >= "15" && $time <= "19") {
+      $val = 6;
+    }
+ ?>
+<input type="hidden" name="eats" value="<?php echo $val; ?>">
 <input type="checkbox" name="check_food1" value="t1">
 <label>สามัญทั้งหมด</label>
 <input type="checkbox" name="check_food2" value="t2">
@@ -227,7 +236,7 @@ $i++;
   <td><div align = "center">
   <? if ($eats == 4) {
     # code...
-    echo "เช้า"; 
+    echo "เช้า";
     ?>
     <input type=hidden name="eats" value = "<? echo $eats;?>">
     <?
@@ -295,24 +304,24 @@ $i++;
 
 <script>
 
-function chk_all(){  
-    var x=document.getElementsByTagName("input");  
+function chk_all(){
+    var x=document.getElementsByTagName("input");
     for(i=0;i<=x.length;i++){
       list($data1,$data2) = split("_", $test);
-        if(x[i].type=="radio"){  
-            x[i].checked=true;  
-        }  
-    }  
-}  
+        if(x[i].type=="radio"){
+            x[i].checked=true;
+        }
+    }
+}
 
-function unchk_all(){  
-    var x=document.getElementsByTagName("input");  
-    for(i=0;i<=x.length;i++){  
-        if(x[i].type=="radio"){  
-            x[i].checked=false;  
-        }  
-    }  
-}  
+function unchk_all(){
+    var x=document.getElementsByTagName("input");
+    for(i=0;i<=x.length;i++){
+        if(x[i].type=="radio"){
+            x[i].checked=false;
+        }
+    }
+}
 
 function setHn(id){
   $('#hnModal').html(id);
@@ -362,13 +371,13 @@ function submitModal(){
   });
   }
   // alert(idFood + ' ' + hn + ' ' + detail);
- 
+
 }
 
 $(document).ready(function(){
   // Initialize Tooltip
   $('[data-toggle="tooltip"]').tooltip();
-  
+
   // Add smooth scrolling to all links in navbar + footer link
   $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
 
@@ -386,7 +395,7 @@ $(document).ready(function(){
       $('html, body').animate({
         scrollTop: $(hash).offset().top
       }, 900, function(){
-   
+
         // Add hash (#) to URL when done scrolling (default click behavior)
         window.location.hash = hash;
       });
@@ -413,10 +422,10 @@ $(document).ready(function(){
       <h4> ชื่อผู้ป่วย :&nbsp;<span id="fname_modal"></span> &nbsp;<span id="lname_modal"></span></b></h4>
       <h4>น้ำหนัก : <input type="text" name="weight" id="weight_modal" size="10" maxlength="3" style="text-align: center;">&nbsp;กิโลกรัม <font color="red">&nbsp;*</font>
       <h4>ส่วนสูง : <input type="text" name="height" id="height_modal" size="10" maxlength="3" style="text-align: center;">&nbsp;เซนตมตร<font color="red">&nbsp;*</font></h4>
-      <h4>มื้ออาหาร : 
+      <h4>มื้ออาหาร :
   <? if ($eats == 4) {
     # code...
-    echo "เช้า"; 
+    echo "เช้า";
     ?>
     <input type=hidden name="eats2" id="eats2" value ="<? echo $eats;?>">
     <?
@@ -437,8 +446,8 @@ $(document).ready(function(){
     }
   ?></h4>
 
-   
-    <h4>ประเภทอาหารของอาหาร : 
+
+    <h4>ประเภทอาหารของอาหาร :
         <!-- ดึงข้อมูลอาหาร -->
           <select id="food" name="food" onchange="document.getElementById('selected_text').value=this.options[this.selectedIndex].text">
         <option value="o">-------แสดงทั้งหมด-------</option>
@@ -454,12 +463,12 @@ $(document).ready(function(){
             }
            ?>
       </select><font color="red">&nbsp;*</font></b></h4>
-      
+
           <h4> รายละเอียด : <label id="textdis"></label></h4>
           <div class="form-group">
           <textarea class="form-control" rows="5" id="detail" name="detail" data-validation="required"></textarea>
       </div>
-      
+
       <div class="modal-footer">
         <input type="button" onclick="submitModal()" name= "submit" class="btn btn-success" value = "เพิ่มข้อมูล" >
         <button type="button" class="btn btn-danger" data-dismiss="modal">ยกเลิก</button>
@@ -486,7 +495,7 @@ $i++;
     <!-- <td><div align="center"><?php echo $objResult["Username"];?></div></td>
     <td><?php echo $objResult["name"];?></td>
     <td align="center"><input name="Chk<?php echo $i;?>" id="Chk<?php echo $i;?>" type="checkbox" value="<?php echo $objResult["join_userid"];?>"></td> -->
- 
+
   <!-- </tr>
   for($i = 1;$i > 50;$i++)
   {
