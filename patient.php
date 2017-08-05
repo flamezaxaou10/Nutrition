@@ -153,31 +153,27 @@ $eats = "0";
 error_reporting(0);
 ?>
 </select>
-
+ <br> <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<?php
-    date_default_timezone_set("Asia/Bangkok") ;
-    $time = date("H");
-    if ($time >= "05" && $time <= "09") {
-      $val = 4;
-      echo " มื้ออาหาร : เช้า";
-    }
-    else if ($time >= "10" && $time <= "14") {
-      $val = 5;
-      echo " มื้ออาหาร : กลางวัน";
-    }
-    else if ($time >= "15" && $time <= "19") {
-      $val = 6;
-      echo " มื้ออาหาร : เย็น";
-    }
- ?>
+ <label for="fooder"> มื้ออาหาร : </label>
+<select id="food" name="eats" onchange="document.getElementById('selected_text').value=this.options[this.selectedIndex].text">
+  <option disabled>---เลือกมื้ออาหาร---</option>
+  <option value="4">เช้า</option>
+  <option value="5">กลางวัน</option>
+  <option value="6">เย็น</option>
+</select>
+
  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<input type="hidden" name="eats" value="<?php echo $val; ?>">
 <input type="checkbox" name="check_food1" value="t1">
 <label>สามัญทั้งหมด</label>
 <input type="checkbox" name="check_food2" value="t2">
 <label>พิเศษทั้งหมด</label>
-
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <?php
+  date_default_timezone_set("Asia/Bangkok");
+  $d=strtotime("tomorrow");
+  ?>
+ วันที่ : <?php echo date("d-m-Y",$d); ?>
 <? $strDefault = $objReSult['clinic']; ?>
 <input type="hidden" name="selected_text" id="selected_text" value="" />
   &nbsp;&nbsp;<input type="submit" name = "search" class="btn btn-success" value="ค้นหา">
@@ -209,6 +205,20 @@ $objQuery = mysql_query($strSQL) or die("Error Query [".$strSQL."]");
 ?>
 <form method="POST" action="chkPHP.php">
 <table class="table table-striped table-bordered">
+  <tr class="warning">
+    <th>
+      <div class="text-center">
+        มื้ออาหาร :
+        <?php if ($eats == 4): ?>
+          เช้า
+        <?php elseif ($eats == 5): ?>
+          กลางวัน
+        <?php elseif ($eats == 6): ?>
+          เย็น
+        <?php endif; ?>
+      </div>
+    </td>
+  </tr>
   <tr class="warning">
     <th><div align="center">รหัสแผนก</div></th>
     <th><div align="center">ชื่อแผนก</div></th>
@@ -309,47 +319,41 @@ function setHn(id){
   data: { 'hn': id},
   success:function(response){
     var data = JSON.parse(response);
+    $('#clinic').html(data.clinicdescribe);
     $('#fname_modal').html(data.fname);
     $('#lname_modal').html(data.lname);
-    $('#weight_modal').val(data.weight);
-    $('#height_modal').val(data.height);
     console.log(data);
   }
 });
  // alert(id);
 }
 function submitModal(){
-  alert("เพิ่มข้อมูลสำเร็จ");
-  var idFood = $('#food').val();
+  var idFood = $('#idfood').val();
   var hn = $('#hnModal').html();
-  var detail =$('#detail').val();
   var eats = $('#eats2').val();
-  var weight = $('#weight_modal').val();
-  var height = $('#height_modal').val();
-  if(detail.trim() === '' || idFood === "0" || eats === "0"){
-    alert('กรุณากรอกข้อมูลให้ครบถ้วน !!');
-    return;
-  }else{
+  var roomno = $('#roomno').val();
+  var bedno = $('#bedno').val();
+  if(idFood === "" || roomno === "" || bedno === "" || eats === ""){
+    alert("กรุณากรอกข้อมูลให้ครบถ้วน");
+  }
+  else{
+    alert("เพิ่มข้อมูลสำเร็จ");
      //alert(eats);
    $.ajax({
   type: "POST",
   url: "insert_spec.php",
-  data: { 'hn': hn,
+  data: {
+    'hn': hn,
     'food' : idFood,
-    'detail' : detail,
-    'name' : name,
-    'eats' : eats,
-    'weight' : weight,
-    'height' : height
+    'eats2' : eats,
+    'roomno' : roomno,
+    'bedno' : bedno
   }
 })
   .done(function( msg ) {
-     // alert( "Send Data : " + msg);
      $('#myModal').modal('hide');
   });
-  }
-  // alert(idFood + ' ' + hn + ' ' + detail);
-
+ }
 }
 
 $(document).ready(function(){
@@ -398,8 +402,7 @@ $(document).ready(function(){
 
       <h4> รหัสผู้ป่วย : <label id="hnModal"></label></h4>
       <h4> ชื่อผู้ป่วย :&nbsp;<span id="fname_modal"></span> &nbsp;<span id="lname_modal"></span></b></h4>
-      <h4>น้ำหนัก : <input type="text" name="weight" id="weight_modal" size="10" maxlength="3" style="text-align: center;">&nbsp;กิโลกรัม <font color="red">&nbsp;*</font>
-      <h4>ส่วนสูง : <input type="text" name="height" id="height_modal" size="10" maxlength="3" style="text-align: center;">&nbsp;เซนตมตร<font color="red">&nbsp;*</font></h4>
+      <h4> แผนก : <label id="clinic"></label></h4>
       <h4>มื้ออาหาร :
   <? if ($eats == 4) {
     # code...
@@ -424,27 +427,9 @@ $(document).ready(function(){
     }
   ?></h4>
 
-
-    <h4>ประเภทอาหารของอาหาร :
-        <!-- ดึงข้อมูลอาหาร -->
-          <select id="food" name="food" onchange="document.getElementById('selected_text').value=this.options[this.selectedIndex].text">
-        <option value="o">-------แสดงทั้งหมด-------</option>
-        <?
-          @include('conn.php');
-          $strSQL = "SELECT DISTINCT id_type, type_name FROM type_food";
-          $objQuery = mysql_query($strSQL,$connect1) or die("Error Query [".$strSQL."]");
-          while ($objReSult = mysql_fetch_array($objQuery)) {
-
-        ?>
-         <option value=<?echo $objReSult["id_type"];?>><?echo $objReSult["type_name"];?></option>
-           <?
-            }
-           ?>
-      </select><font color="red">&nbsp;*</font></b></h4>
-
-          <h4> รายละเอียด : <label id="textdis"></label></h4>
-          <div class="form-group">
-          <textarea class="form-control" rows="5" id="detail" name="detail" data-validation="required"></textarea>
+    <h4>ห้อง : <input type="text" name="roomno"  id="roomno"></h4>
+    <h4>เตียง : <input type="text" name="bedno"  id="bedno"></h4>
+    <h4>ชนิดของอาหาร : <input type="text" name="food"  id="idfood"></h4>
       </div>
 
       <div class="modal-footer">
@@ -460,22 +445,3 @@ $(document).ready(function(){
 
 </body>
 </html>
-
-
-<!-- $i = 0;
-while($objResult = mysql_fetch_array($objQuery))
-{
-$i++;
-?>
-
-  <tr>
-  <!--  <td><div align="center"><?php // echo $objResult["UserID"];?></div></td>-->
-    <!-- <td><div align="center"><?php echo $objResult["Username"];?></div></td>
-    <td><?php echo $objResult["name"];?></td>
-    <td align="center"><input name="Chk<?php echo $i;?>" id="Chk<?php echo $i;?>" type="checkbox" value="<?php echo $objResult["join_userid"];?>"></td> -->
-
-  <!-- </tr>
-  for($i = 1;$i > 50;$i++)
-  {
-     $Arrey[$i] = $_POST['Chk1']; -->
-  <!-- } -->
