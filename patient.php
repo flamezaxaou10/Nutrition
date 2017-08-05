@@ -164,9 +164,10 @@ error_reporting(0);
 <?php
  date_default_timezone_set("Asia/Bangkok");
  $d=strtotime("tomorrow");
+ $todate = date("d-m-Y",$d);
  ?>
  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
- <b>วันที่ : <?php echo date("d-m-Y",$d); ?></b>
+ <b>วันที่ : <?php echo $todate; ?></b>
  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <input type="checkbox" name="check_food1" value="t1">
 <label>สามัญทั้งหมด</label>
@@ -249,13 +250,13 @@ $i++;
   <td><div>
   <center>
     <input type="radio" name="chkfood<?echo "$i";?>" value="1_<? echo $objReSult["hn"];?>" <?php
-     if($chec1=='t1'){echo "checked";}?> >
+     if($chec1=='t1'){echo "checked";}?> onclick="del(<? echo $objReSult['hn'];?>,<?php echo $eats; ?>)">
   </center>
   </div></td>
   <td><div>
   <center>
     <input type="radio" name="chkfood<?echo "$i";?>" value="2_<? echo $objReSult["hn"];?>" <?php
-    if($chec2=='t2'){echo "checked";}?>>
+    if($chec2=='t2'){echo "checked";}?> onclick="del(<? echo $objReSult['hn'];?>,<?php echo $eats; ?>)">
   </center>
   </div></td>
   <td><div><center><input type="radio" name="chkfood<?php echo $i;?>" value="" data-toggle="modal" name="hn" onclick="setHn(<? echo $objReSult['hn'];?>)" href="#myModal" value = "<? echo $objReSult['hn'];?>"></center></div></td>
@@ -309,6 +310,16 @@ function unchk_all(){
             x[i].checked=false;
         }
     }
+}
+function del(id,eats){
+  $.ajax({
+    type: "GET",
+    url: "delete_orderfood.php",
+    data: {
+      'hn': id,
+      'eats' : eats,
+    }
+  });
 }
 
 function setHn(id){
@@ -442,6 +453,5 @@ $(document).ready(function(){
 </div>
 </div>
 </form>
-
 </body>
 </html>

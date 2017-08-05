@@ -20,7 +20,7 @@ exit();
 
 <link rel="icon" href="img/icon300.ico" type="image/x-icon"/>
 
- 
+
   <link rel="stylesheet" href="css/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/css/bootstrap.css">
   <link rel="stylesheet" type="text/css" href="css/css/myStyle2.css">
@@ -121,11 +121,11 @@ thead {display: table-header-group;}
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
         <li><a href="index.php">HOME</a></li>
-       
+
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">NUTRITION
           <span class="caret"></span></a>
-         
+
 
            <ul class="dropdown-menu">
                 <li align = "center"><a href="HN_patient.php">ข้อมูลผู้ป่วย</a></li>
@@ -141,7 +141,7 @@ thead {display: table-header-group;}
           </ul>
 
 
-          
+
         </li>
         <li><a href=""><span class="glyphicon glyphicon-user"> <? echo $_SESSION["Username"];?></span></a></li>
         <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Log out</a></li>
@@ -181,13 +181,13 @@ thead {display: table-header-group;}
       error_reporting(0);
      ?>
 </select><font color="red"> &nbsp;*</font></h4>
-<!--<h4> ประเภทการสั่งอาหารอาหาร : 
+<!--<h4> ประเภทการสั่งอาหารอาหาร :
 <select id="dfood" name="dfood"    onchange="document.getElementById('selected_text').value=this.options[this.selectedIndex].text">
 <option value="o" <?if ($_POST['dfood']=="0") {echo"selected";}?>>-------กรุณาเลือกประเภทการสั่งอาหาร-------</option>
      <option value=1 <?if ($_POST['dfood']=="1") {echo"selected";}?>>สามัญ</option>
      <option value=2 <?if ($_POST['dfood']=="2") {echo"selected";}?>>พิเศษ</option>
      <option value=3 <?if ($_POST['dfood']=="3") {echo"selected";}?>>เฉพาะโรค</option>
-     
+
 </select><font color="red"> &nbsp;*</font>-->
 <h4> ช่วงเวลา : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
@@ -197,15 +197,15 @@ thead {display: table-header-group;}
      <option value=4 <?if ($_POST['eats']=="4") {echo"selected";}?>>เช้า</option>
      <option value=5 <?if ($_POST['eats']=="5") {echo"selected";}?>>กลางวัน</option>
      <option value=6 <?if ($_POST['eats']=="6") {echo"selected";}?>>เย็น</option>
-     
+
 </select><font color="red"> &nbsp;*</font>
 
-<h4> กรุณาเลือกวันที่ : 
+<h4> กรุณาเลือกวันที่ :
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 &nbsp;
 
 
-  
+
 
 <input type="hidden" name="selected_text" id="selected_text" value="" />
 <input type="date" name="daytime" size = "8" value="<?php echo $_POST['daytime']; ?>"><font color="red"> &nbsp;*</font><br>
@@ -229,11 +229,11 @@ thead {display: table-header-group;}
 
   <div class="col-md-3"><value="แผนก" display="">มื้อ : <?if ($_POST['eats'] == 4) {
     # code...
-    echo "เช้า"; 
+    echo "เช้า";
     }
       elseif ($_POST["eats"] == 5) {
       echo "กลางวัน";
- 
+
     }
     elseif ($_POST["eats"] == 6) {
       # code...
@@ -307,7 +307,7 @@ if ($dep != 0) {
     <th width = "11%"><div align="center">ประเภทผู้ป่วย</div></th>
     <th width = "15%"><div align="center">ประเภทอาหาร</div></th>
     <th width = "50%"><div align="center">รายละเอียด</div></th>
-    
+
   </tr>
 </thead>
   <?
@@ -327,7 +327,7 @@ $i++;
   <td><div align = "center">
   <?php if($objReSult["type_order"]=='1'){
       echo 'สามัญ';
-  } 
+  }
   else if($objReSult["type_order"]=='2'){
       echo 'พิเศษ';
   }
@@ -338,7 +338,7 @@ $i++;
   <td><div align = "center">
   <?php if($objReSult["type_order"]=='1'){
       echo 'ธรรมดา';
-  } 
+  }
   else if($objReSult["type_order"]=='2'){
       echo 'พิเศษ';
   }
@@ -346,12 +346,12 @@ $i++;
       echo 'อาหารเฉพาะโรค';
   }
   ?>
-  <td><div align = "center"><? echo $objReSult["detail_food"];?></div></td>
-  
+  <td><div align = "center"><? echo $objReSult["type_food"];?></div></td>
+
   </div></td>
 
   </tr>
-  
+
   <?
 }
  $strSQL1 = "SELECT count(type_order) as a1 FROM order_food where clinic = '".$dep."' and type_order = 1";
@@ -394,10 +394,10 @@ $i++;
   <div style=" margin-left: 58%;"></div><br/>
   <div style=" margin-left: 50%;">ลงชื่อ.......................................พยาบาลหัวหน้าเวร</div>
   <!-- <div style=" margin-left: 57%;">เจ้าหน้าที่พยาบาล </div> -->
-     
+
 <?
   }
-    } 
+    }
   elseif ($food == 2) {
       # code...
       if(isset($day)){
@@ -425,7 +425,7 @@ $i++;
   <td><div align = "center"><? echo $objReSult["HN"];?></div></td>
   <td><div><? echo $objReSult["fname"]." ". $objReSult["lname"];?></div></td>
   </tr>
-  
+
   <?
 }
 ?>
@@ -478,12 +478,12 @@ $i++;
 }
 ?>
 </table>
-<?  
+<?
 }
 }
 }
 else {
-  
+
 }
 ?>
 </div>
