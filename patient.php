@@ -258,8 +258,8 @@ $i++;
     if($chec2=='t2'){echo "checked";}?>>
   </center>
   </div></td>
-  <td><div><center><a data-toggle="modal" name="hn" onclick="setHn(<? echo $objReSult["hn"];?>)" href="#myModal" value = "<? echo $objReSult["hn"];?>" >สั่งอาหาร</a></center></div></td>
-  <input type=hidden name="$new_hn[]" value = <? echo $objReSult["hn"];?>
+  <td><div><center><input type="radio" name="chkfood<?php echo $i;?>" value="" data-toggle="modal" name="hn" onclick="setHn(<? echo $objReSult['hn'];?>)" href="#myModal" value = "<? echo $objReSult['hn'];?>"></center></div></td>
+  <input type=hidden name="$new_hn[]" value = <? echo $objReSult["hn"];?> >
   </tr>
   <?
  // $temp = array("a", "b", "c");

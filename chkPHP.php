@@ -74,5 +74,5 @@ else
 }
 
 }
-echo "";
+  header("LOCATION:report.php");
 ?>
