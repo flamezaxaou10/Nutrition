@@ -153,8 +153,7 @@ $eats = "0";
 error_reporting(0);
 ?>
 </select>
- <br> <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <br>
  <label for="fooder"> มื้ออาหาร : </label>
 <select id="food" name="eats" onchange="document.getElementById('selected_text').value=this.options[this.selectedIndex].text">
   <option disabled>---เลือกมื้ออาหาร---</option>
@@ -162,18 +161,19 @@ error_reporting(0);
   <option value="5">กลางวัน</option>
   <option value="6">เย็น</option>
 </select>
-
+<?php
+ date_default_timezone_set("Asia/Bangkok");
+ $d=strtotime("tomorrow");
+ ?>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <b>วันที่ : <?php echo date("d-m-Y",$d); ?></b>
  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <input type="checkbox" name="check_food1" value="t1">
 <label>สามัญทั้งหมด</label>
 <input type="checkbox" name="check_food2" value="t2">
 <label>พิเศษทั้งหมด</label>
  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
- <?php
-  date_default_timezone_set("Asia/Bangkok");
-  $d=strtotime("tomorrow");
-  ?>
- วันที่ : <?php echo date("d-m-Y",$d); ?>
+
 <? $strDefault = $objReSult['clinic']; ?>
 <input type="hidden" name="selected_text" id="selected_text" value="" />
   &nbsp;&nbsp;<input type="submit" name = "search" class="btn btn-success" value="ค้นหา">
@@ -395,14 +395,14 @@ $(document).ready(function(){
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">การสั่งอาหารพิเศษ</h4>
+        <h4 class="modal-title">การสั่งอาหารเฉพาะโรค</h4>
       </div>
 
       <div class="modal-body">
 
       <h4> รหัสผู้ป่วย : <label id="hnModal"></label></h4>
+      <h4> แผนก : <span id="clinic"></span></h4>
       <h4> ชื่อผู้ป่วย :&nbsp;<span id="fname_modal"></span> &nbsp;<span id="lname_modal"></span></b></h4>
-      <h4> แผนก : <label id="clinic"></label></h4>
       <h4>มื้ออาหาร :
   <? if ($eats == 4) {
     # code...
