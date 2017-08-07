@@ -156,44 +156,10 @@ thead {display: table-header-group;}
       <p>รายงานการจัดส่งอาหารให้กับผู้ป่วย</p>
       <div class="modal-body">
       <form method="POST" action="#">
-  <h4>แผนก : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-  <select id="dep" name="dep"    onchange="document.getElementById('selected_text').value=this.options[this.selectedIndex].text">
-  <option value="o">-----------------------กรุณาเลือกแผนก-----------------------</option>
-  <?
-    @include('conn.php');
-    $strSQL = "SELECT DISTINCT clinic, clinicdescribe FROM fpatient_info order by clinicdescribe";
-    $objQuery = mysql_query($strSQL, $connect2);
-    while ($objReSult = mysql_fetch_array($objQuery)) {
-      if ($_POST["dep"] == $objReSult['clinic']) {
-        # code...
-        $sel = "selected";
-      }
-      else
-      {
-        $sel = "";
-      }
-  ?>
-     <option value="<? echo $objReSult["clinic"];?>" <? echo $sel; ?> > <? echo $objReSult["clinicdescribe"];?></option>
-     <?
-      }
-      error_reporting(0);
-     ?>
-</select><font color="red"> &nbsp;*</font></h4>
-<!--<h4> ประเภทการสั่งอาหารอาหาร :
-<select id="dfood" name="dfood"    onchange="document.getElementById('selected_text').value=this.options[this.selectedIndex].text">
-<option value="o" <?if ($_POST['dfood']=="0") {echo"selected";}?>>-------กรุณาเลือกประเภทการสั่งอาหาร-------</option>
-     <option value=1 <?if ($_POST['dfood']=="1") {echo"selected";}?>>สามัญ</option>
-     <option value=2 <?if ($_POST['dfood']=="2") {echo"selected";}?>>พิเศษ</option>
-     <option value=3 <?if ($_POST['dfood']=="3") {echo"selected";}?>>เฉพาะโรค</option>
-
-</select><font color="red"> &nbsp;*</font>-->
-<h4> ช่วงเวลา : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<h4> มื้ออาหาร : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
 
 <select id="eats" name="eats"  onchange="document.getElementById('selected_text').value=this.options[this.selectedIndex].text">
-<option value="o" <?if ($_POST['eats']=="0") {echo"selected";}?>>-------กรุณาเลือกช่วงเวลา-------</option>
      <option value=4 <?if ($_POST['eats']=="4") {echo"selected";}?>>เช้า</option>
      <option value=5 <?if ($_POST['eats']=="5") {echo"selected";}?>>กลางวัน</option>
      <option value=6 <?if ($_POST['eats']=="6") {echo"selected";}?>>เย็น</option>
@@ -221,13 +187,7 @@ thead {display: table-header-group;}
 <center><h4><label type="text"  value="การสั่งอาหาร" display="">ข้อมูลการสั่งอาหารให้กับผู้ป่วย</label></h4></center>
 <center><h4><label type="text"  value="การสั่งอาหาร" display="">ฝ่ายโภชนาการ&nbsp;โรงพยาบาลเจ้าพระยาอภัยภูเบศร</label></h4></center><br>
 <div class="row">
-<div class="col-md-4"><value="แผนก" display="">แผนก : <? $strSQL = "SELECT clinicdescribe FROM fpatient_info where clinic = '".$_POST['dep']."'";
-    $objQuery = mysql_query($strSQL, $connect2);
-    $objReSult = mysql_fetch_array($objQuery);
-      echo $objReSult['clinicdescribe'];
-  ?>  </label></div>
-
-  <div class="col-md-3"><value="แผนก" display="">มื้อ : <?if ($_POST['eats'] == 4) {
+  <div class="col-md-3"><value="แผนก" display="">มื้ออาหาร : <?if ($_POST['eats'] == 4) {
     # code...
     echo "เช้า";
     }
@@ -281,30 +241,28 @@ thead {display: table-header-group;}
  --><?php
  error_reporting(0);
 @include('conn.php');
-$dep = $_POST['dep'];
 $food = 1;
 $eats = $_POST['eats'];
 $day = $_POST['daytime'];
 
-if ($dep != 0) {
-  # code...
   if($food == 1)
   {
       # code...
       if(isset($day)){
-    $strSQL = "SELECT * FROM order_food where clinic = '".$dep."' AND eats = '".$eats."' AND date_order = '".$day."' order by type_order";
+    $strSQL = "SELECT * FROM order_food WHERE eats = '$eats' AND date_order = '$day' order by type_order";
     $objQuery = mysql_query($strSQL, $connect1);
     ?>
     <div id="print_table">
 <table class="table table-striped table-bordered" border="1" width="100%">
 <thead>
   <tr class="warning">
-    <th width = "10%"><div align="center">ห้อง</div></th>
-    <th width = "13%"><div align="center">รหัสผู้ป่วย</div></th>
-    <th width = "25%"><div align="center">ชื่อ-นามสกุล</div></th>
+    <th width = "15%">แผนก</th>
+    <th width = "5%"><div align="center">ห้อง</div></th>
+    <th width = "10%"><div align="center">รหัสผู้ป่วย</div></th>
+    <th width = "20%"><div align="center">ชื่อ-นามสกุล</div></th>
     <th width = "5%"><div align="center">น้ำหนัก</div></th>
     <th width = "5%"><div align="center">ส่วนสูง</div></th>
-    <th width = "11%"><div align="center">ประเภทผู้ป่วย</div></th>
+    <th width = "8%"><div align="center">ประเภทผู้ป่วย</div></th>
     <th width = "15%"><div align="center">ประเภทอาหาร</div></th>
     <th width = "50%"><div align="center">รายละเอียด</div></th>
 
@@ -318,6 +276,7 @@ while ($objReSult = mysql_fetch_array($objQuery)) {
 $i++;
 ?>
   <tr class ="info">
+  <td><? echo $objReSult["dep_name"];?></td>
   <td><div align = "center"><? echo $objReSult["roomno"];?></div></td>
   <td><div align = "center"><? echo $objReSult["HN"];?></div></td>
   <td><div><? echo $objReSult["fname"]." ". $objReSult["lname"];?></div></td>
@@ -354,22 +313,22 @@ $i++;
 
   <?
 }
- $strSQL1 = "SELECT count(type_order) as a1 FROM order_food where clinic = '".$dep."' and type_order = 1";
+ $strSQL1 = "SELECT count(type_order) as a1 FROM order_food where type_order = 1";
  //echo $strSQL1;
   $objQuery1 = mysql_query($strSQL1, $connect1);
   $objReSult1 = mysql_fetch_array($objQuery1);
 
-  $strSQL2 = "SELECT count(type_order) as a2 FROM order_food where clinic = '".$dep."' and type_order = 2";
+  $strSQL2 = "SELECT count(type_order) as a2 FROM order_food where type_order = 2";
  //echo $strSQL1;
   $objQuery2 = mysql_query($strSQL2, $connect1);
   $objReSult2 = mysql_fetch_array($objQuery2);
 
-  $strSQL3 = "SELECT count(type_order) as a3 FROM order_food where clinic = '".$dep."' and type_order = 3";
+  $strSQL3 = "SELECT count(type_order) as a3 FROM order_food where type_order = 3";
  //echo $strSQL1;
   $objQuery3 = mysql_query($strSQL3, $connect1);
   $objReSult3 = mysql_fetch_array($objQuery3);
 
-  $strSQL4 = "SELECT count(type_order) as a4 FROM order_food where clinic = '".$dep."'";
+  $strSQL4 = "SELECT count(type_order) as a4 FROM order_food";
  //echo $strSQL1;
   $objQuery4 = mysql_query($strSQL4, $connect1);
   $objReSult4 = mysql_fetch_array($objQuery4);
@@ -401,7 +360,7 @@ $i++;
   elseif ($food == 2) {
       # code...
       if(isset($day)){
-    $strSQL = "SELECT * FROM order_food where clinic = '".$dep."' AND eats = '".$eats."' AND date_order = '".$day."'";
+    $strSQL = "SELECT * FROM order_food where eats = '".$eats."' AND date_order = '".$day."'";
     $objQuery = mysql_query($strSQL, $connect1);
     ?>
     <div id="print_table">
@@ -437,7 +396,7 @@ $i++;
   elseif ($food == 3) {
     # code...
     if(isset($day)) {
-      $strSQL = "SELECT * FROM order_diss where clinic = '".$dep."' AND eats = '".$eats."' AND date_order = '".$day."'";
+      $strSQL = "SELECT * FROM order_diss where eats = '".$eats."' AND date_order = '".$day."'";
     $objQuery = mysql_query($strSQL, $connect1);
     ?>
     <div id="print_table">
@@ -481,10 +440,7 @@ $i++;
 <?
 }
 }
-}
-else {
 
-}
 ?>
 </div>
 </div>
