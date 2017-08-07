@@ -244,10 +244,6 @@ thead {display: table-header-group;}
 $food = 1;
 $eats = $_POST['eats'];
 $day = $_POST['daytime'];
-
-  if($food == 1)
-  {
-      # code...
       if(isset($day)){
     $strSQL = "SELECT * FROM order_food WHERE eats = '$eats' AND date_order = '$day' GROUP BY clinic ORDER BY dep_name";
     $objQuery = mysql_query($strSQL, $connect1);
@@ -285,10 +281,9 @@ while ($objReSult = mysql_fetch_array($objQuery)) {
    $objReSult3 = mysql_fetch_array($objQuery3);
 ?>
   <tr class ="info">
-  <td><? echo $objReSult["dep_name"];?></td>
-  <td><div align = "center"><?php echo $objReSult1['a1'];?></div></td>
-  <td><div align = "center"><?php echo $objReSult2['a2'];?></div></td>
-  <td><div align = "center"><?php echo $objReSult3['a3'];?></div></td>
+    <td><? echo $objReSult["dep_name"];?></td>
+    <td><div align = "center"><?php echo $objReSult1['a1'];?></div></td>
+    <td><div align = "center"><?php echo $objReSult2['a2'];?></div></td>
   </tr>
 
   <?
@@ -336,91 +331,6 @@ while ($objReSult = mysql_fetch_array($objQuery)) {
 
 <?
   }
-    }
-  elseif ($food == 2) {
-      # code...
-      if(isset($day)){
-    $strSQL = "SELECT * FROM order_food where eats = '$eats' AND date_order = '$day' ORDER BY dep_name";
-    $objQuery = mysql_query($strSQL, $connect1);
-    ?>
-    <div id="print_table">
-<table class="table table-striped table-bordered" border="1" width="100%">
-<thead>
-  <tr class="warning">
-    <th width = "10%"><div align="center">ห้อง</div></th>
-    <th width = "20%"><div align="center">รหัสผู้ป่วย</div></th>
-    <th width = "30%"><div align="center">ชื่อ-นามสกุล</div></th>
-  </tr>
-</thead>
-  <?
-  // $new_hn = array();
-$i = 0;
-while ($objReSult = mysql_fetch_array($objQuery)) {
-  # code...
-$i++;
-?>
-  <tr class ="info">
-  <td><div align = "center"><? echo $objReSult["roomno"];?></div></td>
-  <td><div align = "center"><? echo $objReSult["HN"];?></div></td>
-  <td><div><? echo $objReSult["fname"]." ". $objReSult["lname"];?></div></td>
-  </tr>
-
-  <?
-}
-?>
-
-</table>
-  <?
-}
-    }
-  elseif ($food == 3) {
-    # code...
-    if(isset($day)) {
-      $strSQL = "SELECT * FROM order_diss where eats = '$eats' AND date_order = '$day'";
-    $objQuery = mysql_query($strSQL, $connect1);
-    ?>
-    <div id="print_table">
-<table class="table table-striped table-bordered" border="1" width="100%">
-  <thead>
-  <tr class="warning">
-    <th width = "5%"><div align="center">ห้อง</div></th>
-    <th width = "13%"><div align="center">รหัสผู้ป่วย</div></th>
-    <th width = "20%"><div align="center">ชื่อ-นามสกุล</div></th>
-    <th width = "9%"><div align="center">น้ำหนัก</div></th>
-    <th width = "7%"><div align="center">ส่วนสูง</div></th>
-    <th width = "19%"><div align="center">ประเภทอาหาร</div></th>
-    <th width = "25%"><div align="center">รายละเอียด</div></th>
-  </tr>
-</thead>
-  <?
-
-  // $new_hn = array();
-$i = 0;
-while ($objReSult = mysql_fetch_array($objQuery)) {
-  # code...
-$i++;
-?>
-<cfoutput>
-      <cfloop from="1" to="30" index="i">
-  <tr class ="info">
-    <td><div align = "center"><? echo $objReSult["roomno"];?></div></td>
-    <td><div align = "center"><? echo $objReSult["HN"];?></div></td>
-    <td><div><? echo $objReSult["fname"] ." ". $objReSult["lname"];?></div></td>
-    <td><div align = "center"><? echo $objReSult["weight"];?></div></td>
-    <td><div align = "center"><? echo $objReSult["height"];?></div></td>
-    <td><div><? echo $objReSult["type_name"];?></div></td>
-    <td><div><? echo $objReSult["detail_food"];?></div></td>
-  </tr>
-  </cfloop>
-  </cfoutput>
-  <?
-}
-?>
-</table>
-<?
-}
-}
-
 ?>
 </div>
 </div>
@@ -431,3 +341,42 @@ $i++;
         </div>
     </body>
 </html>
+<script type="text/javascript">
+function setCl(name){
+  alert(name);
+  $('#clModal').html(name);
+}
+</script>
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">ข้อมูลผู้ป่วยเฉพาะโรค</h4>
+      </div>
+      <div class="modal-body">
+
+        <h4 id="clModal"></h4>
+        <table class="table table-striped table-bordered" border="1" width="100%">
+          <tr class="warning">
+            <th>รหัสผู้ป่วย</th>
+            <th>ชื่อ - นามสกุล</th>
+            <th>ห้อง</th>
+            <th>เตียง</th>
+            <th>ชนิดของอาหาร</th>
+          </tr>
+          <?php
+
+           ?>
+          <tr class="info">
+
+          </tr>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">ยกเลิก</button>
+      </div>
+    </div>
+  </div>
+</div>

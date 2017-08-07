@@ -388,15 +388,6 @@ $i++;
 </footer>
 
 <script>
-var countNormal = 0;
-var countSpecial = 0;
-function countNormal() {
-    countNormal += 1;
-    alert(countNormal);
-}
-function countSpecial() {
-  countSpecial += 1;
-}
 
 function chk_all(){
     var x=document.getElementsByTagName("input");
