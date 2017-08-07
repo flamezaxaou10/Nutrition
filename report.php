@@ -284,6 +284,7 @@ while ($objReSult = mysql_fetch_array($objQuery)) {
     <td><? echo $objReSult["dep_name"];?></td>
     <td><div align = "center"><?php echo $objReSult1['a1'];?></div></td>
     <td><div align = "center"><?php echo $objReSult2['a2'];?></div></td>
+    <td><div align = "center"><a data-toggle="modal" data-target="#myModal" onclick="setCl('<?php echo $objReSult["dep_name"]; ?>')" href="#myModal"><?php echo $objReSult3['a3'];?></a></div></td>
   </tr>
 
   <?
