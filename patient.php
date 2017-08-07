@@ -163,11 +163,63 @@ error_reporting(0);
 </select>
 <?php
  date_default_timezone_set("Asia/Bangkok");
- $d=strtotime("tomorrow");
+ $d=strtotime('+1 day');
  $todate = date("d-m-Y",$d);
- ?>
+ $day = date("l");
+ $dayy = substr($todate,0,2);
+ $mon = substr($todate,3,2);
+ if($mon == '01' ){
+   $mon = 'มกราคม';
+ }else if($mon == '02'){
+   $mon = 'กุมภาพันธ์';
+ }else if($mon == '03'){
+   $mon = 'มีนาคม';
+ }else if($mon == '04'){
+   $mon = 'เมษายน';
+ }else if($mon == '05'){
+   $mon = 'พฤษภาคม';
+ }else if($mon == '06'){
+   $mon = 'มิถุนายน';
+ }else if($mon == '07'){
+   $mon = 'กรกฏาคม';
+ }else if($mon == '08'){
+   $mon = 'สิงหาคม';
+ }else if($mon == '09'){
+   $mon = 'กันยายน';
+ }else if($mon == '10'){
+   $mon = 'ตุลาคม';
+ }else if($mon == '11'){
+   $mon = 'พฤศจิกายน';
+ }else if($mon == '12'){
+   $mon = 'ธันวาคม';
+ }
+ if ($day = "Monday") {
+   $day = "วันอังคาร";
+ }
+ elseif ($day = "Tuesday"){
+   $day = "วันพุธ";
+ }
+ elseif ($day = "Wednesday"){
+   $day = "วันพฤหัสบดี";
+ }
+ elseif ($day = "Thursday"){
+   $day = "วันศุกร์";
+ }
+ elseif ($day = "Friday"){
+   $day = "วันเสาร์";
+ }
+ elseif ($day = "Saturday"){
+   $day = "วันอาทิตย์";
+ }
+ elseif ($day = "Sunday"){
+   $day = "วันจันทร์";
+ }
+ $year = substr($todate,6,4);
+ $year += 543;
+
+?>
  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
- <b>วันที่ : <?php echo $todate; ?></b>
+ <b>ประจำวันที่ : <?php echo "$day $dayy $mon $year"; ?></b>
  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <input type="checkbox" name="check_food1" value="t1">
 <label>สามัญทั้งหมด</label>
@@ -250,16 +302,16 @@ $i++;
   <td><div>
   <center>
     <input type="radio" name="chkfood<?echo "$i";?>" value="1_<? echo $objReSult["hn"];?>" <?php
-     if($chec1=='t1'){echo "checked";}?> onclick="del(<? echo $objReSult['hn'];?>,<?php echo $eats; ?>)">
+     if($chec1=='t1'){echo "checked";}?> onclick="del(<? echo $objReSult['hn'];?>,<?php echo $eats; ?>)" required>
   </center>
   </div></td>
   <td><div>
   <center>
     <input type="radio" name="chkfood<?echo "$i";?>" value="2_<? echo $objReSult["hn"];?>" <?php
-    if($chec2=='t2'){echo "checked";}?> onclick="del(<? echo $objReSult['hn'];?>,<?php echo $eats; ?>)">
+    if($chec2=='t2'){echo "checked";}?> onclick="del(<? echo $objReSult['hn'];?>,<?php echo $eats; ?>)" required>
   </center>
   </div></td>
-  <td><div><center><input type="radio" name="chkfood<?php echo $i;?>" value="" data-toggle="modal" name="hn" onclick="setHn(<? echo $objReSult['hn'];?>)" href="#myModal" value = "<? echo $objReSult['hn'];?>"></center></div></td>
+  <td><div><center><input type="radio" name="chkfood<?php echo $i;?>" value="" data-toggle="modal" name="hn" onclick="setHn(<? echo $objReSult['hn'];?>)" href="#myModal" value = "<? echo $objReSult['hn'];?>" required></center></div></td>
   <input type=hidden name="$new_hn[]" value = <? echo $objReSult["hn"];?> >
   </tr>
   <?
@@ -279,9 +331,53 @@ $i++;
     <div class="col-md-2 col-xs-2"></div>
     <div class="col-md-2 col-xs-2"></div>
     <div class="col-md-2 col-xs-2"></div>
-    <div class="col-md-2 col-xs-2"><input type="submit" name="" class="btn btn-lg btn-success" value="&nbsp;&nbsp;&nbsp;&nbsp;เพิ่มข้อมูล&nbsp;&nbsp;&nbsp;&nbsp;"></div>
+    <div class="col-md-2 col-xs-2"><input type="button" name="" class="btn btn-lg btn-success" value="&nbsp;&nbsp;&nbsp;&nbsp;เพิ่มข้อมูล&nbsp;&nbsp;&nbsp;&nbsp;" data-toggle="modal" data-target="#myModal2"></div>
   </div>
   <br>
+  <!-- Modal -->
+<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel2">ยืนยันการบันทึกข้อมูลการสั่งอาหาร</h4>
+      </div>
+      <div class="modal-body">
+        <h4>
+          <?php
+            $sel = "SELECT DISTINCT clinic, clinicdescribe FROM fpatient_info WHERE clinic = '$dep' order by clinicdescribe";
+            $res = mysql_query($sel,$connect2);
+            $show = mysql_fetch_array($res);
+            echo "แผนก : ".$show['clinicdescribe'];
+          ?>
+       </h4>
+       <p>ประจำวันที่ : <?php echo "$day $dayy $mon $year"; ?></p>
+       <p>
+         มื้ออาหาร :
+         <?php if ($eats == 4): ?>
+           เช้า
+         <?php elseif ($eats == 5): ?>
+           กลางวัน
+         <?php elseif ($eats == 6): ?>
+           เย็น
+         <?php endif; ?>
+       </p>
+       <p>
+         <?php
+            $sel = "SELECT COUNT(hn) FROM fpatient_info WHERE clinic = '$dep'";
+            $res = mysql_query($sel,$connect2);
+            $show = mysql_fetch_array($res);
+            echo "จำนวนผู้ป่วย : ".$show['COUNT(hn)']." คน";
+          ?>
+       </p>
+      </div>
+      <div class="modal-footer">
+        <input type="submit" class="btn btn-success" value="บันทึกข้อมูล">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">ยกเลิก</button>
+      </div>
+    </div>
+  </div>
+</div>
 </form>
 
 <footer class="text-center">
@@ -292,6 +388,15 @@ $i++;
 </footer>
 
 <script>
+var countNormal = 0;
+var countSpecial = 0;
+function countNormal() {
+    countNormal += 1;
+    alert(countNormal);
+}
+function countSpecial() {
+  countSpecial += 1;
+}
 
 function chk_all(){
     var x=document.getElementsByTagName("input");
