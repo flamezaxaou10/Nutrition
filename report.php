@@ -185,7 +185,8 @@ thead {display: table-header-group;}
 <div id="print_table">
 <center><h4><label type="text"  value="การสั่งอาหาร" display="">ข้อมูลการสั่งอาหารให้กับผู้ป่วย</label></h4></center>
 <center><h4><label type="text"  value="การสั่งอาหาร" display="">ฝ่ายโภชนาการ&nbsp;โรงพยาบาลเจ้าพระยาอภัยภูเบศร</label></h4></center><br>
-<div class="row">
+<div class="row text-center">
+  <strong>
   <div class="col-md-3"><value="แผนก" display="">มื้ออาหาร : <?if ($_POST['eats'] == 4) {
     # code...
     echo "เช้า";
@@ -232,7 +233,7 @@ thead {display: table-header-group;}
   ?>
   <div class="col-md-3"><value="แผนก" display="">ประจำวันที่ : <? echo $dayy.' '.$mon.' '.$year; ?></label></font></div>
   <div class="col-md-3"><value="แผนก" display="">เจ้าหน้าที่พยาบาล : <? echo $_SESSION["fnname"].' '.$_SESSION["lnname"]; ?></label></font></div>
-
+    </strong>
   </div><br>
 
 <div class="container">
@@ -248,86 +249,66 @@ $day = $_POST['daytime'];
   {
       # code...
       if(isset($day)){
-    $strSQL = "SELECT * FROM order_food WHERE eats = '$eats' AND date_order = '$day' order by type_order";
+    $strSQL = "SELECT * FROM order_food WHERE eats = '$eats' AND date_order = '$day' GROUP BY clinic ORDER BY dep_name";
     $objQuery = mysql_query($strSQL, $connect1);
     ?>
     <div id="print_table">
 <table class="table table-striped table-bordered" border="1" width="100%">
 <thead>
   <tr class="warning">
-    <th width = "15%">แผนก</th>
-    <th width = "5%"><div align="center">ห้อง</div></th>
-    <th width = "10%"><div align="center">รหัสผู้ป่วย</div></th>
-    <th width = "20%"><div align="center">ชื่อ-นามสกุล</div></th>
-    <th width = "5%"><div align="center">น้ำหนัก</div></th>
-    <th width = "5%"><div align="center">ส่วนสูง</div></th>
-    <th width = "8%"><div align="center">ประเภทผู้ป่วย</div></th>
-    <th width = "15%"><div align="center">ประเภทอาหาร</div></th>
-    <th width = "50%"><div align="center">รายละเอียด</div></th>
-
+    <th width = "70%">แผนก</th>
+    <th width = "10%"><div align="center">สามัญ</div></th>
+    <th width = "10%"><div align="center">พิเศษ</div></th>
+    <th width = "10%"><div align="center">เฉพาะโรค</div></th>
   </tr>
 </thead>
   <?
   // $new_hn = array();
 $i = 0;
+
 while ($objReSult = mysql_fetch_array($objQuery)) {
-  # code...
-$i++;
+  $i++;
+  $clinic = $objReSult['clinic'];
+  $strSQL1 = "SELECT count(type_order) as a1 FROM order_food where type_order = 1 AND clinic = '$clinic' AND eats = '$eats' AND date_order = '$day' ";
+  //echo $strSQL1;
+   $objQuery1 = mysql_query($strSQL1, $connect1);
+   $objReSult1 = mysql_fetch_array($objQuery1);
+
+   $strSQL2 = "SELECT count(type_order) as a2 FROM order_food where type_order = 2 AND clinic = '$clinic' AND eats = '$eats' AND date_order = '$day' ";
+  //echo $strSQL1;
+   $objQuery2 = mysql_query($strSQL2, $connect1);
+   $objReSult2 = mysql_fetch_array($objQuery2);
+
+   $strSQL3 = "SELECT count(type_order) as a3 FROM order_food where type_order = 3 AND clinic = '$clinic' AND eats = '$eats' AND date_order = '$day' ";
+  //echo $strSQL1;
+   $objQuery3 = mysql_query($strSQL3, $connect1);
+   $objReSult3 = mysql_fetch_array($objQuery3);
 ?>
   <tr class ="info">
   <td><? echo $objReSult["dep_name"];?></td>
-  <td><div align = "center"><? echo $objReSult["roomno"];?></div></td>
-  <td><div align = "center"><? echo $objReSult["HN"];?></div></td>
-  <td><div><? echo $objReSult["fname"]." ". $objReSult["lname"];?></div></td>
-  <td><div align = "center"><? echo $objReSult["weight"];?></div></td>
-  <td><div align = "center"><? echo $objReSult["height"];?></div></td>
-
-  <td><div align = "center">
-  <?php if($objReSult["type_order"]=='1'){
-      echo 'สามัญ';
-  }
-  else if($objReSult["type_order"]=='2'){
-      echo 'พิเศษ';
-  }
-  else if($objReSult["type_order"]=='3'){
-      echo 'สามัญ';
-  }
-  ?>
-  <td><div align = "center">
-  <?php if($objReSult["type_order"]=='1'){
-      echo 'ธรรมดา';
-  }
-  else if($objReSult["type_order"]=='2'){
-      echo 'พิเศษ';
-  }
-  else if($objReSult["type_order"]=='3'){
-      echo 'อาหารเฉพาะโรค';
-  }
-  ?>
-  <td><div align = "center"><? echo $objReSult["type_food"];?></div></td>
-
-  </div></td>
-
+  <td><div align = "center"><?php echo $objReSult1['a1'];?></div></td>
+  <td><div align = "center"><?php echo $objReSult2['a2'];?></div></td>
+  <td><div align = "center"><?php echo $objReSult3['a3'];?></div></td>
   </tr>
 
   <?
 }
- $strSQL1 = "SELECT count(type_order) as a1 FROM order_food where type_order = 1";
+ $strSQL1 = "SELECT count(type_order) as a1 FROM order_food where type_order = 1 AND eats = '$eats' AND date_order = '$day' ";
  //echo $strSQL1;
   $objQuery1 = mysql_query($strSQL1, $connect1);
   $objReSult1 = mysql_fetch_array($objQuery1);
 
-  $strSQL2 = "SELECT count(type_order) as a2 FROM order_food where type_order = 2";
+  $strSQL2 = "SELECT count(type_order) as a2 FROM order_food where type_order = 2 AND eats = '$eats' AND date_order = '$day' ";
  //echo $strSQL1;
   $objQuery2 = mysql_query($strSQL2, $connect1);
   $objReSult2 = mysql_fetch_array($objQuery2);
 
-  $strSQL3 = "SELECT count(type_order) as a3 FROM order_food where type_order = 3";
+  $strSQL3 = "SELECT count(type_order) as a3 FROM order_food where type_order = 3 AND eats = '$eats' AND date_order = '$day' ";
  //echo $strSQL1;
   $objQuery3 = mysql_query($strSQL3, $connect1);
   $objReSult3 = mysql_fetch_array($objQuery3);
 
-  $strSQL4 = "SELECT count(type_order) as a4 FROM order_food";
+  $strSQL4 = "SELECT count(type_order) as a4 FROM order_food WHERE eats = '$eats' AND date_order = '$day' ";
  //echo $strSQL1;
   $objQuery4 = mysql_query($strSQL4, $connect1);
   $objReSult4 = mysql_fetch_array($objQuery4);
@@ -359,7 +340,7 @@ $i++;
   elseif ($food == 2) {
       # code...
       if(isset($day)){
-    $strSQL = "SELECT * FROM order_food where eats = '".$eats."' AND date_order = '".$day."'";
+    $strSQL = "SELECT * FROM order_food where eats = '$eats' AND date_order = '$day' ORDER BY dep_name";
     $objQuery = mysql_query($strSQL, $connect1);
     ?>
     <div id="print_table">
@@ -395,7 +376,7 @@ $i++;
   elseif ($food == 3) {
     # code...
     if(isset($day)) {
-      $strSQL = "SELECT * FROM order_diss where eats = '".$eats."' AND date_order = '".$day."'";
+      $strSQL = "SELECT * FROM order_diss where eats = '$eats' AND date_order = '$day'";
     $objQuery = mysql_query($strSQL, $connect1);
     ?>
     <div id="print_table">
