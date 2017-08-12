@@ -344,9 +344,10 @@ while ($objReSult = mysql_fetch_array($objQuery)) {
 </html>
 <script type="text/javascript">
 function setCl(name){
-  alert(name);
   $('#clModal').html(name);
+   $('#test').load('loadReport.php?clinic='+name);
 }
+
 </script>
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -367,12 +368,10 @@ function setCl(name){
             <th>เตียง</th>
             <th>ชนิดของอาหาร</th>
           </tr>
-          <?php
-
-           ?>
-          <tr class="info">
+          <tr id="test" class="info">
 
           </tr>
+
         </table>
       </div>
       <div class="modal-footer">
