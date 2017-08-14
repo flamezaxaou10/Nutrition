@@ -125,26 +125,16 @@ exit();
   </a>
 </div> -->
 
-<!-- Container (The Band Section) -->
+
 <div id="band" class="container text-center">
-  <h3>VISIT</h3>
-  <p><font face = "JasmineUPC" size="5">บริการสุขภาพแบบผสมที่เป็นเลิศ&nbsp;&nbsp;
-และเป็นผู้นำด้านการแพทย์แผนไทยในอาเซียน</font></p>
-  <h3>VALUE</h3>
-  <p><font face = "JasmineUPC" size="5">อภัยภูเบศร&nbsp;&nbsp;บริการดี&nbsp;&nbsp;มีน้ำใจ&nbsp;&nbsp;ใฝ่เรียนรู้</font></p>
-
-  <br>
-
-
+  <!--<h3>VISIT</h3> -->
+<!--  <p><font face = "JasmineUPC" size="5">บริการสุขภาพแบบผสมที่เป็นเลิศ&nbsp;&nbsp;
+และเป็นผู้นำด้านการแพทย์แผนไทยในอาเซียน</font></p>-->
+<!--  <h3>VALUE</h3>-->
+<!--  <p><font face = "JasmineUPC" size="5">อภัยภูเบศร&nbsp;&nbsp;บริการดี&nbsp;&nbsp;มีน้ำใจ&nbsp;&nbsp;ใฝ่เรียนรู้</font></p>-->
 
 <!-- ALL SYSTEM-->
   <div class="row">
-     <!-- <div id="demo" class="collapse">
-        <p>Guitarist and Lead Vocalist</p>
-        <p>Loves long walks on the beach</p>
-        <p>Member since 1988</p>
-      </div>-->
-
  <div class="col-md-3">
       <p class="text-center"><strong><font size ="5px">ข้อมูลผู้ป่วย</font></strong></p>
       <a href="HN_patient.php">
