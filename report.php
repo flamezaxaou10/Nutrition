@@ -284,7 +284,7 @@ while ($objReSult = mysql_fetch_array($objQuery)) {
     <td><? echo $objReSult["dep_name"];?></td>
     <td><div align = "center"><?php echo $objReSult1['a1'];?></div></td>
     <td><div align = "center"><?php echo $objReSult2['a2'];?></div></td>
-    <td><div align = "center"><a data-toggle="modal" data-target="#myModal" onclick="setCl('<?php echo $objReSult["dep_name"]; ?>')" href="#myModal"><?php echo $objReSult3['a3'];?></a></div></td>
+    <td><div align = "center"><a data-toggle="modal" data-target="#myModal" onclick="setCl('<?php echo $objReSult["dep_name"]; ?>','<? echo $objReSult["clinic"];?>','<? echo $day; ?>','<?php echo $eats; ?>')" href="#myModal"><?php echo $objReSult3['a3'];?></a></div></td>
   </tr>
 
   <?
@@ -343,9 +343,9 @@ while ($objReSult = mysql_fetch_array($objQuery)) {
     </body>
 </html>
 <script type="text/javascript">
-function setCl(name){
+function setCl(name,clinic,date,eats){
   $('#clModal').html(name);
-   $('#test').load('loadReport.php?clinic='+name);
+  $('#test').load('loadReport.php?clinic='+clinic+'&date='+date+'&eats='+eats);
 }
 
 </script>
@@ -360,22 +360,8 @@ function setCl(name){
       <div class="modal-body">
 
         <h4 id="clModal"></h4>
-        <table class="table table-striped table-bordered" border="1" width="100%">
-          <tr class="warning">
-            <th>รหัสผู้ป่วย</th>
-            <th>ชื่อ - นามสกุล</th>
-            <th>ห้อง</th>
-            <th>เตียง</th>
-            <th>ชนิดของอาหาร</th>
-          </tr>
-          <tr id="test" class="info">
-
-          </tr>
-
-        </table>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">ยกเลิก</button>
+        <div id="test">
+        </div>
       </div>
     </div>
   </div>

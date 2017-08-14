@@ -31,6 +31,14 @@ exit();
   <script src="css/js/bootstrap.js"></script>
 
 </head>
+<style media="screen">
+  body{
+    background-size: 100%;
+    background-image:url(img/backg.jpg);
+    background-repeat: no-repeat;
+    background-attachment : fixed;
+  }
+</style>
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
 
 <nav class="navbar navbar-default navbar-fixed-top">
@@ -83,7 +91,7 @@ exit();
   </ol>
 
   <!-- Wrapper for slides -->
-  <div class="carousel-inner" role="listbox">
+  <!-- <div class="carousel-inner" role="listbox">
     <div class="item active">
       <img src="img/img2.jpg" alt="New York">
       <div class="carousel-caption">
@@ -115,8 +123,8 @@ exit();
     <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
     <span class="sr-only">Next</span>
   </a>
-</div>
-ห
+</div> -->
+
 <!-- Container (The Band Section) -->
 <div id="band" class="container text-center">
   <h3>VISIT</h3>
