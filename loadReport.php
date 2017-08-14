@@ -23,13 +23,13 @@
           <td><?php echo $row['roomno']; ?></td>
           <td><?php echo $row['bedno']; ?></td>
           <td><?php echo $row['type_food']; ?></td>
-					<td><a href="print_order_food.php?hn=<?php echo $row['HN']; ?>&date=<?php echo $date; ?>&eats=<?php echo $eats; ?>"><img src="img/print.png" width="30px" height="30px"></a></td>
+					<td><a target="_blank" href="print_order_food.php?hn=<?php echo $row['HN']; ?>&date=<?php echo $date; ?>&eats=<?php echo $eats; ?>"><img src="img/print.png" width="30px" height="30px"></a></td>
 				</tr>
     <?php
       }
      ?>
 </table>
 <div class="modal-footer">
-	<a href="print_orderall.php?date=<?php echo $date;?>&eats=<?php echo $eats;?>&clinic=<?php echo $clinic; ?>"><button type="button" class="btn btn-success" name="button">พิมพ์ทั้งหมด</button></a>
+	<a target="_blank" href="print_orderall.php?date=<?php echo $date;?>&eats=<?php echo $eats;?>&clinic=<?php echo $clinic; ?>"><button type="button" class="btn btn-success" name="button">พิมพ์ทั้งหมด</button></a>
 	<button type="button" class="btn btn-danger" data-dismiss="modal">ยกเลิก</button>
 </div>
