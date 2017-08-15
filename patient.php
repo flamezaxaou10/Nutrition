@@ -461,6 +461,9 @@ function submitModal(){
      $('#myModal').modal('hide');
   });
  }
+ document.getElementById("idfood").value = "";
+ document.getElementById("roomno").value = "";
+ document.getElementById("bedno").value = "";
 }
 
 $(document).ready(function(){
