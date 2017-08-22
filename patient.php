@@ -134,7 +134,6 @@ $eats = "0";
   <select id="dep" name="dep"   onchange="document.getElementById('selected_text').value=this.options[this.selectedIndex].text">
   <option value="">-------แสดงทั้งหมด-------</option>
   <?
-    @include('conn.php');
     $strSQL = "SELECT DISTINCT clinic, clinicdescribe FROM fpatient_info order by clinicdescribe";
     $objQuery = mysql_query($strSQL, $connect2);
     while ($objReSult = mysql_fetch_array($objQuery)) {
@@ -155,11 +154,12 @@ error_reporting(0);
 </select>
  <br>
  <label for="fooder"> มื้ออาหาร : </label>
-<select id="food" name="eats" onchange="document.getElementById('selected_text').value=this.options[this.selectedIndex].text">
+ <?php $eats = $_POST['eats']; ?>
+<select id="food" name="eats">
   <option disabled>---เลือกมื้ออาหาร---</option>
-  <option value="4">เช้า</option>
-  <option value="5">กลางวัน</option>
-  <option value="6">เย็น</option>
+  <option value="4" <?php if($eats == '4' && isset($eats)){echo "selected";} ?> >เช้า</option>
+  <option value="5" <?php if($eats == '5' && isset($eats)){echo "selected";} ?> >กลางวัน</option>
+  <option value="6" <?php if($eats == '6' && isset($eats)){echo "selected";} ?> >เย็น</option>
 </select>
 <?php
  date_default_timezone_set("Asia/Bangkok");
@@ -226,9 +226,9 @@ error_reporting(0);
 <input type="hidden" name="selected_text" id="selected_text" value="" />
   &nbsp;&nbsp;<input type="submit" name = "search" class="btn btn-success" value="ค้นหา">
    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <input type="radio" name="check_food" value="t1" onclick="chk_all()">
+  <input type="radio" name="check_food" value="t1" >
   <label>สามัญทั้งหมด</label>
-  <input type="radio" name="check_food" value="t2" onclick="chk_all()">
+  <input type="radio" name="check_food" value="t2"
   <label>พิเศษทั้งหมด</label>
 <!--<input type="submit" name="search" value="Search"/>-->
 </form>
@@ -242,7 +242,6 @@ $dep = $_POST['dep'];
 $eats = $_POST['eats'];
 $chec1 = $_POST['check_food'];
 $chec2 = $_POST['check_food'];
-
 if ($dep != 0) {
   # code...
 $strSQL = "SELECT * FROM fpatient_info where clinic = '".$dep."'";
@@ -255,7 +254,7 @@ $objQuery = mysql_query($strSQL) or die("Error Query [".$strSQL."]");
 
 }
 ?>
-<form method="POST" action="chkPHP.php">
+<form method="POST" action="chkPHP.php" name="form1">
 <table class="table table-striped table-bordered">
   <tr class="warning">
     <th>
@@ -299,26 +298,28 @@ $i++;
   <td><div><? echo $objReSult["lname"];?></div></td>
   <input type=hidden name="eats" value = "<? echo $eats;?>">
   <?php
+      $chkdate = date("Y-m-d",$d);
       $hnn = $objReSult['hn'];
-      $chk = "SELECT type_order FROM order_food WHERE hn='$hnn' AND eats='$eats' AND date_order='$todate'";
+      $chk = "SELECT type_order FROM order_food WHERE HN = '$hnn' AND eats = '$eats' AND date_order = '$chkdate'";
       $reschk = mysql_query($chk,$connect1);
-      $row = mysql_fetch_array($reschk);
+      $rowc = mysql_fetch_array($reschk);
+      $rchk = $rowc['type_order'];
    ?>
   <td><div>
   <center>
       <input type="radio" name="chkfood<?echo "$i";?>" value="1_<? echo $objReSult["hn"];?>" <?php
-       if($chec1=='t1' || $row['type_order'] == '1'){echo "checked";}?> onclick="del(<? echo $objReSult['hn'];?>,<?php echo $eats; ?>)" required >
+       if($chec1=='t1' ||$rchk == '1'){echo "checked";}?> onclick="del(<? echo $objReSult['hn'];?>,<?php echo $eats; ?>)" required >
   </center>
   </div></td>
   <td><div>
   <center>
       <input type="radio" name="chkfood<?echo "$i";?>" value="2_<? echo $objReSult["hn"];?>" <?php
-      if($chec2=='t2' || $row['type_order'] == '2'){echo "checked";}?> onclick="del(<? echo $objReSult['hn'];?>,<?php echo $eats; ?>)" required >
+      if($chec1=='t2' ||$rchk == '2'){echo "checked";}?> onclick="del(<? echo $objReSult['hn'];?>,<?php echo $eats; ?>)" required >
   </center>
   </div></td>
   <td><div>
     <center>
-        <input type="radio" name="chkfood<?php echo $i;?>" value="" data-toggle="modal" name="hn" onclick="setHn(<? echo $objReSult['hn'];?>)" href="#myModal" value = "<? echo $objReSult['hn'];?>" required ></center></div></td>
+        <input type="radio" name="chkfood<?php echo $i;?>" value="" <?php if($rchk == '3'){echo "checked";}?> data-toggle="modal" name="hn" onclick="setHn(<? echo $objReSult['hn'];?>)" href="#myModal" value = "<? echo $objReSult['hn'];?>" required ></center></div></td>
         <input type=hidden name="$new_hn[]" value = <? echo $objReSult["hn"];?> >
   </tr>
   <?
@@ -395,6 +396,7 @@ $i++;
 </footer>
 
 <script>
+
 
 function chk_all(){
     var x=document.getElementsByTagName("input");
