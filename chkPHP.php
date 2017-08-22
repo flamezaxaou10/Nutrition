@@ -51,7 +51,12 @@ $roomno = $objReSult2['roomno'];
 $bedno = $objReSult2['bedno'];
 $weight = $objReSult2['weight'];
 $height = $objReSult2['height'];
-	# code...
+
+//ลบข้อมูลเก่าออกก่อน
+$sql = "DELETE FROM order_food WHERE HN='$hn' AND date_order='$date' AND clinic='$clinic' AND eats='$eats'";
+mysql_query($sql, $connect1);
+
+
  if ($chkfood == 1)
  {
 $sql = "INSERT into order_food (HN, fname, lname, eats, clinic, dep_name, roomno, bedno, weight, height, date_order,type_order) values ('$hn','$fname','$lname','$eats','$clinic','$dep_name','$roomno','$bedno','$weight','$height','$date','1')";
