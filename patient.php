@@ -128,7 +128,14 @@ $eats = "0";
        <!--<h1><font face ="JasmineUPC">โรงพยาบาลเจ้าพระยาอภัยภูเบศร</font></h1>-->
        <br>
       <p>ระบบการสั่งอาหารและจัดส่งอาหารให้ผู้ป่วย</p>
-
+      <?php
+          $user2 = $_SESSION['Username'];
+          $sqll = "SELECT DISTINCT * FROM jhosdb.fpatient_info f JOIN cpa.department d ON f.clinicdescribe = d.dep_name
+                  JOIN cpa.sys_user s ON d.Dep_phone = s.group WHERE s.username = '$user2'";
+          $ress = mysql_query($sqll,$connect1);
+          $roww = mysql_fetch_array($ress);
+          $dep = $roww['clinic'];
+       ?>
       <form method="POST">
 <label for="department"> แผนก : </label>
   <select id="dep" name="dep"   onchange="document.getElementById('selected_text').value=this.options[this.selectedIndex].text">
@@ -137,8 +144,13 @@ $eats = "0";
     $strSQL = "SELECT DISTINCT clinic, clinicdescribe FROM fpatient_info order by clinicdescribe";
     $objQuery = mysql_query($strSQL, $connect2);
     while ($objReSult = mysql_fetch_array($objQuery)) {
-      if ($_POST["dep"] == $objReSult['clinic']) {
-        # code...
+      $sql = "SELECT * FROM sys_user s JOIN department d ON s.group=d.Dep_phone  WHERE s.username = '$user2'";
+      $res2 = mysql_query($sql,$connect1);
+      $row = mysql_fetch_array($res2);
+      if ($row['dep_name'] ==  $objReSult['clinicdescribe']) {
+        $sel = "selected";
+      }
+      elseif ($_POST["dep"] == $objReSult['clinic']) {
         $sel = "selected";
       }
       else
@@ -146,7 +158,7 @@ $eats = "0";
         $sel = "";
       }
   ?>
-<option value="<? echo $objReSult["clinic"];?>" <? echo $sel; ?> > <? echo $objReSult["clinicdescribe"];?></option>
+<option value="<? echo $objReSult["clinic"];?>" <? echo $sel; ?> > <? echo $show." ".$objReSult["clinicdescribe"];?></option>
 <?
 }
 error_reporting(0);
@@ -238,18 +250,19 @@ error_reporting(0);
 <?php
 error_reporting(0);
 @include('conn.php');
-$dep = $_POST['dep'];
-$eats = $_POST['eats'];
-$chec1 = $_POST['check_food'];
-$chec2 = $_POST['check_food'];
+$eats = 4;
+if ($_POST) {
+  $dep = $_POST['dep'];
+  $eats = $_POST['eats'];
+  $chec1 = $_POST['check_food'];
+  $chec2 = $_POST['check_food'];
+}
 if ($dep != 0) {
-  # code...
 $strSQL = "SELECT * FROM fpatient_info where clinic = '".$dep."'";
 $objQuery = mysql_query($strSQL) or die("Error Query [".$strSQL."]");
 }
 else{
-  # code...
-  $strSQL = "SELECT * FROM fpatient_info";
+  $strSQL = "SELECT * FROM fpatient_info where clinic = '$dep'";
 $objQuery = mysql_query($strSQL) or die("Error Query [".$strSQL."]");
 
 }
