@@ -238,9 +238,9 @@ error_reporting(0);
 <input type="hidden" name="selected_text" id="selected_text" value="" />
   &nbsp;&nbsp;<input type="submit" name = "search" class="btn btn-success" value="ค้นหา">
    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <input type="radio" name="check_food" value="t1" >
+  <input type="radio" name="check_food" value="t1" onClick="selectAll(form1)">
   <label>สามัญทั้งหมด</label>
-  <input type="radio" name="check_food" value="t2"
+  <input type="radio" name="check_food" value="t2" onClick="selectAll(form1)">
   <label>พิเศษทั้งหมด</label>
 <!--<input type="submit" name="search" value="Search"/>-->
 </form>
@@ -320,13 +320,13 @@ $i++;
    ?>
   <td><div>
   <center>
-      <input type="radio" name="chkfood<?echo "$i";?>" value="1_<? echo $objReSult["hn"];?>" <?php
+      <input type="radio" name="chkfood<?echo "$i";?>" value="t1" <?php
        if($chec1=='t1' ||$rchk == '1'){echo "checked";}?> onclick="del(<? echo $objReSult['hn'];?>,<?php echo $eats; ?>)" required >
   </center>
   </div></td>
   <td><div>
   <center>
-      <input type="radio" name="chkfood<?echo "$i";?>" value="2_<? echo $objReSult["hn"];?>" <?php
+      <input type="radio" name="chkfood<?echo "$i";?>" value="t2" <?php
       if($chec1=='t2' ||$rchk == '2'){echo "checked";}?> onclick="del(<? echo $objReSult['hn'];?>,<?php echo $eats; ?>)" required >
   </center>
   </div></td>
@@ -338,7 +338,6 @@ $i++;
   <?
  // $temp = array("a", "b", "c");
   // $_SESSION['hn'] = $new_hn[];
-  $test = $_POST['chkfood'.$i];
   $_SESSION['hn'] = $objReSult["hn"];
   $_SESSION['fname'] = $objReSult["fname"];
   }
@@ -409,7 +408,45 @@ $i++;
 </footer>
 
 <script>
+function selectAll(form1) {
 
+  var check = document.getElementsByName("check_food"),
+        radios = document.form1.elements;
+
+    if (check[0].checked) {
+
+        for( i = 0; i < radios.length; i++ ) {
+
+            if( radios[i].type == "radio" ) {
+
+                if (radios[i].value == "t1" ) {
+
+                    radios[i].checked = true;
+                }
+
+            }
+
+        }
+
+    } else {
+
+        for( i = 0; i < radios.length; i++ ) {
+
+            if( radios[i].type == "radio" ) {
+
+                if (radios[i].value == "t2" ) {
+
+                    radios[i].checked = true;
+
+                }
+
+            }
+
+        }
+
+    };
+  return null;
+}
 
 function chk_all(){
     var x=document.getElementsByTagName("input");
