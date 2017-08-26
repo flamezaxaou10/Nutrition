@@ -335,6 +335,7 @@ $i++;
         <input type="radio" name="chkfood<?php echo $i;?>" value="" <?php if($rchk == '3'){echo "checked";}?> data-toggle="modal" name="hn" onclick="setHn(<? echo $objReSult['hn'];?>)" href="#myModal" value = "<? echo $objReSult['hn'];?>" required ></center></div></td>
         <input type=hidden name="$new_hn[]" value = <? echo $objReSult["hn"];?> >
   </tr>
+  <input type="hidden" name="data2<? echo $i;?>" value="<? echo $objReSult["hn"];?>">
   <?
  // $temp = array("a", "b", "c");
   // $_SESSION['hn'] = $new_hn[];
