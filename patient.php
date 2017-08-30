@@ -141,25 +141,31 @@ $eats = "0";
   <select id="dep" name="dep"   onchange="document.getElementById('selected_text').value=this.options[this.selectedIndex].text">
   <option value="">-------แสดงทั้งหมด-------</option>
   <?
-    $strSQL = "SELECT DISTINCT clinic, clinicdescribe FROM fpatient_info order by clinicdescribe";
+
+    $strSQL = "SELECT DISTINCT clinic, clinicdescribe FROM jhosdb.fpatient_info f JOIN cpa.department d ON f.clinicdescribe = d.dep_name  order by clinicdescribe";
     $objQuery = mysql_query($strSQL, $connect2);
     while ($objReSult = mysql_fetch_array($objQuery)) {
       $sql = "SELECT * FROM sys_user s JOIN department d ON s.group=d.Dep_phone  WHERE s.username = '$user2'";
       $res2 = mysql_query($sql,$connect1);
-      $row = mysql_fetch_array($res2);
-      if ($row['dep_name'] ==  $objReSult['clinicdescribe']) {
-        $sel = "selected";
-      }
-      elseif ($_POST["dep"] == $objReSult['clinic']) {
-        $sel = "selected";
-      }
-      else
-      {
-        $sel = "";
+      $dep_number="style='display:none'";
+      while ($row = mysql_fetch_array($res2)){
+        if ($_POST["dep"] == $objReSult['clinic'] ) {
+          $sel = "selected";
+          $dep_number="";
+        }
+        elseif ($row['dep_name'] ==  $objReSult['clinicdescribe']) {
+          $sel = "selected";
+          $dep_number="";
+        }
+        else
+        {
+          $sel = "";
+        }
       }
   ?>
-<option value="<? echo $objReSult["clinic"];?>" <? echo $sel; ?> > <? echo $show." ".$objReSult["clinicdescribe"];?></option>
+<option value="<? echo $objReSult["clinic"];?>" <? echo $sel; ?> <? echo $dep_number; ?> > <? echo $show." ".$objReSult["clinicdescribe"];?></option>
 <?
+
 }
 error_reporting(0);
 ?>
