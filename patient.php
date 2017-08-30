@@ -147,7 +147,13 @@ $eats = "0";
     while ($objReSult = mysql_fetch_array($objQuery)) {
       $sql = "SELECT * FROM sys_user s JOIN department d ON s.group=d.Dep_phone  WHERE s.username = '$user2'";
       $res2 = mysql_query($sql,$connect1);
-      $dep_number="style='display:none'";
+      if ($user2 == "admin2") {
+        $dep_number="";
+      }
+      else {
+        $dep_number="style='display:none'";
+      }
+
       while ($row = mysql_fetch_array($res2)){
         if ($_POST["dep"] == $objReSult['clinic'] ) {
           $sel = "selected";
