@@ -50,7 +50,7 @@ for($i = 0; $i<=$chkhn; $i++) {
   $height = $objReSult2['height'];
 
   //ลบข้อมูลเก่าออกก่อน
-  $sql = "DELETE FROM order_food WHERE HN='$hn' AND date_order='$date' AND clinic='$clinic' AND eats='$eats'";
+  $sql = "DELETE FROM order_food WHERE HN='$hn' AND date_order='$date' AND clinic='$clinic' AND eats='$eats' AND type_order != '3'";
   mysql_query($sql, $connect1);
 
 
