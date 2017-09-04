@@ -170,6 +170,13 @@ thead {display: table-header-group;}
   date_default_timezone_set("Asia/Bangkok");
   $d=strtotime('+1 day');
   $todate = date("Y-m-d",$d);
+  $food = 1;
+  $eats = 4;
+  $day = $todate;
+  if (isset($_POST['daytime'])) {
+    $day = $_POST['daytime'];
+    $eats = $_POST['eats'];
+  }
  ?>
 
 <input type="hidden" name="selected_text" id="selected_text" value="" />
@@ -187,22 +194,22 @@ thead {display: table-header-group;}
 <center><h4><label type="text"  value="การสั่งอาหาร" display="">ฝ่ายโภชนาการ&nbsp;โรงพยาบาลเจ้าพระยาอภัยภูเบศร</label></h4></center><br>
 <div class="row text-center">
   <strong>
-  <div class="col-md-3"><value="แผนก" display="">มื้ออาหาร : <?if ($_POST['eats'] == 4) {
+  <div class="col-md-3"><value="แผนก" display="">มื้ออาหาร : <?if ($eats == 4) {
     # code...
     echo "เช้า";
     }
-      elseif ($_POST["eats"] == 5) {
+      elseif ($eats == 5) {
       echo "กลางวัน";
 
     }
-    elseif ($_POST["eats"] == 6) {
+    elseif ($eats == 6) {
       # code...
       echo "เย็น";
     }
   ?>  </label></div>
   <?php
-    $dayy = substr($_POST['daytime'],-2);
-    $mon =substr($_POST['daytime'],-5,2);
+    $dayy = substr($day,-2);
+    $mon =substr($day,-5,2);
     if($mon == '01' ){
       $mon = 'มกราคม';
     }else if($mon == '02'){
@@ -228,7 +235,7 @@ thead {display: table-header-group;}
     }else if($mon == '12'){
       $mon = 'ธันวาคม';
     }
-    $year = substr($_POST['daytime'],-10,4);
+    $year = substr($day,-10,4);
     $year += 543;
   ?>
   <div class="col-md-3"><value="แผนก" display="">ประจำวันที่ : <? echo $dayy.' '.$mon.' '.$year; ?></label></font></div>
@@ -237,14 +244,7 @@ thead {display: table-header-group;}
   </div><br>
 
 <div class="container">
-<!-- <center><h1><label type="hidden" name="test" value="">การสั่งอาหาร</label></h1></center>
- --><?php
- error_reporting(0);
-@include('conn.php');
-$food = 1;
-$eats = $_POST['eats'];
-$day = $_POST['daytime'];
-      if(isset($day)){
+<?php
     $strSQL = "SELECT * FROM order_food WHERE eats = '$eats' AND date_order = '$day' GROUP BY clinic ORDER BY dep_name";
     $objQuery = mysql_query($strSQL, $connect1);
     ?>
@@ -330,9 +330,7 @@ while ($objReSult = mysql_fetch_array($objQuery)) {
   <div style=" margin-left: 50%;">ลงชื่อ.......................................พยาบาลหัวหน้าเวร</div>
   <!-- <div style=" margin-left: 57%;">เจ้าหน้าที่พยาบาล </div> -->
 
-<?
-  }
-?>
+
 </div>
 </div>
 </div>
