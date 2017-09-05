@@ -247,7 +247,7 @@ thead {display: table-header-group;}
 <?php
     $phone = $_SESSION["Username"];
     $strSQL = "SELECT * FROM cpa.order_food o JOIN jhosdb.fpatient_info f ON o.HN = f.HN
-                JOIN cpa.department d ON d.dep_name = o.dep_name  WHERE o.eats = '$eats' AND o.date_order = '$day' AND d.Dep_phone = '$phone' ORDER BY o.dep_name";
+                JOIN cpa.department d ON d.dep_name = o.dep_name  WHERE o.eats = '$eats' AND o.date_order = '$day' AND d.Dep_phone = '$phone' ORDER BY o.type_order";
     $objQuery = mysql_query($strSQL, $connect1);
     ?>
     <div id="print_table">
