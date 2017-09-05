@@ -75,5 +75,5 @@ for($i = 0; $i<=$chkhn; $i++) {
 
 
 }
-  header("LOCATION:report.php");
+  header("LOCATION:report2.php");
 ?>
