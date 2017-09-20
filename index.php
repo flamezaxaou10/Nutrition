@@ -250,6 +250,13 @@ exit();
       </a>
     </div>
 
+    <div class="col-sm-3">
+      <p class="text-center"><strong><font size ="5px">วัตถุดิบที่ใช้ทำอาหาร</font></strong></p>
+      <a href="raw.php">
+        <img src="img/logosell.png" class="img-circle person" alt="Random Name" width="255" height="255">
+      </a>
+    </div>
+
 
 
 

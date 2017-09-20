@@ -56,6 +56,7 @@ include 'header.php';
           </div>
           </form>
       </div>
+      
     </div>
     <?php
         if($_POST){
