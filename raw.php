@@ -25,7 +25,7 @@ include 'header.php';
       date_default_timezone_set("Asia/Bangkok") ;
       $datethis = date("Y-m-d");
      ?>
-     <form class="" action="insert_raw.php" method="post">
+     <form action="insert_raw.php" method="get">
       <div class="modal-body">
         <h4>
         <table>
@@ -38,12 +38,12 @@ include 'header.php';
             <td style="padding-bottom : 10px;">เลือกเมนูอาหาร </td>
             <td style="padding-bottom : 10px;">&nbsp; : &nbsp;</td>
             <td style="padding-bottom : 10px;">
-              <select class="raw" name="">
+              <select  name="raw">
                 <?php
                   $sql = "SELECT * FROM menu";
                   $result = mysql_query($sql,$connect1);
                   while ($row = mysql_fetch_array($result)) { ?>
-                    <option value="<?php echo $row['menu_id']; ?>"><?php echo $row['menu_name']; ?></option>
+                    <option value="<?php echo $row['menu_name']; ?>"><?php echo $row['menu_name']; ?></option>
                 <?php
                   }
                 ?>
@@ -68,6 +68,10 @@ include 'header.php';
   </div>
   <!----------------------------------------------------------------------------------->
   <div class="detail">
+    <?php
+        $sql = "SELECT * FROM raw_system ORDER BY id_raw DESC";
+        $result = mysql_query($sql,$connect1);
+     ?>
     <form class="" action="#" method="get">
       <div class="text-right">
         <b style="color : white;">ค้นหาเมนูอาหาร : <input type="search" name="search" value=""></b> <input type="submit" class="btn btn-success" value="ค้นหา" name = "submit"><br><br>
@@ -75,15 +79,31 @@ include 'header.php';
       <table  class="table table-striped table-bordered">
         <tr class="warning">
           <th>ลำดับ</th>
+          <th>วันที่ทำรายการ</th>
+          <th>รหัสจัดการวัตถุดิบ</th>
           <th>ชื่อเมนูอาหาร</th>
           <th>รายละเอียด</th>
           <th>แก้ไข</th>
           <th>ลบ</th>
         </tr>
-
+        <?php
+          $i=0;
+            while ($row = mysql_fetch_array($result)){
+              $i++;
+        ?>
         <tr class="info">
-          <td></td>
+          <td style="width:10%;"><?php echo $i; ?></td>
+          <td style="width:10%;"><?php echo $row['date']; ?></td>
+          <td style="width:15%;"><?php echo $row['id_raw']; ?></td>
+          <td style="width:35%;"><?php echo $row['name_raw']; ?></td>
+          <td style="width:10%;"></td>
+          <td style="width:10%;"></td>
+          <td style="width:10%;"></td>
         </tr>
+        <?php
+            }
+         ?>
+
       </table>
     </div>
   </form>
