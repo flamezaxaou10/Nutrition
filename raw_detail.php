@@ -11,5 +11,11 @@ exit();
 $username=$_SESSION["Username"];
 include 'header.php';
 ?>
+  <table class="table table-striped table-bordered">
+    <tr class="warning">
+      
+    </tr>
+
+  </table>
 
 <?php include 'footer.php'; ?>

@@ -68,14 +68,18 @@ include 'header.php';
   </div>
   <!----------------------------------------------------------------------------------->
   <div class="detail">
-    <?php
-        $sql = "SELECT * FROM raw_system ORDER BY id_raw DESC";
-        $result = mysql_query($sql,$connect1);
-     ?>
     <form class="" action="#" method="get">
       <div class="text-right">
-        <b style="color : white;">ค้นหาเมนูอาหาร : <input type="search" name="search" value=""></b> <input type="submit" class="btn btn-success" value="ค้นหา" name = "submit"><br><br>
+        <b style="color : white;">ค้นหาเมนูอาหาร : </b><input type="search" name="search" value=""> <input type="submit" class="btn btn-success" value="ค้นหา" name = "submit"><br><br>
       </div>
+    </form>
+    <?php
+        $sql = "SELECT * FROM raw_system ORDER BY id_raw DESC";
+        if (isset($_GET['search'])) {
+            $search = $_GET['search'];
+            $sql = "SELECT * FROM raw_system WHERE name_raw LIKE '%$search%' ORDER BY id_raw DESC";
+        }
+     ?>
       <table  class="table table-striped table-bordered">
         <tr class="warning">
           <th>ลำดับ</th>
@@ -87,6 +91,7 @@ include 'header.php';
           <th>ลบ</th>
         </tr>
         <?php
+          $result = mysql_query($sql,$connect1);
           $i=0;
             while ($row = mysql_fetch_array($result)){
               $i++;
@@ -96,9 +101,9 @@ include 'header.php';
           <td style="width:10%;"><?php echo $row['date']; ?></td>
           <td style="width:15%;"><?php echo $row['id_raw']; ?></td>
           <td style="width:35%;"><?php echo $row['name_raw']; ?></td>
-          <td style="width:10%;"></td>
-          <td style="width:10%;"></td>
-          <td style="width:10%;"></td>
+          <td style="width:10%;"><div align="center"><a href="#"><img src="img/sssss.png" width="30px" hieght="30px" alt=""></a></div></td>
+          <td style="width:10%;"><div align="center"><a href="#"><img src="img/edit.png" width="30px" hieght="30px" alt=""></a></div></td>
+          <td style="width:10%;"><div align="center"><a href="#"><img src="img/delete.png" width="30px" hieght="30px" alt=""></a></div></td>
         </tr>
         <?php
             }
@@ -106,7 +111,6 @@ include 'header.php';
 
       </table>
     </div>
-  </form>
 </div>
 
 <?php include 'footer.php'; ?>
