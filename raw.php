@@ -101,8 +101,8 @@ include 'header.php';
           <td style="width:10%;"><?php echo $row['date']; ?></td>
           <td style="width:15%;"><?php echo $row['id_raw']; ?></td>
           <td style="width:35%;"><?php echo $row['name_raw']; ?></td>
-          <td style="width:10%;"><div align="center"><a href="#"><img src="img/sssss.png" width="30px" hieght="30px" alt=""></a></div></td>
-          <td style="width:10%;"><div align="center"><a href="#"><img src="img/edit.png" width="30px" hieght="30px" alt=""></a></div></td>
+          <td style="width:10%;"><div align="center"><a data-toggle="modal" data-target="#myModal" OnClick="setRaw('<?php echo $row['id_raw']; ?>')"  href="#myModal"><img src="img/sssss.png" width="30px" hieght="30px" alt=""></a></div></td>
+          <td style="width:10%;"><div align="center"><a href="#" onclick="return confirm('ต้องการแก้ไขข้อมูลนี้?')"><img src="img/edit.png" width="30px" hieght="30px" alt=""></a></div></td>
           <td style="width:10%;"><div align="center"><a href="#"><img src="img/delete.png" width="30px" hieght="30px" alt=""></a></div></td>
         </tr>
         <?php
@@ -111,6 +111,25 @@ include 'header.php';
 
       </table>
     </div>
+</div>
+
+<script type="text/javascript">
+function setRaw(id_raw){
+  $('#test').load('raw_detail.php?id_raw='+id_raw);
+}
+
+</script>
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" >
+  <div class="modal-dialog" role="document">
+    <div class="modal-content" style="width:100%;">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      </div>
+        <div id="test"></div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <?php include 'footer.php'; ?>
