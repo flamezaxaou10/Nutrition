@@ -17,6 +17,9 @@ include 'header.php';
   $date = $_GET['date'];
   $sql = "INSERT INTO raw_system (id_raw,name_raw,date) VALUES ('$id_raw','$raw','$date')";
   mysql_query($sql,$connect1);
+  $sql = "SELECT * FROM raw_system WHERE id_raw = '$id_raw'";
+  $res = mysql_query($sql,$connect1);
+  $row = mysql_fetch_array($res);
 ?>
 <div class="container">
   <div class="jumbotron">
@@ -36,12 +39,12 @@ include 'header.php';
              <td style="padding-bottom : 10px; width:10%;"></td>
              <td style="padding-bottom : 10px;">เมนูอาหาร </td>
              <td style="padding-bottom : 10px;">&nbsp; : &nbsp;</td>
-             <td style="padding-bottom : 10px;"> <?php echo $raw; ?> </td>
+             <td style="padding-bottom : 10px;"> <?php echo $row['name_raw']; ?> </td>
            </tr>
            <tr>
              <td style="padding-bottom : 10px;">วันที่ </td>
              <td style="padding-bottom : 10px;">&nbsp; : &nbsp;</td>
-             <td style="padding-bottom : 10px;"> <?php echo $date; ?></td>
+             <td style="padding-bottom : 10px;"> <?php echo $row['date']; ?></td>
            </tr>
            <tr>
              <td style="padding-bottom : 10px;">เลือกวัตถุดิบ </td>

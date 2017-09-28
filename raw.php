@@ -102,8 +102,8 @@ include 'header.php';
           <td style="width:15%;"><?php echo $row['id_raw']; ?></td>
           <td style="width:35%;"><?php echo $row['name_raw']; ?></td>
           <td style="width:10%;"><div align="center"><a data-toggle="modal" data-target="#myModal" OnClick="setRaw('<?php echo $row['id_raw']; ?>')"  href="#myModal"><img src="img/sssss.png" width="30px" hieght="30px" alt=""></a></div></td>
-          <td style="width:10%;"><div align="center"><a href="#" onclick="return confirm('ต้องการแก้ไขข้อมูลนี้?')"><img src="img/edit.png" width="30px" hieght="30px" alt=""></a></div></td>
-          <td style="width:10%;"><div align="center"><a href="#"><img src="img/delete.png" width="30px" hieght="30px" alt=""></a></div></td>
+          <td style="width:10%;"><div align="center"><a href="insert_raw.php?id_raw=<?php echo $row['id_raw']; ?>" onclick="return confirm('ต้องการแก้ไขข้อมูลนี้?')"><img src="img/edit.png" width="30px" hieght="30px" alt=""></a></div></td>
+          <td style="width:10%;"><div align="center"><a href="delete_raw.php?id_raw=<?php echo $row['id_raw']; ?>" onclick="return confirm('ต้องการลบข้อมูลนี้?')"><img src="img/delete.png" width="30px" hieght="30px" alt=""></a></div></td>
         </tr>
         <?php
             }
