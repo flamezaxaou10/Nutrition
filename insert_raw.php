@@ -134,16 +134,16 @@ include 'header.php';
        </div>
   </div>
   <div class="detail">
-    <form action="raw.php" method="POST">
+    <form action="finish_raw.php" method="GET">
       <input type="hidden" name="stat" value="show">
     <table class="table table-striped table-bordered">
       <tr class="warning">
-        <th><div align="center">ลำดับ</div></th>
-        <th><div align="center">ประเภทวัตถุดิบ</div></th>
-        <th><div align="center">ชื่อวัตถุดิบ</div></th>
-        <th><div align="center">จำนวนที่เบิก</div></th>
-        <th><div align="center">หน่วยนับ</div></th>
-        <th><div align="center">ลบ</div></th>
+        <th width="10%"><div align="center">ลำดับ</div></th>
+        <th width="15%"><div align="center">ประเภทวัตถุดิบ</div></th>
+        <th width="30%"><div align="center">ชื่อวัตถุดิบ</div></th>
+        <th width="15%"><div align="center">จำนวนที่เบิก</div></th>
+        <th width="15%"><div align="center">หน่วยนับ</div></th>
+        <th width="15%"><div align="center">ลบ</div></th>
       </tr>
 
     <?
@@ -170,7 +170,11 @@ include 'header.php';
         <?php else: ?>
           <td><div align = "left"><? echo $objReSult["mat_name"];?></div></td>
         <?php endif; ?>
-        <td><div align = "left"><? echo $objReSult["SUM(count)"];?></div></td>
+        <td>
+          <div align = "left">
+            <input type="number" name="count<?php echo $i; ?>" value="<? echo $objReSult["SUM(count)"];?>" min="0" required>
+          </div>
+      </td>
         <td><div align = "left"><? echo $objReSult["unit_name"];?></div></td>
           <td align="center">
             <a href="delete_detail_raw.php?id_raw=<?php echo $id_raw; ?>&mat_id=<?php echo $mat; ?>&count=<?php echo $objReSult["SUM(count)"]; ?>
@@ -179,6 +183,10 @@ include 'header.php';
             onclick="return confirm('ยืนยันการลบข้อมูล')"><b><font color="red"><img src='img/delete.png' width=25></font></b></a>
           </td>
       </tr>
+          <input type="hidden" name="id_raw<?php echo $i; ?>" value="<?php echo $id_raw; ?>">
+          <input type="hidden" name="mat_id<?php echo $i; ?>" value="<?php echo $mat; ?>">
+          <input type="hidden" name="id_stock<?php echo $i; ?>" value="<?php echo $row['stock_id']; ?>">
+          <input type="hidden" name="unit_id<?php echo $i; ?>" value="<?php echo $objReSult["unit_id"]; ?>">
       <?
       $i++;
     }
@@ -186,12 +194,11 @@ include 'header.php';
       <tr>
         <td colspan="7" class="text-right">
           <a href="delete_raw.php?id_raw=<?php echo $id_raw; ?>"><input type="button" class="btn btn-danger" value="ยกเลิก"  onclick="return confirm('ยืนยันการยกเลิกข้อมูล')"></a>
-          <input type="submit" class="btn btn-success" name = "บันทึกข้อมูลวัตถุดิบ" value="บันทึกข้อมูลวัตถุดิบ">
+          <input type="submit" class="btn btn-success" name = "บันทึกข้อมูลวัตถุดิบ" value="บันทึกข้อมูลวัตถุดิบ" onclick="return confirm('บันทึกข้อมูลนี้?')">
         </td>
       </tr>
     </table>
     </form>
   </div>
 </div>
-
 <?php include 'footer.php'; ?>
