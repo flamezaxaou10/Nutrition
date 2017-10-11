@@ -54,7 +54,7 @@ include 'header.php';
           <tr>
             <td style="padding-bottom : 10px;">วันที่ </td>
             <td style="padding-bottom : 10px;">&nbsp; : &nbsp;</td>
-            <td style="padding-bottom : 10px;"> <input type="date" name="date" value="<?php echo $datethis; ?>" readonly></td>
+            <td style="padding-bottom : 10px;"> <input type="hidden" name="date" value="<?php echo $datethis; ?>"><?php echo $datethis; ?></td>
           </tr>
         </table>
         </h4>
