@@ -188,7 +188,11 @@ include 'header.php';
         <?php endif; ?>
         <td>
           <div align = "left">
-            <input type="number" name="count<?php echo $i; ?>" value="<? echo $objReSult["SUM(count)"];?>" min="0" max="<?php echo $row['SUM(stock_detail.count)']; ?>" required> / <?php echo $row['SUM(stock_detail.count)']; ?>
+            <?php if ($row['SUM(stock_detail.count)'] < $objReSult["SUM(count)"]): ?>
+                <input type="number" name="count<?php echo $i; ?>" value="<? echo $objReSult["SUM(count)"];?>" min="0" max="<?php echo $objReSult['SUM(count)']; ?>" required> / <?php echo $objReSult['SUM(count)']; ?>
+            <?php else: ?>
+              <input type="number" name="count<?php echo $i; ?>" value="<? echo $objReSult["SUM(count)"];?>" min="0" max="<?php echo $row['SUM(stock_detail.count)']; ?>" required> / <?php echo $row['SUM(stock_detail.count)']; ?>
+            <?php endif; ?>
           </div>
       </td>
         <td><div align = "left"><? echo $objReSult["unit_name"];?></div></td>
