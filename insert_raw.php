@@ -175,7 +175,7 @@ include 'header.php';
       <tr class ="info">
          <?php $mat = $objReSult["mat_id"]; ?>
         <?php
-           $sqlb = "SELECT stock_detail.stock_id,stock.name_stock FROM stock_detail JOIN stock ON stock_detail.stock_id = stock.id_stock WHERE mat_id = '$mat' GROUP BY mat_id";
+           $sqlb = "SELECT stock_detail.stock_id,stock.name_stock,SUM(stock_detail.count) FROM stock_detail JOIN stock ON stock_detail.stock_id = stock.id_stock WHERE mat_id = '$mat' GROUP BY mat_id";
            $query = mysql_query($sqlb,$connect1);
            $row = mysql_fetch_array($query);
          ?>
@@ -188,7 +188,7 @@ include 'header.php';
         <?php endif; ?>
         <td>
           <div align = "left">
-            <input type="number" name="count<?php echo $i; ?>" value="<? echo $objReSult["SUM(count)"];?>" min="0" required>
+            <input type="number" name="count<?php echo $i; ?>" value="<? echo $objReSult["SUM(count)"];?>" min="0" max="<?php echo $row['SUM(stock_detail.count)']; ?>" required> / <?php echo $row['SUM(stock_detail.count)']; ?>
           </div>
       </td>
         <td><div align = "left"><? echo $objReSult["unit_name"];?></div></td>
