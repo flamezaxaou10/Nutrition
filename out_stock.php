@@ -67,8 +67,16 @@ include 'header.php';
         <th><div align = "center">พิมพ์</div></th>
       </tr>
     <?php
+      $perpage = 10;
+      if (isset($_GET['page']) && $_GET['page'] != 0) {
+        $page = $_GET['page'];
+      } else {
+        $page = 1;
+      }
+      $start = ($page - 1) * $perpage;
+
       $idedit = $id_output;
-      $table = "SELECT * FROM output_material ORDER BY output_material.id_outputmat DESC";
+      $table = "SELECT * FROM output_material ORDER BY output_material.id_outputmat DESC LIMIT {$start},{$perpage}";
       $result = mysql_query($table,$connect1);
       $i = 0;
       while ($row = mysql_fetch_array($result)){
@@ -87,6 +95,21 @@ include 'header.php';
       }
       ?>
     </table>
+    <?php
+      $sql2 = "SELECT * FROM output_material";
+      $query2 = mysql_query($sql2, $connect1);
+      $total_record = mysql_num_rows($query2);
+      $total_page = ceil($total_record / $perpage);
+     ?>
+    <nav align="center" aria-label="Page navigation example">
+      <ul class="pagination">
+        <li class="page-item"><a class="page-link" href="out_stock.php?page=<?php echo ($page-1); ?>" aria-label="Previous"><span aria-hidden="true"><<</span></a></li>
+        <?php for($i=1;$i<=$total_page;$i++){ ?>
+         <li><a href="out_stock.php?page=<?php echo $i; ?>"><?php echo $i; ?></a></li>
+        <?php } ?>
+        <li class="page-item"><a class="page-link" href="out_stock.php?page=<?php echo ($page+1); ?>" aria-label="Next"><span aria-hidden="true">>></span></a></li>
+      </ul>
+    </nav>
 </div>
 
 <?php include 'footer.php'; ?>

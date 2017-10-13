@@ -56,7 +56,7 @@ include 'header.php';
           </div>
           </form>
       </div>
-      
+
     </div>
     <?php
         if($_POST){
@@ -110,8 +110,15 @@ include 'header.php';
         <th><div align = "center">รายละเอียด</div></th>
       </tr>
     <?php
+      $perpage = 10;
+      if (isset($_GET['page']) && $_GET['page'] != 0) {
+        $page = $_GET['page'];
+      } else {
+        $page = 1;
+      }
+      $start = ($page - 1) * $perpage;
       $idedit = $id_input;
-      $table = "SELECT * FROM input_material ORDER BY input_material.id_inputmat DESC";
+      $table = "SELECT * FROM input_material ORDER BY input_material.id_inputmat DESC LIMIT {$start},{$perpage}";
       $result = mysql_query($table,$connect1);
       $i = 0;
       while ($row = mysql_fetch_array($result)){
@@ -137,6 +144,21 @@ include 'header.php';
       }
       ?>
     </table>
+    <?php
+      $sql2 = "SELECT * FROM input_material";
+      $query2 = mysql_query($sql2, $connect1);
+      $total_record = mysql_num_rows($query2);
+      $total_page = ceil($total_record / $perpage);
+     ?>
+    <nav align="center" aria-label="Page navigation example">
+      <ul class="pagination">
+        <li class="page-item"><a class="page-link" href="mat_to_stock.php?page=<?php echo ($page-1); ?>" aria-label="Previous"><span aria-hidden="true"><<</span></a></li>
+        <?php for($i=1;$i<=$total_page;$i++){ ?>
+         <li><a href="mat_to_stock.php?page=<?php echo $i; ?>"><?php echo $i; ?></a></li>
+        <?php } ?>
+        <li class="page-item"><a class="page-link" href="mat_to_stock.php?page=<?php echo ($page+1); ?>" aria-label="Next"><span aria-hidden="true">>></span></a></li>
+      </ul>
+    </nav>
 </div>
 
 <?php include 'footer.php'; ?>

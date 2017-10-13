@@ -75,7 +75,14 @@ include 'header.php';
       <th><div align = "center">พิมพ์ใบสั่งยา</div></th>
     </tr>
   <?php
-    $table = "SELECT * FROM sale_feed ORDER BY sale_feed.salefeed_id DESC";
+    $perpage = 10;
+    if (isset($_GET['page']) && $_GET['page'] != 0) {
+      $page = $_GET['page'];
+    } else {
+      $page = 1;
+    }
+    $start = ($page - 1) * $perpage;
+    $table = "SELECT * FROM sale_feed ORDER BY sale_feed.salefeed_id DESC LIMIT {$start},{$perpage}";
     if (isset($_GET['search'])) {
       $search = $_GET['search'];
       $table = "SELECT * FROM sale_feed WHERE customer LIKE '%$search%' ORDER BY sale_feed.salefeed_id DESC";
@@ -99,6 +106,21 @@ include 'header.php';
     }
     ?>
   </table>
+  <?php
+    $sql2 = "SELECT * FROM sale_feed";
+    $query2 = mysql_query($sql2, $connect1);
+    $total_record = mysql_num_rows($query2);
+    $total_page = ceil($total_record / $perpage);
+   ?>
+  <nav align="center" aria-label="Page navigation example">
+    <ul class="pagination">
+      <li class="page-item"><a class="page-link" href="sale_feed.php?page=<?php echo ($page-1); ?>" aria-label="Previous"><span aria-hidden="true"><<</span></a></li>
+      <?php for($i=1;$i<=$total_page;$i++){ ?>
+       <li><a href="sale_feed.php?page=<?php echo $i; ?>"><?php echo $i; ?></a></li>
+      <?php } ?>
+      <li class="page-item"><a class="page-link" href="sale_feed.php?page=<?php echo ($page+1); ?>" aria-label="Next"><span aria-hidden="true">>></span></a></li>
+    </ul>
+  </nav>
 </div>
 <?php include 'footer.php'; ?>
 <?php

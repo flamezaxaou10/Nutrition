@@ -67,6 +67,15 @@ include 'header.php';
    </form>
   </div>
   <!----------------------------------------------------------------------------------->
+  <?php
+      $perpage = 10;
+      if (isset($_GET['page']) && $_GET['page'] != 0) {
+        $page = $_GET['page'];
+      } else {
+        $page = 1;
+      }
+      $start = ($page - 1) * $perpage;
+   ?>
   <div class="detail">
     <form class="" action="#" method="get">
       <div class="text-right">
@@ -74,10 +83,10 @@ include 'header.php';
       </div>
     </form>
     <?php
-        $sql = "SELECT * FROM raw_system ORDER BY id_raw DESC";
+        $sql = "SELECT * FROM raw_system ORDER BY id_raw DESC LIMIT {$start},{$perpage} ";
         if (isset($_GET['search'])) {
             $search = $_GET['search'];
-            $sql = "SELECT * FROM raw_system WHERE name_raw LIKE '%$search%' ORDER BY id_raw DESC";
+            $sql = "SELECT * FROM raw_system WHERE name_raw LIKE '%$search%' ORDER BY id_raw DESC ";
         }
      ?>
       <table  class="table table-striped table-bordered">
@@ -110,6 +119,21 @@ include 'header.php';
          ?>
 
       </table>
+      <?php
+        $sql2 = "SELECT * FROM raw_system";
+        $query2 = mysql_query($sql2, $connect1);
+        $total_record = mysql_num_rows($query2);
+        $total_page = ceil($total_record / $perpage);
+       ?>
+      <nav align="center" aria-label="Page navigation example">
+        <ul class="pagination">
+          <li class="page-item"><a class="page-link" href="raw.php?page=<?php echo ($page-1); ?>" aria-label="Previous"><span aria-hidden="true"><<</span></a></li>
+          <?php for($i=1;$i<=$total_page;$i++){ ?>
+           <li><a href="raw.php?page=<?php echo $i; ?>"><?php echo $i; ?></a></li>
+          <?php } ?>
+          <li class="page-item"><a class="page-link" href="raw.php?page=<?php echo ($page+1); ?>" aria-label="Next"><span aria-hidden="true">>></span></a></li>
+        </ul>
+      </nav>
     </div>
 </div>
 

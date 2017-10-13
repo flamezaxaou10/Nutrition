@@ -242,8 +242,15 @@ if($flag==0){
 </form>
 <?php
 @include('conn.php');
+$perpage = 10;
+if (isset($_GET['page']) && $_GET['page'] != 0) {
+  $page = $_GET['page'];
+} else {
+  $page = 1;
+}
+$start = ($page - 1) * $perpage;
 $see=$_POST["sen"];
-$strSQL = "SELECT * FROM material a join restaurant b on a.res_id = b.res_id JOIN stock ON a.id_stock = stock.id_stock where mat_name like '%$see%' order by mat_id";
+$strSQL = "SELECT * FROM material a join restaurant b on a.res_id = b.res_id JOIN stock ON a.id_stock = stock.id_stock where mat_name like '%$see%' order by mat_id LIMIT {$start},{$perpage}";
 $objQuery = mysql_query($strSQL,$connect1) or die("Error Query [".$strSQL."]");
 $num=mysql_num_rows($objQuery);
 if($num==0){
@@ -282,6 +289,21 @@ while ($objReSult = mysql_fetch_array($objQuery)) {
 
 ?>
 </table>
+<?php
+  $sql2 = "SELECT * FROM material";
+  $query2 = mysql_query($sql2, $connect1);
+  $total_record = mysql_num_rows($query2);
+  $total_page = ceil($total_record / $perpage);
+ ?>
+<nav align="center" aria-label="Page navigation example">
+  <ul class="pagination">
+    <li class="page-item"><a class="page-link" href="mat.php?page=<?php echo ($page-1); ?>" aria-label="Previous"><span aria-hidden="true"><<</span></a></li>
+    <?php for($i=1;$i<=$total_page;$i++){ ?>
+     <li><a href="mat.php?page=<?php echo $i; ?>"><?php echo $i; ?></a></li>
+    <?php } ?>
+    <li class="page-item"><a class="page-link" href="mat.php?page=<?php echo ($page+1); ?>" aria-label="Next"><span aria-hidden="true">>></span></a></li>
+  </ul>
+</nav>
 </div>
 
 

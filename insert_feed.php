@@ -220,7 +220,15 @@ $username=$_SESSION["Username"];
 
 			<div class="jumbotron">
 <?php
-$strSQL = "SELECT * FROM buymeterial WHERE typebuy= '2' order by id_mat DESC";
+$perpage = 10;
+if (isset($_GET['page']) && $_GET['page'] != 0) {
+	$page = $_GET['page'];
+} else {
+	$page = 1;
+}
+$start = ($page - 1) * $perpage;
+
+$strSQL = "SELECT * FROM buymeterial WHERE typebuy= '2' order by id_mat DESC LIMIT {$start},{$perpage}";
 $objQuery = mysql_query($strSQL,$connect1) or die("Error Query [".$strSQL."]");
  ?>
 		 <h4>ประวัติการสั่งซื้ออาหารทางสายยาง</h4>
@@ -271,6 +279,21 @@ while ($objReSult = mysql_fetch_array($objQuery)) {
 <?php
 	 } ?>
 	 </table>
+	 <?php
+		 $sql2 = "SELECT * FROM buymeterial";
+		 $query2 = mysql_query($sql2, $connect1);
+		 $total_record = mysql_num_rows($query2);
+		 $total_page = ceil($total_record / $perpage);
+		?>
+	 <nav align="center" aria-label="Page navigation example">
+		 <ul class="pagination">
+			 <li class="page-item"><a class="page-link" href="insert_feed.php?page=<?php echo ($page-1); ?>" aria-label="Previous"><span aria-hidden="true"><<</span></a></li>
+			 <?php for($i=1;$i<=$total_page;$i++){ ?>
+				<li><a href="insert_feed.php?page=<?php echo $i; ?>"><?php echo $i; ?></a></li>
+			 <?php } ?>
+			 <li class="page-item"><a class="page-link" href="insert_feed.php?page=<?php echo ($page+1); ?>" aria-label="Next"><span aria-hidden="true">>></span></a></li>
+		 </ul>
+	 </nav>
 		</div>
 		</div>
 
