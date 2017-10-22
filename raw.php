@@ -151,9 +151,25 @@ function setRaw(id_raw){
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
       </div>
         <div id="test"></div>
+        <div class="text-right" style="margin-right:30px;">
+          <button type="button" class="btn btn-success"name="button" onclick="prints('test')">พิมพ์</button>
+        </div>
+        <br>
       </div>
-    </div>
+      </div>
   </div>
 </div>
 
 <?php include 'footer.php'; ?>
+<script type="text/javascript">
+  function prints(divName) {
+    var printContents = document.getElementById(divName).innerHTML;
+   var originalContents = document.body.innerHTML;
+
+   document.body.innerHTML = printContents;
+
+   window.print();
+
+   document.body.innerHTML = originalContents;
+  }
+</script>

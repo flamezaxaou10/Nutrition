@@ -17,7 +17,7 @@ $username=$_SESSION["Username"];
       $res = mysql_query($sql,$connect1);
       $row = mysql_fetch_array($res);
     ?>
-<div class="container">
+<div class="container" >
     <h4>รายละเอียดการจัดการวัตถุดิบ</h4>
     <div class="modal-body" style="padding-bottom:0px;">
       <h5>
@@ -69,3 +69,4 @@ $username=$_SESSION["Username"];
      </tr>
    <?php } ?>
   </table>
+  
