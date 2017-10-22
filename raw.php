@@ -32,7 +32,7 @@ include 'header.php';
           <tr >
             <td style="padding-bottom : 10px;">รหัสจัดการวัตถุดิบ </td>
             <td style="padding-bottom : 10px;">&nbsp; : &nbsp;</td>
-            <td style="padding-bottom : 10px;"> <input type="text" name="id_raw" value="<?php echo $id_raw; ?>" readonly></td>
+            <td style="padding-bottom : 10px;"> <input type="hidden" name="id_raw" value="<?php echo $id_raw; ?>"><?php echo $id_raw; ?></td>
           </tr>
           <tr>
             <td style="padding-bottom : 10px;">เลือกเมนูอาหาร </td>
@@ -68,7 +68,7 @@ include 'header.php';
   </div>
   <!----------------------------------------------------------------------------------->
   <?php
-      $perpage = 10;
+      $perpage = 20;
       if (isset($_GET['page']) && $_GET['page'] != 0) {
         $page = $_GET['page'];
       } else {

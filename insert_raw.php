@@ -156,7 +156,8 @@ include 'header.php';
         <th width="10%"><div align="center">ลำดับ</div></th>
         <th width="15%"><div align="center">ประเภทวัตถุดิบ</div></th>
         <th width="30%"><div align="center">ชื่อวัตถุดิบ</div></th>
-        <th width="15%"><div align="center">จำนวนที่เบิก</div></th>
+        <th width="7.5%"><div align="center">จำนวนที่เบิก</div></th>
+        <th width="7.5%"><div align="center">จำนวนคงเหลือ</div></th>
         <th width="15%"><div align="center">หน่วยนับ</div></th>
         <th width="15%"><div align="center">ลบ</div></th>
       </tr>
@@ -187,11 +188,18 @@ include 'header.php';
           <td><div align = "left"><? echo $objReSult["mat_name"];?></div></td>
         <?php endif; ?>
         <td>
+            <?php if ($row['SUM(stock_detail.count)'] < $objReSult["SUM(count)"]): ?>
+                <input type="number" name="count<?php echo $i; ?>" value="<? echo $objReSult["SUM(count)"];?>" min="0" max="<?php echo $objReSult['SUM(count)']; ?>" required>
+            <?php else: ?>
+                <input type="number" name="count<?php echo $i; ?>" value="<? echo $objReSult["SUM(count)"];?>" min="0" max="<?php echo $row['SUM(stock_detail.count)']; ?>" required>
+            <?php endif; ?>
+        </td>
+        <td>
           <div align = "left">
             <?php if ($row['SUM(stock_detail.count)'] < $objReSult["SUM(count)"]): ?>
-                <input type="number" name="count<?php echo $i; ?>" value="<? echo $objReSult["SUM(count)"];?>" min="0" max="<?php echo $objReSult['SUM(count)']; ?>" required> / <?php echo $objReSult['SUM(count)']; ?>
+               <?php echo $objReSult['SUM(count)']; ?>
             <?php else: ?>
-              <input type="number" name="count<?php echo $i; ?>" value="<? echo $objReSult["SUM(count)"];?>" min="0" max="<?php echo $row['SUM(stock_detail.count)']; ?>" required> / <?php echo $row['SUM(stock_detail.count)']; ?>
+              <?php echo $row['SUM(stock_detail.count)']; ?>
             <?php endif; ?>
           </div>
       </td>
@@ -218,7 +226,7 @@ include 'header.php';
         </td>
       </tr>
     </table>
-    
+
     </form>
   </div>
 </div>

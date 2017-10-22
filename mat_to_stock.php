@@ -110,7 +110,7 @@ include 'header.php';
         <th><div align = "center">รายละเอียด</div></th>
       </tr>
     <?php
-      $perpage = 10;
+      $perpage = 20;
       if (isset($_GET['page']) && $_GET['page'] != 0) {
         $page = $_GET['page'];
       } else {
