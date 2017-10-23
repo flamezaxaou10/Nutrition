@@ -191,7 +191,13 @@ exit();
           <center><img src="img/logomenu.png" class="img-circle person" alt="Random Name" width="255" height="255"></center>
         </a>
     </div>
-
+    
+    <div class="col-xs-3">
+      <p class="text-center"><strong><font size ="5px">วัตถุดิบที่ใช้ทำอาหาร</font></strong></p>
+      <a href="raw.php">
+        <center><img src="img/logosell.png" class="img-circle person img-responsive" alt="Random Name" width="255" height="255"></center>
+      </a>
+    </div>
 
     <div class="col-xs-3">
         <p class="text-center"><strong><font size ="5px">การจัดส่งอาหารให้ผู้ป่วย</font></strong></p>
@@ -250,12 +256,7 @@ exit();
         </a>
       </div>
 
-      <div class="col-xs-3">
-        <p class="text-center"><strong><font size ="5px">วัตถุดิบที่ใช้ทำอาหาร</font></strong></p>
-        <a href="raw.php">
-          <center><img src="img/logosell.png" class="img-circle person img-responsive" alt="Random Name" width="255" height="255"></center>
-        </a>
-      </div>
+
 
 
 
