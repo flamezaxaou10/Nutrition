@@ -142,12 +142,11 @@ exit();
      $gname= $objReSult["mat_name"];
      $rname= $objReSult["res_id"];
      $cstcok = $objReSult["id_stock"];
-     if(($gname==$name&&$rname==$rest) || $stock ==$cstcok){
+     if(($gname==$name&&$rname==$rest) && $stock ==$cstcok){
        $flag=1;
      }
 }
 if($flag==0){
-  @include('conn.php');
   $insert = "INSERT INTO material  VALUES  ('$id','$name','$rest','$stock')";
        $query = mysql_query($insert,$connect1);
             echo( "<script> alert('เพิ่มข้อมูลสำเร็จ');</script>");
@@ -159,7 +158,6 @@ if($flag==0){
   }
 }
   }
-    @include('conn.php');
     $strSQL = "SELECT MAX(mat_id) FROM material";
     $objQuery = mysql_query($strSQL, $connect1);
     while ($objReSult = mysql_fetch_array($objQuery)) {
