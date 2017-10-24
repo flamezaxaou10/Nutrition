@@ -26,7 +26,7 @@ include 'header.php';
           $sql = "SELECT * FROM output_material ORDER BY output_material.date DESC";
           $objQuery = mysql_query($sql,$connect1);
           date_default_timezone_set("Asia/Bangkok") ;
-          $datethis = date("Y-m-d");
+          $datethis = date("Y-m-d H:i:s");
          ?>
     <div class="modal-body">
            <form method="POST" action="#" onsubmit="return confirm('ต้องการเพิ่มข้อมูลนี้?');">

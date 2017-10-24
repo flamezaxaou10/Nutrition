@@ -1,4 +1,4 @@
-<?php
+ <label style="font-size: 13px;"><?php
 include ('conn.php');
 session_start();
 if($_SESSION["Username"]=="") // ตรวจสอบว่าผ่านการ login หรือไม่
@@ -134,7 +134,7 @@ exit();
       <p>แก้ไขข้อมูลการจัดเมนูอาหาร</p>
       <br>
 
-      <div style="float:left; font-size: 1.5em;">วันที่</div><div style="float:left; font-size: 1.5em;">&nbsp;
+      <div style="float:left; font-size: 1.2em;">วันที่</div><div style="float:left; font-size: 1.2em;">&nbsp;
            <?php
            $dayy = substr($_POST['daytime'],-2);
    $mon =substr($_POST['daytime'],-5,2);
@@ -174,7 +174,7 @@ exit();
 <br />
 <br />
 
-<div style="float:left; font-size: 1.5em;">เจ้าหน้าที่</div><div style="float:left; font-size: 1.5em;">&nbsp;
+<div style="float:left; font-size: 1.2em;">เจ้าหน้าที่</div><div style="float:left; font-size: 1.2em;">&nbsp;
   <?php echo $_SESSION["fnname"];?>&nbsp;<?php echo $_SESSION["lnname"];?>
 </div>
 <br />
@@ -456,7 +456,7 @@ $comment=$objReSult['comment'];
                       $objQuery = mysql_query($strSQL, $connect1);
                       while ($objReSult = mysql_fetch_array($objQuery)) {
                       ?>
-                     <input type="checkbox" name="check_list1[]" value="<?php echo $objReSult['menu_name'];?>" <?php for($z=0;$z<strlen($m1);$z++){if($s1[$z]==$objReSult['menu_name']) echo "checked";} ?>><label><?php echo $objReSult['menu_name'];?></label><br/>
+                     <input type="checkbox" name="check_list1[]" value="<?php echo $objReSult['menu_name'];?>" <?php for($z=0;$z<strlen($m1);$z++){if($s1[$z]==$objReSult['menu_name']) echo "checked";} ?>> <label style="font-size: 13px;"><?php echo $objReSult['menu_name'];?></label><br/>
                      <?php $i++;
                      }?></td>
             <td>
@@ -466,7 +466,7 @@ $comment=$objReSult['comment'];
                       $objQuery = mysql_query($strSQL, $connect1);
                       while ($objReSult = mysql_fetch_array($objQuery)) {
                       ?>
-                     <input type="checkbox" name="check_list2[]" value="<?php echo $objReSult['menu_name'];?>" <?php for($z=0;$z<strlen($m2);$z++){if($s2[$z]==$objReSult['menu_name']) echo "checked";} ?>><label><?php echo $objReSult['menu_name'];?></label><br/>
+                     <input type="checkbox" name="check_list2[]" value="<?php echo $objReSult['menu_name'];?>" <?php for($z=0;$z<strlen($m2);$z++){if($s2[$z]==$objReSult['menu_name']) echo "checked";} ?>> <label style="font-size: 13px;"><?php echo $objReSult['menu_name'];?></label><br/>
                      <?php $i++;
                      }?></td>
             <td>
@@ -476,7 +476,7 @@ $comment=$objReSult['comment'];
                       $objQuery = mysql_query($strSQL, $connect1);
                       while ($objReSult = mysql_fetch_array($objQuery)) {
                       ?>
-                     <input type="checkbox" name="check_list3[]" value="<?php echo $objReSult['menu_name'];?>" <?php for($z=0;$z<strlen($m3);$z++){if($s3[$z]==$objReSult['menu_name']) echo "checked";} ?>><label><?php echo $objReSult['menu_name'];?></label><br/>
+                     <input type="checkbox" name="check_list3[]" value="<?php echo $objReSult['menu_name'];?>" <?php for($z=0;$z<strlen($m3);$z++){if($s3[$z]==$objReSult['menu_name']) echo "checked";} ?>> <label style="font-size: 13px;"><?php echo $objReSult['menu_name'];?></label><br/>
                      <?php $i++;
                      }?></td>
           </tr>
@@ -490,7 +490,7 @@ $comment=$objReSult['comment'];
                       $objQuery = mysql_query($strSQL, $connect1);
                       while ($objReSult = mysql_fetch_array($objQuery)) {
                       ?>
-                     <input type="checkbox" name="check_list4[]" value="<?php echo $objReSult['menu_name'];?>" <?php for($z=0;$z<strlen($m4);$z++){if($s4[$z]==$objReSult['menu_name']) echo "checked";} ?>><label><?php echo $objReSult['menu_name'];?></label><br/>
+                     <input type="checkbox" name="check_list4[]" value="<?php echo $objReSult['menu_name'];?>" <?php for($z=0;$z<strlen($m4);$z++){if($s4[$z]==$objReSult['menu_name']) echo "checked";} ?>> <label style="font-size: 13px;"><?php echo $objReSult['menu_name'];?></label><br/>
                      <?php $i++;
                      }?></td>
             <td>
@@ -500,7 +500,7 @@ $comment=$objReSult['comment'];
                       $objQuery = mysql_query($strSQL, $connect1);
                       while ($objReSult = mysql_fetch_array($objQuery)) {
                       ?>
-                     <input type="checkbox" name="check_list5[]" value="<?php echo $objReSult['menu_name'];?>" <?php for($z=0;$z<strlen($m5);$z++){if($s5[$z]==$objReSult['menu_name']) echo "checked";} ?>><label><?php echo $objReSult['menu_name'];?></label><br/>
+                     <input type="checkbox" name="check_list5[]" value="<?php echo $objReSult['menu_name'];?>" <?php for($z=0;$z<strlen($m5);$z++){if($s5[$z]==$objReSult['menu_name']) echo "checked";} ?>> <label style="font-size: 13px;"><?php echo $objReSult['menu_name'];?></label><br/>
                      <?php $i++;
                      }?></td>
             <td>
@@ -510,7 +510,7 @@ $comment=$objReSult['comment'];
                       $objQuery = mysql_query($strSQL, $connect1);
                       while ($objReSult = mysql_fetch_array($objQuery)) {
                       ?>
-                     <input type="checkbox" name="check_list6[]" value="<?php echo $objReSult['menu_name'];?>" <?php for($z=0;$z<strlen($m6);$z++){if($s6[$z]==$objReSult['menu_name']) echo "checked";} ?>><label><?php echo $objReSult['menu_name'];?></label><br/>
+                     <input type="checkbox" name="check_list6[]" value="<?php echo $objReSult['menu_name'];?>" <?php for($z=0;$z<strlen($m6);$z++){if($s6[$z]==$objReSult['menu_name']) echo "checked";} ?>> <label style="font-size: 13px;"><?php echo $objReSult['menu_name'];?></label><br/>
                      <?php $i++;
                      }?></td>
           </tr>
@@ -523,7 +523,7 @@ $comment=$objReSult['comment'];
                       $objQuery = mysql_query($strSQL, $connect1);
                       while ($objReSult = mysql_fetch_array($objQuery)) {
                       ?>
-                     <input type="checkbox" name="check_list7[]" value="<?php echo $objReSult['menu_name'];?>" <?php for($z=0;$z<strlen($m7);$z++){if($s7[$z]==$objReSult['menu_name']) echo "checked";} ?>><label><?php echo $objReSult['menu_name'];?></label><br/>
+                     <input type="checkbox" name="check_list7[]" value="<?php echo $objReSult['menu_name'];?>" <?php for($z=0;$z<strlen($m7);$z++){if($s7[$z]==$objReSult['menu_name']) echo "checked";} ?>> <label style="font-size: 13px;"><?php echo $objReSult['menu_name'];?></label><br/>
                      <?php $i++;
                      }?></td>
             <td>
@@ -533,7 +533,7 @@ $comment=$objReSult['comment'];
                       $objQuery = mysql_query($strSQL, $connect1);
                       while ($objReSult = mysql_fetch_array($objQuery)) {
                       ?>
-                     <input type="checkbox" name="check_list8[]" value="<?php echo $objReSult['menu_name'];?>" <?php for($z=0;$z<strlen($m8);$z++){if($s8[$z]==$objReSult['menu_name']) echo "checked";} ?>><label><?php echo $objReSult['menu_name'];?></label><br/>
+                     <input type="checkbox" name="check_list8[]" value="<?php echo $objReSult['menu_name'];?>" <?php for($z=0;$z<strlen($m8);$z++){if($s8[$z]==$objReSult['menu_name']) echo "checked";} ?>> <label style="font-size: 13px;"><?php echo $objReSult['menu_name'];?></label><br/>
                      <?php $i++;
                      }?></td>
             <td>
@@ -549,7 +549,7 @@ $comment=$objReSult['comment'];
                       $objQuery = mysql_query($strSQL, $connect1);
                       while ($objReSult = mysql_fetch_array($objQuery)) {
                       ?>
-                     <input type="checkbox" name="check_list10[]" value="<?php echo $objReSult['menu_name'];?>" <?php for($z=0;$z<strlen($m10);$z++){if($s10[$z]==$objReSult['menu_name']) echo "checked";} ?>><label><?php echo $objReSult['menu_name'];?></label><br/>
+                     <input type="checkbox" name="check_list10[]" value="<?php echo $objReSult['menu_name'];?>" <?php for($z=0;$z<strlen($m10);$z++){if($s10[$z]==$objReSult['menu_name']) echo "checked";} ?>> <label style="font-size: 13px;"><?php echo $objReSult['menu_name'];?></label><br/>
                      <?php $i++;
                      }?></td>
             <td>
@@ -559,7 +559,7 @@ $comment=$objReSult['comment'];
                       $objQuery = mysql_query($strSQL, $connect1);
                       while ($objReSult = mysql_fetch_array($objQuery)) {
                       ?>
-                     <input type="checkbox" name="check_list11[]" value="<?php echo $objReSult['menu_name'];?>" <?php for($z=0;$z<strlen($m11);$z++){if($s11[$z]==$objReSult['menu_name']) echo "checked";} ?>><label><?php echo $objReSult['menu_name'];?></label><br/>
+                     <input type="checkbox" name="check_list11[]" value="<?php echo $objReSult['menu_name'];?>" <?php for($z=0;$z<strlen($m11);$z++){if($s11[$z]==$objReSult['menu_name']) echo "checked";} ?>> <label style="font-size: 13px;"><?php echo $objReSult['menu_name'];?></label><br/>
                      <?php $i++;
                      }?></td>
             <td rolspan=2>
@@ -569,7 +569,7 @@ $comment=$objReSult['comment'];
                       $objQuery = mysql_query($strSQL, $connect1);
                       while ($objReSult = mysql_fetch_array($objQuery)) {
                       ?>
-                     <input type="checkbox" name="check_list12[]" value="<?php echo $objReSult['menu_name'];?>" <?php for($z=0;$z<strlen($m12);$z++){if($s12[$z]==$objReSult['menu_name']) echo "checked";} ?>><label><?php echo $objReSult['menu_name'];?></label><br/>
+                     <input type="checkbox" name="check_list12[]" value="<?php echo $objReSult['menu_name'];?>" <?php for($z=0;$z<strlen($m12);$z++){if($s12[$z]==$objReSult['menu_name']) echo "checked";} ?>> <label style="font-size: 13px;"><?php echo $objReSult['menu_name'];?></label><br/>
                      <?php $i++;
                      }?></td>
           </tr>
@@ -582,7 +582,7 @@ $comment=$objReSult['comment'];
                       $objQuery = mysql_query($strSQL, $connect1);
                       while ($objReSult = mysql_fetch_array($objQuery)) {
                       ?>
-                     <input type="checkbox" name="check_list13[]" value="<?php echo $objReSult['menu_name'];?>" <?php for($z=0;$z<strlen($m13);$z++){if($s13[$z]==$objReSult['menu_name']) echo "checked";} ?>><label><?php echo $objReSult['menu_name'];?></label><br/>
+                     <input type="checkbox" name="check_list13[]" value="<?php echo $objReSult['menu_name'];?>" <?php for($z=0;$z<strlen($m13);$z++){if($s13[$z]==$objReSult['menu_name']) echo "checked";} ?>> <label style="font-size: 13px;"><?php echo $objReSult['menu_name'];?></label><br/>
                      <?php $i++;
                      }?></td>
             <td>
@@ -592,7 +592,7 @@ $comment=$objReSult['comment'];
                       $objQuery = mysql_query($strSQL, $connect1);
                       while ($objReSult = mysql_fetch_array($objQuery)) {
                       ?>
-                     <input type="checkbox" name="check_list14[]" value="<?php echo $objReSult['menu_name'];?>" <?php for($z=0;$z<strlen($m14);$z++){if($s14[$z]==$objReSult['menu_name']) echo "checked";} ?>><label><?php echo $objReSult['menu_name'];?></label><br/>
+                     <input type="checkbox" name="check_list14[]" value="<?php echo $objReSult['menu_name'];?>" <?php for($z=0;$z<strlen($m14);$z++){if($s14[$z]==$objReSult['menu_name']) echo "checked";} ?>> <label style="font-size: 13px;"><?php echo $objReSult['menu_name'];?></label><br/>
                      <?php $i++;
                      }?></td>
                      <td></td>

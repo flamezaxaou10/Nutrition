@@ -157,10 +157,10 @@ exit();
       <div id="print_table">
        <br />
 
-      <H3>ข้อมูลเมนูอาหาร</H3>
+      <H4>ข้อมูลเมนูอาหาร</H4>
       <br />
       <h5 align=right>พิมพ์ครั้งที : 1</h5>่
-      <div style="float:left; font-size: 1.5em;">วันที่</div><div style="float:left; font-size: 1.5em;">&nbsp;
+      <div style="float:left; font-size: 1.2em;">วันที่</div><div style="float:left; font-size: 1.2em;">&nbsp;
       <?php
 
          $m1=$m2=$m3=$m4=$m5=$m6=$m7=$m8=$m9=$m10=$m11=$m12=$m13=$m14=$m15="";
@@ -198,7 +198,7 @@ exit();
       <? echo $dayy." ".$mon." ".$year;?></div>
       <br />
       <br />
-      <div style="float:left; font-size: 1.5em;">เจ้าหน้าที่</div><div style="float:left; font-size: 1.5em;">&nbsp;
+      <div style="float:left; font-size: 1.2em;">เจ้าหน้าที่</div><div style="float:left; font-size: 1.2em;">&nbsp;
         <?php echo $_SESSION["fnname"];?>&nbsp;<?php echo $_SESSION["lnname"];?>
       </div>
       <br />

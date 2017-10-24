@@ -167,7 +167,7 @@ include 'header.php';
 </div>
 <?php
     if($_POST){
-      header("LOCATION:out_stock.php");
+      header("LOCATION:check_out_stock.php?id_output=$id_output");
     }
  ?>
 <?php include 'footer.php' ?>

@@ -133,8 +133,11 @@ exit();
        <br>
       <p>ข้อมูลการจัดเมนูอาหาร</p>
       <br>
+      <?php
+
+       ?>
       <form method="post" action="print_test.php">
-      <div style="float:left; font-size: 1.5em;">วันที่</div><div style="float:left; font-size: 1.5em;">&nbsp;<input type="date" name="daytime" size = "8" value="<?php echo $_POST['daytime']; ?>"><font color="red"> &nbsp;*&nbsp;&nbsp;</font><a href="editdetailorder.php"><input type="submit1" class="btn btn-success" name="submit2" value="ค้นหาและแก้ไขข้อมูล"></a><br></div>
+      <div style="float:left; font-size: 1.5em;">วันที่</div><div style="float:left; font-size: 1.5em;">&nbsp;<input type="date" name="daytime" size = "8" value="<?php echo date(); ?>"><font color="red"> &nbsp;*&nbsp;&nbsp;</font><a href="editdetailorder.php"><input type="submit1" class="btn btn-success" name="submit2" value="ค้นหาและแก้ไขข้อมูล"></a><br></div>
 <br />
 <br />
 
@@ -162,7 +165,7 @@ exit();
                       $objQuery = mysql_query($strSQL, $connect1);
                       while ($objReSult = mysql_fetch_array($objQuery)) {
                       ?>
-                     <input type="checkbox" name="check_list1[]" value="<?php echo $objReSult['menu_name'];?>"><label><?php echo $objReSult['menu_name'];?></label><br/>
+                     <input type="checkbox" name="check_list1[]" value="<?php echo $objReSult['menu_name'];?>"> <label style="font-size:13px"><?php echo $objReSult['menu_name'];?></label><br/>
                      <?php $i++;
                      }?></td>
             <td>
@@ -172,7 +175,7 @@ exit();
                       $objQuery = mysql_query($strSQL, $connect1);
                       while ($objReSult = mysql_fetch_array($objQuery)) {
                       ?>
-                     <input type="checkbox" name="check_list2[]" value="<?php echo $objReSult['menu_name'];?>"><label><?php echo $objReSult['menu_name'];?></label><br/>
+                     <input type="checkbox" name="check_list2[]" value="<?php echo $objReSult['menu_name'];?>"> <label style="font-size:13px"><?php echo $objReSult['menu_name'];?></label><br/>
                      <?php $i++;
                      }?></td>
             <td>
@@ -182,7 +185,7 @@ exit();
                       $objQuery = mysql_query($strSQL, $connect1);
                       while ($objReSult = mysql_fetch_array($objQuery)) {
                       ?>
-                     <input type="checkbox" name="check_list3[]" value="<?php echo $objReSult['menu_name'];?>"><label><?php echo $objReSult['menu_name'];?></label><br/>
+                     <input type="checkbox" name="check_list3[]" value="<?php echo $objReSult['menu_name'];?>"> <label style="font-size:13px"><?php echo $objReSult['menu_name'];?></label><br/>
                      <?php $i++;
                      }?></td>
           </tr>
@@ -196,7 +199,7 @@ exit();
                       $objQuery = mysql_query($strSQL, $connect1);
                       while ($objReSult = mysql_fetch_array($objQuery)) {
                       ?>
-                     <input type="checkbox" name="check_list4[]" value="<?php echo $objReSult['menu_name'];?>"><label><?php echo $objReSult['menu_name'];?></label><br/>
+                     <input type="checkbox" name="check_list4[]" value="<?php echo $objReSult['menu_name'];?>"> <label style="font-size:13px"><?php echo $objReSult['menu_name'];?></label><br/>
                      <?php $i++;
                      }?></td>
             <td>
@@ -206,7 +209,7 @@ exit();
                       $objQuery = mysql_query($strSQL, $connect1);
                       while ($objReSult = mysql_fetch_array($objQuery)) {
                       ?>
-                     <input type="checkbox" name="check_list5[]" value="<?php echo $objReSult['menu_name'];?>"><label><?php echo $objReSult['menu_name'];?></label><br/>
+                     <input type="checkbox" name="check_list5[]" value="<?php echo $objReSult['menu_name'];?>"> <label style="font-size:13px"><?php echo $objReSult['menu_name'];?></label><br/>
                      <?php $i++;
                      }?></td>
             <td>
@@ -216,7 +219,7 @@ exit();
                       $objQuery = mysql_query($strSQL, $connect1);
                       while ($objReSult = mysql_fetch_array($objQuery)) {
                       ?>
-                     <input type="checkbox" name="check_list6[]" value="<?php echo $objReSult['menu_name'];?>"><label><?php echo $objReSult['menu_name'];?></label><br/>
+                     <input type="checkbox" name="check_list6[]" value="<?php echo $objReSult['menu_name'];?>"> <label style="font-size:13px"><?php echo $objReSult['menu_name'];?></label><br/>
                      <?php $i++;
                      }?></td>
           </tr>
@@ -229,7 +232,7 @@ exit();
                       $objQuery = mysql_query($strSQL, $connect1);
                       while ($objReSult = mysql_fetch_array($objQuery)) {
                       ?>
-                     <input type="checkbox" name="check_list7[]" value="<?php echo $objReSult['menu_name'];?>"><label><?php echo $objReSult['menu_name'];?></label><br/>
+                     <input type="checkbox" name="check_list7[]" value="<?php echo $objReSult['menu_name'];?>"> <label style="font-size:13px"><?php echo $objReSult['menu_name'];?></label><br/>
                      <?php $i++;
                      }?></td>
             <td>
@@ -239,7 +242,7 @@ exit();
                       $objQuery = mysql_query($strSQL, $connect1);
                       while ($objReSult = mysql_fetch_array($objQuery)) {
                       ?>
-                     <input type="checkbox" name="check_list8[]" value="<?php echo $objReSult['menu_name'];?>"><label><?php echo $objReSult['menu_name'];?></label><br/>
+                     <input type="checkbox" name="check_list8[]" value="<?php echo $objReSult['menu_name'];?>"> <label style="font-size:13px"><?php echo $objReSult['menu_name'];?></label><br/>
                      <?php $i++;
                      }?></td>
             <td>
@@ -255,7 +258,7 @@ exit();
                       $objQuery = mysql_query($strSQL, $connect1);
                       while ($objReSult = mysql_fetch_array($objQuery)) {
                       ?>
-                     <input type="checkbox" name="check_list10[]" value="<?php echo $objReSult['menu_name'];?>"><label><?php echo $objReSult['menu_name'];?></label><br/>
+                     <input type="checkbox" name="check_list10[]" value="<?php echo $objReSult['menu_name'];?>"> <label style="font-size:13px"><?php echo $objReSult['menu_name'];?></label><br/>
                      <?php $i++;
                      }?></td>
             <td>
@@ -265,7 +268,7 @@ exit();
                       $objQuery = mysql_query($strSQL, $connect1);
                       while ($objReSult = mysql_fetch_array($objQuery)) {
                       ?>
-                     <input type="checkbox" name="check_list11[]" value="<?php echo $objReSult['menu_name'];?>"><label><?php echo $objReSult['menu_name'];?></label><br/>
+                     <input type="checkbox" name="check_list11[]" value="<?php echo $objReSult['menu_name'];?>"> <label style="font-size:13px"><?php echo $objReSult['menu_name'];?></label><br/>
                      <?php $i++;
                      }?></td>
             <td>
@@ -275,7 +278,7 @@ exit();
                       $objQuery = mysql_query($strSQL, $connect1);
                       while ($objReSult = mysql_fetch_array($objQuery)) {
                       ?>
-                     <input type="checkbox" name="check_list12[]" value="<?php echo $objReSult['menu_name'];?>"><label><?php echo $objReSult['menu_name'];?></label><br/>
+                     <input type="checkbox" name="check_list12[]" value="<?php echo $objReSult['menu_name'];?>"> <label style="font-size:13px"><?php echo $objReSult['menu_name'];?></label><br/>
                      <?php $i++;
                      }?></td>
           </tr>
@@ -288,7 +291,7 @@ exit();
                       $objQuery = mysql_query($strSQL, $connect1);
                       while ($objReSult = mysql_fetch_array($objQuery)) {
                       ?>
-                     <input type="checkbox" name="check_list13[]" value="<?php echo $objReSult['menu_name'];?>"><label><?php echo $objReSult['menu_name'];?></label><br/>
+                     <input type="checkbox" name="check_list13[]" value="<?php echo $objReSult['menu_name'];?>"> <label style="font-size:13px"><?php echo $objReSult['menu_name'];?></label><br/>
                      <?php $i++;
                      }?></td>
             <td>
@@ -298,7 +301,7 @@ exit();
                       $objQuery = mysql_query($strSQL, $connect1);
                       while ($objReSult = mysql_fetch_array($objQuery)) {
                       ?>
-                     <input type="checkbox" name="check_list14[]" value="<?php echo $objReSult['menu_name'];?>"><label><?php echo $objReSult['menu_name'];?></label><br/>
+                     <input type="checkbox" name="check_list14[]" value="<?php echo $objReSult['menu_name'];?>"> <label style="font-size:13px"><?php echo $objReSult['menu_name'];?></label><br/>
                      <?php $i++;
                      }?></td>
             <td>

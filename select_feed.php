@@ -211,7 +211,7 @@ $username=$_SESSION["Username"];
                 <table>
                   <tr><td width="205"><h4>รหัสรายละเอียดการสั่งซื้อ</td><td><h4> : <?php echo $idd ?></h4></td></tr>
                   <input type="hidden" name="idd" value="<?php echo $idd; ?>" required="">
-                  <td><h4>ชื่ออาหารทางสายยาง</td><td><h4> : <select id="dep" name="namemat"   onchange="document.getElementById('selected_text').value=this.options[this.selectedIndex].text">
+                  <td><h4>ชื่ออาหารทางสายยาง</td><td><h4> : <select id="dep" name="namemat"   onchange="document.getElementById('price').value=this.options[this.selectedIndex].id">
 								  <option value="">-----------------โปรดเลือก----------------</option></h4>
 
 								  <?
@@ -240,7 +240,7 @@ $username=$_SESSION["Username"];
 											if($error2==0){
 								  ?>
 
-								<option value="<? echo $objReSult["feed_id"];?>" <? echo $sel; ?> > <? echo $objReSult["feed_name"];?></option>
+								<option value="<? echo $objReSult["feed_id"];?>" <? echo $sel; ?> id="<? echo $objReSult["price"];?>"> <? echo $objReSult["feed_name"];?> </option>
 								<?
 							}
 								}
@@ -265,7 +265,7 @@ $username=$_SESSION["Username"];
 								error_reporting(0);
 								?>
 								</select><font color="red"> &nbsp;*</font></td><input type="hidden" name="sum2" value="<?php echo $sum ; ?>">
-                  <td><h4>&nbsp;&nbsp;ราคาต่อหน่วย</td><td><h4> : <input type="text" name="price" value="" required="" onKeyUp="if(isNaN(this.value)){ alert('กรุณากรอกตัวเลข'); this.value='';}">&nbsp;(บาท)<font color="red"> &nbsp;*</font></h4></td></tr>
+                  <td><h4>&nbsp;&nbsp;ราคาต่อหน่วย</td><td><h4> : <input id="price" type="text" name="price" value="" required="" onKeyUp="if(isNaN(this.value)){ alert('กรุณากรอกตัวเลข'); this.value='';}">&nbsp;(บาท)<font color="red"> &nbsp;*</font></h4></td></tr>
                   <tr></table><div class="modal-footer"><td colspan=2 align=center><input type="submit" class="btn btn-success" name="submit" value="เพิ่มข้อมูล" >&nbsp;&nbsp;
     						<a href="delete_allfeed.php?id=<?php echo $id ;?>"><button type="button" class="btn btn-danger" data-dismiss="modal" onclick="return confirm('ต้องการยกเลิกการสั่งซื้อ?')">ยกเลิกการสั่งซื้อ</button></a>
     							</td></tr>

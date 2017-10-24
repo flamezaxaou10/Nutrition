@@ -141,7 +141,6 @@ exit();
             <center><img src="img/logo14.png" class="img-circle person img-responsive" alt="Random Name" width="255" height="255"></center>
           </a>
         </div>
-
      <div class="col-sm-3">
           <p class="text-center"><strong><font size ="5px">ข้อมูลเจ้าหน้าที่</font></strong></p>
           <a href="user.php">
@@ -161,7 +160,8 @@ exit();
               <center><img src="img/logo7.png" class="img-circle person img-responsive" alt="Random Name" width="250" height="250"></center>
             </a>
         </div>
-
+      </div>
+    <div class="row">
      <div class="col-sm-3">
           <p class="text-center"><strong><font size ="5px">ข้อมูลร้านค้า</font></strong></p>
           <a href="insert_restaurant.php">
@@ -187,6 +187,8 @@ exit();
             <center><img src="img/logomenu.png" class="img-circle person" alt="Random Name" width="250" height="250"></center>
           </a>
       </div>
+    </div>
+    <div class="row">
       <div class="col-sm-3">
         <p class="text-center"><strong><font size ="5px">วัตถุดิบที่ใช้ทำอาหาร</font></strong></p>
         <a href="raw.php">
@@ -215,8 +217,8 @@ exit();
               <center><img src="img/logo3.png" class="img-circle person img-responsive" alt="Random Name" width="250" height="250"></center>
             </a>
           </div>
-
-
+      </div>
+      <div class="row">
         <div class="col-sm-3">
           <p class="text-center"><strong><font size ="5px">รายงานการจัดส่งอาหาร</font></strong></p>
           <a href="report.php">
@@ -244,7 +246,8 @@ exit();
             <center><img src="img/logo_pick.png" class="img-circle person img-responsive" alt="Random Name" width="250" height="250"></center>
           </a>
         </div>
-
+      </div>
+      <div class="row">
         <div class="col-sm-3">
           <p class="text-center"><strong><font size ="5px">การขายอาหารทางสายยาง</font></strong></p>
           <a href="sale_feed.php">
