@@ -171,5 +171,6 @@ function setRaw(id_raw){
    window.print();
 
    document.body.innerHTML = originalContents;
+   location.reload();
   }
 </script>
