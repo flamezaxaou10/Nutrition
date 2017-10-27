@@ -227,7 +227,7 @@ exit();
         </div>
 
         <div class="col-sm-3">
-          <p class="text-center"><strong><font size ="5px">รายงานการสั่งอาหาร</font></strong></p>
+          <p class="text-center"><strong><font size ="5px">กาก</font></strong></p>
           <a href="report2.php">
             <center><img src="img/logoss.png" class="img-circle person img-responsive" alt="Random Name" width="255" height="255"></center>
           </a>
