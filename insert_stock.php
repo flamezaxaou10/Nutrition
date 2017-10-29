@@ -14,7 +14,7 @@ include 'header.php';
 <div class="container">
   <div class="jumbotron">
          <br>
-        <p>ข้อมูลสต๊อก</p>
+        <p>ข้อมูลประเภทวัตถุดิบ</p>
         <?php
           $flag = 0;
           $num = 0;
