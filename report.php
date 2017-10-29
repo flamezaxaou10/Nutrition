@@ -190,7 +190,7 @@ thead {display: table-header-group;}
 
 <div class="jumbotron">
 <div id="print_table">
-<center><h4><label type="text"  value="การสั่งอาหาร" display="">ข้อมูลการสั่งอาหารให้กับผู้ป่วย</label></h4></center>
+<center><h4><label type="text"  value="การสั่งอาหาร" display="">ข้อมูลการจัดส่งอาหารให้กับผู้ป่วย</label></h4></center>
 <center><h4><label type="text"  value="การสั่งอาหาร" display="">ฝ่ายโภชนาการ&nbsp;โรงพยาบาลเจ้าพระยาอภัยภูเบศร</label></h4></center><br>
 <div class="row text-center">
   <strong>

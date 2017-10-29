@@ -152,7 +152,7 @@ thead {display: table-header-group;}
 
 <div class="container">
     <div class="jumbotron">
-      <p>รายงานการจัดส่งอาหารให้กับผู้ป่วย</p>
+      <p>รายงานการสั่งอาหารให้กับผู้ป่วย</p>
       <div class="modal-body">
       <form method="POST" action="#">
 <label> มื้ออาหาร : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
