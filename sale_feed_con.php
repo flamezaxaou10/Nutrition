@@ -119,7 +119,7 @@ include 'header.php';
       <th><div align = "center">ลบ</div></th>
     </tr>
   <?php
-    $table = "SELECT d.feed_id,f.feed_name,SUM(d.count),u.unit_name,d.price FROM detail_sale_feed d
+    $table = "SELECT d.feed_id,f.feed_name,SUM(d.count),u.unit_name,d.price,d.unit_id FROM detail_sale_feed d
                       JOIN feed f ON d.feed_id = f.feed_id
                       JOIN unit u ON d.unit_id = u.unit_id
                       WHERE salefeed_id = '$salefeed_id' GROUP BY f.feed_id";
@@ -136,7 +136,7 @@ include 'header.php';
       <td><?php echo $row['SUM(d.count)']; ?></td>
       <td><?php echo $row['unit_name']; ?></td>
       <td align="right"><?php echo number_format($row['SUM(d.count)']*$row['price'],2); ?></td>
-      <td><div align = "center"><a href="delete_detail_salefeed.php?salefeed_id=<?php echo $salefeed_id; ?>&feed_id=<?php echo $row['feed_id']; ?>" ><img src='img/delete.png' width=25 data-dismiss="modal" onclick="return confirm('ต้องการลบรายการนี้?')"></a></div></td>
+      <td><div align = "center"><a href="delete_detail_salefeed.php?salefeed_id=<?php echo $salefeed_id; ?>&feed_id=<?php echo $row['feed_id']; ?>&count=<?php echo $row['SUM(d.count)']; ?>&unit_id=<?php echo $row['unit_id']; ?>" ><img src='img/delete.png' width=25 data-dismiss="modal" onclick="return confirm('ต้องการลบรายการนี้?')"></a></div></td>
     </tr>
     <?php
      $total += $row['SUM(d.count)']*$row['price'];
@@ -199,7 +199,7 @@ include 'header.php';
         </table>
       </div>
       <div class="modal-footer">
-        <a href="sale_feed.php"><button type="button" class="btn btn-success">บันทึกการขาย</button></a>
+        <a href="check_sale_feed.php?salefeed_id=<?php echo $salefeed_id; ?>"><button type="button" class="btn btn-success">บันทึกการขาย</button></a>
         <button type="button" class="btn btn-danger" data-dismiss="modal">ยกเลิก</button>
       </div>
     </div>

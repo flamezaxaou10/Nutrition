@@ -133,9 +133,17 @@ include 'header.php';
                 mysql_query($upstat,$connect1);
               }
 
+              $sql = "SELECT SUM(count) FROM detail_inputmat WHERE id_inputmat = '$id_mat0'";
+              $query = mysql_query($sql,$connect1);
+              $num = mysql_fetch_array($query);
+              if ($num['SUM(count)'] > 0){
+                echo( "<script> alert('เพิ่มข้อมูลลงสต๊อกสำเร็จ');</script>");
+                echo( "<script>window.location='mat_to_stock.php';</script>");
+              }
+              else {
+                header("LOCATION:delete_inputmat.php?idinputmat=$id_mat0");
+              }
 
-            echo( "<script> alert('เพิ่มข้อมูลลงสต๊อกสำเร็จ');</script>");
-            echo( "<script>window.location='mat_to_stock.php';</script>");
           }
            ?>
 <?php include 'footer.php'; ?>

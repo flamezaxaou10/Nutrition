@@ -241,19 +241,14 @@ exit();
         </div>
 
         <div class="col-sm-3">
-          <p class="text-center"><strong><font size ="5px">การเบิกวัตถุดิบ</font></strong></p>
-          <a href="out_stock.php">
-            <center><img src="img/logo_pick.png" class="img-circle person img-responsive" alt="Random Name" width="250" height="250"></center>
-          </a>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-3">
           <p class="text-center"><strong><font size ="5px">การขายอาหารทางสายยาง</font></strong></p>
           <a href="sale_feed.php">
             <center><img src="img/logosell.png" class="img-circle person img-responsive" alt="Random Name" width="250" height="250"></center>
           </a>
         </div>
+      </div>
+  <div class="row">
+
   </div>
 </div>
 
