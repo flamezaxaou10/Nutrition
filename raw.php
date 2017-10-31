@@ -14,7 +14,7 @@ include 'header.php';
 <div class="container">
   <div class="jumbotron">
     <br>
-    <p>ระบบจัดการวัตถุดิบที่ใช้ในการทำอาหาร</p>
+    <p>ระบบจัดการเบิกวัตถุดิบที่ใช้ในการทำอาหาร</p>
     <?php
     $num = 0;
       $sql = "SELECT COUNT(id_raw) FROM raw_system";

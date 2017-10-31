@@ -39,7 +39,7 @@ include 'header.php';
 <div class="container">
   <div class="jumbotron">
     <br>
-    <p>ข้อมูลการจัดการวัตถุดิบในเมนูอาหาร</p>
+    <p>ระบบจัดการเบิกวัตถุดิบที่ใช้ในการทำอาหาร</p>
        <div class="modal-body">
          <h4>
           <form action="#" method="get">
