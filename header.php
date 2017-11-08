@@ -94,16 +94,22 @@
           <span class="caret"></span></a>
 
          <ul class="dropdown-menu">
-               <li align = "center"><a href="HN_patient.php">ข้อมูลผู้ป่วย</a></li>
+            <li align = "center"><a href="HN_patient.php">ข้อมูลผู้ป่วย</a></li>
             <li align = "center"><a href="user.php">ข้อมูลเจ้าหน้าที่</a></li>
             <li align = "center"><a href="department.php">ข้อมูลแผนก</a></li>
-             <li align = "center"><a href="matandunit.php">ข้อมูลวัตถุดิบและหน่วยนับ</a></li>
+            <li align = "center"><a href="matandunit.php">ข้อมูลพื้นฐาน</a></li>
             <li align = "center"><a href="insert_restaurant.php">ข้อมูลร้านค้าวัตถุดิบ</a></li>
-            <li align = "center"><a href="typefood.php">ข้อมูลประเภทอาหาร</a></li>
-            <li align = "center"><a href="insert_menu.php">ข้อมูลเมนูอาหาร</a></li>
-            <li align = "center"><a href="patient.php">การสั่งอาหารและจัดส่งอาหาร</a></li>
+            <li align = "center"><a href="mat.php">ข้อมูลวัตถุดิบ</a></li>
+            <li align = "center"><a href="feed.php">ข้อมูลอาหารทางสายยาง</a></li>
+            <li align = "center"><a href="insert_order_menu.php">ข้อมูลการจัดเมนูอาหาร</a></li>
+            <li align = "center"><a href="raw.php">เบิกวัตถุดิบที่ใช้ทำอาหาร</a></li>
+            <li align = "center"><a href="patient.php">การจัดส่งอาหารให้ผู้ป่วย</a></li>
             <li align = "center"><a href="insert_buymaterial.php">สั่งซื้อวัตถุดิบ</a></li>
             <li align = "center"><a href="insert_feed.php">สั่งซื้ออาหารทางสายยาง</a></li>
+            <li align = "center"><a href="report.php">รายงานการจัดส่งอาหาร</a></li>
+            <li align = "center"><a href="report2.php">รายงานการสั่งอาหาร</a></li>
+            <li align = "center"><a href="stockanddetail.php">การรับวัตถุดิบเข้าคลัง</a></li>
+            <li align = "center"><a href="sale_feed.php">การขายอาหารทางสายยาง</a></li>
           </ul>
 
         </li>
