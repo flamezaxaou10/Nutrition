@@ -11,7 +11,7 @@
 <body>
 <div>This is not printed</div>
 <?php
-while($row = mysql_fetch_array($result)){ 
+while($row = mysql_fetch_array($result)){
     echo "<table class='print' border='2' style='width:100%'> ";
     // your code....
     echo "<table>";

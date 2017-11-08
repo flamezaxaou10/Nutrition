@@ -6,6 +6,7 @@ if($_SESSION["Username"]=="") // ตรวจสอบว่าผ่านก�
 header('location:login.php');
 exit();
 }
+include 'header.php';
 ?>
 
 <!DOCTYPE html>

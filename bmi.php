@@ -1,116 +1,14 @@
 <?php
-include ('conn.php');
-session_start();
-if($_SESSION["Username"]=="") // ตรวจสอบว่าผ่านการ login หรือไม่
-{
-header('location:login.php');
-exit();
-}
+  include ('conn.php');
+  session_start();
+  if($_SESSION["Username"]=="") // ตรวจสอบว่าผ่านการ login หรือไม่
+  {
+  header('location:login.php');
+  exit();
+  }
+  include 'header.php';
 ?>
 
-<!DOCTYPE html>
-<html>
-<head>
-  <title>BMI</title>
-  <meta http-equiv=Content-Type content="text/html; charset=utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <link href="http://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
-  <link href="http://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
-
-<link rel="icon" href="img/icon300.ico" type="image/x-icon"/>
-
- 
-  <link rel="stylesheet" href="css/css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/css/bootstrap.css">
-  <link rel="stylesheet" type="text/css" href="css/css/myStyle2.css">
-
-  <script src="css/js/bootstrap.min.js"></script>
-  <script src="css/js/jquery.min.js"></script>
-  <script src="css/js/bootstrap.js"></script>
-</head>
-<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
-
-<style type="text/css">
-  .navbar {
-      font-family: Montserrat, sans-serif;
-      margin-bottom: 0;
-      background-color: #2d2d30;
-      border: 0;
-      font-size: 11px !important;
-      letter-spacing: 4px;
-      opacity: 0.9;
-  }
-  .navbar li a, .navbar .navbar-brand {
-      color: #d5d5d5 !important;
-  }
-  .navbar-nav li a:hover {
-      color: #fff !important;
-  }
-  .navbar-nav li.active a {
-      color: #fff !important;
-      background-color: #29292c !important;
-  }
-  .navbar-default .navbar-toggle {
-      border-color: transparent;
-  }
-  .open .dropdown-toggle {
-      color: #fff;
-      background-color: #555 !important;
-  }
-  .dropdown-menu li a {
-      color: #000 !important;
-  }
-  .dropdown-menu li a:hover {
-      background-color: red !important;
-  }
-  footer {
-      background-color: #2d2d30;
-      color: #f5f5f5;
-      padding: 32px;
-  }
-  footer a {
-      color: #f5f5f5;
-  }
-  footer a:hover {
-      color: #777;
-      text-decoration: none;
-  }
-</style>
-
-
-<div class="container">
-  <ul class=""></ul>
-</div>
-
-<nav class="navbar navbar-default navbar-fixed-top">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="index.php">NUTRITION SYSTEM</a>
-    </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="index.php">HOME</a></li>
-       
-        <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#">NUTRITION
-          <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="serv.php">การจัดส่งอาหาร</a></li>
-            <li><a href="bmi.php">คำนวณค่า BMI ผู้ป่วย</a></li>
-          </ul>
-        </li>
-        <li><a href=""><span class="glyphicon glyphicon-user"> <? echo $_SESSION["Username"];?></span></a></li>
-        <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Log out</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
 <div class="container">
     <div class="jumbotron">
       <h1><font face ="JasmineUPC">โรงพยาบาลเจ้าพระยาอภัยภูเบศร</font></h1>
@@ -137,7 +35,7 @@ exit();
     </div>
 </div>
 <div class="container">
-<?php  
+<?php
 @include('conn.php');
 $dep = $_POST['dep'];
 
@@ -180,7 +78,7 @@ $i++;
   <td><div><center><a data-toggle="modal" name="hn" onclick="setHn(<? echo $objReSult["hn"]; $testtest = $objReSult["hn"];?>)" href="#myModal">BMI</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a data-toggle="modal" name="update" onclick="updateHn(<? echo $objReSult["hn"]; $testtest = $objReSult["hn"];?>)" href="#myModal1">แก้ไข</a></center></div></td>
 
   </tr>
-  
+
   <?
 
  // $temp = array("a", "b", "c");
@@ -246,7 +144,7 @@ function submitModal(){
 $(document).ready(function(){
   // Initialize Tooltip
   $('[data-toggle="tooltip"]').tooltip();
-  
+
   // Add smooth scrolling to all links in navbar + footer link
   $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
 
@@ -264,7 +162,7 @@ $(document).ready(function(){
       $('html, body').animate({
         scrollTop: $(hash).offset().top
       }, 900, function(){
-   
+
         // Add hash (#) to URL when done scrolling (default click behavior)
         window.location.hash = hash;
       });
@@ -290,7 +188,7 @@ $(document).ready(function(){
     $objQuery2 = mysql_query($strSQL2, $connect2);
     $objReSult2 = mysql_fetch_array($objQuery2);
 
-   
+
     // {
     //   ?>
     <table>
@@ -299,11 +197,11 @@ $(document).ready(function(){
           น้ำหนัก : <input type="text" name="txtW" id="weight">&nbsp;&nbsp;กิโลกรัม <br><br>
           ส่วนสูง : <input type="text" name="txtH" id="height" >&nbsp;&nbsp;เซนติเมตร<br><br>
           <?
-          // }          
+          // }
           ?>
       </table>
       </div>
-      
+
       <div class="modal-footer">
         <input type="button" onclick="submitModal()" name= "submit" class="btn btn-success" value = "submit">
         <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
@@ -342,11 +240,11 @@ $(document).ready(function(){
           น้ำหนัก : <input type="text" name="txtW" id="weight" value="<? echo $objReSult3["weight"];?>">&nbsp;&nbsp;กิโลกรัม <br><br>
           ส่วนสูง : <input type="text" name="txtH" id="height" value="<? echo $objReSult3["height"];?>">&nbsp;&nbsp;เซนติเมตร<br><br>
           <?
-          // }          
+          // }
           ?>
       </table>
       </div>
-      
+
       <div class="modal-footer">
         <input type="button" onclick="submitModal()" name= "submit" class="btn btn-success" value = "submit">
         <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
