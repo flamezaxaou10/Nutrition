@@ -173,15 +173,30 @@ while ($objReSult = mysql_fetch_array($objQuery)) {
 
 </table>
 <br />
-  <div style="float: left; margin-left: 77%;">ยอดรวมผู้ป่วย</div><br />
-  <div style="float: left; margin-left: 75%;">สามัญ</div>
-    <div style="float: left; margin-left: 1%;"><?php echo $objReSult1['a1'];?> &nbsp;คน</div><br />
-  <div style="float: left; margin-left: 75%;">พิเศษ</div>
-    <div style="float: left; margin-left: 1%;">&nbsp;<?php echo $objReSult2['a2'];?> &nbsp;คน</div><br />
-  <div style="float: left; margin-left: 75%;">เฉพาะโรค</div>
-     <div style="float: left; margin-left: 1%;">&nbsp;<?php echo $objReSult3['a3'];?> &nbsp;คน</div>
-  <div style="float: left; margin-left: 75%;">ทั้งหมด</div>
-     <div style="float: left; margin-left: 1%;">&nbsp;<?php echo $objReSult4['a4'];?> &nbsp;คน</div>
+<div align="right"  class="table">
+  <table>
+    <tr>
+      <td><b>ยอดรวมผู้ป่วย</b></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>สามัญ</td>
+      <td><?php echo $objReSult1['a1'];?> คน</td>
+    </tr>
+    <tr>
+      <td>พิเศษ</td>
+      <td><?php echo $objReSult2['a2'];?> คน</td>
+    </tr>
+    <tr>
+      <td>เฉพาะโรค</td>
+      <td><?php echo $objReSult3['a3'];?> คน</td>
+    </tr>
+    <tr>
+      <td>ทั้งหมด</td>
+      <td><?php echo $objReSult4['a4'];?> คน</td>
+    </tr>
+  </table>
+</div>
     <br/>
     <br/>
     <br/>

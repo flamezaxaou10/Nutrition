@@ -5,7 +5,7 @@
 	<title>ระบบจัดการข้อมูลโรงพยาบาลเจ้าพยาอภัยภูเบศ</title>
 	<meta http-equiv=Content-Type content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://fonts.googleapis.com/css?family=Prompt" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Kanit" rel="stylesheet">
   <link href="http://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
   <link href="http://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
 
@@ -24,7 +24,7 @@
 
 <style type="text/css">
   body{
-    font-family: 'Prompt', sans-serif;
+    font-family: 'Kanit', sans-serif;
   }
   .navbar {
       font-family: Montserrat, sans-serif;

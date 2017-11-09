@@ -95,17 +95,17 @@ include 'header.php';
             <div class="modal-body">
 
 							<table>
-								<tr><td align= right width=100><h4>รหัสใบเสร็จ </td><td><h4>: <?php echo $id; ?></h4></td>
-                <td align= right width=150><h4>ชื่อเจ้าหน้าที่ </td><td><h4>: <?php echo $username; ?></h4></td>
-                <td align= right width=100><h4>ชื่อร้าน  </td><td><h4>: <?php echo $resname; ?></td></h4></td>
-                <td align= right width=150><h4>ชื่อเจ้าของร้าน </td><td> <h4>: <?php echo $keeper; ?></h4></td></tr>
+								<tr><td align= right width=90><h4>รหัสใบเสร็จ </td><td><h4>: <?php echo $id; ?></h4></td>
+                <td align= right width=160><h4>ชื่อเจ้าหน้าที่ </td><td><h4>: <?php echo $username; ?></h4></td>
+                <td align= right width=90><h4>ชื่อร้าน  </td><td><h4>: <?php echo $resname; ?></td></h4></td>
+                <td align= right width=160><h4>ชื่อเจ้าของร้าน </td><td> <h4>: <?php echo $keeper; ?></h4></td></tr>
 							</table><br>
               <form method="post" action="#">
                 <table>
                   <tr><td width="205"><h4>รหัสรายละเอียดการสั่งซื้อ</td><td><h4>: <?php echo $idd ?></h4></td></tr>
                   <input type="hidden" name="idd" value="<?php echo $idd; ?>" required="">
                  <td><h4>ชื่อวัตถุดิบ  &nbsp;</td><td> <h4>: <select id="dep" name="namemat"   onchange="document.getElementById('selected_text').value=this.options[this.selectedIndex].text">
-								  <option value="">-----------------โปรดเลือก----------------</option></h4>
+								  <option value="">------------โปรดเลือก-----------</option></h4>
 
 								  <?
 								    @include('conn.php');
@@ -142,7 +142,7 @@ include 'header.php';
 								</select><font color="red"> &nbsp;*</font></td>
                   <td><h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;จำนวน</td><td> <h4>:&nbsp;<input type="text" name="count" value="" required=""onKeyUp="if(isNaN(this.value)){ alert('กรุณากรอกตัวเลข'); this.value='';}"><font color="red"> &nbsp;*</font></td></tr>
                   <td><h4>หน่วยนับ</td><td> <h4>: <select id="dep" name="unit"   onchange="document.getElementById('selected_text').value=this.options[this.selectedIndex].text">
-								  <option value="">-----------------โปรดเลือก----------------</option>
+								  <option value="">------------โปรดเลือก-----------</option>
 
 								  <?
 								    @include('conn.php');

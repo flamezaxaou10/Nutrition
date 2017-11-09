@@ -33,15 +33,6 @@ if(isset($_POST['submit'])) {
 <br>
 <div class="container">
 		<div class="jumbotron">
-
-
-<!DOCTYPE HTML>
-<html>
-<head>
-<body>
-<form method="post" action="#" >
-
-
 <table>
 <?php
 $gid=$_GET['id'];
@@ -55,37 +46,52 @@ $gid=$_GET['id'];
 <table>
             <div class="modal-body">
             <input type='hidden' name='id' value=''>
-              <tr><td width=150><h4 align="left"> รหัสร้านค้า </td><td width=700><h4>: <input type="text" name ='res_id' readonly value="<?php echo $sql["res_id"] ; ?>"></td></tr></h4>
-              <tr><td><h4 align="left"> ชื่อร้านค้า  </td><td><h4>: <input type='text' name ='res_name'  readonly required value="<?php echo  $sql["res_name"] ; ?>" onKeyUp="if(!(isNaN(this.value))) { alert('กรุณากรอกอักษร'); this.value='';}" ><font color="red"> &nbsp;*</font></td></tr></h4>
-              <tr><td><h4 align="left"> ชื่อผู้ติดต่อ  </td><td><h4>: <input type='text' name ='id_name' required value="<? echo $sql["shopkeeper"];?>" onKeyUp="if(!(isNaN(this.value))) { alert('กรุณากรอกอักษร'); this.value='';}" ><font color="red"> &nbsp;*</font></td></tr></h4>
-              <tr><td><h4 align="left"> โทรศัพท์  </td><td><h4>: <input type='tel' name ='res_phone' required value="<? echo $sql["res_tel"];?>" onKeyUp="if(isNaN(this.value)){ alert('กรุณากรอกตัวเลข'); this.value='';}"><font color="red"> &nbsp;*</font></td></tr></h4>
-              <tr><td><h4 align="left"> มือถือ  </td><td><h4>: <input type='tel' name ='phone'  value="<? echo $sql["res_telkeeper"];?>" onKeyUp="if(isNaN(this.value)){ alert('กรุณากรอกตัวเลข'); this.value='';}"><font color="red"> &nbsp;*</font></td></tr>
-								<tr><td><h4 align="left"> ประเภทร้านค้า </td><td><h4> : <select id="type" name="type"   onchange="document.getElementById('selected_text').value=this.options[this.selectedIndex].text">
-							  	<option value="">< ----- โปรดเลือก ----- > </option>
+              <tr>
+                <td style="width:13%"><h4 align="left"> รหัสร้านค้า </td>
+                <td style="width:40%"><h4>: <input type="text" name ='res_id' readonly value="<?php echo $sql["res_id"] ; ?>"></h4></td>
+                <td style="width:13%"><h4 align="left"> ชื่อร้านค้า  </td>
+                <td ><h4>: <input type='text' name ='res_name'  readonly required value="<?php echo  $sql["res_name"] ; ?>" onKeyUp="if(!(isNaN(this.value))) { alert('กรุณากรอกอักษร'); this.value='';}" ><font color="red"> &nbsp;*</font></h4></td>
+              </tr>
+              <tr>
+                <td><h4 align="left"> ชื่อผู้ติดต่อ  </td>
+                <td><h4>: <input type='text' name ='id_name' required value="<? echo $sql["shopkeeper"];?>" onKeyUp="if(!(isNaN(this.value))) { alert('กรุณากรอกอักษร'); this.value='';}" ><font color="red"> &nbsp;*</font></h4></td>
+                <td><h4 align="left"> โทรศัพท์  </td>
+                <td><h4>: <input type='tel' name ='res_phone' required value="<? echo $sql["res_tel"];?>" onKeyUp="if(isNaN(this.value)){ alert('กรุณากรอกตัวเลข'); this.value='';}"><font color="red"> &nbsp;*</font></h4></td>
+              </tr>
+              <tr>
+                <td><h4 align="left"> มือถือ  </td>
+                <td><h4>: <input type='tel' name ='phone'  value="<? echo $sql["res_telkeeper"];?>" onKeyUp="if(isNaN(this.value)){ alert('กรุณากรอกตัวเลข'); this.value='';}"><font color="red"> &nbsp;*</font></td>
+                <td><h4 align="left"> ประเภทร้านค้า </td>
+                <td>
+                  <h4> : <select id="type" name="type"   onchange="document.getElementById('selected_text').value=this.options[this.selectedIndex].text">
+                            <option value="">< ----- โปรดเลือก ----- > </option>
 
-							 <?php
-                      $i = 0;
-                      $strSQL = "SELECT * FROM typestore ";
-                      $objQuery = mysql_query($strSQL, $connect1);
-                      while ($objReSult = mysql_fetch_array($objQuery)) {
-                      ?>
-                       <option value="<?php echo $objReSult['type_id'];?>" <?php if($_GET['id1']==$objReSult['type_name']) echo "selected"; ?>><?php echo $objReSult['type_name'];?></option>
-                      <?php $i++;
-                      }?>
+                   <?php
+                    $i = 0;
+                    $strSQL = "SELECT * FROM typestore ";
+                    $objQuery = mysql_query($strSQL, $connect1);
+                    while ($objReSult = mysql_fetch_array($objQuery)) {
+                    ?>
+                     <option value="<?php echo $objReSult['type_id'];?>" <?php if($_GET['id1']==$objReSult['type_name']) echo "selected"; ?>><?php echo $objReSult['type_name'];?></option>
+                    <?php $i++;
+                    }?>
 
-						</select><font color="red"> &nbsp;*</font></td></tr></h4>
-              <tr><td><h4 align="left"> ที่อยู่ : </td><td>
+                  </select><font color="red"> &nbsp;*</font></h4>
+                </td>
+              </tr>
 
-              <textarea class="form-control" rows="3" id="detail" name="res_address" required data-validation="required"><? echo $sql["address"];?></textarea>
-              </td></tr></h4>
-              <tr><td colspan=2><br> <div class="modal-footer">
+              <tr>
+                <td><h4 align="left"> ที่อยู่ : </td>
+                <td>
+                  <textarea class="form-control" rows="3" id="detail" name="res_address" required data-validation="required"><? echo $sql["address"];?></textarea></h4>
+                </td>
+              </tr>
+            </table>
+               <div class="modal-footer text-right">
 								<input type="submit" name="submit" class="btn btn-success" value="แก้ไขข้อมูล" onclick="return confirm('ต้องการแก้ไขข้อมูลนี้?')">&nbsp;&nbsp;
-            	<a href="insert_restaurant.php"><button type="button" class="btn btn-danger" data-dismiss="modal" onclick="return confirm('ต้องการยกเลิกการแก้ไขข้อมูลนี้?')">ยกเลิก</button>
-              </td></tr>
+            	<a href="insert_restaurant.php"><button type="button" class="btn btn-danger" data-dismiss="modal" onclick="return confirm('ต้องการยกเลิกการแก้ไขข้อมูลนี้?')">ยกเลิก</button></a>
               </div>
-
-</a></td></tr>
-</table></form>
+              </form>
 <?
 	}
 ?>

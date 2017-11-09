@@ -52,7 +52,7 @@ include 'header.php';
            <form method="POST" action="#" onsubmit="return confirm('ต้องการเพิ่มข้อมูลนี้?');">
                       <h4> รหัสสต๊อก &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;<input type="text" name="id" value="<?php echo $ID; ?>" readonly=""></h4>
                       <h4> ประเภทสต๊อก : &nbsp;<input value="<?php echo $row['name_stock'] ?>"type="text" name="name" required oninvalid="this.setCustomValidity('กรุณากรอกข้อมูล')" onKeyUp="if(!(isNaN(this.value))) { alert('กรุณากรอกอักษร'); this.value='';}"><font color="red"> *</font><?php if($flag==1)echo "<font color=red>ชื่อนี้มีในระบบแล้ว</font>"; ?></h4>
-           <div class="modal-footer">
+           <div class="modal-footer" >
             <input type="submit" class="btn btn-success" value="แก้ไขข้อมูล" name = "submit" onclick="submitModal()"> &nbsp;&nbsp;&nbsp;
            &nbsp;&nbsp; <a href="insert_stock.php"><button type="button" class="btn btn-danger" data-dismiss="modal" onclick="return confirm('ต้องการยกเลิกการเพิ่มข้อมูลนี้?')">ยกเลิก</button></a>
           </div>

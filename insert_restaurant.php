@@ -67,43 +67,55 @@ while ($objReSult = mysql_fetch_array($objQuery)) {
 <table><form method="post" action="#" >
             <div class="modal-body">
             <input type='hidden' name='id' value=''>
-              <tr><td width=150><h4> รหัสร้านค้า </td><td width=700><h4>: <input type="text" name ='res_id' readonly value='<?php echo $id ; ?>'></h4></td></tr>
+              <tr>
+								<td style="width:12%"><h4> รหัสร้านค้า </td>
+								<td style="width:40%"><h4>: <input type="text" name ='res_id' readonly value='<?php echo $id ; ?>'></h4></td>
+								<td style="width:12%"><h4> ชื่อร้านค้า  </td>
+								<td><h4>: <input type='text' name ='res_name' required value="<?php echo $bb; ?>" onKeyUp="if(!(isNaN(this.value))) { alert('กรุณากรอกอักษร'); this.value='';}" ><font color="red"> &nbsp;*</font><?php if($error==1)echo "<font color=red>ชื่อร้านนี้มีอยู่ในระบบแล้ว</font>"; ?></h4></td>
+							</tr>
+              <tr>
+								<td><h4> ชื่อผู้ติดต่อ  </td>
+								<td><h4>: <input type='text' name ='id_name' required value="<?php echo $cc; ?>" onKeyUp="if(!(isNaN(this.value))) { alert('กรุณากรอกอักษร'); this.value='';}"><font color="red"> &nbsp;*</font></h4></td>
+								<td><h4> โทรศัพท์  </td>
+								<td><h4>: <input type='text' name ='res_phone'  value="<?php echo $dd; ?>" onKeyUp="if(isNaN(this.value)){ alert('กรุณากรอกตัวเลข'); this.value='';}"/><font color="red"> &nbsp;*</font></h4></td>
+							</tr>
+              <tr>
+								<td><h4> มือถือ  </td>
+								<td><h4>: <input type='tel' name ='phone' required value="<?php echo $ee; ?>" onKeyUp="if(isNaN(this.value)){ alert('กรุณากรอกตัวเลข'); this.value='';}"><font color="red"> &nbsp;*</font></h4></td>
+								<td><h4 align="left"> ประเภทร้านค้า  </td>
+								<td>
+									<h4>:
+									<select name="type" >
+										<option value="">--------โปรดเลือกประเภทร้านค้า-------</option>
+	                    <?php
+	                      $i = 0;
+	                      $strSQL = "SELECT * FROM typestore ";
+	                      $objQuery = mysql_query($strSQL, $connect1);
+	                      while ($objReSult = mysql_fetch_array($objQuery)) {
+	                      ?>
+										     <option value="<?php echo $objReSult['type_id'];?>" <?php if($gg==1) echo "selected"; ?>><?php echo $objReSult['type_name'];?></option>
+	                      <?php $i++;
+	                      }?>
+									</select><font color="red"> &nbsp;*</font></h4>
+								</td>
+							</tr>
+              <tr>
+								<td><h4 align="left"> ที่อยู่ : </td>
+								<td>
+                	<textarea class="form-control" rows="3" id="detail" name="res_address" required data-validation="required"><?php echo $ff; ?></textarea></h4>
+              	</td>
+							</tr>
+						</table>
+						<div class="modal-footer text-right">
+	  					<input type="submit" name="submit" class="btn btn-success" value="เพิ่มข้อมูล" >&nbsp;&nbsp;&nbsp;&nbsp;
+	  					<a href="index.php"><button type="button" class="btn btn-danger" data-dismiss="modal" onclick="return confirm('ต้องการยกเลิกการเพิ่มข้อมูลนี้ห?')">ยกเลิก</button></a>
+					</form>
 
-              <tr><td><h4> ชื่อร้านค้า  </td><td><h4>: <input type='text' name ='res_name' required value="<?php echo $bb; ?>" onKeyUp="if(!(isNaN(this.value))) { alert('กรุณากรอกอักษร'); this.value='';}" ><font color="red"> &nbsp;*</font><?php if($error==1)echo "<font color=red>ชื่อร้านนี้มีอยู่ในระบบแล้ว</font>"; ?></h4></td></tr>
-              <tr><td><h4> ชื่อผู้ติดต่อ  </td><td><h4>: <input type='text' name ='id_name' required value="<?php echo $cc; ?>" onKeyUp="if(!(isNaN(this.value))) { alert('กรุณากรอกอักษร'); this.value='';}"><font color="red"> &nbsp;*</font></h4></td></tr>
-              <tr><td><h4> โทรศัพท์  </td><td><h4>: <input type='text' name ='res_phone'  value="<?php echo $dd; ?>" onKeyUp="if(isNaN(this.value)){ alert('กรุณากรอกตัวเลข'); this.value='';}"/><font color="red"> &nbsp;*</font></h4></td></tr>
-              <tr><td><h4> มือถือ  </td><td><h4>: <input type='tel' name ='phone' required value="<?php echo $ee; ?>" onKeyUp="if(isNaN(this.value)){ alert('กรุณากรอกตัวเลข'); this.value='';}"><font color="red"> &nbsp;*</font>
-								<tr><td><h4 align="left"> ประเภทร้านค้า  </td><td> <h4>:
-								<select name="type">
-									<option value="">------------โปรดเลือกประเภทร้านค้า-----------</option>
-                    <?php
-                      $i = 0;
-                      $strSQL = "SELECT * FROM typestore ";
-                      $objQuery = mysql_query($strSQL, $connect1);
-                      while ($objReSult = mysql_fetch_array($objQuery)) {
-                      ?>
-									     <option value="<?php echo $objReSult['type_id'];?>" <?php if($gg==1) echo "selected"; ?>><?php echo $objReSult['type_name'];?></option>
-                      <?php $i++;
-                      }?>
-								</select><font color="red"> &nbsp;*</font></td></tr></h4>
-              <tr><td><h4 align="left"> ที่อยู่ : </td><td>
-                <textarea class="form-control" rows="3" id="detail" name="res_address" required data-validation="required"><?php echo $ff; ?></textarea>
-              </td></tr></h4>
-              </div>
-<tr><td colspan=2><br>
-	 <div class="modal-footer">
-  <input type="submit" name="submit" class="btn btn-success" value="เพิ่มข้อมูล" >&nbsp;&nbsp;&nbsp;&nbsp;
-  <a href="index.php"><button type="button" class="btn btn-danger" data-dismiss="modal" onclick="return confirm('ต้องการยกเลิกการเพิ่มข้อมูลนี้ห?')">ยกเลิก</button>
+						</div>
+          </div>
 
-</a></td></tr>
-</table></form>
-
-		</div>
-
-		<form method="post" action="#"
-		<h4><font color=white> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ค้นหาจากชื่อร้านค้า : </font></label> <input type="text" name="sen" >
-		 <!--<input type="hidden" name="selected_text" id="selected_text" value="" />-->
-
+		<form method="post" action="#" class="text-right">
+			<font color=white> ค้นหาจากชื่อร้านค้า : </font></label> <input type="text" name="sen" >
 		   <input type="submit" class="btn btn-success" name="submit2" value="ค้นหา">
 		</form>
 

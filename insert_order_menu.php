@@ -193,13 +193,17 @@ include 'header.php';
         </table>
         <h4>หมายเหตุ</h4>
         <textarea class="form-control" rows="3" id="detail" name="deta"  data-validation="required"><?php echo $ff; ?></textarea><br />
-        <div style="float: right;"><input type="submit" class="btn btn-success" value="เพิ่มข้อมูล" name = "submit"></div>
+        <div class="text-right">
+          <input type="submit" class="btn btn-success" value="เพิ่มข้อมูล" name = "submit">
+        </div>
       </form>
 
   </div>
  </div>
   </div>
-
+</div>
+ </div>
+</div>
 
 <footer class="text-center">
   <a class="up-arrow" href="#myPage" data-toggle="tooltip" title="TO TOP">
