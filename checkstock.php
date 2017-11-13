@@ -28,7 +28,7 @@ include 'header.php';
          ?>
     <div class="modal-body">
            <form method="GET" action="#">
-                        รหัสการับเข้า &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;
+                        รหัสการรับเข้า &nbsp;: &nbsp;
                         <select class="" name="id_stock">
                           <?php
                               $sql = "SELECT * FROM stock";

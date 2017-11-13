@@ -74,7 +74,7 @@ include 'header.php';
                  <?php
                      }
                   ?>
-               </select> <input type="submit" value="เปิด" class="btn btn-success">
+               </select> <input type="submit" value="ค้นหา" class="btn btn-success">
              </td>
            </tr>
          </table>

@@ -61,7 +61,7 @@ include 'header.php';
                   }
                 ?>
 
-              </select>
+              </select><font color="red">&nbsp;*</font>
             </td>
           </tr>
         </table>

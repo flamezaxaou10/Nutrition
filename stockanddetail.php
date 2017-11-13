@@ -18,12 +18,10 @@ include 'header.php';
   <div class="modal-body">
 <table align=center>
   <tr>
-    <td align=center>
-      <a href="checkstock.php"><img class="img-responsive" src="img/logo_search.png" width=150 height=150></a>
-    </td>
-    <td align=center>
-        <a href="mat_to_stock.php"><img class="img-responsive" src="img/logo_stock2.png" width=150 height=150></a>
-    </td>
+      <td align=center style="width:50%;"><a href="checkstock.php"><img src="img/logo_search.png" class="img-responsive" width=80 height=80></a></td>
+    <!--  <a href="checkstock.php"><img class="img-responsive" src="img/logo_search.png" width=150 height=150></a>-->
+      <td align=center style="width:50%;"><a href="mat_to_stock.php"><img src="img/logo_stock2.png" class="img-responsive" width=80 height=80></a></td>
+      <!--  <a href="mat_to_stock.php"><img class="img-responsive" src="img/logo_stock2.png" width=150 height=150></a>-->
   </tr>
     <tr>
       <td align=center width=300><strong><h4>ตรวจสอบสต๊อก</h4></strong></td>

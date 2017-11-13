@@ -72,7 +72,7 @@ include 'header.php';
 									$strDaysThai = $strDayCut[$strDays];
 									$date=$strDaysThai." ".$strDay." ".$strMonthThai." ".$strYear;
 								?>
-							</select> </table>
+							</select> <font color="red">&nbsp;*</font></table>
 							<table>
 
 									<tr>

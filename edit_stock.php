@@ -15,7 +15,7 @@ include 'header.php';
 <div class="container">
   <div class="jumbotron">
          <br>
-        <p>แก้ไขข้อมูลสต๊อก</p>
+        <p>แก้ไขข้อมูลประเภทวัตถุดิบ</p>
         <?php
           $flag = 0;
           $ID = $_GET['id'];
@@ -50,8 +50,8 @@ include 'header.php';
     <div class="modal-body">
        <div class="modal-body">
            <form method="POST" action="#" onsubmit="return confirm('ต้องการเพิ่มข้อมูลนี้?');">
-                      <h4> รหัสสต๊อก &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;<input type="text" name="id" value="<?php echo $ID; ?>" readonly=""></h4>
-                      <h4> ประเภทสต๊อก : &nbsp;<input value="<?php echo $row['name_stock'] ?>"type="text" name="name" required oninvalid="this.setCustomValidity('กรุณากรอกข้อมูล')" onKeyUp="if(!(isNaN(this.value))) { alert('กรุณากรอกอักษร'); this.value='';}"><font color="red"> *</font><?php if($flag==1)echo "<font color=red>ชื่อนี้มีในระบบแล้ว</font>"; ?></h4>
+                      <h4> รหัสประเภทวัตถุดิบ &nbsp;: &nbsp;<input type="text" name="id" value="<?php echo $ID; ?>" readonly=""></h4>
+                      <h4> ชื่อประเภทวัตถุดิบ &nbsp;&nbsp;: &nbsp;<input value="<?php echo $row['name_stock'] ?>"type="text" name="name" required oninvalid="this.setCustomValidity('กรุณากรอกข้อมูล')" onKeyUp="if(!(isNaN(this.value))) { alert('กรุณากรอกอักษร'); this.value='';}"><font color="red"> *</font><?php if($flag==1)echo "<font color=red>ชื่อนี้มีในระบบแล้ว</font>"; ?></h4>
            <div class="modal-footer" >
             <input type="submit" class="btn btn-success" value="แก้ไขข้อมูล" name = "submit" onclick="submitModal()"> &nbsp;&nbsp;&nbsp;
            &nbsp;&nbsp; <a href="insert_stock.php"><button type="button" class="btn btn-danger" data-dismiss="modal" onclick="return confirm('ต้องการยกเลิกการเพิ่มข้อมูลนี้?')">ยกเลิก</button></a>
@@ -81,8 +81,8 @@ include 'header.php';
 
 <table class="table table-striped table-bordered">
   <tr class="warning">
-    <th><div align="center">รหัสสต๊อก</div></th>
-    <th><div align="center">ประเภทสต๊อก</div></th>
+    <th><div align="center">รหัสประเภทวัตถุดิบ</div></th>
+    <th><div align="center">ชื่อประเภทวัตถุดิบ</div></th>
   </tr>
 
 <?

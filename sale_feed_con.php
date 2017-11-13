@@ -61,7 +61,7 @@ include 'header.php';
            <tr>
              <td style="padding-bottom:0px;"><h4>ชื่อผู้ป่วย </h4></td>
              <td style="padding-bottom:0px;"><h4>&nbsp;&nbsp; : &nbsp;&nbsp;</h4></td>
-             <td style="padding-bottom:0px;"><h4> <input type="text" name="customer" value="<?php echo $row['customer']; ?>"></h4></td>
+             <td style="padding-bottom:0px;"><h4> <input type="text" name="customer" value="<?php echo $row['customer']; ?>"><font color="red">&nbsp;*</font></h4></td>
            </tr>
            <tr>
              <td></td>
@@ -69,12 +69,12 @@ include 'header.php';
            <tr>
              <table class="table table-striped table-bordered">
                <tr class="warning">
-                 <th>รหัสวัตถุดิบ</th>
-                 <th>ชื่อวัตถุดิบ</th>
-                 <th>จำนวนในคลัง</th>
-                 <th>จำนวนที่ซื้อ</th>
-                 <th>ราคาต่อหน่วย</th>
-                 <th>หน่วยนับ</th>
+                 <th><div align="center">รหัสวัตถุดิบ</div></th>
+                 <th><div align="center">ชื่อวัตถุดิบ</div></th>
+                 <th><div align="center">จำนวนในคลัง</div></th>
+                 <th><div align="center">จำนวนที่ซื้อ</div></th>
+                 <th><div align="center">ราคาต่อหน่วย</div></th>
+                 <th><div align="center">หน่วยนับ</div></th>
                  <th><div align = "center">ซื้อ</div></th>
                </tr>
                <?php
@@ -127,12 +127,12 @@ include 'header.php';
   </div>
   <table class="table table-striped table-bordered">
     <tr class="warning">
-      <th>ลำดับ</th>
-      <th>รหัสวัตถุดิบ</th>
-      <th>ชื่อวัตถุดิบ</th>
-      <th>จำนวน</th>
-      <th>หน่วยนับ</th>
-      <th>ราคารวม</th>
+       <th><div align="center">ลำดับ</div></th>
+       <th><div align="center">รหัสวัตถุดิบ</div></th>
+       <th><div align="center">ชื่อวัตถุดิบ</div></th>
+       <th><div align="center">จำนวน</div></th>
+       <th><div align="center">หน่วยนับ</div></th>
+       <th><div align="center">ราคารวม</div></th>
       <th><div align = "center">ลบ</div></th>
     </tr>
   <?php
@@ -165,10 +165,11 @@ include 'header.php';
       <td><b>บาท</b></td>
     </tr>
   </table>
-  <div class="modal-footer">
-      <input type="submit" class="btn btn-success" name="Save" value="บันทึกการขาย" data-toggle="modal" data-target="#myModal">
-      <a href="delete_salefeed.php?salefeed_id=<?php echo $salefeed_id; ?>"><button type="button" class="btn btn-danger" data-dismiss="modal" onclick="return confirm('ต้องการยกเลิกการแก้ไข?')">ยกเลิก</button></a>
+  <div class="text-right">
+      <input type="submit" class="btn btn-success" name="Save" value="บันทึกการขาย" data-toggle="modal" data-target="#myModal"> &nbsp;&nbsp;
+      <a href="delete_salefeed.php?salefeed_id=<?php echo $salefeed_id; ?>"><button type="button" class="btn btn-danger" data-dismiss="modal" onclick="return confirm('ต้องการยกเลิกการเพิ่มข้อมูลนี้?')">ยกเลิก</button></a>
   </div>
+</div>
 </div>
  </form>
 <?php if ($_POST['Save'] == 'บันทึกการขาย'): ?>
@@ -215,11 +216,11 @@ include 'header.php';
             </tr>
         </table>
       </div>
-      <div class="modal-footer">
+
         <a href="check_sale_feed.php?salefeed_id=<?php echo $salefeed_id; ?>"><button type="button" class="btn btn-success">บันทึกการขาย</button></a>
         <button type="button" class="btn btn-danger" data-dismiss="modal">ยกเลิก</button>
       </div>
     </div>
   </div>
-</div>
+
 <?php include 'footer.php'; ?>

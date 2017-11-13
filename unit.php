@@ -58,7 +58,7 @@ if($flag==0){
          <form method="POST" action="#" onsubmit="return confirm('ต้องการเพิ่มข้อมูลนี้?');">
 
                     <h4> รหัสหน่วยนับ : &nbsp;<input type="text" name="id" value="<?php echo $id; ?>" readonly=""></h4>
-                    <h4> ชื่อหน่วยนับ &nbsp;&nbsp;: &nbsp;<input type="text" name="name" required oninvalid="this.setCustomValidity('กรุณากรอกข้อมูล')"><font color="red"> &nbsp;</font><?php if($flag==1)echo "<font color=red>*ชื่อนี้มีในระบบแล้ว</font>"; ?></h4>
+                    <h4> ชื่อหน่วยนับ &nbsp;&nbsp;: &nbsp;<input type="text" name="name" required oninvalid="this.setCustomValidity('กรุณากรอกข้อมูล')"><font color="red"> &nbsp;*</font><?php if($flag==1)echo "<font color=red>ชื่อนี้มีในระบบแล้ว</font>"; ?></h4>
 
 
          <div class="modal-footer">

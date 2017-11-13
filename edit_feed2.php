@@ -56,9 +56,9 @@ if($flag==0){
     ?>
          <form method="POST" action="#" onsubmit="return confirm('ต้องการแก้ไขข้อมูลนี้?');">
 
-                    <h4> รหัสอาหารทางสายยาง : &nbsp;<input type="text" name="id" value="<?php echo $id ; ?>" readonly ></h4>
-                    <h4> ชื่ออาหารทางสายยาง &nbsp;&nbsp;: &nbsp;<input type="text" name="name" required oninvalid="this.setCustomValidity('กรุณากรอกข้อมูล')" onKeyUp="if(!(isNaN(this.value))) { alert('กรุณากรอกอักษร'); this.value='';}" value="<?php echo $name; ?>"><font color="red"> &nbsp;*</font><?php if($flag==1)echo "<font color=red>ชื่อนี้มีในระบบแล้ว</font>"; ?></h4>
-                    <h4>ประเภทวัตถุดิบ :  &nbsp;&nbsp;
+                    <h4> รหัสอาหารทางสายยาง &nbsp;: &nbsp;<input type="text" name="id" value="<?php echo $id ; ?>" readonly ></h4>
+                    <h4> ชื่ออาหารทางสายยาง &nbsp;: &nbsp;<input type="text" name="name" required oninvalid="this.setCustomValidity('กรุณากรอกข้อมูล')" onKeyUp="if(!(isNaN(this.value))) { alert('กรุณากรอกอักษร'); this.value='';}" value="<?php echo $name; ?>"><font color="red"> &nbsp;*</font><?php if($flag==1)echo "<font color=red>ชื่อนี้มีในระบบแล้ว</font>"; ?></h4>
+                    <h4>ประเภทวัตถุดิบ&nbsp; :  &nbsp;&nbsp;
                       <select name="stock">
                         <option>------กรุณาเลือกประเภทวัตถุดิบ-----</option>
                     <?php
@@ -83,7 +83,7 @@ if($flag==0){
                        $strSQL = "SELECT * FROM restaurant where type = 'FYST02'";
                        $objQuery = mysql_query($strSQL, $connect1);
                     ?>
-                    <h4> ร้านค้า : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <h4> ตัวแทนจำหน่ายอาหารทางสายยาง &nbsp;: &nbsp;
                       <select name = "store">
                         <option>------กรุณาเลือกร้านค้า-----</option>
                       <?php while ($objReSult = mysql_fetch_array($objQuery)) {
@@ -101,7 +101,7 @@ if($flag==0){
                       </select><font color="red"> &nbsp;*</font>
                     </h4>
                     <h4>
-                      ราคาต่อหน่วย : <input type="number" name="price" value="<?php echo $price; ?>"> บาท
+                      ราคาต่อหน่วย : <input type="number" name="price" value="<?php echo $price; ?>"> บาท<font color="red"> &nbsp;*</font>
                     </h4>
 
          <div class="modal-footer">

@@ -62,7 +62,7 @@ include 'header.php';
 }
 error_reporting(0);
 ?>
-</select>
+</select><font color="red">&nbsp;*</font>
  <br>
  <label for="fooder"> มื้ออาหาร : </label>
  <?php $eats = $_POST['eats']; ?>
@@ -71,7 +71,7 @@ error_reporting(0);
   <option value="4" <?php if($eats == '4' && isset($eats)){echo "selected";} ?> >เช้า</option>
   <option value="5" <?php if($eats == '5' && isset($eats)){echo "selected";} ?> >กลางวัน</option>
   <option value="6" <?php if($eats == '6' && isset($eats)){echo "selected";} ?> >เย็น</option>
-</select>
+</select><font color="red">&nbsp;*</font>
 <?php
  date_default_timezone_set("Asia/Bangkok");
  $d=strtotime('+1 day');

@@ -178,21 +178,20 @@ include 'header.php';
 				}
 				 ?>
         <div class="container">
-						<div class="modal-footer">
               <table class="table table-striped table-bordered" style="font-size:14px;">
 								<form method="post" action="#">
 									<input type="hidden" name="sum" value="<?php echo $sum; ?>">
 
  							 </form>
               <tr class="warning">
-                <th align=center>ลำดับ</th>
-                <th align=center>รหัสรายละเอียด</th>
-                <th align=center>ชื่อวัตถุดิบ</th>
-                <th align=center>จำนวน</th>
-                <th align=center>หน่วยนับ</th>
-                <th align=center>ราคารวม(บาท)</th>
-                <th align=center>แก้ไขข้อมูล</th>
-                <th align=center>ลบ</th>
+              <th><div align="center">ลำดับ</th>
+              <th><div align="center">รหัสรายละเอียด</th>
+              <th><div align="center">ชื่อวัตถุดิบ</th>
+              <th><div align="center">จำนวน</th>
+              <th><div align="center">หน่วยนับ</th>
+              <th><div align="center">ราคารวม(บาท)</th>
+              <th><div align="center">แก้ไขข้อมูล</th>
+              <th><div align="center">ลบ</th>
               </tr>
 							<?php
               $no=1;
@@ -230,11 +229,13 @@ $no++;
                <tr class ="info"><td colspan=5 align=right>ราคารวม(บาท)</td><td align=center><?php echo number_format($sum,2); ?></td><td colspan=2 align=left> .-
 							 </td></tr>
 							 </table>
-							 <input type="submit" class="btn btn-success" name="submit2" value="ยืนยันการสั่งซื้อ" onclick="return confirm('ยืนยันการสั่งซื้อ?')">
+							 <div class="text-right"> <input type="submit" class="btn btn-success" name="submit2" value="ยืนยันการสั่งซื้อ" onclick="return confirm('ยืนยันการสั่งซื้อ?')">
+							 &nbsp;&nbsp; <a href="insert_buymaterial.php"><button type="button" class="btn btn-danger" data-dismiss="modal" onclick="return confirm('ต้องการยกเลิกการแก้ไขข้อมูลนี้?')">ย้อนกลับ</button></a>
+
               </div>
 
 
-          <div class="modal-footer">
+
   </div>
 
 		</div>

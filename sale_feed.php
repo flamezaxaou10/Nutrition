@@ -56,18 +56,17 @@ include 'header.php';
            <tr>
              <td>ชื่อผู้ป่วย </td>
              <td>&nbsp;&nbsp; : &nbsp;&nbsp;</td>
-             <td> <input type="text" name="customer" required></td>
+             <td> <input type="text" name="customer" required><font color="red">&nbsp;*</font></td>
            </tr>
          </table>
     </h4>
     </div>
     <div class="modal-footer" style="padding-bottom : 0px;">
-        <input type="submit" class="btn btn-success" value="เพิ่มข้อมูล" name = "submit" onclick="submitModal()" >
+        <input type="submit" class="btn btn-success" value="เพิ่มข้อมูล" name = "submit" onclick="submitModal()" >&nbsp;&nbsp;&nbsp;&nbsp;
         <a href="index.php"><button type="button" class="btn btn-danger" data-dismiss="modal">ย้อนกลับ</button></a>
     </div>
   </div>
   </form>
-  <br>
   <div class="text-right">
     <form class="" action="#" method="get">
       <b style="color:white;">ค้นหาชื่อผู้ป่วย : </b>
@@ -75,12 +74,13 @@ include 'header.php';
       <input  class="btn btn-success" type="submit" name="" value="ค้นหา">
     </form>
   </div>
+  <br>
   <table class="table table-striped table-bordered">
     <tr class="warning">
-      <th>ลำดับ</th>
-      <th>วันทีขาย</th>
-      <th>รหัสการขาย</th>
-      <th>ผู้ป่วย</th>
+      <th><div align="center">ลำดับ</div></th>
+      <th><div align="center">รหัสการขาย</th>
+      <th><div align="center">วันที่ขาย</div></th>
+      <th><div align="center">ผู้ป่วย</div></th>
       <th><div align = "center">ดูข้อมูล</div></th>
       <th><div align = "center">พิมพ์ใบสั่งยา</div></th>
     </tr>
