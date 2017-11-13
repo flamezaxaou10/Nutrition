@@ -62,13 +62,17 @@ include 'header.php';
 								<?
 								}
 								error_reporting(0);
-								$strDate=date('d-m-Y');
-									$strYear = date("Y",strtotime($strDate))+543;
-									$strMonth= date("n",strtotime($strDate));
-									$strDay= date("j",strtotime($strDate));
-									$strMonthCut = Array("","มกราคม","กุมภาพันธ์","มีนาคม","เมษายน","พฤษภาคม","มิถุนายน","กรกฎาคม","สิงหาคม","กันยายน","ตุลาคม","พฤษจิกายน","ธันวาคม");
-									$strMonthThai=$strMonthCut[$strMonth];
-									$date=$strDay." ".$strMonthThai." ".$strYear;
+								date_default_timezone_set("Asia/Bangkok") ;
+			          $strDate=date('d-m-Y');
+			            $strYear = date("Y",strtotime($strDate))+543;
+			            $strMonth= date("n",strtotime($strDate));
+			            $strDay= date("j",strtotime($strDate));
+			            $strDays= date("l",strtotime($strDate));
+			            $strDayCut = Array("Monday"=>"วันจันทร์","Tuesday"=>"วันอังคาร","Wednesday"=>"วันพุธ","Thursday"=>"วันพฤหัสบดี","Friday"=>"วันศุกร์","Saturday"=>"วันเสาร์","Sunday"=>"วันอาทิตย์");
+			            $strMonthCut = Array("","มกราคม","กุมภาพันธ์","มีนาคม","เมษายน","พฤษภาคม","มิถุนายน","กรกฎาคม","สิงหาคม","กันยายน","ตุลาคม","พฤษจิกายน","ธันวาคม");
+			            $strMonthThai=$strMonthCut[$strMonth];
+			            $strDaysThai = $strDayCut[$strDays];
+			            $date=$strDaysThai." ".$strDay." ".$strMonthThai." ".$strYear;
 								?>
 							</select></table>
 
