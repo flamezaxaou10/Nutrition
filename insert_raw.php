@@ -205,8 +205,8 @@ include 'header.php';
       </td>
         <td><div align = "left"><? echo $objReSult["unit_name"];?></div></td>
           <td align="center">
-            <a href="delete_detail_raw.php?id_raw=<?php echo $id_raw; ?>&mat_id=<?php echo $mat; ?>&count=<?php echo $objReSult["SUM(count)"]; ?>
-              &stock_id=<?php echo $row['stock_id']; ?>&unit_id=<?php echo $objReSult["unit_id"]; ?>
+            <a href="delete_detail_raw.php?id_raw=<?php echo $id_raw; ?>&mat_id=<?php echo $mat; ?>&count=<?php echo $objReSult['SUM(count)']; ?>
+              &stock_id=<?php echo $row['stock_id']; ?>&unit_id=<?php echo $objReSult['unit_id']; ?>
               &date=<?php echo $date; ?>&raw=<?php echo $raw; ?>"
             onclick="return confirm('ยืนยันการลบข้อมูล')"><b><font color="red"><img src='img/delete.png' width=25></font></b></a>
           </td>
@@ -221,7 +221,11 @@ include 'header.php';
     ?>
       <tr>
         <td colspan="7" class="text-right">
-          <a href="delete_raw.php?id_raw=<?php echo $id_raw; ?>"><input type="button" class="btn btn-danger" value="ยกเลิก"  onclick="return confirm('ยืนยันการยกเลิกข้อมูล')"></a>
+          <?php if (isset($_GET['edit'])) : ?>
+              <a href="raw.php"><input type="button" class="btn btn-danger" value="ย้อนกลับ"></a>
+          <?php else: ?>
+            <a href="delete_raw.php?id_raw=<?php echo $id_raw; ?>"><input type="button" class="btn btn-danger" value="ยกเลิก"  onclick="return confirm('ยืนยันการยกเลิกข้อมูล')"></a>
+          <?php endif; ?>
           <input type="submit" class="btn btn-success" name = "บันทึกข้อมูลวัตถุดิบ" value="บันทึกข้อมูลวัตถุดิบ" onclick="return confirm('บันทึกข้อมูลนี้?')">
         </td>
       </tr>

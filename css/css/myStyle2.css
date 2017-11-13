@@ -22,5 +22,8 @@
   margin: 1em 0;
 }
 .jumbotron {
-  padding-bottom:0px!important;
+  padding-bottom:10px!important;
+}
+.jumbotron h4{
+  font-size: 16px;
 }

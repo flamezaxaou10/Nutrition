@@ -39,22 +39,30 @@ include 'header.php';
             <td style="padding-bottom : 10px;">&nbsp; : &nbsp;</td>
             <td style="padding-bottom : 10px;">
               <select  name="raw">
+                <option value="" selected disabled>--- เลือกเมนูอาหาร ---</option>
                 <?php
                   $sql = "SELECT * FROM menu";
                   $result = mysql_query($sql,$connect1);
-                  while ($row = mysql_fetch_array($result)) { ?>
-                    <option value="<?php echo $row['menu_name']; ?>"><?php echo $row['menu_name']; ?></option>
+                  while ($row = mysql_fetch_array($result)) {
+                    $raw_name = $row['menu_name'];
+                    $chk = "SELECT * FROM raw_system WHERE name_raw = '$raw_name'";
+                    $rechk = mysql_query($chk,$connect1);
+                    $num = mysql_num_rows($rechk);
+                    $hide = '';
+                    if ($num > 0) {
+                      $hide = 'style="display: none;"';
+                    }
+                    else {
+                      $hide = '';
+                    }
+                ?>
+                    <option value="<?php echo $raw_name; ?>" <?php echo $hide ?>><?php echo $raw_name; ?></option>
                 <?php
                   }
                 ?>
 
               </select>
             </td>
-          </tr>
-          <tr>
-            <td style="padding-bottom : 10px;">วันที่ </td>
-            <td style="padding-bottom : 10px;">&nbsp; : &nbsp;</td>
-            <td style="padding-bottom : 10px;"> <input type="hidden" name="date" value="<?php echo $datethis; ?>"><?php echo $datethis; ?></td>
           </tr>
         </table>
         </h4>
@@ -92,7 +100,6 @@ include 'header.php';
       <table  class="table table-striped table-bordered">
         <tr class="warning">
           <th>ลำดับ</th>
-          <th>วันที่ทำรายการ</th>
           <th>รหัสจัดการวัตถุดิบ</th>
           <th>ชื่อเมนูอาหาร</th>
           <th>รายละเอียด</th>
@@ -107,11 +114,10 @@ include 'header.php';
         ?>
         <tr class="info">
           <td style="width:10%;"><?php echo $i; ?></td>
-          <td style="width:10%;"><?php echo $row['date']; ?></td>
           <td style="width:15%;"><?php echo $row['id_raw']; ?></td>
           <td style="width:35%;"><?php echo $row['name_raw']; ?></td>
           <td style="width:10%;"><div align="center"><a data-toggle="modal" data-target="#myModal" OnClick="setRaw('<?php echo $row['id_raw']; ?>')"  href="#myModal"><img src="img/sssss.png" width="30px" hieght="30px" alt=""></a></div></td>
-          <td style="width:10%;"><div align="center"><a href="insert_raw.php?id_raw=<?php echo $row['id_raw']; ?>" onclick="return confirm('ต้องการแก้ไขข้อมูลนี้?')"><img src="img/edit.png" width="30px" hieght="30px" alt=""></a></div></td>
+          <td style="width:10%;"><div align="center"><a href="insert_raw.php?id_raw=<?php echo $row['id_raw']; ?>&edit" onclick="return confirm('ต้องการแก้ไขข้อมูลนี้?')"><img src="img/edit.png" width="30px" hieght="30px" alt=""></a></div></td>
           <td style="width:10%;"><div align="center"><a href="delete_raw.php?id_raw=<?php echo $row['id_raw']; ?>" onclick="return confirm('ต้องการลบข้อมูลนี้?')"><img src="img/delete.png" width="30px" hieght="30px" alt=""></a></div></td>
         </tr>
         <?php

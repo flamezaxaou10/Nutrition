@@ -27,7 +27,6 @@ include 'header.php';
           $objQuery = mysql_query($sql,$connect1);
          ?>
     <div class="modal-body">
-       <div class="modal-body">
            <form method="GET" action="#">
                         รหัสการับเข้า &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;
                         <select class="" name="id_stock">
@@ -47,7 +46,6 @@ include 'header.php';
            &nbsp;&nbsp; <a href="stockanddetail.php"><button type="button" class="btn btn-danger" data-dismiss="modal" onclick="return confirm('ต้องการยกเลิกการเพิ่มข้อมูลนี้?')">ยกเลิก</button></a>
           </div>
           </form>
-      </div>
     </div>
   </div>
 <?php if ($_GET): ?>

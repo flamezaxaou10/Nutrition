@@ -14,7 +14,7 @@ include 'header.php';
 
 <div class="container">
   <div class="jumbotron">
-         <br>
+
         <p>ข้อมูลการรับเข้า</p>
         <?php
           $num = 0;
@@ -30,7 +30,6 @@ include 'header.php';
           $datethis = date("Y-m-d");
          ?>
     <div class="modal-body">
-       <div class="modal-body">
            <form method="POST" action="#" onsubmit="return confirm('ต้องการเพิ่มข้อมูลนี้?');">
                       <h4> รหัสการรับเข้า &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;<?php echo $id_input; ?><input type="hidden" name="id" value="<?php echo $id_input; ?>" readonly=""></h4>
                       <h4> วันที่การรับเข้า &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <?php echo $datethis; ?><input type="hidden" name="date" required value="<?php echo $datethis; ?>" readonly></h4>
@@ -55,8 +54,6 @@ include 'header.php';
            &nbsp;&nbsp; <a href="stockanddetail.php"><button type="button" class="btn btn-danger" data-dismiss="modal" onclick="return confirm('ต้องการยกเลิกการเพิ่มข้อมูลนี้?')">ยกเลิก</button></a>
           </div>
           </form>
-      </div>
-
     </div>
     <?php
         if($_POST){

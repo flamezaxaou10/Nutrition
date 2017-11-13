@@ -16,6 +16,17 @@ $username=$_SESSION["Username"];
       $sql = "SELECT * FROM raw_system WHERE id_raw = '$id_raw'";
       $res = mysql_query($sql,$connect1);
       $row = mysql_fetch_array($res);
+      date_default_timezone_set("Asia/Bangkok") ;
+      $strDate=date('d-m-Y');
+        $strYear = date("Y",strtotime($strDate))+543;
+        $strMonth= date("n",strtotime($strDate));
+        $strDay= date("j",strtotime($strDate));
+        $strDays= date("l",strtotime($strDate));
+        $strDayCut = Array("Monday"=>"วันจันทร์","Tuesday"=>"วันอังคาร","Wednesday"=>"วันพุธ","Thursday"=>"วันพฤหัสบดี","Friday"=>"วันศุกร์","Saturday"=>"วันเสาร์","Sunday"=>"วันอาทิตย์");
+        $strMonthCut = Array("","มกราคม","กุมภาพันธ์","มีนาคม","เมษายน","พฤษภาคม","มิถุนายน","กรกฎาคม","สิงหาคม","กันยายน","ตุลาคม","พฤษจิกายน","ธันวาคม");
+        $strMonthThai=$strMonthCut[$strMonth];
+        $strDaysThai = $strDayCut[$strDays];
+        $date=$strDaysThai." ".$strDay." ".$strMonthThai." ".$strYear;
     ?>
 <div class="container" >
     <h4>รายละเอียดการจัดการวัตถุดิบ</h4>
@@ -34,7 +45,7 @@ $username=$_SESSION["Username"];
           <tr>
             <td style="padding-bottom : 10px;">วันที่ </td>
             <td style="padding-bottom : 10px;">&nbsp; : &nbsp;</td>
-            <td style="padding-bottom : 10px;"> <?php echo $row['date']; ?></td>
+            <td style="padding-bottom : 10px;"> <?php echo $date;?></td>
           </tr>
         </table>
       </h5>
@@ -69,4 +80,3 @@ $username=$_SESSION["Username"];
      </tr>
    <?php } ?>
   </table>
-  
