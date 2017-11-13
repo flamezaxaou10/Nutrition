@@ -39,7 +39,24 @@ include 'header.php';
            <tr>
              <td style="padding-bottom:0px;"><h4>วันที่ขาย </h4></td>
              <td style="padding-bottom:0px;"><h4>&nbsp;&nbsp; : &nbsp;&nbsp;</h4></td>
-             <td style="padding-bottom:0px;"><h4> <?php echo $row['date']; ?></h4></td>
+             <td style="padding-bottom:0px;">
+               <h4>
+                 <?php
+                  date_default_timezone_set("Asia/Bangkok") ;
+                   $strDate=$row['date'];
+                   $strYear = date("Y",strtotime($strDate))+543;
+                   $strMonth= date("n",strtotime($strDate));
+                   $strDay= date("j",strtotime($strDate));
+                   $strDays= date("l",strtotime($strDate));
+                   $strDayCut = Array("Monday"=>"วันจันทร์","Tuesday"=>"วันอังคาร","Wednesday"=>"วันพุธ","Thursday"=>"วันพฤหัสบดี","Friday"=>"วันศุกร์","Saturday"=>"วันเสาร์","Sunday"=>"วันอาทิตย์");
+                   $strMonthCut = Array("","มกราคม","กุมภาพันธ์","มีนาคม","เมษายน","พฤษภาคม","มิถุนายน","กรกฎาคม","สิงหาคม","กันยายน","ตุลาคม","พฤษจิกายน","ธันวาคม");
+                   $strMonthThai=$strMonthCut[$strMonth];
+                   $strDaysThai = $strDayCut[$strDays];
+                   $date=$strDaysThai." ".$strDay." ".$strMonthThai." ".$strYear;
+                  echo $date;
+                 ?>
+               </h4>
+             </td>
            </tr>
            <tr>
              <td style="padding-bottom:0px;"><h4>ชื่อผู้ป่วย </h4></td>

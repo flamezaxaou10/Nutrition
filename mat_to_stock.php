@@ -28,11 +28,21 @@ include 'header.php';
           $objQuery = mysql_query($sql,$connect1);
           date_default_timezone_set("Asia/Bangkok") ;
           $datethis = date("Y-m-d");
+          $strDate=date('d-m-Y');
+            $strYear = date("Y",strtotime($strDate))+543;
+            $strMonth= date("n",strtotime($strDate));
+            $strDay= date("j",strtotime($strDate));
+            $strDays= date("l",strtotime($strDate));
+            $strDayCut = Array("Monday"=>"วันจันทร์","Tuesday"=>"วันอังคาร","Wednesday"=>"วันพุธ","Thursday"=>"วันพฤหัสบดี","Friday"=>"วันศุกร์","Saturday"=>"วันเสาร์","Sunday"=>"วันอาทิตย์");
+            $strMonthCut = Array("","มกราคม","กุมภาพันธ์","มีนาคม","เมษายน","พฤษภาคม","มิถุนายน","กรกฎาคม","สิงหาคม","กันยายน","ตุลาคม","พฤษจิกายน","ธันวาคม");
+            $strMonthThai=$strMonthCut[$strMonth];
+            $strDaysThai = $strDayCut[$strDays];
+            $date=$strDaysThai." ".$strDay." ".$strMonthThai." ".$strYear;
          ?>
     <div class="modal-body">
            <form method="POST" action="#" onsubmit="return confirm('ต้องการเพิ่มข้อมูลนี้?');">
                       <h4> รหัสการรับเข้า &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;<?php echo $id_input; ?><input type="hidden" name="id" value="<?php echo $id_input; ?>" readonly=""></h4>
-                      <h4> วันที่การรับเข้า &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <?php echo $datethis; ?><input type="hidden" name="date" required value="<?php echo $datethis; ?>" readonly></h4>
+                      <h4> วันที่การรับเข้า &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <?php echo $date; ?><input type="hidden" name="date" required value="<?php echo $datethis; ?>" readonly></h4>
                       <h4> รหัสเจ้าหน้าที่ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;<? echo $_SESSION["Username"];?>&nbsp;<input type="hidden" name="username" value="<? echo $_SESSION["Username"];?>" readonly=""></h4>
                       <h4>
                         รหัสการสั่งซื้อ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;
