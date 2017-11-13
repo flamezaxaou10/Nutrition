@@ -57,11 +57,6 @@ include 'header.php';
              <td style="padding-bottom : 10px;"> <?php echo $row['name_raw']; ?> </td>
            </tr>
            <tr>
-             <td style="padding-bottom : 10px;">วันที่ </td>
-             <td style="padding-bottom : 10px;">&nbsp; : &nbsp;</td>
-             <td style="padding-bottom : 10px;"> <?php echo $row['date']; ?></td>
-           </tr>
-           <tr>
              <td style="padding-bottom : 10px;">เลือกวัตถุดิบ </td>
              <td style="padding-bottom : 10px;">&nbsp; : &nbsp;</td>
              <td style="padding-bottom : 10px;">
