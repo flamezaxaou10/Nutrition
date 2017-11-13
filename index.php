@@ -142,35 +142,262 @@ exit();
 <!-- ALL SYSTEM-->
 <style media="screen">
   .col-sm-3 {
-    border: 1px solid;
+    border: 2px solid;
+    height: 120%;
   }
-  .col-sm-3 :hover{
-    border: 1px dashed;
+  .col-sm-3:hover{
+    border: 5px dashed;
+    border-color: red;
   }
 </style>
+<script type="text/javascript">
+    $(document).ready(function(){
+      $('#img1').width(83);
+      $('#img1').mouseover(function()
+      {
+         $(this).css("cursor","pointer");
+         $(this).animate({width: "180px"}, 'slow');
+      });
+
+      $('#img1').mouseout(function()
+       {
+           $(this).animate({width: "103px"}, 'slow');
+        });
+    });
+    ////////////////////////////////////
+    $(document).ready(function(){
+      $('#img2').width(83);
+      $('#img2').mouseover(function()
+      {
+         $(this).css("cursor","pointer");
+         $(this).animate({width: "180px"}, 'slow');
+      });
+
+      $('#img2').mouseout(function()
+       {
+           $(this).animate({width: "103px"}, 'slow');
+        });
+    });
+    ////////////////////////////////////
+    $(document).ready(function(){
+      $('#img3').width(83);
+      $('#img3').mouseover(function()
+      {
+         $(this).css("cursor","pointer");
+         $(this).animate({width: "180px"}, 'slow');
+      });
+
+      $('#img3').mouseout(function()
+       {
+           $(this).animate({width: "103px"}, 'slow');
+        });
+    });
+    ////////////////////////////////////
+    $(document).ready(function(){
+      $('#img4').width(83);
+      $('#img4').mouseover(function()
+      {
+         $(this).css("cursor","pointer");
+         $(this).animate({width: "180px"}, 'slow');
+      });
+
+      $('#img4').mouseout(function()
+       {
+           $(this).animate({width: "103px"}, 'slow');
+        });
+    });
+    ////////////////////////////////////
+    $(document).ready(function(){
+      $('#img5').width(83);
+      $('#img5').mouseover(function()
+      {
+         $(this).css("cursor","pointer");
+         $(this).animate({width: "180px"}, 'slow');
+      });
+
+      $('#img5').mouseout(function()
+       {
+           $(this).animate({width: "103px"}, 'slow');
+        });
+    });
+    ////////////////////////////////////
+    $(document).ready(function(){
+      $('#img6').width(83);
+      $('#img6').mouseover(function()
+      {
+         $(this).css("cursor","pointer");
+         $(this).animate({width: "180px"}, 'slow');
+      });
+
+      $('#img6').mouseout(function()
+       {
+           $(this).animate({width: "103px"}, 'slow');
+        });
+    });
+    ////////////////////////////////////
+    $(document).ready(function(){
+      $('#img7').width(83);
+      $('#img7').mouseover(function()
+      {
+         $(this).css("cursor","pointer");
+         $(this).animate({width: "180px"}, 'slow');
+      });
+
+      $('#img7').mouseout(function()
+       {
+           $(this).animate({width: "103px"}, 'slow');
+        });
+    });
+    ////////////////////////////////////
+    $(document).ready(function(){
+      $('#img8').width(83);
+      $('#img8').mouseover(function()
+      {
+         $(this).css("cursor","pointer");
+         $(this).animate({width: "180px"}, 'slow');
+      });
+
+      $('#img8').mouseout(function()
+       {
+           $(this).animate({width: "103px"}, 'slow');
+        });
+    });
+    ////////////////////////////////////
+    $(document).ready(function(){
+      $('#img9').width(83);
+      $('#img9').mouseover(function()
+      {
+         $(this).css("cursor","pointer");
+         $(this).animate({width: "180px"}, 'slow');
+      });
+
+      $('#img9').mouseout(function()
+       {
+           $(this).animate({width: "103px"}, 'slow');
+        });
+    });
+    ////////////////////////////////////
+    $(document).ready(function(){
+      $('#img10').width(83);
+      $('#img10').mouseover(function()
+      {
+         $(this).css("cursor","pointer");
+         $(this).animate({width: "180px"}, 'slow');
+      });
+
+      $('#img10').mouseout(function()
+       {
+           $(this).animate({width: "103px"}, 'slow');
+        });
+    });
+    ////////////////////////////////////
+    $(document).ready(function(){
+      $('#img11').width(83);
+      $('#img11').mouseover(function()
+      {
+         $(this).css("cursor","pointer");
+         $(this).animate({width: "180px"}, 'slow');
+      });
+
+      $('#img11').mouseout(function()
+       {
+           $(this).animate({width: "103px"}, 'slow');
+        });
+    });
+    ////////////////////////////////////
+    $(document).ready(function(){
+      $('#img12').width(83);
+      $('#img12').mouseover(function()
+      {
+         $(this).css("cursor","pointer");
+         $(this).animate({width: "180px"}, 'slow');
+      });
+
+      $('#img12').mouseout(function()
+       {
+           $(this).animate({width: "103px"}, 'slow');
+        });
+    });
+    ////////////////////////////////////
+    $(document).ready(function(){
+      $('#img13').width(83);
+      $('#img13').mouseover(function()
+      {
+         $(this).css("cursor","pointer");
+         $(this).animate({width: "180px"}, 'slow');
+      });
+
+      $('#img13').mouseout(function()
+       {
+           $(this).animate({width: "103px"}, 'slow');
+        });
+    });
+    ////////////////////////////////////
+    $(document).ready(function(){
+      $('#img14').width(83);
+      $('#img14').mouseover(function()
+      {
+         $(this).css("cursor","pointer");
+         $(this).animate({width: "180px"}, 'slow');
+      });
+
+      $('#img14').mouseout(function()
+       {
+           $(this).animate({width: "103px"}, 'slow');
+        });
+    });
+    ////////////////////////////////////
+    $(document).ready(function(){
+      $('#img15').width(83);
+      $('#img15').mouseover(function()
+      {
+         $(this).css("cursor","pointer");
+         $(this).animate({width: "180px"}, 'slow');
+      });
+
+      $('#img15').mouseout(function()
+       {
+           $(this).animate({width: "103px"}, 'slow');
+        });
+    });
+    ////////////////////////////////////
+    $(document).ready(function(){
+      $('#img16').width(83);
+      $('#img16').mouseover(function()
+      {
+         $(this).css("cursor","pointer");
+         $(this).animate({width: "180px"}, 'slow');
+      });
+
+      $('#img16').mouseout(function()
+       {
+           $(this).animate({width: "103px"}, 'slow');
+        });
+    });
+</script>
   <div class="row">
      <div class="col-sm-3">
           <a href="HN_patient.php">
-            <center><img src="img/logo14.png" class="img-circle person img-responsive" alt="Random Name" width="255" height="255"></center>
+            <center><img id="img1"  src="img/logo14.png" class="img-circle person img-responsive" alt="Random Name" width="" height=""></center>
           </a>
           <p class="text-center"><strong><font size ="5px">ข้อมูลผู้ป่วย</font></strong></p>
         </div>
      <div class="col-sm-3">
           <a href="user.php">
-            <center><img src="img/logo2.png" class="img-circle person img-responsive" alt="Random Name" width="255" height="255"></center>
+            <center><img id="img2"  src="img/logo2.png" class="img-circle person img-responsive" alt="Random Name" width="" height=""></center>
           </a>
           <p class="text-center"><strong><font size ="5px">ข้อมูลเจ้าหน้าที่</font></strong></p>
       </div>
 
       <div class="col-sm-3">
           <a href="department.php">
-            <center><img src="img/logo11.png" class="img-circle person img-responsive" alt="Random Name" width="250" height="250"></center>
+            <center><img id="img3"  src="img/logo11.png" class="img-circle person img-responsive" alt="Random Name" width="" height=""></center>
           </a>
           <p class="text-center"><strong><font size ="5px">ข้อมูลแผนก</font></strong></p>
       </div>
         <div class="col-sm-3">
             <a href="matandunit.php">
-              <center><img src="img/logo7.png" class="img-circle person img-responsive" alt="Random Name" width="250" height="250"></center>
+              <center><img id="img4"  src="img/logo7.png" class="img-circle person img-responsive" alt="Random Name" width="" height=""></center>
             </a>
             <p class="text-center"><strong><font size ="5px">ข้อมูลพื้นฐาน</font></strong></p>
         </div>
@@ -178,26 +405,26 @@ exit();
     <div class="row">
      <div class="col-sm-3">
           <a href="insert_restaurant.php">
-            <center><img src="img/logoshop.png" class="img-circle person img-responsive" alt="Random Name" width="250" height="250"></center>
+            <center><img id="img5"  src="img/logoshop.png" class="img-circle person img-responsive" alt="Random Name" width="" height=""></center>
           </a>
           <p class="text-center"><strong><font size ="5px">ข้อมูลร้านค้า</font></strong></p>
       </div>
      <div class="col-sm-3">
           <a href="mat.php">
-            <center><img src="img/logo9999.png" class="img-circle person img-responsive" alt="Random Name" width="255" height="255"></center>
+            <center><img id="img6"  src="img/logo9999.png" class="img-circle person img-responsive" alt="Random Name" width="" height=""></center>
           </a>
           <p class="text-center"><strong><font size ="5px">ข้อมูลวัตถุดิบ</font></strong></p>
       </div>
      <div class="col-sm-3">
           <a href="feed.php">
-            <center><img src="img/logofeed.png" class="img-circle person img-responsive" alt="Random Name" width="250" height="250"></center>
+            <center><img id="img7"  src="img/logofeed.png" class="img-circle person img-responsive" alt="Random Name" width="" height=""></center>
           </a>
           <p class="text-center"><strong><font size ="5px">ข้อมูลอาหารทางสายยาง</font></strong></p>
       </div>
 
       <div class="col-sm-3">
           <a href="insert_order_menu.php">
-            <center><img src="img/logomenu.png" class="img-circle person" alt="Random Name" width="250" height="250"></center>
+            <center><img id="img8"  src="img/logomenu.png" class="img-circle person" alt="Random Name" width="" height=""></center>
           </a>
           <p class="text-center"><strong><font size ="5px">ข้อมูลการจัดเมนูอาหาร</font></strong></p>
       </div>
@@ -205,14 +432,14 @@ exit();
     <div class="row">
       <div class="col-sm-3">
         <a href="raw.php">
-          <center><img src="img/make01.png" class="img-circle person img-responsive" alt="Random Name" width="250" height="250"></center>
+          <center><img id="img9" src="img/make01.png" class="img-circle person img-responsive" alt="Random Name" width="" height=""></center>
         </a>
         <p class="text-center"><strong><font size ="5px">เบิกวัตถุดิบที่ใช้ทำอาหาร</font></strong></p>
       </div>
 
       <div class="col-sm-3">
           <a href="patient.php">
-            <center><img src="img/logo10.png" class="img-circle person img-responsive" alt="Random Name" width="250" height="250"></center>
+            <center><img id="img10" src="img/logo10.png" class="img-circle person img-responsive" alt="Random Name" width="" height=""></center>
           </a>
           <p class="text-center"><strong><font size ="5px">การจัดส่งอาหารให้ผู้ป่วย</font></strong></p>
       </div>
@@ -220,14 +447,14 @@ exit();
 
       <div class="col-sm-3">
           <a href="insert_buymaterial.php">
-          <center>  <img src="img/logobuy.png" class="img-circle person img-responsive" alt="Random Name" width="250" height="250"></center>
+          <center>  <img id="img11" src="img/logobuy.png" class="img-circle person img-responsive" alt="Random Name" width="" height=""></center>
           </a>
           <p class="text-center"><strong><font size ="5px">สั่งซื้อวัตถุดิบ</font></strong></p>
         </div>
 
         <div class="col-sm-3">
             <a href="insert_feed.php">
-              <center><img src="img/logo3.png" class="img-circle person img-responsive" alt="Random Name" width="250" height="250"></center>
+              <center><img id="img12" src="img/logo3.png" class="img-circle person img-responsive" alt="Random Name" width="" height=""></center>
             </a>
             <p class="text-center"><strong><font size ="5px">สั่งซื้ออาหารทางสายยาง</font></strong></p>
         </div>
@@ -235,28 +462,28 @@ exit();
       <div class="row">
         <div class="col-sm-3">
           <a href="report.php">
-            <center><img src="img/logo9.png" class="img-circle person img-responsive" alt="Random Name" width="250" height="250"></center>
+            <center><img id="img13" src="img/logo9.png" class="img-circle person img-responsive" alt="Random Name" width="" height=""></center>
           </a>
           <p class="text-center"><strong><font size ="5px">รายงานการจัดส่งอาหาร</font></strong></p>
         </div>
 
         <div class="col-sm-3">
           <a href="report2.php">
-            <center><img src="img/logoss.png" class="img-circle person img-responsive" alt="Random Name" width="255" height="255"></center>
+            <center><img id="img14" src="img/logoss.png" class="img-circle person img-responsive" alt="Random Name" width="" height=""></center>
           </a>
           <p class="text-center"><strong><font size ="5px">รายงานการสั่งอาหาร</font></strong></p>
         </div>
 
         <div class="col-sm-3">
           <a href="stockanddetail.php">
-            <center><img src="img/logo_stock.png" class="img-circle person img-responsive" alt="Random Name" width="250" height="250"></center>
+            <center><img id="img15" src="img/logo_stock.png" class="img-circle person img-responsive" alt="Random Name" width="" height=""></center>
           </a>
           <p class="text-center"><strong><font size ="5px">การรับวัตถุดิบเข้าคลัง</font></strong></p>
         </div>
 
         <div class="col-sm-3">
           <a href="sale_feed.php">
-            <center><img src="img/logosell.png" class="img-circle person img-responsive" alt="Random Name" width="250" height="250"></center>
+            <center><img id="img16" src="img/logosell.png" class="img-circle person img-responsive" alt="Random Name" width="" height=""></center>
           </a>
           <p class="text-center"><strong><font size ="5px">ขายอาหารทางสายยาง</font></strong></p>
         </div>
