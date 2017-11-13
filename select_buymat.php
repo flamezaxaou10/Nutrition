@@ -179,21 +179,20 @@ include 'header.php';
 				 ?>
         <div class="container">
 						<div class="modal-footer">
-              <table class="table table-striped table-bordered">
-
+              <table class="table table-striped table-bordered" style="font-size:14px;">
 								<form method="post" action="#">
-								</div><input type="hidden" name="sum" value="<?php echo $sum; ?>">
- 								 <input type="submit" class="btn" name="submit2" value="ยืนยันการสั่งซื้อ" onclick="return confirm('ยืนยันการสั่งซื้อ?')">
+									<input type="hidden" name="sum" value="<?php echo $sum; ?>">
+
  							 </form>
               <tr class="warning">
-                <td align=center>ลำดับ</td>
-                <td align=center>รหัสรายละเอียด</td>
-                <td align=center>ชื่อวัตถุดิบ</td>
-                <td align=center>จำนวน</td>
-                <td align=center>หน่วยนับ</td>
-                <td align=center>ราคารวม(บาท)</td>
-                <td align=center>แก้ไขข้อมูล</td>
-                <td align=center>ลบ</td>
+                <th align=center>ลำดับ</th>
+                <th align=center>รหัสรายละเอียด</th>
+                <th align=center>ชื่อวัตถุดิบ</th>
+                <th align=center>จำนวน</th>
+                <th align=center>หน่วยนับ</th>
+                <th align=center>ราคารวม(บาท)</th>
+                <th align=center>แก้ไขข้อมูล</th>
+                <th align=center>ลบ</th>
               </tr>
 							<?php
               $no=1;
@@ -231,6 +230,7 @@ $no++;
                <tr class ="info"><td colspan=5 align=right>ราคารวม(บาท)</td><td align=center><?php echo number_format($sum,2); ?></td><td colspan=2 align=left> .-
 							 </td></tr>
 							 </table>
+							 <input type="submit" class="btn btn-success" name="submit2" value="ยืนยันการสั่งซื้อ" onclick="return confirm('ยืนยันการสั่งซื้อ?')">
               </div>
 
 
