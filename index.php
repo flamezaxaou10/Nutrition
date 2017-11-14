@@ -142,13 +142,15 @@ exit();
 <!-- ALL SYSTEM-->
 <style media="screen">
   .col-sm-3 {
-    border: 2px solid;
     height: 120%;
   }
   .col-sm-3:hover{
-    border: 5px dashed;
     border-color: red;
   }
+  .person {
+    margin-bottom: 0px;
+  }
+
 </style>
 <script type="text/javascript">
     $(document).ready(function(){
@@ -156,7 +158,7 @@ exit();
       $('#img1').mouseover(function()
       {
          $(this).css("cursor","pointer");
-         $(this).animate({width: "180px"}, 'slow');
+         $(this).animate({width: "150px"}, 'slow');
       });
 
       $('#img1').mouseout(function()
@@ -170,7 +172,7 @@ exit();
       $('#img2').mouseover(function()
       {
          $(this).css("cursor","pointer");
-         $(this).animate({width: "180px"}, 'slow');
+         $(this).animate({width: "150px"}, 'slow');
       });
 
       $('#img2').mouseout(function()
@@ -184,7 +186,7 @@ exit();
       $('#img3').mouseover(function()
       {
          $(this).css("cursor","pointer");
-         $(this).animate({width: "180px"}, 'slow');
+         $(this).animate({width: "150px"}, 'slow');
       });
 
       $('#img3').mouseout(function()
@@ -198,7 +200,7 @@ exit();
       $('#img4').mouseover(function()
       {
          $(this).css("cursor","pointer");
-         $(this).animate({width: "180px"}, 'slow');
+         $(this).animate({width: "150px"}, 'slow');
       });
 
       $('#img4').mouseout(function()
@@ -212,7 +214,7 @@ exit();
       $('#img5').mouseover(function()
       {
          $(this).css("cursor","pointer");
-         $(this).animate({width: "180px"}, 'slow');
+         $(this).animate({width: "150px"}, 'slow');
       });
 
       $('#img5').mouseout(function()
@@ -226,7 +228,7 @@ exit();
       $('#img6').mouseover(function()
       {
          $(this).css("cursor","pointer");
-         $(this).animate({width: "180px"}, 'slow');
+         $(this).animate({width: "150px"}, 'slow');
       });
 
       $('#img6').mouseout(function()
@@ -240,7 +242,7 @@ exit();
       $('#img7').mouseover(function()
       {
          $(this).css("cursor","pointer");
-         $(this).animate({width: "180px"}, 'slow');
+         $(this).animate({width: "150px"}, 'slow');
       });
 
       $('#img7').mouseout(function()
@@ -254,7 +256,7 @@ exit();
       $('#img8').mouseover(function()
       {
          $(this).css("cursor","pointer");
-         $(this).animate({width: "180px"}, 'slow');
+         $(this).animate({width: "150px"}, 'slow');
       });
 
       $('#img8').mouseout(function()
@@ -268,7 +270,7 @@ exit();
       $('#img9').mouseover(function()
       {
          $(this).css("cursor","pointer");
-         $(this).animate({width: "180px"}, 'slow');
+         $(this).animate({width: "150px"}, 'slow');
       });
 
       $('#img9').mouseout(function()
@@ -282,7 +284,7 @@ exit();
       $('#img10').mouseover(function()
       {
          $(this).css("cursor","pointer");
-         $(this).animate({width: "180px"}, 'slow');
+         $(this).animate({width: "150px"}, 'slow');
       });
 
       $('#img10').mouseout(function()
@@ -296,7 +298,7 @@ exit();
       $('#img11').mouseover(function()
       {
          $(this).css("cursor","pointer");
-         $(this).animate({width: "180px"}, 'slow');
+         $(this).animate({width: "150px"}, 'slow');
       });
 
       $('#img11').mouseout(function()
@@ -310,7 +312,7 @@ exit();
       $('#img12').mouseover(function()
       {
          $(this).css("cursor","pointer");
-         $(this).animate({width: "180px"}, 'slow');
+         $(this).animate({width: "150px"}, 'slow');
       });
 
       $('#img12').mouseout(function()
@@ -324,7 +326,7 @@ exit();
       $('#img13').mouseover(function()
       {
          $(this).css("cursor","pointer");
-         $(this).animate({width: "180px"}, 'slow');
+         $(this).animate({width: "150px"}, 'slow');
       });
 
       $('#img13').mouseout(function()
@@ -338,7 +340,7 @@ exit();
       $('#img14').mouseover(function()
       {
          $(this).css("cursor","pointer");
-         $(this).animate({width: "180px"}, 'slow');
+         $(this).animate({width: "150px"}, 'slow');
       });
 
       $('#img14').mouseout(function()
@@ -352,7 +354,7 @@ exit();
       $('#img15').mouseover(function()
       {
          $(this).css("cursor","pointer");
-         $(this).animate({width: "180px"}, 'slow');
+         $(this).animate({width: "150px"}, 'slow');
       });
 
       $('#img15').mouseout(function()
@@ -366,7 +368,7 @@ exit();
       $('#img16').mouseover(function()
       {
          $(this).css("cursor","pointer");
-         $(this).animate({width: "180px"}, 'slow');
+         $(this).animate({width: "150px"}, 'slow');
       });
 
       $('#img16').mouseout(function()
@@ -381,6 +383,8 @@ exit();
             <center><img id="img1"  src="img/logo14.png" class="img-circle person img-responsive" alt="Random Name" width="" height=""></center>
           </a>
           <p class="text-center"><strong><font size ="5px">ข้อมูลผู้ป่วย</font></strong></p>
+
+
         </div>
      <div class="col-sm-3">
           <a href="user.php">
