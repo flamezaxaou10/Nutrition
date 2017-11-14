@@ -150,7 +150,12 @@ exit();
   .person {
     margin-bottom: 0px;
   }
-
+  p {
+    font-size: 22px;
+  }
+  hr {
+    border-top: 1px solid black;
+  }
 </style>
 <script type="text/javascript">
     $(document).ready(function(){
@@ -382,7 +387,7 @@ exit();
           <a href="HN_patient.php">
             <center><img id="img1"  src="img/logo14.png" class="img-circle person img-responsive" alt="Random Name" width="" height=""></center>
           </a>
-          <p class="text-center"><strong><font size ="5px">ข้อมูลผู้ป่วย</font></strong></p>
+          <p class="text-center"><strong>ข้อมูลผู้ป่วย</strong></p>
 
 
         </div>
@@ -390,62 +395,64 @@ exit();
           <a href="user.php">
             <center><img id="img2"  src="img/logo2.png" class="img-circle person img-responsive" alt="Random Name" width="" height=""></center>
           </a>
-          <p class="text-center"><strong><font size ="5px">ข้อมูลเจ้าหน้าที่</font></strong></p>
+          <p class="text-center"><strong>ข้อมูลเจ้าหน้าที่</strong></p>
       </div>
 
       <div class="col-sm-3">
           <a href="department.php">
             <center><img id="img3"  src="img/logo11.png" class="img-circle person img-responsive" alt="Random Name" width="" height=""></center>
           </a>
-          <p class="text-center"><strong><font size ="5px">ข้อมูลแผนก</font></strong></p>
+          <p class="text-center"><strong>ข้อมูลแผนก</strong></p>
       </div>
         <div class="col-sm-3">
             <a href="matandunit.php">
               <center><img id="img4"  src="img/logo7.png" class="img-circle person img-responsive" alt="Random Name" width="" height=""></center>
             </a>
-            <p class="text-center"><strong><font size ="5px">ข้อมูลพื้นฐาน</font></strong></p>
+            <p class="text-center"><strong>ข้อมูลพื้นฐาน</strong></p>
         </div>
       </div>
+      <hr>
     <div class="row">
      <div class="col-sm-3">
           <a href="insert_restaurant.php">
             <center><img id="img5"  src="img/logoshop.png" class="img-circle person img-responsive" alt="Random Name" width="" height=""></center>
           </a>
-          <p class="text-center"><strong><font size ="5px">ข้อมูลร้านค้า</font></strong></p>
+          <p class="text-center"><strong>ข้อมูลร้านค้า</strong></p>
       </div>
      <div class="col-sm-3">
           <a href="mat.php">
             <center><img id="img6"  src="img/logo9999.png" class="img-circle person img-responsive" alt="Random Name" width="" height=""></center>
           </a>
-          <p class="text-center"><strong><font size ="5px">ข้อมูลวัตถุดิบ</font></strong></p>
+          <p class="text-center"><strong>ข้อมูลวัตถุดิบ</strong></p>
       </div>
      <div class="col-sm-3">
           <a href="feed.php">
             <center><img id="img7"  src="img/logofeed.png" class="img-circle person img-responsive" alt="Random Name" width="" height=""></center>
           </a>
-          <p class="text-center"><strong><font size ="5px">ข้อมูลอาหารทางสายยาง</font></strong></p>
+          <p class="text-center"><strong>ข้อมูลอาหารทางสายยาง</strong></p>
       </div>
 
       <div class="col-sm-3">
           <a href="insert_order_menu.php">
             <center><img id="img8"  src="img/logomenu.png" class="img-circle person" alt="Random Name" width="" height=""></center>
           </a>
-          <p class="text-center"><strong><font size ="5px">ข้อมูลการจัดเมนูอาหาร</font></strong></p>
+          <p class="text-center"><strong>ข้อมูลการจัดเมนูอาหาร</strong></p>
       </div>
     </div>
+    <hr>
     <div class="row">
       <div class="col-sm-3">
         <a href="raw.php">
           <center><img id="img9" src="img/make01.png" class="img-circle person img-responsive" alt="Random Name" width="" height=""></center>
         </a>
-        <p class="text-center"><strong><font size ="5px">เบิกวัตถุดิบที่ใช้ทำอาหาร</font></strong></p>
+        <p class="text-center"><strong>เบิกวัตถุดิบที่ใช้ทำอาหาร</strong></p>
       </div>
 
       <div class="col-sm-3">
           <a href="patient.php">
             <center><img id="img10" src="img/logo10.png" class="img-circle person img-responsive" alt="Random Name" width="" height=""></center>
           </a>
-          <p class="text-center"><strong><font size ="5px">การจัดส่งอาหารให้ผู้ป่วย</font></strong></p>
+          <p class="text-center"><strong>การจัดส่งอาหารให้ผู้ป่วย</strong></p>
       </div>
 
 
@@ -453,45 +460,47 @@ exit();
           <a href="insert_buymaterial.php">
           <center>  <img id="img11" src="img/logobuy.png" class="img-circle person img-responsive" alt="Random Name" width="" height=""></center>
           </a>
-          <p class="text-center"><strong><font size ="5px">สั่งซื้อวัตถุดิบ</font></strong></p>
+          <p class="text-center"><strong>สั่งซื้อวัตถุดิบ</strong></p>
         </div>
 
         <div class="col-sm-3">
             <a href="insert_feed.php">
               <center><img id="img12" src="img/logo3.png" class="img-circle person img-responsive" alt="Random Name" width="" height=""></center>
             </a>
-            <p class="text-center"><strong><font size ="5px">สั่งซื้ออาหารทางสายยาง</font></strong></p>
+            <p class="text-center"><strong>สั่งซื้ออาหารทางสายยาง</strong></p>
         </div>
       </div>
+      <hr>
       <div class="row">
         <div class="col-sm-3">
           <a href="report.php">
             <center><img id="img13" src="img/logo9.png" class="img-circle person img-responsive" alt="Random Name" width="" height=""></center>
           </a>
-          <p class="text-center"><strong><font size ="5px">รายงานการจัดส่งอาหาร</font></strong></p>
+          <p class="text-center"><strong>รายงานการจัดส่งอาหาร</strong></p>
         </div>
 
         <div class="col-sm-3">
           <a href="report2.php">
             <center><img id="img14" src="img/logoss.png" class="img-circle person img-responsive" alt="Random Name" width="" height=""></center>
           </a>
-          <p class="text-center"><strong><font size ="5px">รายงานการสั่งอาหาร</font></strong></p>
+          <p class="text-center"><strong>รายงานการสั่งอาหาร</strong></p>
         </div>
 
         <div class="col-sm-3">
           <a href="stockanddetail.php">
             <center><img id="img15" src="img/logo_stock.png" class="img-circle person img-responsive" alt="Random Name" width="" height=""></center>
           </a>
-          <p class="text-center"><strong><font size ="5px">การรับวัตถุดิบเข้าคลัง</font></strong></p>
+          <p class="text-center"><strong>การรับวัตถุดิบเข้าคลัง</strong></p>
         </div>
 
         <div class="col-sm-3">
           <a href="sale_feed.php">
             <center><img id="img16" src="img/logosell.png" class="img-circle person img-responsive" alt="Random Name" width="" height=""></center>
           </a>
-          <p class="text-center"><strong><font size ="5px">ขายอาหารทางสายยาง</font></strong></p>
+          <p class="text-center"><strong>ขายอาหารทางสายยาง</strong></p>
         </div>
       </div>
+      <hr>
   <div class="row">
 
   </div>
