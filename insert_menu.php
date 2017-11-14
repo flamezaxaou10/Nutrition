@@ -57,8 +57,8 @@ while ($objReSult = mysql_fetch_array($objQuery)) {
                     <h4> รหัสเมนูอาหาร : <input type="text" name="id_menu" placeholder="name" value="<?php echo $id; ?>" readonly=""></h4>
                     <h4> ชื่อเมนูอาหาร &nbsp;: &nbsp;<input type="text" name="name_menu" required oninvalid="this.setCustomValidity('กรุณากรอกข้อมูล')" onKeyUp="if(!(isNaN(this.value))) { alert('กรุณากรอกอักษร'); this.value='';}"><font color="red"> &nbsp;*</font><?php if($flag==1)echo "<font color=red>ชื่อนี้มีในระบบแล้ว</font>"; ?></h4>
                     <h4> ประเภทอาหาร :&nbsp;
-                      <select name = "store">
-                        <option>------กรุณาเลือกประเภทอาหาร-----</option>
+                      <select name = "store" required>
+                        <option disabled selected>------กรุณาเลือกประเภทอาหาร-----</option>
                       <?
                     @include('conn.php');
 

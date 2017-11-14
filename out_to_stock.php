@@ -26,7 +26,7 @@ include 'header.php';
                       <h4>
                         รหัสวัตถุดิบ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;
                         <select class="" name="id_stock" required >
-                          <option >เลือกประเภทวัตถุดิบ</option>
+                          <option disabled selected >เลือกประเภทวัตถุดิบ</option>
                           <?php
 
                               $sql = "SELECT DISTINCT * FROM stock";

@@ -85,8 +85,8 @@ while ($objReSult = mysql_fetch_array($objQuery)) {
 								<td><h4 align="left"> ประเภทร้านค้า  </td>
 								<td>
 									<h4>:
-									<select name="type" >
-										<option value="">--------โปรดเลือกประเภทร้านค้า-------</option>
+									<select name="type" required>
+										<option value="" disabled selected>--------โปรดเลือกประเภทร้านค้า-------</option>
 	                    <?php
 	                      $i = 0;
 	                      $strSQL = "SELECT * FROM typestore ";

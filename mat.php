@@ -64,8 +64,8 @@ if($flag==0){
                     <h4> รหัสวัตถุดิบ : &nbsp;<input type="text" name="id" value="<?php echo $id; ?>" readonly=""></h4>
                     <h4> ชื่อวัตถุดิบ &nbsp;&nbsp;: &nbsp;<input type="text" name="name" required oninvalid="this.setCustomValidity('กรุณากรอกข้อมูล')" onKeyUp="if(!(isNaN(this.value))) { alert('กรุณากรอกอักษร'); this.value='';}"><font color="red">&nbsp;*</font><?php if($flag==1)echo "<font color=red>ชื่อวัตถุดิบนี้มีในระบบแล้ว</font>"; ?></h4>
                     <h4>ประเภทวัตถุดิบ :  &nbsp;&nbsp;
-                      <select name="stock">
-                        <option>------กรุณาเลือกประเภทวัตถุดิบ-----</option>
+                      <select name="stock" required>
+                        <option disabled selected>------กรุณาเลือกประเภทวัตถุดิบ-----</option>
                     <?php
                       $sql = "SELECT * FROM stock";
                       $result = mysql_query($sql, $connect1);
@@ -83,8 +83,8 @@ if($flag==0){
                        $objQuery = mysql_query($strSQL, $connect1);
                     ?>
                     <h4> ร้านค้าวัตถุดิบ &nbsp;&nbsp;: &nbsp;&nbsp;
-                      <select name = "store">
-                        <option>------กรุณาเลือกร้านค้าวัตถุดิบ-----</option>
+                      <select name = "store" required>
+                        <option disabled selected>------กรุณาเลือกร้านค้าวัตถุดิบ-----</option>
                      <?
                     @include('conn.php');
 

@@ -81,8 +81,8 @@ include 'header.php';
 									 ?>
                   <tr><td><h4>ชื่อวัตถุดิบ </td><td><h4> : <input type="text" id="dep" name="namemat" value="<?php echo $dep ;?>" readonly=""></td><input type="hidden" name="matid2" value="<?php echo $matid ;?>">
                   <td><h4>&nbsp;&nbsp;จำนวน</td><td><h4> : <input type="text" name="count" value="<?php echo $count; ?>" required="<?php echo $count; ?>"onKeyUp="if(isNaN(this.value)){ alert('กรุณากรอกตัวเลข'); this.value='';}"><font color="red"> &nbsp;*</font></h4></td></tr>
-                  <tr><td><h4>หน่วยนับ</td><td> <h4>: <select id="dep" name="unit"   onchange="document.getElementById('selected_text').value=this.options[this.selectedIndex].text">
-								  <option value="">-------แสดงทั้งหมด-------</option></h4>
+                  <tr><td><h4>หน่วยนับ</td><td> <h4>: <select id="dep" name="unit"  required onchange="document.getElementById('selected_text').value=this.options[this.selectedIndex].text">
+								  <option value="" disabled selected>-------แสดงทั้งหมด-------</option></h4>
 
 								  <?
 									@include('conn.php');

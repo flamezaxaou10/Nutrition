@@ -18,7 +18,7 @@ include 'header.php';
         <p>แก้ไขข้อมูลการรับเข้า</p>
         <?php
           $ID = $_GET['id'];
-    
+
           $sql = "SELECT * FROM input_material WHERE id_inputmat = '$ID'";
           $objQuery = mysql_query($sql,$connect1);
           $row = mysql_fetch_array($objQuery);
@@ -31,7 +31,7 @@ include 'header.php';
                       <h4> รหัสเจ้าหน้าที่ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;<input type="text" name="username" value="<? echo $_SESSION["Username"];?>" readonly=""></h4>
                       <h4>
                         รหัสการสั่งซื้อ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;
-                        <select class="" name="id_mat">
+                        <select class="" name="id_mat" required>
                           <?php
                               $sql = "SELECT * FROM buymeterial WHERE status = '0'";
                               $select = mysql_query($sql,$connect1);
@@ -45,7 +45,7 @@ include 'header.php';
                       </h4>
                       <h4>
                         รหัสการสต๊อก &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;
-                        <select class="" name="id_stock">
+                        <select class="" name="id_stock" required>
                           <?php
                               $sql = "SELECT * FROM stock";
                               $select = mysql_query($sql,$connect1);

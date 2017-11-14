@@ -15,8 +15,8 @@
       <p>คำนวณค่า BMI ให้กับผู้ป่วย<p>
  <form method="POST">
 <label for="department"> แผนก : </label>
-  <select id="dep" name="dep"     onchange="document.getElementById('selected_text').value=this.options[this.selectedIndex].text">
-  <option value="o">-------แสดงทั้งหมด-------</option>
+  <select id="dep" name="dep"   required  onchange="document.getElementById('selected_text').value=this.options[this.selectedIndex].text">
+  <option value="o" disabled selected>-------แสดงทั้งหมด-------</option>
   <?
     @include('conn.php');
     $strSQL = "SELECT DISTINCT clinic, clinicdescribe FROM fpatient_info";

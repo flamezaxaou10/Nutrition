@@ -29,7 +29,7 @@ include 'header.php';
     <div class="modal-body">
            <form method="GET" action="#">
                         รหัสการรับเข้า &nbsp;: &nbsp;
-                        <select class="" name="id_stock">
+                        <select class="" name="id_stock" required>
                           <?php
                               $sql = "SELECT * FROM stock";
                               $select = mysql_query($sql,$connect1);

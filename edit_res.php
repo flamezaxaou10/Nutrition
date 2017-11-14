@@ -63,8 +63,8 @@ $gid=$_GET['id'];
                 <td><h4>: <input type='tel' name ='phone'  value="<? echo $sql["res_telkeeper"];?>" onKeyUp="if(isNaN(this.value)){ alert('กรุณากรอกตัวเลข'); this.value='';}"><font color="red"> &nbsp;*</font></td>
                 <td><h4 align="left"> ประเภทร้านค้า </td>
                 <td>
-                  <h4> : <select id="type" name="type"   onchange="document.getElementById('selected_text').value=this.options[this.selectedIndex].text">
-                            <option value="">< ----- โปรดเลือก ----- > </option>
+                  <h4> : <select id="type" name="type" required  onchange="document.getElementById('selected_text').value=this.options[this.selectedIndex].text">
+                            <option value="" disabled selected>< ----- โปรดเลือก ----- > </option>
 
                    <?php
                     $i = 0;

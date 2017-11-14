@@ -38,7 +38,7 @@ include 'header.php';
             <td style="padding-bottom : 10px;">เลือกเมนูอาหาร </td>
             <td style="padding-bottom : 10px;">&nbsp; : &nbsp;</td>
             <td style="padding-bottom : 10px;">
-              <select  name="raw">
+              <select  name="raw" required>
                 <option value="" selected disabled>--- เลือกเมนูอาหาร ---</option>
                 <?php
                   $sql = "SELECT * FROM menu";
