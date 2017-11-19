@@ -381,6 +381,22 @@ exit();
            $(this).animate({width: "103px"}, 'slow');
         });
     });
+
+    ////////////////////////////////////
+    $(document).ready(function(){
+      $('#img55').width(83);
+      $('#img55').mouseover(function()
+      {
+         $(this).css("cursor","pointer");
+         $(this).animate({width: "150px"}, 'slow');
+      });
+
+      $('#img55').mouseout(function()
+       {
+           $(this).animate({width: "103px"}, 'slow');
+        });
+    });
+
 </script>
   <div class="row">
      <div class="col-sm-3">
@@ -498,6 +514,16 @@ exit();
             <center><img id="img16" src="img/logosell.png" class="img-circle person img-responsive" alt="Random Name" width="" height=""></center>
           </a>
           <p class="text-center"><strong>ขายอาหารทางสายยาง</strong></p>
+        </div>
+      </div>
+
+        <hr>
+      <div class="row">
+       <div class="col-sm-3">
+            <a href="report_all.php">
+              <center><img id="img55"  src="img/graph.png" class="img-circle person img-responsive" alt="Random Name" width="" height=""></center>
+            </a>
+            <p class="text-center"><strong>รายงานสรุป</strong></p>
         </div>
       </div>
       <hr>
