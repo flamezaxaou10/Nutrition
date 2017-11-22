@@ -35,7 +35,7 @@ include 'header.php';
                       <h4> รหัสเจ้าหน้าที่ &nbsp;&nbsp; : <? echo $_SESSION["Username"];?><input type="hidden" name="username" value="<? echo $_SESSION["Username"];?>" readonly=""></h4>
 
            <div class="modal-footer" style="padding-bottom : 0px;">
-              <input type="submit" class="btn btn-success" value="เพิ่มข้อมูล" name = "submit" > &nbsp;&nbsp;&nbsp;
+              <input type="submit" class="btn btn-success" value="เพิ่มข้อมูล" name = "submit" onclick="submitModal()"> &nbsp;&nbsp;&nbsp;
              &nbsp;&nbsp; <a href="index.php"><button type="button" class="btn btn-danger" data-dismiss="modal">ย้อนกลับ</button></a>
             </div>
           </form>

@@ -625,7 +625,7 @@ $(document).ready(function(){
       </div>
 
       <div class="modal-footer">
-        <input type="button"  name= "submit" class="btn btn-success" value = "submit" >
+        <input type="button" onclick="submitModal()" name= "submit" class="btn btn-success" value = "submit" >
         <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
       </div>
     </div>

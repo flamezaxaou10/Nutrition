@@ -40,14 +40,14 @@ include 'header.php';
             $date=$strDaysThai." ".$strDay." ".$strMonthThai." ".$strYear;
          ?>
     <div class="modal-body">
-           <form method="POST" action="#" >
-                      <h4> รหัสการรับเข้า &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;<?php echo $id_input; ?><input type="hidden" name="id" value="<?php echo $id_input; ?>" readonly="" required></h4>
+           <form method="POST" action="#" onsubmit="return confirm('ต้องการเพิ่มข้อมูลนี้?');">
+                      <h4> รหัสการรับเข้า &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;<?php echo $id_input; ?><input type="hidden" name="id" value="<?php echo $id_input; ?>" readonly=""></h4>
                       <h4> วันที่การรับเข้า &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <?php echo $date; ?><input type="hidden" name="date" required value="<?php echo $datethis; ?>" readonly></h4>
-                      <h4> รหัสเจ้าหน้าที่ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;<? echo $_SESSION["Username"];?>&nbsp;<input type="hidden" name="username" value="<? echo $_SESSION["Username"];?>" readonly="" required></h4>
+                      <h4> รหัสเจ้าหน้าที่ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;<? echo $_SESSION["Username"];?>&nbsp;<input type="hidden" name="username" value="<? echo $_SESSION["Username"];?>" readonly=""></h4>
                       <h4>
                         รหัสการสั่งซื้อ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;
-                        <select class="" name="id_mat" required id="id_mat">
-                          <option  value="" disabled selected >--------เลือกใบสั่งซื้อ---------</option>
+                        <select class="" name="id_mat" required>
+                          <option disabled selected>--------เลือกใบสั่งซื้อ---------</option>
                           <?php
                               $sql = "SELECT * FROM buymeterial WHERE status = '0'";
                               $select = mysql_query($sql,$connect1);
@@ -60,7 +60,7 @@ include 'header.php';
                         </select> <i style="color:red;">*</i>
                       </h4>
            <div class="modal-footer">
-            <input type="submit" class="btn btn-success" value="เพิ่มข้อมูล" name = "submit" > &nbsp;&nbsp;&nbsp;
+            <input type="submit" class="btn btn-success" value="เพิ่มข้อมูล" name = "submit" onclick="submitModal()"> &nbsp;&nbsp;&nbsp;
            &nbsp;&nbsp; <a href="stockanddetail.php"><button type="button" class="btn btn-danger" data-dismiss="modal" onclick="return confirm('ต้องการยกเลิกการเพิ่มข้อมูลนี้?')">ยกเลิก</button></a>
           </div>
           </form>

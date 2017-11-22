@@ -60,7 +60,7 @@ if($flag==0){
                     <h4> ชื่ออาหารทางสายยาง &nbsp;: &nbsp;<input type="text" name="name" required oninvalid="this.setCustomValidity('กรุณากรอกข้อมูล')" onKeyUp="if(!(isNaN(this.value))) { alert('กรุณากรอกอักษร'); this.value='';}" value="<?php echo $name; ?>"><font color="red"> &nbsp;*</font><?php if($flag==1)echo "<font color=red>ชื่อนี้มีในระบบแล้ว</font>"; ?></h4>
                     <h4>ประเภทวัตถุดิบ&nbsp; :  &nbsp;&nbsp;
                       <select name="stock" required>
-                        <option value="" disabled selected>------กรุณาเลือกประเภทวัตถุดิบ-----</option>
+                        <option disabled selected>------กรุณาเลือกประเภทวัตถุดิบ-----</option>
                     <?php
                       $sql = "SELECT * FROM stock";
                       $result = mysql_query($sql, $connect1);
@@ -85,7 +85,7 @@ if($flag==0){
                     ?>
                     <h4> ตัวแทนจำหน่ายอาหารทางสายยาง &nbsp;: &nbsp;
                       <select name = "store" required>
-                        <option value=""  disabled selected>------กรุณาเลือกร้านค้า-----</option>
+                        <option disabled selected>------กรุณาเลือกร้านค้า-----</option>
                       <?php while ($objReSult = mysql_fetch_array($objQuery)) {
                         if ($row['id_stock'] = $id_stock) {
                           $select = "selected";
@@ -106,7 +106,7 @@ if($flag==0){
 
          <div class="modal-footer">
           <input type="submit" class="btn btn-success" value="แก้ไขข้อมูล" name = "submit"
-            >&nbsp;&nbsp;
+            onclick="submitModal()">&nbsp;&nbsp;
          &nbsp;&nbsp; <a href="feed.php"><button type="button" class="btn btn-danger" data-dismiss="modal" onclick="return confirm('ต้องการยกเลิกการแก้ไขข้อมูลนี้?')">ยกเลิก</button></a>
         </form>
 </div>

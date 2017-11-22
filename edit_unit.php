@@ -56,7 +56,7 @@ if($flag==0){
 
          <div class="modal-footer">
           <input type="submit" class="btn btn-success" value="แก้ไขข้อมูล" name = "submit"
-            ">&nbsp;&nbsp;
+            onclick="submitModal()"">&nbsp;&nbsp;
          &nbsp;&nbsp; <a href="unit.php"><button type="button" class="btn btn-danger" data-dismiss="modal" onclick="return confirm('ต้องการยกเลิกการแก้ไขข้อมูลนี้?')">ยกเลิก</button></a>
         </form>
 </div>
