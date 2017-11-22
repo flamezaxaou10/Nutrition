@@ -230,6 +230,7 @@ $no++;
 							 </td></tr>
 							 </table>
 							 <div class="text-right"> <a href="chk_buymat.php?id=<? echo $id;?>"> <input type="submit" class="btn btn-success" name="submit2" value="ยืนยันการสั่งซื้อ" onclick="return confirm('ยืนยันการสั่งซื้อ?')"></a>
+								 <a href="insert_buymaterial.php" class="btn btn-danger">ย้อนกลับ</a>
 
               </div>
 
