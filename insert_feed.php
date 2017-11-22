@@ -45,7 +45,7 @@ include 'header.php';
 								  <?
 								    @include('conn.php');
 
-								    $strSQL = "SELECT * FROM restaurant where type='FYST02'";
+								    $strSQL = "SELECT * FROM restaurant where type='FYST02'  ORDER BY res_name";
 								    $objQuery = mysql_query($strSQL, $connect1);
 
 								    while ($objReSult = mysql_fetch_array($objQuery)) {

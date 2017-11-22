@@ -62,7 +62,7 @@ while ($objReSult = mysql_fetch_array($objQuery)) {
                       <?
                     @include('conn.php');
 
-                    $strSQL = "SELECT * FROM type_food ";
+                    $strSQL = "SELECT * FROM type_food ORDER BY type_name";
                     $objQuery = mysql_query($strSQL, $connect1);
 
                     while ($objReSult = mysql_fetch_array($objQuery)) {

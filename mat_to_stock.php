@@ -49,7 +49,7 @@ include 'header.php';
                         <select class="" name="id_mat" required id="id_mat">
                           <option  value="" disabled selected >--------เลือกใบสั่งซื้อ---------</option>
                           <?php
-                              $sql = "SELECT * FROM buymeterial WHERE status = '0'";
+                              $sql = "SELECT * FROM buymeterial WHERE status = '0' ORDER BY id_mat DESC" ;
                               $select = mysql_query($sql,$connect1);
                               while ($row = mysql_fetch_array($select)) {
                           ?>

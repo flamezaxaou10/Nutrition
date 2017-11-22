@@ -47,7 +47,7 @@ if($flag==0){
   }
 }
   }
-    $strSQL = "SELECT MAX(mat_id) FROM material";
+    $strSQL = "SELECT MAX(mat_id) FROM material ";
     $objQuery = mysql_query($strSQL, $connect1);
     while ($objReSult = mysql_fetch_array($objQuery)) {
      $result= $objReSult["MAX(mat_id)"];
@@ -67,7 +67,7 @@ if($flag==0){
                       <select name="stock" required>
                         <option value=""  disabled selected>------กรุณาเลือกประเภทวัตถุดิบ-----</option>
                     <?php
-                      $sql = "SELECT * FROM stock";
+                      $sql = "SELECT * FROM stock  ORDER BY name_stock";
                       $result = mysql_query($sql, $connect1);
                       while ($row = mysql_fetch_array($result)){
                     ?>
@@ -79,7 +79,7 @@ if($flag==0){
                      <font color="red">&nbsp;*</font>
                     </h4>
                     <?php
-                       $strSQL = "SELECT * FROM restaurant where type = '1'";
+                       $strSQL = "SELECT * FROM restaurant where type = '1'  ORDER BY res_name";
                        $objQuery = mysql_query($strSQL, $connect1);
                     ?>
                     <h4> ร้านค้าวัตถุดิบ &nbsp;&nbsp;: &nbsp;&nbsp;

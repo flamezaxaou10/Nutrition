@@ -48,7 +48,7 @@ if(isset($_POST['submit'])){
 }
 }
 @include('conn.php');
-$strSQL = "SELECT MAX(res_id) FROM restaurant";
+$strSQL = "SELECT MAX(res_id) FROM restaurant  ORDER BY res_name";
 $objQuery = mysql_query($strSQL, $connect1);
 while ($objReSult = mysql_fetch_array($objQuery)) {
  $result= $objReSult["MAX(res_id)"];

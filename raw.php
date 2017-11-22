@@ -41,7 +41,7 @@ include 'header.php';
               <select  name="raw" required>
                 <option value="" selected disabled>--- เลือกเมนูอาหาร ---</option>
                 <?php
-                  $sql = "SELECT * FROM menu";
+                  $sql = "SELECT * FROM menu  ORDER BY menu_name";
                   $result = mysql_query($sql,$connect1);
                   while ($row = mysql_fetch_array($result)) {
                     $raw_name = $row['menu_name'];

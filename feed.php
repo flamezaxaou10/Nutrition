@@ -75,7 +75,7 @@ if($flag==0){
                       <select name="stock" required>
                         <option value=""  disabled selected>------กรุณาเลือกประเภทวัตถุดิบ-----</option>
                     <?php
-                      $sql = "SELECT * FROM stock";
+                      $sql = "SELECT * FROM stock  ORDER BY name_stock";
                       $result = mysql_query($sql, $connect1);
                       while ($row = mysql_fetch_array($result)){
                     ?>
@@ -87,7 +87,7 @@ if($flag==0){
                      <font color="red">&nbsp;*</font>
                     </h4>
                      <?php
-                       $strSQL = "SELECT * FROM restaurant where type = '2'";
+                       $strSQL = "SELECT * FROM restaurant where type = '2'  ORDER BY res_name";
                        $objQuery = mysql_query($strSQL, $connect1);
                     ?>
                     <h4> ตัวแทนจำหน่ายอาหารทางสายยาง :
