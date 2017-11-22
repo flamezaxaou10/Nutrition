@@ -61,7 +61,7 @@ include 'header.php';
              <td style="padding-bottom : 10px;">&nbsp; : &nbsp;</td>
              <td style="padding-bottom : 10px;">
                <select class="" name="id_stock" required >
-                 <option >เลือกประเภทวัตถุดิบ</option>
+                 <option value=""  disabled selected>เลือกประเภทวัตถุดิบ</option>
                  <?php
 
                      $sql = "SELECT DISTINCT * FROM stock";

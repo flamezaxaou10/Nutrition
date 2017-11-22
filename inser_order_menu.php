@@ -60,7 +60,7 @@ while ($objReSult = mysql_fetch_array($objQuery)) {
 
          <div class="modal-footer">
           <input type="submit" class="btn btn-success" value="เพิ่มข้อมูล" name = "submit"
-            onclick="submitModal()"">&nbsp;&nbsp;
+            ">&nbsp;&nbsp;
 
          &nbsp;&nbsp; <a href="index.php"><button type="button" class="btn btn-danger" data-dismiss="modal" onclick="return confirm('ต้องการยกเลิกการเพิ่มข้อมูลนี้?')">ยกเลิก</button></a>
         </form>

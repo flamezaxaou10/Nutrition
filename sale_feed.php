@@ -62,7 +62,7 @@ include 'header.php';
     </h4>
     </div>
     <div class="modal-footer" style="padding-bottom : 0px;">
-        <input type="submit" class="btn btn-success" value="เพิ่มข้อมูล" name = "submit" onclick="submitModal()" >&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="submit" class="btn btn-success" value="เพิ่มข้อมูล" name = "submit"  >&nbsp;&nbsp;&nbsp;&nbsp;
         <a href="index.php"><button type="button" class="btn btn-danger" data-dismiss="modal">ย้อนกลับ</button></a>
     </div>
   </div>
