@@ -104,8 +104,8 @@ include 'header.php';
                 <table>
                   <tr><td width="205"><h4>รหัสรายละเอียดการสั่งซื้อ</td><td><h4>: <?php echo $idd ?></h4></td></tr>
                   <input type="hidden" name="idd" value="<?php echo $idd; ?>" required="">
-                 <td><h4>ชื่อวัตถุดิบ  &nbsp;</td><td> <h4>: <select id="dep" name="namemat"   onchange="document.getElementById('selected_text').value=this.options[this.selectedIndex].text">
-								  <option value="">------------โปรดเลือก-----------</option></h4>
+                 <td><h4>ชื่อวัตถุดิบ  &nbsp;</td><td> <h4>: <select id="dep" name="namemat"  required onchange="document.getElementById('selected_text').value=this.options[this.selectedIndex].text">
+								  <option value="" selected disabled>------------โปรดเลือก-----------</option></h4>
 
 								  <?
 								    @include('conn.php');
@@ -116,7 +116,7 @@ include 'header.php';
                         $idres = $objReSult1['res_id'];
                     }
 
-								    $strSQL = "SELECT DISTINCT * FROM material where res_id = '$idres'";
+								    $strSQL = "SELECT DISTINCT * FROM material where res_id = '$idres' ORDER BY mat_name";
 								    $objQuery = mysql_query($strSQL, $connect1);
 
 								    while ($objReSult = mysql_fetch_array($objQuery)) {
@@ -141,12 +141,12 @@ include 'header.php';
 								?>
 								</select><font color="red"> &nbsp;*</font></td>
                   <td><h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;จำนวน</td><td> <h4>:&nbsp;<input type="text" name="count" value="" required=""onKeyUp="if(isNaN(this.value)){ alert('กรุณากรอกตัวเลข'); this.value='';}"><font color="red"> &nbsp;*</font></td></tr>
-                  <td><h4>หน่วยนับ</td><td> <h4>: <select id="dep" name="unit"   onchange="document.getElementById('selected_text').value=this.options[this.selectedIndex].text">
-								  <option value="">------------โปรดเลือก-----------</option>
+                  <td><h4>หน่วยนับ</td><td> <h4>: <select id="dep" name="unit" required  onchange="document.getElementById('selected_text').value=this.options[this.selectedIndex].text">
+								  <option value="" selected disabled>------------โปรดเลือก-----------</option>
 
 								  <?
 								    @include('conn.php');
-								    $strSQL = "SELECT DISTINCT * FROM unit";
+								    $strSQL = "SELECT DISTINCT * FROM unit ORDER BY unit_name";
 								    $objQuery = mysql_query($strSQL, $connect1);
 
 								    while ($objReSult = mysql_fetch_array($objQuery)) {
@@ -229,8 +229,7 @@ $no++;
                <tr class ="info"><td colspan=5 align=right>ราคารวม(บาท)</td><td align=center><?php echo number_format($sum,2); ?></td><td colspan=2 align=left> .-
 							 </td></tr>
 							 </table>
-							 <div class="text-right"> <input type="submit" class="btn btn-success" name="submit2" value="ยืนยันการสั่งซื้อ" onclick="return confirm('ยืนยันการสั่งซื้อ?')">
-							 &nbsp;&nbsp; <a href="insert_buymaterial.php"><button type="button" class="btn btn-danger" data-dismiss="modal" onclick="return confirm('ต้องการยกเลิกการแก้ไขข้อมูลนี้?')">ย้อนกลับ</button></a>
+							 <div class="text-right"> <a href="chk_buymat.php?id=<? echo $id;?>"> <input type="submit" class="btn btn-success" name="submit2" value="ยืนยันการสั่งซื้อ" onclick="return confirm('ยืนยันการสั่งซื้อ?')"></a>
 
               </div>
 

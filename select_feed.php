@@ -227,8 +227,7 @@ $no++;
 							 </td></tr>
 
 							 </table>
-							 <div class="text-right">	<input type="submit" class="btn btn-success" name="submit2" value="ยืนยันการสั่งซื้อ" onclick="return confirm('ยืนยันการสั่งซื้อ?')">
-							 &nbsp;&nbsp; <a href="insert_feed.php"><button type="button" class="btn btn-danger" data-dismiss="modal" onclick="return confirm('ต้องการยกเลิกการแก้ไขข้อมูลนี้?')">ย้อนกลับ</button></a>
+							 <div class="text-right"><a href="chk_feed.php?id=<?php echo $id; ?>">	<input type="submit" class="btn btn-success" name="submit2" value="ยืนยันการสั่งซื้อ" onclick="return confirm('ยืนยันการสั่งซื้อ?')"></a>
 							</div>
 
   					</div>
