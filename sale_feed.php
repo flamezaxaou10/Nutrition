@@ -78,8 +78,8 @@ include 'header.php';
   <table class="table table-striped table-bordered">
     <tr class="warning">
       <th><div align="center">ลำดับ</div></th>
-      <th><div align="center">รหัสการขาย</th>
-      <th><div align="center">วันที่ขาย</div></th>
+      <th><div align="center">วันที่ขาย</th>
+      <th><div align="center">รหัสการขาย</div></th>
       <th><div align="center">ผู้ป่วย</div></th>
       <th><div align = "center">ดูข้อมูล</div></th>
       <th><div align = "center">พิมพ์ใบสั่งยา</div></th>

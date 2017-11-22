@@ -69,8 +69,8 @@ include 'header.php';
            <tr>
              <table class="table table-striped table-bordered">
                <tr class="warning">
-                 <th><div align="center">รหัสวัตถุดิบ</div></th>
-                 <th><div align="center">ชื่อวัตถุดิบ</div></th>
+                 <th><div align="center">รหัสอาหารทางสายยาง</div></th>
+                 <th><div align="center">ชื่ออาหารทางสายยาง</div></th>
                  <th><div align="center">จำนวนในคลัง</div></th>
                  <th><div align="center">จำนวนที่ซื้อ</div></th>
                  <th><div align="center">ราคาต่อหน่วย</div></th>
@@ -128,8 +128,8 @@ include 'header.php';
   <table class="table table-striped table-bordered">
     <tr class="warning">
        <th><div align="center">ลำดับ</div></th>
-       <th><div align="center">รหัสวัตถุดิบ</div></th>
-       <th><div align="center">ชื่อวัตถุดิบ</div></th>
+       <th><div align="center">รหัสอาหารทางสายยาง</div></th>
+       <th><div align="center">ชื่ออาหารทางสายยาง</div></th>
        <th><div align="center">จำนวน</div></th>
        <th><div align="center">หน่วยนับ</div></th>
        <th><div align="center">ราคารวม</div></th>
