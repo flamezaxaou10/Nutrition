@@ -58,7 +58,7 @@ include 'header.php';
                         </select>
                       </h4>
            <div class="modal-footer">
-            <input type="submit" class="btn btn-success" value="แก้ไขข้อมูล" name = "submit" onclick="submitModal()"> &nbsp;&nbsp;&nbsp;
+            <input type="submit" class="btn btn-success" value="แก้ไขข้อมูล" name = "submit" > &nbsp;&nbsp;&nbsp;
            &nbsp;&nbsp; <a href="mat_to_stock.php"><button type="button" class="btn btn-danger" data-dismiss="modal" onclick="return confirm('ต้องการยกเลิกการเพิ่มข้อมูลนี้?')">ยกเลิก</button></a>
           </div>
           </form>

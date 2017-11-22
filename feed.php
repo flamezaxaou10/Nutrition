@@ -73,7 +73,7 @@ if($flag==0){
                     <h4> ชื่ออาหารทางสายยาง &nbsp;&nbsp;: &nbsp;<input type="text" name="name" required oninvalid="this.setCustomValidity('กรุณากรอกข้อมูล')" onKeyUp="if(!(isNaN(this.value))) { alert('กรุณากรอกอักษร'); this.value='';}"><font color="red">&nbsp;*</font><?php if($flag==1)echo "<font color=red>ชื่ออาหารทางสายยางนี้มีในระบบแล้ว</font>"; ?></h4>
                     <h4>ประเภทวัตถุดิบ :  &nbsp;&nbsp;
                       <select name="stock" required>
-                        <option disabled selected>------กรุณาเลือกประเภทวัตถุดิบ-----</option>
+                        <option value=""  disabled selected>------กรุณาเลือกประเภทวัตถุดิบ-----</option>
                     <?php
                       $sql = "SELECT * FROM stock";
                       $result = mysql_query($sql, $connect1);
@@ -92,7 +92,7 @@ if($flag==0){
                     ?>
                     <h4> ตัวแทนจำหน่ายอาหารทางสายยาง :
                       <select name = "store" required>
-                        <option disabled selected>------กรุณาเลือกตัวแทนจำหน่าย-----</option>
+                        <option value=""  disabled selected>------กรุณาเลือกตัวแทนจำหน่าย-----</option>
                       <?
                     @include('conn.php');
 
@@ -123,7 +123,7 @@ if($flag==0){
                   </h4>
          <div class="modal-footer">
           <input type="submit" class="btn btn-success" value="เพิ่มข้อมูล" name = "submit"
-            onclick="submitModal()">&nbsp;&nbsp;
+            >&nbsp;&nbsp;
          &nbsp;&nbsp; <a href="index.php"><button type="button" class="btn btn-danger" data-dismiss="modal" onclick="return confirm('ต้องการยกเลิกการเพิ่มข้อมูลนี้?')">ยกเลิก</button></a>
 
         </form>

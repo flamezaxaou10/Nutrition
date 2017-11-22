@@ -26,7 +26,7 @@ include 'header.php';
       <form method="POST">
 <label for="department"> แผนก : </label>
   <select  required id="dep" name="dep"   onchange="document.getElementById('selected_text').value=this.options[this.selectedIndex].text">
-  <option value="" disabled selected>-------แสดงทั้งหมด-------</option>
+  <option   selected>-------แสดงทั้งหมด-------</option>
   <?
 
     $strSQL = "SELECT DISTINCT clinic, clinicdescribe FROM jhosdb.fpatient_info f JOIN cpa.department d ON f.clinicdescribe = d.dep_name  order by clinicdescribe";
@@ -67,7 +67,7 @@ error_reporting(0);
  <label for="fooder"> มื้ออาหาร : </label>
  <?php $eats = $_POST['eats']; ?>
 <select id="food" name="eats" required>
-  <option disabled selected>---เลือกมื้ออาหาร---</option>
+  <option value=""  disabled selected>---เลือกมื้ออาหาร---</option>
   <option value="4" <?php if($eats == '4' && isset($eats)){echo "selected";} ?> >เช้า</option>
   <option value="5" <?php if($eats == '5' && isset($eats)){echo "selected";} ?> >กลางวัน</option>
   <option value="6" <?php if($eats == '6' && isset($eats)){echo "selected";} ?> >เย็น</option>
@@ -502,7 +502,7 @@ $(document).ready(function(){
       </div>
 
       <div class="modal-footer">
-        <input type="button" onclick="submitModal()" name= "submit" class="btn btn-success" value = "เพิ่มข้อมูล" >
+        <input type="button"  name= "submit" class="btn btn-success" value = "เพิ่มข้อมูล" >
         <button type="button" class="btn btn-danger" data-dismiss="modal">ยกเลิก</button>
       </div>
     </div>

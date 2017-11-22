@@ -60,7 +60,7 @@ if($flag==0){
       <h4> ชื่อเมนูอาหาร  &nbsp;&nbsp;: &nbsp;<input type='text' name ='menu_name' required value='<? echo $_GET['id2'];?>' onKeyUp="if(!(isNaN(this.value))) { alert('กรุณากรอกอักษร'); this.value='';}"></td></tr><font color="red"> &nbsp;*</font><?php if($flag==1)echo "<font color=red>ชื่อนี้มีในระบบแล้ว</font>"; ?></h4>
       <h4> ประเภทอาหาร :&nbsp;&nbsp;
                       <select name = "store" required>
-                        <option disabled selected>------กรุณาเลือกประเภทอาหาร-----</option>
+                        <option value=""  disabled selected>------กรุณาเลือกประเภทอาหาร-----</option>
                       <?
                     @include('conn.php');
 
