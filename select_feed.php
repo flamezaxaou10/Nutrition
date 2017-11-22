@@ -228,7 +228,7 @@ $no++;
 
 							 </table>
 							 <div class="text-right"><a href="chk_feed.php?id=<?php echo $id; ?>">	<input type="submit" class="btn btn-success" name="submit2" value="ยืนยันการสั่งซื้อ" onclick="return confirm('ยืนยันการสั่งซื้อ?')"></a>
-								 <a href="insert_feed.php" class="btn btn-danger">ย้อนกลับ</a>
+								 <a href="chk_feed.php?back&id=<?php echo $id; ?>" class="btn btn-danger">ย้อนกลับ</a>
 							</div>
 
   					</div>

@@ -17,11 +17,21 @@ $username=$_SESSION["Username"];
   $chk = mysql_query($sql,$connect1);
   $num_rows = mysql_num_rows($chk);
 
-  if ($num_rows <= 0) {
-    $delete = "DELETE FROM buymeterial WHERE id_mat='$id'";
-    $query = mysql_query($delete,$connect1);
-    echo( "<script> alert('ยกเลิกการสั่งวัตถุดิบ');
-  window.location='insert_buymaterial.php';</script>");
+  if ($_GET['back']) {
+    if ($num_rows <= 0) {
+      $delete = "DELETE FROM buymeterial WHERE id_mat='$id'";
+      $query = mysql_query($delete,$connect1);
+      echo( "<script> alert('ยกเลิกการสั่งอาหารทางสายยาง');
+    window.location='insert_buymaterial.php';</script>");
+    } else {
+        header('LOCATION:insert_buymaterial.php');
+    }
+ }
+ else if ($num_rows <= 0) {
+   $delete = "DELETE FROM buymeterial WHERE id_mat='$id'";
+   $query = mysql_query($delete,$connect1);
+   echo( "<script> alert('ยกเลิกการสั่งอาหารทางสายยาง');
+ window.location='insert_buymaterial.php';</script>");
 }else  {
   echo( "<script> alert('บันทึกข้อมูลสำเร็จ');
 window.location='insert_buymaterial.php';</script>");

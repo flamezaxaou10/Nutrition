@@ -10,7 +10,7 @@ $id=$_GET['id'];
 	include ('conn.php');
 
 
-  $delete = "DELETE FROM buymeterial WHERE id_mat='$id'";
+  $delete = "UPDATE buymeterial SET status = '1'  WHERE id_mat='$id'";
 	$query = mysql_query($delete,$connect1);
   echo( "<script> alert('ยกเลิกการสั่งวัตถุดิบ');
 window.location='insert_buymaterial.php';</script>");

@@ -12,17 +12,32 @@ $username=$_SESSION["Username"];
 ?>
 
 <?php
+
+
   $id=$_GET['id'];
   $sql = "SELECT * FROM detail_buymat WHERE id_mat = '$id'";
   $chk = mysql_query($sql,$connect1);
   $num_rows = mysql_num_rows($chk);
+   if ($_GET['back']) {
+    if ($num_rows <= 0) {
+       $delete = "DELETE FROM buymeterial WHERE id_mat='$id'";
+       $query = mysql_query($delete,$connect1);
+       echo( "<script> alert('ยกเลิกการสั่งอาหารทางสายยาง');
+     window.location='insert_feed.php';</script>");
+   }
+   else  {
+      header('LOCATION:insert_feed.php');
+   }
 
-  if ($num_rows <= 0) {
+  }
+  else if ($num_rows <= 0) {
     $delete = "DELETE FROM buymeterial WHERE id_mat='$id'";
     $query = mysql_query($delete,$connect1);
     echo( "<script> alert('ยกเลิกการสั่งอาหารทางสายยาง');
   window.location='insert_feed.php';</script>");
-}else  {
+}
+
+else  {
   echo( "<script> alert('บันทึกข้อมูลสำเร็จ');
 window.location='insert_feed.php';</script>");
 }
