@@ -43,8 +43,6 @@ include 'header.php';
 								  <option value="" disabled selected>-------กรุณาเลือกร้านค้า-------</option></h4>
 
 								  <?
-								    @include('conn.php');
-
 								    $strSQL = "SELECT * FROM restaurant where type='FYST02'  ORDER BY res_name";
 								    $objQuery = mysql_query($strSQL, $connect1);
 

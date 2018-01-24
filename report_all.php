@@ -68,9 +68,9 @@ include 'header.php';
   <div class="modal-body">
     <table align=center>
       <tr>
-        <td align=center style="width:20%;"><a href="typefood.php"><img id="img1" src="img/report_mat.png" class="img-responsive" width=80 height=80></a></td>
-        <td align=center style="width:20%;"><a href="unit.php"><img id="img3" src="img/report_buy.png" class="img-responsive" width=80 height=80></a></td>
-        <td align=center style="width:20%;"><a href="insert_menu.php"><img id="img2" src="img/report_sell.png" class="img-responsive" width=80 height=80></a></td>
+        <td align=center style="width:20%;"><a href="reportmat.php"><img id="img1" src="img/report_mat.png" class="img-responsive" width=80 height=80></a></td>
+        <td align=center style="width:20%;"><a href="reportres.php"><img id="img2" src="img/report_buy.png" class="img-responsive" width=80 height=80></a></td>
+        <td align=center style="width:20%;"><a href="reportsell.php"><img id="img3" src="img/report_sell.png" class="img-responsive" width=80 height=80></a></td>
 
       </tr>
       <tr>
