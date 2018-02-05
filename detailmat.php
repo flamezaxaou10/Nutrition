@@ -90,7 +90,7 @@ include 'header.php';
 
               <tr class="warning">
                 <td align=center><b>ลำดับ</td>
-                <td align=center><b>รหัสรายละเอียด</td>
+                
                 <td align=center><b>ชื่อวัตถุดิบ</td>
                 <td align=center><b>จำนวน</td>
                 <td align=center><b>หน่วยนับ</td>
@@ -106,7 +106,7 @@ include 'header.php';
                 ?>
                 <tr class ="info">
                   <td align=center><?php echo $no ?></td>
-                  <td align=center><?php echo $objReSult["id_detail"]; ?></td>
+
                   <td align=center><?php echo $objReSult["mat_name"]; ?></td>
                   <td align=right><?php echo $objReSult["count"]; ?></td>
                   <td align=center><?php echo $objReSult["unit_name"]; ?></td>
@@ -123,7 +123,7 @@ include 'header.php';
 
 
                ?>
-               <tr class ="info"><td colspan=5 align=right>ราคารวม(บาท)</td><td align=center><?php echo number_format($sum,2); ?></td><!-- <td colspan=2 align=left> -->
+               <tr class ="info"><td colspan=5 align=right>ราคารวม(บาท)</td><td align=right><?php echo number_format($sum,2); ?></td><!-- <td colspan=2 align=left> -->
                </td></tr>
                </table>
 							<div class="modal-footer"><td colspan=2 align=center>

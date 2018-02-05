@@ -23,7 +23,7 @@ $username=$_SESSION["Username"];
         $strDay= date("j",strtotime($strDate));
         $strDays= date("l",strtotime($strDate));
         $strDayCut = Array("Monday"=>"วันจันทร์","Tuesday"=>"วันอังคาร","Wednesday"=>"วันพุธ","Thursday"=>"วันพฤหัสบดี","Friday"=>"วันศุกร์","Saturday"=>"วันเสาร์","Sunday"=>"วันอาทิตย์");
-        $strMonthCut = Array("","มกราคม","กุมภาพันธ์","มีนาคม","เมษายน","พฤษภาคม","มิถุนายน","กรกฎาคม","สิงหาคม","กันยายน","ตุลาคม","พฤษจิกายน","ธันวาคม");
+        $strMonthCut = Array("","มกราคม","กุมภาพันธ์","มีนาคม","เมษายน","พฤษภาคม","มิถุนายน","กรกฎาคม","สิงหาคม","กันยายน","ตุลาคม","พฤศจิกายน","ธันวาคม");
         $strMonthThai=$strMonthCut[$strMonth];
         $strDaysThai = $strDayCut[$strDays];
         $date=$strDaysThai." ".$strDay." ".$strMonthThai." ".$strYear;
@@ -53,10 +53,10 @@ $username=$_SESSION["Username"];
 </div>
   <table class="table table-striped table-bordered" style="padding : 2px;">
     <tr class="warning">
-      <th style="width : 10%;">ลำดับ</th>
-      <th style="width : 50%;">ชื่อวัตถุดิบ</th>
-      <th style="width : 20%;">จำนวน</th>
-      <th style="width : 20%;">หน่วยนับ</th>
+      <th><div align="center">ลำดับ</div></th>
+      <th><div align="center">ชื่อวัตถุดิบ</div></th>
+      <th><div align="center">จำนวน</div></th>
+      <th><div align="center">หน่วยนับ</div></th>
     </tr>
     <?php
         $table = "SELECT d.mat_id,f.feed_id,f.feed_name,m.mat_name,SUM(count),u.unit_name,u.unit_id FROM detail_raw d LEFT JOIN material m ON d.mat_id = m.mat_id
@@ -69,14 +69,14 @@ $username=$_SESSION["Username"];
           $i++;
      ?>
      <tr class="info">
-       <td><?php echo $i; ?></td>
+       <td><div align = "center"><?php echo $i; ?></div></td>
        <?php if ($row['feed_id'] != NULL): ?>
-         <td><div align = "left"><? echo $row["feed_name"];?></div></td>
+         <td><div align = "center"><? echo $row["feed_name"];?></div></td>
        <?php else: ?>
-         <td><div align = "left"><? echo $row["mat_name"];?></div></td>
+         <td><div align = "center"><? echo $row["mat_name"];?></div></td>
        <?php endif; ?>
-      <td><?php echo $row['SUM(count)']; ?></td>
-      <td><?php echo $row['unit_name']; ?></td>
+      <td><div align = "right"><?php echo $row['SUM(count)']; ?></div></td>
+      <td><div align = "center"><?php echo $row['unit_name']; ?></div></td>
      </tr>
    <?php } ?>
   </table>

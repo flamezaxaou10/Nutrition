@@ -91,7 +91,7 @@ include 'header.php';
 
                  <tr class="warning">
                    <td align=center><b>ลำดับ</td>
-                   <td align=center><b>รหัสรายละเอียด</td>
+
                    <td align=center><b>ชื่ออาหารทางสายยาง</td>
                    <td align=center><b>จำนวน</td>
                    <td align=center><b>หน่วยนับ</td>
@@ -107,7 +107,7 @@ include 'header.php';
                    ?>
                    <tr class ="info">
                      <td align=center><?php echo $no ?></td>
-                     <td align=center><?php echo $objReSult["id_detail"]; ?></td>
+                  
                      <td align=center><?php echo $objReSult["feed_name"]; ?></td>
                      <td align=right><?php echo $objReSult["count"]; ?></td>
                      <td align=center><?php echo $objReSult["unit_name"]; ?></td>
