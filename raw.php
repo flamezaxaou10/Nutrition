@@ -112,12 +112,19 @@ include 'header.php';
           $i=0;
             while ($row = mysql_fetch_array($result)){
               $i++;
+              $strDate=date('d-m-Y', strtotime($row["date"]));
+            		$strYear = date("Y",strtotime($strDate))+543;
+            		$strMonth= date("n",strtotime($strDate));
+            		$strDay= date("j",strtotime($strDate));
+            		$strMonthCut = Array("","ม.ค.","ก.พ.","มี.ค.","เม.ย.","พ.ค.","มิ.ย.","ก.ค.","ส.ค.","ก.ย.","ต.ค.","พ.ย.","ธ.ค.");
+            		$strMonthThai=$strMonthCut[$strMonth];
+            		$date=$strDay." ".$strMonthThai." ".$strYear;
         ?>
         <?php if ($row['date'] == $datethis): ?>
           <tr class="success">
             <td style="width:10%;"><?php echo $i; ?></td>
             <td style="width:15%;"><?php echo $row['id_raw']; ?></td>
-            <td><?php echo $row['date']; ?></td>
+            <td><?php echo $date ?></td>
             <td style="width:35%;"><?php echo $row['name_raw']; ?></td>
             <td style="width:10%;"><div align="center"><a data-toggle="modal" data-target="#myModal" OnClick="setRaw('<?php echo $row['id_raw']; ?>')"  href="#myModal"><img src="img/sssss.png" width="30px" hieght="30px" alt=""></a></div></td>
             <td style="width:10%;"><div align="center"><a href="insert_raw.php?id_raw=<?php echo $row['id_raw']; ?>&edit" onclick="return confirm('ต้องการแก้ไขข้อมูลนี้?')"><img src="img/edit.png" width="30px" hieght="30px" alt=""></a></div></td>
@@ -127,7 +134,7 @@ include 'header.php';
           <tr class="info">
             <td style="width:10%;"><?php echo $i; ?></td>
             <td style="width:15%;"><?php echo $row['id_raw']; ?></td>
-            <td><?php echo $row['date']; ?></td>
+            <td><?php echo $date ?></td>
             <td style="width:35%;"><?php echo $row['name_raw']; ?></td>
             <td style="width:10%;"><div align="center"><a data-toggle="modal" data-target="#myModal" OnClick="setRaw('<?php echo $row['id_raw']; ?>')"  href="#myModal"><img src="img/sssss.png" width="30px" hieght="30px" alt=""></a></div></td>
             <td style="width:10%;"><div align="center"><img src="img/close.png" width="30px" hieght="30px" alt=""></div></td>

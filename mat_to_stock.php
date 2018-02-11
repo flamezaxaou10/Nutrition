@@ -131,10 +131,17 @@ include 'header.php';
       while ($row = mysql_fetch_array($result)){
         $idedit = $row['id_inputmat'];
         $i++;
+        $strDate=date('d-m-Y', strtotime($row["date"]));
+          $strYear = date("Y",strtotime($strDate))+543;
+          $strMonth= date("n",strtotime($strDate));
+          $strDay= date("j",strtotime($strDate));
+          $strMonthCut = Array("","ม.ค.","ก.พ.","มี.ค.","เม.ย.","พ.ค.","มิ.ย.","ก.ค.","ส.ค.","ก.ย.","ต.ค.","พ.ย.","ธ.ค.");
+          $strMonthThai=$strMonthCut[$strMonth];
+          $date=$strDay." ".$strMonthThai." ".$strYear;
       ?>
       <tr class ="info">
         <td><?php echo $i; ?></td>
-        <td><?php echo $row['date']; ?></td>
+        <td><?php echo $date; ?></td>
         <td><?php echo $row['id_inputmat']; ?></td>
         <td><?php echo $row['id_mat']; ?></td>
         <td><?php echo $row['username']; ?></td>
