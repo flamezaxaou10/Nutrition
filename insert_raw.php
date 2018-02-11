@@ -21,6 +21,8 @@ include 'header.php';
   $res = mysql_query($sql,$connect1);
   $row = mysql_fetch_array($res);
   $raw = $row['name_raw'];
+
+  //Snap
   $sql2 = "SELECT * FROM raw_system WHERE name_raw = '$raw' ORDER BY id_raw";
   $res2 = mysql_query($sql2,$connect1);
   $row2 = mysql_fetch_array($res2);

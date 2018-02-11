@@ -33,7 +33,7 @@ include 'header.php';
             <td style="padding-bottom : 10px;">รหัสจัดการวัตถุดิบ </td>
             <td style="padding-bottom : 10px;">&nbsp; : &nbsp;</td>
             <td style="padding-bottom : 10px;"> <input type="hidden" name="id_raw" value="<?php echo $id_raw; ?>"><?php echo $id_raw; ?></td>
-          </tr>
+            <td> <input type="hidden" name="date" value="<?php echo $datethis; ?>"> </td>
           <tr>
             <td style="padding-bottom : 10px;">เลือกเมนูอาหาร </td>
             <td style="padding-bottom : 10px;">&nbsp; : &nbsp;</td>
@@ -45,16 +45,16 @@ include 'header.php';
                   $result = mysql_query($sql,$connect1);
                   while ($row = mysql_fetch_array($result)) {
                     $raw_name = $row['menu_name'];
-                    $chk = "SELECT * FROM raw_system WHERE name_raw = '$raw_name'";
-                    $rechk = mysql_query($chk,$connect1);
-                    $num = mysql_num_rows($rechk);
-                    $hide = '';
-                    if ($num > 0) {
-                      $hide = 'style="display: none;"';
-                    }
-                    else {
-                      $hide = '';
-                    }
+                    // $chk = "SELECT * FROM raw_system WHERE name_raw = '$raw_name'";
+                    // $rechk = mysql_query($chk,$connect1);
+                    // $num = mysql_num_rows($rechk);
+                    // $hide = '';
+                    // if ($num > 0) {
+                    //   $hide = 'style="display: none;"';
+                    // }
+                    // else {
+                    //   $hide = '';
+                    // }
                 ?>
                     <option value="<?php echo $raw_name; ?>" <?php echo $hide ?>><?php echo $raw_name; ?></option>
                 <?php
@@ -101,6 +101,7 @@ include 'header.php';
         <tr class="warning">
           <th>ลำดับ</th>
           <th>รหัสจัดการวัตถุดิบ</th>
+          <th>วันที่เบิก</th>
           <th>ชื่อเมนูอาหาร</th>
           <th>รายละเอียด</th>
           <th>แก้ไข</th>
@@ -112,14 +113,27 @@ include 'header.php';
             while ($row = mysql_fetch_array($result)){
               $i++;
         ?>
-        <tr class="info">
-          <td style="width:10%;"><?php echo $i; ?></td>
-          <td style="width:15%;"><?php echo $row['id_raw']; ?></td>
-          <td style="width:35%;"><?php echo $row['name_raw']; ?></td>
-          <td style="width:10%;"><div align="center"><a data-toggle="modal" data-target="#myModal" OnClick="setRaw('<?php echo $row['id_raw']; ?>')"  href="#myModal"><img src="img/sssss.png" width="30px" hieght="30px" alt=""></a></div></td>
-          <td style="width:10%;"><div align="center"><a href="insert_raw.php?id_raw=<?php echo $row['id_raw']; ?>&edit" onclick="return confirm('ต้องการแก้ไขข้อมูลนี้?')"><img src="img/edit.png" width="30px" hieght="30px" alt=""></a></div></td>
-          <td style="width:10%;"><div align="center"><a href="delete_raw.php?id_raw=<?php echo $row['id_raw']; ?>" onclick="return confirm('ต้องการลบข้อมูลนี้?')"><img src="img/delete.png" width="30px" hieght="30px" alt=""></a></div></td>
-        </tr>
+        <?php if ($row['date'] == $datethis): ?>
+          <tr class="success">
+            <td style="width:10%;"><?php echo $i; ?></td>
+            <td style="width:15%;"><?php echo $row['id_raw']; ?></td>
+            <td><?php echo $row['date']; ?></td>
+            <td style="width:35%;"><?php echo $row['name_raw']; ?></td>
+            <td style="width:10%;"><div align="center"><a data-toggle="modal" data-target="#myModal" OnClick="setRaw('<?php echo $row['id_raw']; ?>')"  href="#myModal"><img src="img/sssss.png" width="30px" hieght="30px" alt=""></a></div></td>
+            <td style="width:10%;"><div align="center"><a href="insert_raw.php?id_raw=<?php echo $row['id_raw']; ?>&edit" onclick="return confirm('ต้องการแก้ไขข้อมูลนี้?')"><img src="img/edit.png" width="30px" hieght="30px" alt=""></a></div></td>
+            <td style="width:10%;"><div align="center"><a href="delete_raw.php?id_raw=<?php echo $row['id_raw']; ?>" onclick="return confirm('ต้องการลบข้อมูลนี้?')"><img src="img/delete.png" width="30px" hieght="30px" alt=""></a></div></td>
+          </tr>
+        <?php else: ?>
+          <tr class="info">
+            <td style="width:10%;"><?php echo $i; ?></td>
+            <td style="width:15%;"><?php echo $row['id_raw']; ?></td>
+            <td><?php echo $row['date']; ?></td>
+            <td style="width:35%;"><?php echo $row['name_raw']; ?></td>
+            <td style="width:10%;"><div align="center"><a data-toggle="modal" data-target="#myModal" OnClick="setRaw('<?php echo $row['id_raw']; ?>')"  href="#myModal"><img src="img/sssss.png" width="30px" hieght="30px" alt=""></a></div></td>
+            <td style="width:10%;"><div align="center"><img src="img/close.png" width="30px" hieght="30px" alt=""></div></td>
+            <td style="width:10%;"><div align="center"><img src="img/close.png" width="30px" hieght="30px" alt=""></div></td>
+          </tr>
+        <?php endif; ?>
         <?php
             }
          ?>
@@ -133,11 +147,11 @@ include 'header.php';
        ?>
       <nav align="center" aria-label="Page navigation example">
         <ul class="pagination">
-          <li class="page-item"><a class="page-link" href="raw.php?page=<?php echo ($page-1); ?>" aria-label="Previous"><span aria-hidden="true"><<</span></a></li>
+          <li class="page-item"><a class="page-link" href="raw.php?page=<?php echo ($page-1); ?>" aria-label="Previous"><span aria-hidden="true"> << </span></a></li>
           <?php for($i=1;$i<=$total_page;$i++){ ?>
            <li><a href="raw.php?page=<?php echo $i; ?>"><?php echo $i; ?></a></li>
           <?php } ?>
-          <li class="page-item"><a class="page-link" href="raw.php?page=<?php echo ($page+1); ?>" aria-label="Next"><span aria-hidden="true">>></span></a></li>
+          <li class="page-item"><a class="page-link" href="raw.php?page=<?php echo ($page+1); ?>" aria-label="Next"><span aria-hidden="true"> >> </span></a></li>
         </ul>
       </nav>
     </div>

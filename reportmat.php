@@ -53,10 +53,10 @@ include 'header.php';
         $date=$strDaysThai." ".$strDay." ".$strMonthThai." ".$strYear;
         return ($date);
       }
-    }
+
    ?>
 
-  <div class="jumbotron">
+  <div class="jumbotron" id="print_table">
     <div class="modal-body">
       <p class="text-center ">
         <strong>
@@ -76,13 +76,48 @@ include 'header.php';
           <th>จำนวน</th>
           <th>หน่วยนับ</th>
         </tr>
+        <?php
+          $select = "SELECT SUM(d.count),d.mat_id,d.unit_id,m.mat_name,u.unit_name
+                      FROM raw_system r
+                      JOIN detail_raw d ON r.id_raw = d.id_raw
+                      LEFT JOIN material m ON d.mat_id = m.mat_id
+                      JOIN unit u ON d.unit_id = u.unit_id
+                      where (date between '$start' and '$end') GROUP BY d.mat_id";
+          $query = mysql_query($select, $connect1);
+          $i = 0;
+          while ($result = mysql_fetch_array($query)) {
+            $i++;
+        ?>
+        <tr>
+          <td><?php echo "$i"; ?></td>
+          <td><?php echo $result['mat_name']; ?><?php echo $result['feed_name']; ?></td>
+          <td><?php echo $result['SUM(d.count)']; ?></td>
+          <td><?php echo $result['unit_name']; ?></td>
+        </tr>
+      <?php
+        }
+      ?>
 
       </table>
       <br>
-      <div class="text-center">
-        <button type="submit" class="btn btn-success "> พิมพ์ใบสรุป </button> <br><br>
-      </div>
     </div>
   </div>
+  <div class="text-center">
+    <button type="submit" class="btn btn-success " OnClick="printTable('print_table')"> พิมพ์ใบสรุป </button> <br><br>
+  </div>
+<?php } ?>
 </div>
 <?php include 'footer.php'; ?>
+<script type="text/javascript">
+  function printTable(divName) {
+    var printContents = document.getElementById(divName).innerHTML;
+   var originalContents = document.body.innerHTML;
+
+   document.body.innerHTML = printContents;
+
+   window.print();
+
+   document.body.innerHTML = originalContents;
+   location.reload();
+  }
+</script>
