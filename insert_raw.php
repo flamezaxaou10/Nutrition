@@ -50,7 +50,7 @@ include 'header.php';
             <input type="hidden" name="date" value="<?php echo $date; ?>">
          <table>
            <tr >
-             <td style="padding-bottom : 10px;">รหัสจัดการวัตถุดิบ </td>
+             <td style="padding-bottom : 10px;">รหัสการเบิกวัตถุดิบ </td>
              <td style="padding-bottom : 10px;">&nbsp; : &nbsp;</td>
              <td style="padding-bottom : 10px;"><?php echo $id_raw; ?></td>
              <td style="padding-bottom : 10px; width:10%;"></td>

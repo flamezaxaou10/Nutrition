@@ -30,7 +30,7 @@ include 'header.php';
         <h4>
         <table>
           <tr >
-            <td style="padding-bottom : 10px;">รหัสจัดการวัตถุดิบ </td>
+            <td style="padding-bottom : 10px;">รหัสการเบิกวัตถุดิบ </td>
             <td style="padding-bottom : 10px;">&nbsp; : &nbsp;</td>
             <td style="padding-bottom : 10px;"> <input type="hidden" name="id_raw" value="<?php echo $id_raw; ?>"><?php echo $id_raw; ?></td>
             <td> <input type="hidden" name="date" value="<?php echo $datethis; ?>"> </td>
@@ -100,7 +100,7 @@ include 'header.php';
       <table  class="table table-striped table-bordered">
         <tr class="warning">
           <th>ลำดับ</th>
-          <th>รหัสจัดการวัตถุดิบ</th>
+          <th>รหัสการเบิกวัตถุดิบ</th>
           <th>วันที่เบิก</th>
           <th>ชื่อเมนูอาหาร</th>
           <th>รายละเอียด</th>

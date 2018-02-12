@@ -42,7 +42,7 @@ $gid=$_GET['id'];
 	{
 	?>
 
-<p align="left">แก้ไขข้อมูลร้านค้าวัตถุดิบ</p>
+<p align="left">แก้ไขข้อมูลร้านค้า</p>
 <table>
             <div class="modal-body">
             <input type='hidden' name='id' value=''>

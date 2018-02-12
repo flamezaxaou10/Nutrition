@@ -63,7 +63,7 @@ while ($objReSult = mysql_fetch_array($objQuery)) {
 <?php
 }
 ?>
-      <p>ข้อมูลร้านค้าวัตถุดิบ</p>
+      <p>ข้อมูลร้านค้า</p>
 <table><form method="post" action="#" >
             <div class="modal-body">
             <input type='hidden' name='id' value=''>
