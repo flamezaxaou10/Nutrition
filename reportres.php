@@ -13,7 +13,7 @@ include 'header.php';
 <div class="container">
   <div class="jumbotron">
     <div class="modal-body">
-      <p>รายงานสรุปการสั่งซื้อวัตถุดิบจากร้านค้าประจำสัปดาห์</p>
+      <p>รายงานสรุปการสั่งซื้อวัตถุดิบจากร้านค้าตามช่วงเวลา</p>
       <form action="#" method="post">
         <div class="row">
           <div class="col-md-12">
@@ -62,7 +62,7 @@ include 'header.php';
       </form>
     </div>
   </div>
-
+ก
   <?php
     if ($_POST) {
       $start = $_POST['start'];
@@ -75,7 +75,7 @@ include 'header.php';
         $strMonth= date("n",strtotime($str));
         $strDay= date("j",strtotime($str));
         $strDays= date("l",strtotime($str));
-        $strDayCut = Array("Monday"=>"วันจันทร์","Tuesday"=>"วันอังคาร","Wednesday"=>"วันพุธ","Thursday"=>"วันพฤหัสบดี","Friday"=>"วันศุกร์","Saturday"=>"วันเสาร์","Sunday"=>"วันอาทิตย์");
+        $strDayCut = Array("Monday"=>"วันจันทร์ที่","Tuesday"=>"วันอังคารที่","Wednesday"=>"วันพุธที่","Thursday"=>"วันพฤหัสบดีที่","Friday"=>"วันศุกร์ที่","Saturday"=>"วันเสาร์ที่","Sunday"=>"วันอาทิตย์ที่");
         $strMonthCut = Array("","มกราคม","กุมภาพันธ์","มีนาคม","เมษายน","พฤษภาคม","มิถุนายน","กรกฎาคม","สิงหาคม","กันยายน","ตุลาคม","พฤษจิกายน","ธันวาคม");
         $strMonthThai=$strMonthCut[$strMonth];
         $strDaysThai = $strDayCut[$strDays];
@@ -101,11 +101,11 @@ include 'header.php';
 
       <table class="table table-striped table-bordered" >
         <tr>
-          <th>ลำดับ</th>
-          <th>ชื่อวัตถุดิบ</th>
-          <th>จำนวน</th>
-          <th>หน่วยนับ</th>
-          <th>ราคารวม</th>
+          <th><div align = "center">ลำดับ</div></th>
+          <th><div align = "center">ชื่อวัตถุดิบ</div></th>
+          <th><div align = "center">จำนวน</div></th>
+          <th><div align = "center">หน่วยนับ</div></th>
+          <th><div align = "center">ราคารวม(บาท)</div></th>
         </tr>
         <?php
           $select = "SELECT SUM(d.count),d.mat_id,SUM(d.price),d.unit_id,m.mat_name,u.unit_name,f.feed_name
@@ -123,12 +123,12 @@ include 'header.php';
           <tr>
             <td><?php echo "$i"; ?></td>
             <td><?php echo $result['mat_name']; ?><?php echo $result['feed_name']; ?></td>
-            <td><?php echo $result['SUM(d.count)']; ?></td>
+            <td><div align = "right"><?php echo $result['SUM(d.count)']; ?></div></td>
             <td><?php echo $result['unit_name']; ?></td>
-            <td><?php echo $result['SUM(d.price)']; ?></td>
+            <td><div align = "right"><?php echo number_format ($result['SUM(d.price)'],2); ?></div></td>
           </tr>
         <?php
-            $sum += $result['SUM(d.price)'];
+             $sum += $result['SUM(d.price)'];
           }
         ?>
 

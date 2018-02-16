@@ -48,7 +48,7 @@ include 'header.php';
                    $strMonth= date("n",strtotime($strDate));
                    $strDay= date("j",strtotime($strDate));
                    $strDays= date("l",strtotime($strDate));
-                   $strDayCut = Array("Monday"=>"วันจันทร์","Tuesday"=>"วันอังคาร","Wednesday"=>"วันพุธ","Thursday"=>"วันพฤหัสบดี","Friday"=>"วันศุกร์","Saturday"=>"วันเสาร์","Sunday"=>"วันอาทิตย์");
+                   $strDayCut = Array("Monday"=>"วันจันทร์ที่","Tuesday"=>"วันอังคารที่","Wednesday"=>"วันพุธที่","Thursday"=>"วันพฤหัสบดีที่","Friday"=>"วันศุกร์ที่","Saturday"=>"วันเสาร์ที่","Sunday"=>"วันอาทิตย์ที่");
                    $strMonthCut = Array("","มกราคม","กุมภาพันธ์","มีนาคม","เมษายน","พฤษภาคม","มิถุนายน","กรกฎาคม","สิงหาคม","กันยายน","ตุลาคม","พฤษจิกายน","ธันวาคม");
                    $strMonthThai=$strMonthCut[$strMonth];
                    $strDaysThai = $strDayCut[$strDays];
@@ -73,7 +73,7 @@ include 'header.php';
                  <th><div align="center">ชื่ออาหารทางสายยาง</div></th>
                  <th><div align="center">จำนวนในคลัง</div></th>
                  <th><div align="center">จำนวนที่ซื้อ</div></th>
-                 <th><div align="center">ราคาต่อหน่วย</div></th>
+                 <th><div align="center">ราคาต่อหน่วย(บาท)</div></th>
                  <th><div align="center">หน่วยนับ</div></th>
                  <th><div align = "center">ซื้อ</div></th>
                </tr>
@@ -89,9 +89,9 @@ include 'header.php';
                  <tr class ="info">
                    <td><?php echo $row['feed_id']; ?></td>
                    <td><?php echo $row['feed_name']; ?></td>
-                   <td><?php echo $row['SUM(s.count)']; ?></td>
+                   <td><div align = "right"><?php echo $row['SUM(s.count)']; ?></div></td>
                    <td><input type="number" name="count" min="0" max="<?php echo $row['SUM(s.count)']; ?>" style="width:100px;" required value="0"></td>
-                   <td><?php echo $row['price']; ?></td>
+                   <td><div align = "right"><?php echo $row['price']; ?></div></td>
                    <td><?php echo $row['unit_name']; ?></td>
                    <td align="center">
                       <input type="submit" class="btn btn-success" value="เพิ่มในรายการ">
@@ -132,7 +132,7 @@ include 'header.php';
        <th><div align="center">ชื่ออาหารทางสายยาง</div></th>
        <th><div align="center">จำนวน</div></th>
        <th><div align="center">หน่วยนับ</div></th>
-       <th><div align="center">ราคารวม</div></th>
+       <th><div align="center">ราคารวม(บาท)</div></th>
       <th><div align = "center">ลบ</div></th>
     </tr>
   <?php
@@ -150,7 +150,7 @@ include 'header.php';
       <td><?php echo $i; ?></td>
       <td><?php echo $row['feed_id']; ?></td>
       <td><?php echo $row['feed_name']; ?></td>
-      <td><?php echo $row['SUM(d.count)']; ?></td>
+      <td><div align = "right"><?php echo $row['SUM(d.count)']; ?></div></td>
       <td><?php echo $row['unit_name']; ?></td>
       <td align="right"><?php echo number_format($row['SUM(d.count)']*$row['price'],2); ?></td>
       <td><div align = "center"><a href="delete_detail_salefeed.php?salefeed_id=<?php echo $salefeed_id; ?>&feed_id=<?php echo $row['feed_id']; ?>&count=<?php echo $row['SUM(d.count)']; ?>&unit_id=<?php echo $row['unit_id']; ?>" ><img src='img/delete.png' width=25 data-dismiss="modal" onclick="return confirm('ต้องการลบรายการนี้?')"></a></div></td>

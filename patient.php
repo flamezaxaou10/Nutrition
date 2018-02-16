@@ -105,25 +105,25 @@ error_reporting(0);
    $mon = 'ธันวาคม';
  }
  if ($day = "Monday") {
-   $day = "วันอังคาร";
+   $day = "วันอังคารที่";
  }
  elseif ($day = "Tuesday"){
-   $day = "วันพุธ";
+   $day = "วันพุธที่";
  }
  elseif ($day = "Wednesday"){
-   $day = "วันพฤหัสบดี";
+   $day = "วันพฤหัสบดีที่";
  }
  elseif ($day = "Thursday"){
-   $day = "วันศุกร์";
+   $day = "วันศุกรที่";
  }
  elseif ($day = "Friday"){
-   $day = "วันเสาร์";
+   $day = "วันเสารที่์";
  }
  elseif ($day = "Saturday"){
-   $day = "วันอาทิตย์";
+   $day = "วันอาทิตยที่์";
  }
  elseif ($day = "Sunday"){
-   $day = "วันจันทร์";
+   $day = "วันจันทรที่์";
  }
  $year = substr($todate,6,4);
  $year += 543;

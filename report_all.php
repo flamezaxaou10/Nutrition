@@ -75,7 +75,7 @@ include 'header.php';
       </tr>
       <tr>
         <td align=center><strong><h4>รายงานสรุปการใช้วัตถุดิบตามช่วงเวลา</h4></strong></td>
-        <td align=center><strong><h4>รายงานสรุปการสั่งซื้อวัตถุดิบจากร้านค้าประจำสัปดาห์</h4></strong></td>
+        <td align=center><strong><h4>รายงานสรุปการสั่งซื้อวัตถุดิบจากร้านค้าตามช่วงเวลา</h4></strong></td>
         <td align=center><strong><h4>รายสรุปยอดขายอาหารทางสายยาง</h4></strong></td>
 
       </tr>

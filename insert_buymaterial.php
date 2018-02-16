@@ -66,7 +66,7 @@ include 'header.php';
 									$strMonth= date("n",strtotime($strDate));
 									$strDay= date("j",strtotime($strDate));
 									$strDays= date("l",strtotime($strDate));
-									$strDayCut = Array("Monday"=>"วันจันทร์","Tuesday"=>"วันอังคาร","Wednesday"=>"วันพุธ","Thursday"=>"วันพฤหัสบดี","Friday"=>"วันศุกร์","Saturday"=>"วันเสาร์","Sunday"=>"วันอาทิตย์");
+									$strDayCut = Array("Monday"=>"วันจันทรที่","Tuesday"=>"วันอังคารที่","Wednesday"=>"วันพุธที่","Thursday"=>"วันพฤหัสบดีที่","Friday"=>"วันศุกรที่","Saturday"=>"วันเสารที่","Sunday"=>"วันอาทิตย์ที่");
 									$strMonthCut = Array("","มกราคม","กุมภาพันธ์","มีนาคม","เมษายน","พฤษภาคม","มิถุนายน","กรกฎาคม","สิงหาคม","กันยายน","ตุลาคม","พฤษจิกายน","ธันวาคม");
 									$strMonthThai=$strMonthCut[$strMonth];
 									$strDaysThai = $strDayCut[$strDays];
@@ -129,7 +129,7 @@ $objQuery = mysql_query($strSQL,$connect1) or die("Error Query [".$strSQL."]");
 		     <th><div align="center">รหัสใบสั่งซื้อ</div></th>
 		     <th><div align="center">ชื่อผู้สั่งซื้อ</div></th>
 		     <th><div align="center">ชื่อร้านค้า</div></th>
-		 		<th><div align="center">ราคาทั้งหมด</div></th>
+		 		<th><div align="center">ราคารวม(บาท)</div></th>
 		 		<th><div align="center">แก้ไขข้อมูล</div></th>
 		 		<th><div align="center">พิมพ์</div></th>
 				<th><div align="center">ข้อมูล</div></th>

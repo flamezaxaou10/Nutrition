@@ -47,7 +47,7 @@ include 'header.php';
         $strMonth= date("n",strtotime($str));
         $strDay= date("j",strtotime($str));
         $strDays= date("l",strtotime($str));
-        $strDayCut = Array("Monday"=>"วันจันทร์","Tuesday"=>"วันอังคาร","Wednesday"=>"วันพุธ","Thursday"=>"วันพฤหัสบดี","Friday"=>"วันศุกร์","Saturday"=>"วันเสาร์","Sunday"=>"วันอาทิตย์");
+        $strDayCut = Array("Monday"=>"วันจันทร์ที่","Tuesday"=>"วันอังคารที่","Wednesday"=>"วันพุธที่","Thursday"=>"วันพฤหัสบดีที่","Friday"=>"วันศุกร์ที่","Saturday"=>"วันเสาร์ที่","Sunday"=>"วันอาทิตย์ที่");
         $strMonthCut = Array("","มกราคม","กุมภาพันธ์","มีนาคม","เมษายน","พฤษภาคม","มิถุนายน","กรกฎาคม","สิงหาคม","กันยายน","ตุลาคม","พฤษจิกายน","ธันวาคม");
         $strMonthThai=$strMonthCut[$strMonth];
         $strDaysThai = $strDayCut[$strDays];
@@ -72,12 +72,12 @@ include 'header.php';
 
       <table class="table table-striped table-bordered" >
         <tr>
-          <th>รายการการขาย<br>อาหารทางสายยาง</th>
-          <th>ชื่อผู้ป่วย</th>
-          <th>ชื่ออาหารทางสายยาง</th>
-          <th>จำนวน</th>
-          <th>หน่วยนับ</th>
-          <th>ราคารวม</th>
+          <th><div align = "center">รายการการขาย</div></th>
+          <th><div align = "center">ชื่อผู้ป่วย</div></th>
+          <th><div align = "center">ชื่ออาหารทางสายยาง</div></th>
+          <th><div align = "center">จำนวน</div></th>
+          <th><div align = "center">หน่วยนับ</div></th>
+          <th><div align = "center">ราคารวม(บาท)</div></th>
         </tr>
         <?php
           $select = "SELECT * FROM sale_feed where (date between '$start' and '$end')";
@@ -102,9 +102,9 @@ include 'header.php';
               while ($resultin = mysql_fetch_array($queryin)) {
              ?>
               <td><?php echo $resultin['feed_name']; ?></td>
-              <td><?php echo $resultin['count']; ?></td>
+              <td><div align = "right"><?php echo $resultin['count']; ?></div></td>
               <td><?php echo $resultin['unit_name']; ?></td>
-              <td><?php echo $resultin['price']; ?></td>
+              <td><div align = "right"><?php echo $resultin['price']; ?></div></td>
           </tr>
         <?php
               $sum += $resultin['price'];

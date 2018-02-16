@@ -157,7 +157,7 @@ include 'header.php';
 								error_reporting(0);
 								?>
 								</select><font color="red"> &nbsp;*</font></td><input type="hidden" name="sum2" value="<?php echo $sum ; ?>">
-                  <td><h4>&nbsp;&nbsp;ราคาต่อหน่วย</td><td><h4> : <input id="price" type="text" name="price" value="" required="" onKeyUp="if(isNaN(this.value)){ alert('กรุณากรอกตัวเลข'); this.value='';}">&nbsp;(บาท)<font color="red"> &nbsp;*</font></h4></td></tr>
+                  <td><h4>&nbsp;&nbsp;ราคาต่อหน่วย</td><td><h4> : <input id="price" type="text" name="price" value="" required="" onKeyUp="if(isNaN(this.value)){ alert('กรุณากรอกตัวเลข'); this.value='';}">&nbsp;บาท<font color="red"> &nbsp;*</font></h4></td></tr>
                   <tr></table><div class="modal-footer"><td colspan=2 align=center><input type="submit" class="btn btn-success" name="submit" value="เพิ่มข้อมูล" >&nbsp;&nbsp;
     						<a href="delete_allfeed.php?id=<?php echo $id ;?>"><button type="button" class="btn btn-danger" data-dismiss="modal" onclick="return confirm('ต้องการยกเลิกการสั่งซื้อ?')">ยกเลิกการสั่งซื้อ</button></a>
     							</td></tr>
