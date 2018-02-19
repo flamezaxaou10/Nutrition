@@ -70,7 +70,7 @@
       <td><?php echo $row['feed_name']; ?></td>
       <td><?php echo $row['SUM(d.count)']; ?></td>
       <td><?php echo $row['unit_name']; ?></td>
-      <td align="right"><?php echo $row['SUM(d.count)']*$row['price']; ?></td>
+      <td align="right"><?php echo number_format(($row['SUM(d.count)']*$row['price']),2); ?></td>
     </tr>
     <?php
      $total += $row['SUM(d.count)']*$row['price'];
@@ -78,6 +78,6 @@
     ?>
     <tr class ="info">
       <td colspan="5" align="right"><b>ราคาทั้งหมด : </b></td>
-      <td align="right"><b><?php echo $total; ?></b> <b>บาท</b></td>
+      <td align="right"><b><?php echo  number_format($total,2); ?></b> <b>บาท</b></td>
     </tr>
   </table>
