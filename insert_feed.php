@@ -157,8 +157,8 @@ while ($objReSult = mysql_fetch_array($objQuery)) {
 				<?php
 				if($objReSult["status"]!=1){
 				 ?>
-				<td><div align = "center"><a href="select_feed.php?id=<? echo $objReSult['id_mat'];?>" onclick="return confirm('ต้องการแก้ไขข้อมูลนี้?')"><b><font color="blue"><img src='img/edit.png' width=25></font></b></a></td>
-				<td><div align = "center"><a href="success_feed.php?id=<? echo $objReSult['id_mat'];?>"><b><font color="blue"><img src='img/print.png' width=25></font></b></a></td>
+				<td><div align = "center"><a href="select_feed.php?id=<? echo $objReSult['id_mat'];?>" onclick="return confirm('ต้องการแก้ไขข้อมูลนี้?')"><b><font color="blue"><img src='img/edit.png' width=25></font></b></a></div></td>
+				<td><div align = "center"><a href="success_feed.php?id=<? echo $objReSult['id_mat'];?>"><b><font color="blue"><img src='img/print.png' width=25></font></b></a></div></td>
 
 
 				<?php
@@ -167,7 +167,7 @@ while ($objReSult = mysql_fetch_array($objQuery)) {
 		 <?php
 }
 ?>
-<td><div align = "center"><a href="detailfeed.php?id=<?php echo $objReSult["id_mat"] ; ?>" ><img src='img/sssss.png' width=25></a></div></td>
+<td><div align = "center"><a data-toggle="modal" data-target="#myModal" OnClick="setModal('<?php echo $objReSult["id_mat"]; ?>')"  href="#myModal" ><img src='img/sssss.png' width=25></a></div></td>
 </tr>
 <?php
 	 } ?>
@@ -191,34 +191,24 @@ while ($objReSult = mysql_fetch_array($objQuery)) {
 		</div>
 
 
-<!DOCTYPE HTML>
-<html>
-<head>
-<body>
+		<script type="text/javascript">
+		function setModal(id){
+		  $('#test').load('detailfeed.php?id='+id);
+		}
 
-<center>
-
-
-
-<!--<div class="modal-body">
-<input type='hidden' name='id' value=''>
-  <h4 align="left"> รหัสร้านค้า : <input type='text' name ='res_id' required value=''></td></tr></h4>
-  <h4 align="left"> ชื่อร้านค้า  &nbsp;: &nbsp;<input type='text' name ='res_name' required value=''></td></tr></h4>
-  <h4 align="left"> ที่อยู่  &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;<input type='text' name ='res_address' required value=''></td></tr></h4>
-
-
-</div>-->
-
-
-
-
-
-	</form>
-
-</body>
-</html>
-
-<!--<div class="modal-footer">
-        <input type="submit" onclick="submitModal()" name="submit" class="btn btn-success" value = "ตกลง">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">ยกเลิก</button>
-      </div>-->
+		</script>
+		<!-- Modal -->
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" >
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content" style="width:100%;">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		      </div>
+		      <div id="test"></div>
+		      <div class="text-right" style="margin-right:30px;">
+		        <button type="button" class="btn btn-danger"  data-dismiss="modal" aria-label="Close">ปิด</button>
+		      </div>
+		      <br>
+		    </div>
+		  </div>
+		</div>

@@ -104,25 +104,25 @@ error_reporting(0);
  }else if($mon == '12'){
    $mon = 'ธันวาคม';
  }
- if ($day = "Monday") {
+ if ($day == "Monday") {
    $day = "วันอังคารที่";
  }
- elseif ($day = "Tuesday"){
+ elseif ($day == "Tuesday"){
    $day = "วันพุธที่";
  }
- elseif ($day = "Wednesday"){
+ elseif ($day == "Wednesday"){
    $day = "วันพฤหัสบดีที่";
  }
- elseif ($day = "Thursday"){
+ elseif ($day == "Thursday"){
    $day = "วันศุกรที่";
  }
- elseif ($day = "Friday"){
+ elseif ($day == "Friday"){
    $day = "วันเสารที่์";
  }
- elseif ($day = "Saturday"){
+ elseif ($day == "Saturday"){
    $day = "วันอาทิตยที่์";
  }
- elseif ($day = "Sunday"){
+ elseif ($day == "Sunday"){
    $day = "วันจันทรที่์";
  }
  $year = substr($todate,6,4);
@@ -469,10 +469,10 @@ $(document).ready(function(){
 
       <div class="modal-body">
 
-      <h4> รหัสผู้ป่วย : <label id="hnModal"></label></h4>
-      <h4> แผนก : <span id="clinic"></span></h4>
-      <h4> ชื่อผู้ป่วย :&nbsp;<span id="fname_modal"></span> &nbsp;<span id="lname_modal"></span></b></h4>
-      <h4>มื้ออาหาร :
+       รหัสผู้ป่วย : <label id="hnModal"></label> <br><br>
+       แผนก : <span id="clinic"></span> <br><br>
+       ชื่อผู้ป่วย :&nbsp;<span id="fname_modal"></span> &nbsp;<span id="lname_modal"></span></b> <br><br>
+      มื้ออาหาร :
   <? if ($eats == 4) {
     # code...
     echo "เช้า";
@@ -494,15 +494,15 @@ $(document).ready(function(){
             <input type=hidden name="eats2" id="eats2" value ="<? echo $eats;?>">
             <?
     }
-  ?></h4>
-
-    <h4>ห้อง : <input type="text" name="roomno"  id="roomno"></h4>
-    <h4>เตียง : <input type="text" name="bedno"  id="bedno"></h4>
-    <h4>ชนิดของอาหาร : <input type="text" name="food"  id="idfood"></h4>
+  ?>
+    <br><br>
+    ห้อง : <input type="text" name="roomno"  id="roomno"> <br><br>
+    เตียง : <input type="text" name="bedno"  id="bedno"> <br><br>
+    ชนิดของอาหาร : <input type="text" name="food"  id="idfood"> <br><br>
       </div>
 
       <div class="modal-footer">
-        <input type="button"  name= "submit" class="btn btn-success" value = "เพิ่มข้อมูล" >
+        <input type="button"  name= "submit" class="btn btn-success" value = "เพิ่มข้อมูล" onclick="submitModal();">
         <button type="button" class="btn btn-danger" data-dismiss="modal">ยกเลิก</button>
       </div>
     </div>

@@ -181,8 +181,8 @@ include 'header.php';
 <?php endif; ?>
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" >
-  <div class="modal-dialog" role="document" style="width:20%;">
-    <div class="modal-content">
+  <div class="modal-dialog" role="document" >
+    <div class="modal-content" style="width:100%;">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="myModalLabel">ยืนยันการบันทึกการขาย</h4>
@@ -216,9 +216,13 @@ include 'header.php';
             </tr>
         </table>
       </div>
-
-        <a href="check_sale_feed.php?salefeed_id=<?php echo $salefeed_id; ?>"><button type="button" class="btn btn-success">บันทึกการขาย</button></a>
-        <button type="button" class="btn btn-danger" data-dismiss="modal">ยกเลิก</button>
+        <div align="center">
+          <a href="check_sale_feed.php?salefeed_id=<?php echo $salefeed_id; ?>">
+            <button type="button" class="btn btn-success">บันทึกการขาย</button>
+          </a>
+          <button type="button" class="btn btn-danger" data-dismiss="modal">ยกเลิก</button>
+        </div>
+        <br>
       </div>
     </div>
   </div>

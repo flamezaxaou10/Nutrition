@@ -1,20 +1,7 @@
-<?php
-include ('conn.php');
-session_start();
-if($_SESSION["Username"]=="") // ตรวจสอบว่าผ่านการ login หรือไม่
-{
 
-
-header('location:login.php');
-exit();
-}
-$username=$_SESSION["Username"];
-include 'header.php';
-?>
-<div class="container">
-  <div class="jumbotron">
-    <p>การขายอาหารทางสายยาง</p>
+    <h4>การขายอาหารทางสายยาง</h4>
     <?php
+      include 'conn.php';
         $salefeed_id = $_GET['id'];
         $sql = "SELECT * FROM sale_feed WHERE salefeed_id = '$salefeed_id'";
         $result = mysql_query($sql,$connect1);
@@ -32,7 +19,6 @@ include 'header.php';
           $date=$strDaysThai." ".$strDay." ".$strMonthThai." ".$strYear;
      ?>
   <div class="modal-body">
-    <h4>
       <style media="screen">
         td{
           padding-bottom : 20px;
@@ -95,7 +81,3 @@ include 'header.php';
       <td align="right"><b><?php echo $total; ?></b> <b>บาท</b></td>
     </tr>
   </table>
-    <p align="right"><a href="sale_feed.php"><button type="button" class="btn btn-danger" name="button">ย้อนกลับ</button></a></p>
-  </div>
-</div>
-<?php include 'footer.php'; ?>

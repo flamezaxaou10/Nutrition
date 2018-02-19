@@ -1,18 +1,4 @@
-<?php
-include ('conn.php');
-session_start();
-if($_SESSION["Username"]=="") // ตรวจสอบว่าผ่านการ login หรือไม่
-{
 
-
-header('location:login.php');
-exit();
-}
-$username=$_SESSION["Username"];
-include 'header.php';
-?>
-<div class="container">
-  <div class="jumbotron">
     <div class="modal-body">
        <div class="modal-body">
          <p>รายละเอียดการรับเข้า</p>
@@ -26,6 +12,7 @@ include 'header.php';
              <th>หน่วยนับ</th>
            </tr>
            <?php
+              include ('conn.php');
               $id_mat = $_GET['id'];
                $sql = "SELECT * FROM detail_inputmat d LEFT JOIN material m ON d.mat_id = m.mat_id
                                                         LEFT JOIN feed f ON d.mat_id = f.feed_id
@@ -64,9 +51,3 @@ include 'header.php';
          </table>
        </div>
     </div>
-    <div class="modal-footer">
-     <a href="mat_to_stock.php"><input type="submit" class="btn btn-danger" value="ย้อนกลับ" name = "submit"></a>
-   </div>
-  </div>
-</div>
-<?php include 'footer.php'; ?>

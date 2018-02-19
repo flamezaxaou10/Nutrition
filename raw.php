@@ -177,15 +177,16 @@ function setRaw(id_raw){
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
       </div>
-        <div id="test"></div>
-        <div class="text-right" style="margin-right:30px;">
-          <button type="button" class="btn btn-success"name="button" onclick="prints('test')">พิมพ์</button>
-        </div>
-        <br>
+      <div id="test"></div>
+      <div class="text-right" style="margin-right:30px;">
+        <button type="button" class="btn btn-success"name="button" onclick="prints('test')">พิมพ์</button>
+        <button type="button" class="btn btn-danger"  data-dismiss="modal" aria-label="Close">ปิด</button>
       </div>
-      </div>
+      <br>
+    </div>
   </div>
 </div>
+
 
 <?php include 'footer.php'; ?>
 <script type="text/javascript">

@@ -116,7 +116,7 @@ include 'header.php';
       <td><?php echo $date; ?></td>
       <td><?php echo $row['salefeed_id']; ?></td>
       <td><?php echo $row['customer']; ?></td>
-      <td><div align = "center"><a href="select_sale_feed.php?id=<?php echo $id; ?>" ><img src='img/sssss.png' width=25></a></div></td>
+      <td><div align = "center"><a data-toggle="modal" data-target="#myModal" OnClick="setModal('<?php echo $id; ?>')"  href="#myModal" ><img src='img/sssss.png' width=25></a></div></td>
       <td><div align = "center"><a target="_blank"  href="print_sale_feed.php?salefeed_id=<? echo $row['salefeed_id'];?>"><img src='img/print.png' width=25></a></div></td>
     </tr>
     <?php
@@ -148,3 +148,25 @@ include 'header.php';
     header("LOCATION:sale_feed_con.php?salefeed_id=$salefeed_id");
   }
  ?>
+
+ <script type="text/javascript">
+ function setModal(id){
+   $('#test').load('select_sale_feed.php?id='+id);
+ }
+
+ </script>
+ <!-- Modal -->
+ <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" >
+   <div class="modal-dialog" role="document">
+     <div class="modal-content" style="width:100%;">
+       <div class="modal-header">
+         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+       </div>
+       <div id="test"></div>
+       <div class="text-right" style="margin-right:30px;">
+         <button type="button" class="btn btn-danger"  data-dismiss="modal" aria-label="Close">ปิด</button>
+       </div>
+       <br>
+     </div>
+   </div>
+ </div>

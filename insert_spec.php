@@ -1,3 +1,6 @@
+<script type="text/javascript">
+  alert();
+</script>
 <?php
 include ('conn.php');
 session_start();
@@ -6,9 +9,8 @@ if($_SESSION["Username"]=="") // ตรวจสอบว่าผ่านก�
 header('location:login.php');
 exit();
 }
-
 $submit = $_POST['submit'];
-$sql2 = "SELECT * FROM fpatient_info where hn = '".$_POST["hn"]."'";
+$sql2 = "SELECT * FROM fpatient_info where hn = '".$_POST['hn']."'";
 $objQuery2 = mysql_query($sql2, $connect2);
 $objReSult2 = mysql_fetch_array($objQuery2);
 

@@ -152,7 +152,7 @@ include 'header.php';
             <div style="color:green;">รับครบ</div>
           <?php endif; ?>
         </td>
-        <td><div align = "center"><a href="select_mat_to_stock.php?id=<?php echo $idedit; ?>" ><img src='img/sssss.png' width=25></a></div></td>
+        <td><div align = "center"><a data-toggle="modal" data-target="#myModal" OnClick="setModal('<?php echo $idedit; ?>')"  href="#myModal" ><img src='img/sssss.png' width=25></a></div></td>
       </tr>
       <?php
       }
@@ -176,3 +176,24 @@ include 'header.php';
 </div>
 
 <?php include 'footer.php'; ?>
+<script type="text/javascript">
+function setModal(id){
+  $('#test').load('select_mat_to_stock.php?id='+id);
+}
+
+</script>
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" >
+  <div class="modal-dialog" role="document">
+    <div class="modal-content" style="width:100%;">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      </div>
+      <div id="test"></div>
+      <div class="text-right" style="margin-right:30px;">
+        <button type="button" class="btn btn-danger"  data-dismiss="modal" aria-label="Close">ปิด</button>
+      </div>
+      <br>
+    </div>
+  </div>
+</div>
