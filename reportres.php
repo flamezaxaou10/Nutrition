@@ -134,7 +134,7 @@ include 'header.php';
 
       </table>
       <div class="text-right">
-        <h4> ราคารวมทั้งหมด <?php echo $sum; ?> บาท</h4>
+        <h4> ราคารวมทั้งหมด <?php echo  number_format($sum,2); ?> บาท</h4>
       </div>
       <br>
     </div>

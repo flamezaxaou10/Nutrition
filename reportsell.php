@@ -111,7 +111,7 @@ include 'header.php';
             }
         ?>
             <tr>
-              <td colspan="6" class="text-right">ยอดขายรวม <?php echo "$sum"; ?> บาท</td>
+              <td colspan="6" class="text-right">ยอดขายรวม <?php echo number_format ($sum,2); ?> บาท</td>
             </tr>
         <?php
           }
