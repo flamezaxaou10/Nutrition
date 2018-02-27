@@ -252,7 +252,7 @@ $eats = "0";
             <li align = "center"><a href="insert_feed.php">สั่งซื้ออาหารทางสายยาง</a></li>
           </ul>
         </li>
-        <li><a href=""><span class="glyphicon glyphicon-user"> <? echo $_SESSION["fname"];?></span></a></li>
+        <li><a href=""><span class="glyphicon glyphicon-user"> <? echo $_SESSION["fnname"];?></span></a></li>
         <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Log out</a></li>
       </ul>
     </div>
