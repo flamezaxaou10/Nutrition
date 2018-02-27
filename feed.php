@@ -81,8 +81,8 @@ if($flag==0){
                   <td>ประเภทวัตถุดิบ</td>
                   <td>:
                     <select name="stock" required>
-                      <option value=""  disabled selected>------กรุณาเลือกประเภทวัตถุดิบ-----</option>
-                  <?php
+                      <option value="MT-06"  selected>อาหารทางสายยาง</option>
+                  <!-- <?php
                     $sql = "SELECT * FROM stock  ORDER BY name_stock";
                     $result = mysql_query($sql, $connect1);
                     while ($row = mysql_fetch_array($result)){
@@ -90,7 +90,7 @@ if($flag==0){
                     <option value="<?php echo $row['id_stock']; ?>"><?php echo $row['name_stock']; ?></option>
                   <?php
                     }
-                   ?>
+                   ?> -->
                    </select>
                    <font color="red">*</font>
                   </td>
