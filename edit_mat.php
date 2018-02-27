@@ -63,7 +63,7 @@ if($flag==0){
                       $result = mysql_query($sql, $connect1);
                       while ($row = mysql_fetch_array($result)){
                     ?>
-                      <option value="<?php echo $row['id_stock']; ?>"><?php echo $row['name_stock']; ?></option>
+                      <option value="<?php echo $row['id_stock']; ?>" <?php if($_GET['type']==$row['name_stock']){echo "selected";}?>><?php echo $row['name_stock']; ?></option>
                     <?php
                       }
                      ?>

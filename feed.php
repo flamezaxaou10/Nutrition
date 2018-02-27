@@ -68,59 +68,66 @@ if($flag==0){
 }
     ?>
          <form method="POST" action="#" onsubmit="return confirm('ต้องการเพิ่มข้อมูลนี้?');">
-
-                    <h4> รหัสอาหารทางสายยาง : &nbsp;<input type="text" name="id" value="<?php echo $id; ?>" readonly=""></h4>
-                    <h4> ชื่ออาหารทางสายยาง &nbsp;&nbsp;: &nbsp;<input type="text" name="name" required oninvalid="this.setCustomValidity('กรุณากรอกข้อมูล')" onKeyUp="if(!(isNaN(this.value))) { alert('กรุณากรอกอักษร'); this.value='';}"><font color="red">&nbsp;*</font><?php if($flag==1)echo "<font color=red>ชื่ออาหารทางสายยางนี้มีในระบบแล้ว</font>"; ?></h4>
-                    <h4>ประเภทวัตถุดิบ :  &nbsp;&nbsp;
-                      <select name="stock" required>
-                        <option value=""  disabled selected>------กรุณาเลือกประเภทวัตถุดิบ-----</option>
-                    <?php
-                      $sql = "SELECT * FROM stock  ORDER BY name_stock";
-                      $result = mysql_query($sql, $connect1);
-                      while ($row = mysql_fetch_array($result)){
-                    ?>
-                      <option value="<?php echo $row['id_stock']; ?>"><?php echo $row['name_stock']; ?></option>
-                    <?php
-                      }
-                     ?>
-                     </select>
-                     <font color="red">&nbsp;*</font>
-                    </h4>
-                     <?php
-                       $strSQL = "SELECT * FROM restaurant where type = '2'  ORDER BY res_name";
-                       $objQuery = mysql_query($strSQL, $connect1);
-                    ?>
-                    <h4> ตัวแทนจำหน่ายอาหารทางสายยาง :
-                      <select name = "store" required>
-                        <option value=""  disabled selected>------กรุณาเลือกตัวแทนจำหน่าย-----</option>
-                      <?
-                    @include('conn.php');
-
-                    $strSQL = "SELECT * FROM restaurant where type='FYST02'";
-                    $objQuery = mysql_query($strSQL, $connect1);
-
-                    while ($objReSult = mysql_fetch_array($objQuery)) {
-                      if ($_POST["dep"] == $objReSult['res_id']) {
-                        # code...
-                        $sel = "selected";
-                      }
-                      else
-                      {
-                        $sel = "";
-                      }
+            <table style="font-size: 14px; font-weight: bold; ">
+                <tr style="height:35px;">
+                  <td >รหัสอาหารทางสายยาง</td>
+                  <td> : <input type="text" name="id" value="<?php echo $id; ?>" readonly=""></td>
+                </tr>
+                <tr style="height:35px;">
+                  <td>ชื่ออาหารทางสายยาง</td>
+                  <td>: <input type="text" name="name" required oninvalid="this.setCustomValidity('กรุณากรอกข้อมูล')" onKeyUp="if(!(isNaN(this.value))) { alert('กรุณากรอกอักษร'); this.value='';}"><font color="red">*</font><?php if($flag==1)echo "<font color=red>ชื่ออาหารทางสายยางนี้มีในระบบแล้ว</font>"; ?></td>
+                </tr>
+                <tr style="height:35px;">
+                  <td>ประเภทวัตถุดิบ</td>
+                  <td>:
+                    <select name="stock" required>
+                      <option value=""  disabled selected>------กรุณาเลือกประเภทวัตถุดิบ-----</option>
+                  <?php
+                    $sql = "SELECT * FROM stock  ORDER BY name_stock";
+                    $result = mysql_query($sql, $connect1);
+                    while ($row = mysql_fetch_array($result)){
                   ?>
-                <option value="<? echo $objReSult["res_id"];?>" <? echo $sel; ?> > <? echo $objReSult["res_name"];?></option>
-                <?
-                }
-                ?>
-                </select><font color="red">&nbsp;*</font>
-                </h4>
-                <h4>
-                  ราคาต่อหน่วย : <input type="number" name="price" value=""> บาท<font color="red">&nbsp;*</font>
-                </h4>
+                    <option value="<?php echo $row['id_stock']; ?>"><?php echo $row['name_stock']; ?></option>
+                  <?php
+                    }
+                   ?>
+                   </select>
+                   <font color="red">*</font>
+                  </td>
+                </tr>
+                <tr style="height:35px;">
+                  <td>ตัวแทนจำหน่ายอาหารทางสายยาง &nbsp;</td>
+                  <td>:
+                    <select name = "store" required>
+                      <option value=""  disabled selected>------กรุณาเลือกตัวแทนจำหน่าย-----</option>
+                          <?
+                        @include('conn.php');
 
-                     <!--<input type="submit" name="search" value="Search"/>-->
-                  </h4>
+                        $strSQL = "SELECT * FROM restaurant where type='FYST02'";
+                        $objQuery = mysql_query($strSQL, $connect1);
+
+                        while ($objReSult = mysql_fetch_array($objQuery)) {
+                          if ($_POST["dep"] == $objReSult['res_id']) {
+                            # code...
+                            $sel = "selected";
+                          }
+                          else
+                          {
+                            $sel = "";
+                          }
+                      ?>
+                    <option value="<? echo $objReSult["res_id"];?>" <? echo $sel; ?> > <? echo $objReSult["res_name"];?></option>
+                    <?
+                    }
+                    ?>
+                    </select><font color="red">&nbsp;*</font>
+                  </td>
+                </tr style="height:35px;">
+                <tr>
+                  <td>ราคาต่อหน่วย</td>
+                  <td>: <input type="number" name="price" value=""> บาท<font color="red">&nbsp;*</font></td>
+                </tr>
+            </table>
          <div class="modal-footer">
           <input type="submit" class="btn btn-success" value="เพิ่มข้อมูล" name = "submit"
             >&nbsp;&nbsp;

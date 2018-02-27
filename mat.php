@@ -162,7 +162,7 @@ while ($objReSult = mysql_fetch_array($objQuery)) {
   <td><div align = "left"><? echo $objReSult["mat_name"];?></div></td>
   <td><div align = "left"><? echo $objReSult["name_stock"];?></div></td>
   <td><div align = "left"><? echo $objReSult["res_name"];?></div></td>
-  <td><div align = "center"><a href='edit_mat.php?id=<? echo $objReSult['mat_id'];?>&id2=<? echo $objReSult['mat_name']?>&id3=<? echo $objReSult['res_name']?>' onclick="return confirm('ต้องการแก้ไขข้อมูลนี้?')"><b><font color="blue"><img src='img/edit.png' width=25></font></b></a></td>
+  <td><div align = "center"><a href='edit_mat.php?id=<? echo $objReSult['mat_id'];?>&id2=<? echo $objReSult['mat_name']?>&id3=<? echo $objReSult['res_name']?>&type=<? echo $objReSult['name_stock']?>' onclick="return confirm('ต้องการแก้ไขข้อมูลนี้?')"><b><font color="blue"><img src='img/edit.png' width=25></font></b></a></td>
   <td><div align = "center"><a href='delete_mat.php?id=<? echo $objReSult['mat_id'];?>'
   onclick="return confirm('ยืนยันการลบข้อมูล')"><b><font color="red"><img src='img/delete.png' width=25></font></b></a></td>
 
