@@ -15,7 +15,7 @@ include 'header.php';
 <div class="container">
   <div class="jumbotron">
 
-        <p>ข้อมูลการรับเข้า</p>
+        <p>ข้อมูลการรับวัตถุดิบเข้าคลัง</p>
         <?php
           $num = 0;
           $sql = "SELECT COUNT(id_inputmat) FROM input_material";

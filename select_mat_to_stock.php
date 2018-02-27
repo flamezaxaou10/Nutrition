@@ -1,15 +1,15 @@
 
     <div class="modal-body">
        <div class="modal-body">
-         <p>รายละเอียดการรับเข้า</p>
+         <h4>&nbsp;รายละเอียดการรับวัตถุดิบเข้าคลัง</h4>
          <table  class="table table-striped table-bordered">
            <tr class="warning">
-             <th>ลำดับ</th>
-             <th>ประเภทวัตถุดิบ</th>
-             <th>ชื่อวัตถุดิบ</th>
-             <th>จำนวน</th>
-             <th>คงเหลือ</th>
-             <th>หน่วยนับ</th>
+               <td align=center><b>ลำดับ</td>
+            <td align=center><b>ประเภทวัตถุดิบ</td>
+            <td align=center><b>ชื่อวัตถุดิบ</td>
+             <td align=center><b>จำนวน</td>
+             <td align=center><b>คงเหลือ</td>
+            <td align=center><b>หน่วยนับ</td>
            </tr>
            <?php
               include ('conn.php');
