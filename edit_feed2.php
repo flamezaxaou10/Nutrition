@@ -60,8 +60,8 @@ if($flag==0){
                     <h4> ชื่ออาหารทางสายยาง &nbsp;: &nbsp;<input type="text" name="name" required oninvalid="this.setCustomValidity('กรุณากรอกข้อมูล')" onKeyUp="if(!(isNaN(this.value))) { alert('กรุณากรอกอักษร'); this.value='';}" value="<?php echo $name; ?>"><font color="red"> &nbsp;*</font><?php if($flag==1)echo "<font color=red>ชื่อนี้มีในระบบแล้ว</font>"; ?></h4>
                     <h4>ประเภทวัตถุดิบ&nbsp; :  &nbsp;&nbsp;
                       <select name="stock" required>
-                        <option value="" disabled selected>------กรุณาเลือกประเภทวัตถุดิบ-----</option>
-                    <?php
+                        <option value="NT-06"  selected>อาหารทางสายยาง</option>
+                    <!-- <?php
                       $sql = "SELECT * FROM stock";
                       $result = mysql_query($sql, $connect1);
                       while ($row = mysql_fetch_array($result)){
@@ -75,7 +75,7 @@ if($flag==0){
                       <option value="<?php echo $row['id_stock']; ?>" <?php echo $select; ?>><?php echo $row['name_stock']; ?></option>
                     <?php
                       }
-                     ?>
+                     ?> -->
                      </select>
                      <font color="red">&nbsp;*</font>
                     </h4>
