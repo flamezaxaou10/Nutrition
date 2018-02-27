@@ -1,5 +1,4 @@
 
-    <div class="modal-body">
        <div class="modal-body">
          <h4>&nbsp;รายละเอียดการรับวัตถุดิบเข้าคลัง</h4>
          <table  class="table table-striped table-bordered">
@@ -50,4 +49,3 @@
          ?>
          </table>
        </div>
-    </div>

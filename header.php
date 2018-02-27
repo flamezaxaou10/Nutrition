@@ -113,7 +113,7 @@
           </ul>
 
         </li>
-        <li><a href=""><span class="glyphicon glyphicon-user"> <? echo $_SESSION["Username"];?></span></a></li>
+        <li><a href=""><span class="glyphicon glyphicon-user"> <? echo $_SESSION["fname"];?></span></a></li>
         <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Log out</a></li>
       </ul>
     </div>

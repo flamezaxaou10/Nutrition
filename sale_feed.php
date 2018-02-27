@@ -162,7 +162,7 @@ include 'header.php';
        <div class="modal-header">
          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
        </div>
-       <div id="test"></div>
+       <div id="test"  class="modal-body"></div>
        <div class="text-right" style="margin-right:30px;">
          <button type="button" class="btn btn-danger"  data-dismiss="modal" aria-label="Close">ปิด</button>
        </div>

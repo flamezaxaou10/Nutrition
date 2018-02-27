@@ -33,7 +33,7 @@ $username=$_SESSION["Username"];
     <h4>รายละเอียดการจัดการวัตถุดิบ</h4>
     <div class="modal-body" style="padding-bottom:0px;">
       <h5>
-        <table>
+        <table >
           <tr >
             <td style="padding-bottom : 10px;">รหัสจัดการวัตถุดิบ </td>
             <td style="padding-bottom : 10px;">&nbsp; : &nbsp;</td>
@@ -52,7 +52,7 @@ $username=$_SESSION["Username"];
       </h5>
     </div>
 </div>
-  <table class="table table-striped table-bordered" style="padding : 2px;">
+  <table class="table table-striped table-bordered" >
     <tr class="warning">
       <th><div align="center">ลำดับ</div></th>
       <th><div align="center">ชื่อวัตถุดิบ</div></th>
