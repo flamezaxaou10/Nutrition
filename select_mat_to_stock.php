@@ -25,12 +25,12 @@
            ?>
            <tr class ="info">
              <td><div align = "center"><?php echo $i; ?></div></td>
-             <td><div align = "left"><? echo $objReSult["name_stock"];?></div></td>
+             <td><div align = "center"><? echo $objReSult["name_stock"];?></div></td>
              <?php if ($objReSult['feed_id'] != NULL): ?>
-               <td><div align = "left"><? echo $objReSult["feed_name"];?></div></td>
+               <td><div align = "center"><? echo $objReSult["feed_name"];?></div></td>
                <?php $mat = $objReSult["feed_id"]; ?>
              <?php else: ?>
-               <td><div align = "left"><? echo $objReSult["mat_name"];?></div></td>
+               <td><div align = "center"><? echo $objReSult["mat_name"];?></div></td>
                <?php $mat = $objReSult["mat_id"]; ?>
              <?php endif; ?>
              <?php
@@ -39,9 +39,9 @@
                 $query = mysql_query($sqlb,$connect1);
                 $row = mysql_fetch_array($query);
               ?>
-             <td><div align = "left"><? echo $objReSult["count"];?></div></td>
-             <td><div align = "left"><? echo $row["balance"];?></div></td>
-             <td><div align = "left"><? echo $objReSult["unit_name"];?></div></td>
+             <td><div align = "right"><? echo $objReSult["count"];?></div></td>
+             <td><div align = "right"><? echo $row["balance"];?></div></td>
+             <td><div align = "center"><? echo $objReSult["unit_name"];?></div></td>
            </tr>
            <?
            $i++;

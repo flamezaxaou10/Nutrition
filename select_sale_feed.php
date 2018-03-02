@@ -1,5 +1,5 @@
 
-    <h4>การขายอาหารทางสายยาง</h4>
+    <h4>รายละเอียดการขายอาหารทางสายยาง</h4>
     <?php
       include 'conn.php';
         $salefeed_id = $_GET['id'];
@@ -45,12 +45,12 @@
   </div>
   <table class="table table-striped table-bordered">
     <tr class="warning">
-      <th>ลำดับ</th>
-      <th>รหัสวัตถุดิบ</th>
-      <th>ชื่อวัตถุดิบ</th>
-      <th>จำนวน</th>
-      <th>หน่วยนับ</th>
-      <th>ราคารวม</th>
+       <td align=center><b>ลำดับ</td>
+       <td align=center><b>รหัสวัตถุดิบ</td>
+       <td align=center><b>ชื่อวัตถุดิบ</td>
+     <td align=center><b>จำนวน</td>
+       <td align=center><b>หน่วยนับ</td>
+       <td align=center><b>ราคารวม</td>
     </tr>
   <?php
     $table = "SELECT d.feed_id,f.feed_name,SUM(d.count),u.unit_name,d.price FROM detail_sale_feed d
@@ -65,11 +65,11 @@
       $i++;
     ?>
     <tr class ="info">
-      <td><?php echo $i; ?></td>
-      <td><?php echo $row['feed_id']; ?></td>
-      <td><?php echo $row['feed_name']; ?></td>
-      <td><?php echo $row['SUM(d.count)']; ?></td>
-      <td><?php echo $row['unit_name']; ?></td>
+      <td align=center><?php echo $i; ?></td>
+      <td align=center><?php echo $row['feed_id']; ?></td>
+      <td align=center><?php echo $row['feed_name']; ?></td>
+      <td align=right><?php echo $row['SUM(d.count)']; ?></td>
+    <td align=center><?php echo $row['unit_name']; ?></td>
       <td align="right"><?php echo number_format(($row['SUM(d.count)']*$row['price']),2); ?></td>
     </tr>
     <?php
