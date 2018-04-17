@@ -317,7 +317,7 @@ $comment=$objReSult['comment'];
 
         <table class="table table-striped table-bordered" border="1" width="100%">
           <tr class="warning">
-            <th></th><th></th><th><div align="center">พิเศษ</th><th><div align="center">สามัญ</th><th><div align="center">เจ้าหน้าที่</th>
+            <th><div align="center">มื้ออาหาร</th><th><div align="center">ประเภทอาหาร</th><th><div align="center">พิเศษ</th><th><div align="center">สามัญ</th><th><div align="center">เจ้าหน้าที่</th>
           </tr>
           <tr class ="info">
             <td align="center"><b>เช้า</td>
@@ -433,6 +433,7 @@ $comment=$objReSult['comment'];
         <textarea class="form-control" rows="3" id="detail" name="deta"  readonly=""><?php echo $comment; ?></textarea><br />
       </div>
       </div>
+      <br><br>
         <div style="float: right;"><input type="submit" class="btn btn-success" value="แก้ไขข้อมูล" name = "submit"> </div>
       </form>
 

@@ -41,7 +41,7 @@ include 'header.php';
 
         <table class="table table-striped table-bordered" border="1" width="100%">
           <tr class="warning">
-            <th></th><th></th><th><div align="center">พิเศษ</th><th><div align="center">สามัญ</th><th><div align="center">เจ้าหน้าที่</th>
+            <th><div align="center">มื้ออาหาร</th><th><div align="center">ประเภทอาหาร</th><th><div align="center">พิเศษ</th><th><div align="center">สามัญ</th><th><div align="center">เจ้าหน้าที่</th>
           </tr>
           <tr class ="info">
             <td align="center"><b>เช้า</td>
