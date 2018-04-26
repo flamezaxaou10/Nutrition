@@ -76,9 +76,9 @@ include 'header.php';
 							<table>
 
 									<tr>
-							<td  width=159 align=left><h4>วันที่สั่งซื้อวัตถุดิบ</td><td><h4>:&nbsp;<?php echo $date; ?><input type="hidden" name="date" value="<?php echo date('Y-m-d'); ?>"></h4></td></tr>
+							<td  width=159 align=left><h4>วันที่สั่งซื้อวัตถุดิบ &nbsp;&nbsp;&nbsp;&nbsp;: </td><td><h4><?php echo $date; ?><input type="hidden" name="date" value="<?php echo date('Y-m-d'); ?>"></h4></td></tr>
 							<tr><td><br></table><div class="modal-footer"><input type="submit" class="btn btn-success" name="submit" value="เพิ่มข้อมูล" >&nbsp;&nbsp;</td>
-							<td><a href="index.php"><button type="button" class="btn btn-danger" data-dismiss="modal" onclick="return confirm('ต้องการยกเลิกการแก้ไข?')">ยกเลิก</button>
+							<td><a href="index.php"><button type="button" class="btn btn-danger" data-dissmiss="modal" onclick="return confirm('ต้องการยกเลิกการแก้ไข?')">ยกเลิก</button>
 
 						</a>
 							</form>
@@ -123,6 +123,7 @@ $strSQL = "SELECT * FROM buymeterial WHERE typebuy= '1' order by id_mat desc LIM
 $objQuery = mysql_query($strSQL,$connect1) or die("Error Query [".$strSQL."]");
  ?>
 		 <h4>ประวัติการสั่งซื้อวัตถุดิบ</h4>
+		 <br />
 		 <table class="table table-striped table-bordered">
 			 <tr class="warning">
 		     <th><div align="center">วันที่</div></th>

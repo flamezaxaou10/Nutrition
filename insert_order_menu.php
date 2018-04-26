@@ -20,15 +20,15 @@ include 'header.php';
 
        ?>
       <form method="post" action="print_test.php">
-      <div style="float:left; font-size: 16px;">วันที่</div>
+      <div style="float:left; font-size: 16px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;วันที่&nbsp;:</div>
       <div style="float:left; font-size: 16px;">
-        &nbsp;<input type="date" name="daytime" size = "8" value="<?php echo date(); ?>"><font color="red"> &nbsp;*&nbsp;&nbsp;</font>
+        &nbsp;<input type="date" name="daytime" size = "8" value="<?php echo date(); ?>"><font color="red"> &nbsp;&nbsp;&nbsp;</font>
         <a href="editdetailorder.php"><input type="submit1" class="btn btn-success" name="submit2" value="ค้นหาและแก้ไขข้อมูล"></a><br>
       </div>
 <br />
 <br />
 
-<div style="float:left; font-size: 16px;">เจ้าหน้าที่</div>
+<div style="float:left; font-size: 16px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;เจ้าหน้าที่&nbsp;:</div>
 <div style="float:left; font-size: 16px;">&nbsp;
   <?php echo $_SESSION["fnname"];?>&nbsp;<?php echo $_SESSION["lnname"];?>
 </div>

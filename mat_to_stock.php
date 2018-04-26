@@ -108,11 +108,11 @@ include 'header.php';
 <br>
     <table class="table table-striped table-bordered">
       <tr class="warning">
-        <th>ลำดับ</th>
-        <th>วันทีรับเข้า</th>
-        <th>รหัสการรับเข้า</th>
-        <th>รหัสการสั่งซื้อ</th>
-        <th>เจ้าหน้าที่</th>
+        <th><div align = "center">ลำดับ</div></th>
+        <th><div align = "center">วันทีรับเข้า</div></th>
+        <th><div align = "center">รหัสการรับเข้า</div></th>
+        <th><div align = "center">รหัสการสั่งซื้อ</div></th>
+        <th><div align = "center">เจ้าหน้าที่</div></th>
         <th><div align = "center">สถานะ</div></th>
         <th><div align = "center">รายละเอียด</div></th>
       </tr>

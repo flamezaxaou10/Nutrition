@@ -77,7 +77,7 @@ include 'header.php';
 
 							<table>
 							<tr>
-							<td  width=240 align=left><h4>วันที่สั่งซื้ออาหารทางสายยาง </td><td><h4>:&nbsp;<?php echo $date; ?>
+							<td  width=240 align=left><h4>วันที่สั่งซื้ออาหารทางสายยาง&nbsp;&nbsp;&nbsp;&nbsp;: </td><td><h4><?php echo $date; ?>
 							<input type="hidden" name="date" value="<?php echo date('Y-m-d'); ?>"></h4></td></tr>
 							<tr><td><br></table><div class="modal-footer"><input type="submit" class="btn btn-success" name="submit" value="เพิ่มข้อมูล" >&nbsp;&nbsp;</td>
 							<td><a href="index.php"><button type="button" class="btn btn-danger" data-dismiss="modal" onclick="return confirm('ต้องการยกเลิกการเพิ่มข้อมูลนี้?')">ยกเลิก</button>

@@ -16,10 +16,9 @@ include 'header.php';
       <p>ข้อมูลการจัดเมนูอาหาร</p>
       <br>
 <form method="post" action="#">
-      <div style="float:left; font-size: 16px;">วันที่</div><div style="float:left; font-size: 16px;">&nbsp;<input type="date" name="daytime" size = "8" value="<?php echo $_POST['daytime']; ?>"><font color="red"> &nbsp;</font><br></div><input type="submit" class="btn btn-success" value="ค้นหา" name = "submit2">
+      <div style="float:left; font-size: 16px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;วันที่ : &nbsp;</div><div style="float:left; font-size: 16px;">&nbsp;<input type="date" name="daytime" size = "8" value="<?php echo $_POST['daytime']; ?>"><font color="red"> &nbsp;</font><br></div><input type="submit" class="btn btn-success" value="ค้นหา" name = "submit2">
       <a href="insert_order_menu.php"><button type="button" class="btn btn-danger" data-dismiss="modal">ย้อนกลับ</button></a>
 </form>
-<br />
 <br />
 
 <form method="post" action="print_edit.php">
@@ -28,7 +27,7 @@ include 'header.php';
 if(isset($_POST["submit2"])){
   $day= $_POST["daytime"];?>
   <div id="print_table">
-  <div style="float:left; font-size: 16px;">วันที่</div><div style="float:left; font-size: 16px;">&nbsp;
+  <div style="float:left; font-size: 16px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;วันที่ : &nbsp;</div><div style="float:left; font-size: 16px;">&nbsp;
     <?php
     $dayy = substr($_POST['daytime'],-2);
     $mon =substr($_POST['daytime'],-5,2);
@@ -64,7 +63,7 @@ if(isset($_POST["submit2"])){
       <? echo $dayy." ".$mon." ".$year;?></div>
       <br />
       <br />
-  <div style="float:left; font-size: 16px;">เจ้าหน้าที่</div><div style="float:left; font-size: 16px;">&nbsp;
+  <div style="float:left; font-size: 16px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;เจ้าหน้าที่ : &nbsp;</div><div style="float:left; font-size: 16px;">&nbsp;
     <?php echo $_SESSION["fnname"];?>&nbsp;<?php echo $_SESSION["lnname"];?>
   </div>
   <br />
