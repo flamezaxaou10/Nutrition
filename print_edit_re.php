@@ -39,43 +39,23 @@ $p=$_POST["print"]+1;
  ?>
       <H3>ข้อมูลเมนูอาหาร</H3>
       <br />
-      <h5 align=right>พิมพ์ครั้งที : <?php echo $p ;?></h5>่
+      <h5 align=right>พิมพ์ครั้งที : <?php echo $p ;?></h5>
       <div style="float:left; font-size: 1.5em;">วันที่</div><div style="float:left; font-size: 1.5em;">&nbsp;
       <?php
 
-         $m1=$m2=$m3=$m4=$m5=$m6=$m7=$m8=$m9=$m10=$m11=$m12=$m13=$m14=$m15="";
 
-    $dayy = substr($_POST['daytime'],-2);
-    $mon =substr($_POST['daytime'],-5,2);
-    if($mon == '01' ){
-      $mon = 'มกราคม';
-    }else if($mon == '02'){
-      $mon = 'กุมภาพันธ์';
-    }else if($mon == '03'){
-      $mon = 'มีนาคม';
-    }else if($mon == '04'){
-      $mon = 'เมษายน';
-    }else if($mon == '05'){
-      $mon = 'พฤษภาคม';
-    }else if($mon == '06'){
-      $mon = 'มิถุนายน';
-    }else if($mon == '07'){
-      $mon = 'กรกฏาคม';
-    }else if($mon == '08'){
-      $mon = 'สิงหาคม';
-    }else if($mon == '09'){
-      $mon = 'กันยายน';
-    }else if($mon == '10'){
-      $mon = 'ตุลาคม';
-    }else if($mon == '11'){
-      $mon = 'พฤศจิกายน';
-    }else if($mon == '12'){
-      $mon = 'ธันวาคม';
-    }
-    $year = substr($_POST['daytime'],-10,4);
-    $year += 543;
+         $strDate=$_POST['daytime'];
+           $strYear = date("Y",strtotime($strDate))+543;
+           $strMonth= date("n",strtotime($strDate));
+           $strDay= date("j",strtotime($strDate));
+           $strDays= date("l",strtotime($strDate));
+           $strDayCut = Array("Monday"=>"วันจันทรที่","Tuesday"=>"วันอังคารที่","Wednesday"=>"วันพุธที่","Thursday"=>"วันพฤหัสบดีที่","Friday"=>"วันศุกรที่","Saturday"=>"วันเสารที่","Sunday"=>"วันอาทิตย์ที่");
+           $strMonthCut = Array("","มกราคม","กุมภาพันธ์","มีนาคม","เมษายน","พฤษภาคม","มิถุนายน","กรกฎาคม","สิงหาคม","กันยายน","ตุลาคม","พฤษจิกายน","ธันวาคม");
+           $strMonthThai=$strMonthCut[$strMonth];
+           $strDaysThai = $strDayCut[$strDays];
+           $date=$strDaysThai." ".$strDay." ".$strMonthThai." ".$strYear;
   ?>
-      <? echo $dayy." ".$mon." ".$year;?></div>
+      <? echo $strDate;?></div>
       <br />
       <br />
       <div style="float:left; font-size: 1.5em;">เจ้าหน้าที่</div><div style="float:left; font-size: 1.5em;">&nbsp;
@@ -291,7 +271,10 @@ if(!$insert){
 
     </div>
    </div>
-   <p style="text-align:center;"><button class="btn btn-success" OnClick="prints('print_table');">พิมพ์ใบสั่งอาหาร</button></p>
+   <p style="text-align:right;">
+     <button class="btn btn-success" OnClick="prints('print_table');">พิมพ์ใบสั่งอาหาร</button>
+     <button class="btn btn-danger" >ย้อนกลับ</button>
+   </p>
   </div>
 
 
