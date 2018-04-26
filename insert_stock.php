@@ -16,9 +16,16 @@ include 'header.php';
          <br>
         <p>ข้อมูลประเภทวัตถุดิบ</p>
         <?php
+        $perpage = 20;
+        if (isset($_GET['page']) && $_GET['page'] != 0) {
+          $page = $_GET['page'];
+        } else {
+          $page = 1;
+        }
+        $start = ($page - 1) * $perpage;
           $flag = 0;
           $num = 0;
-          $sql = "SELECT COUNT(id_stock) FROM stock";
+          $sql = "SELECT COUNT(id_stock) FROM stock LIMIT {$start},{$perpage}";
           $objQuery = mysql_query($sql,$connect1);
           $row = mysql_fetch_array($objQuery);
           $num = sprintf("%02d",$row['COUNT(id_stock)'] + 1);
@@ -88,7 +95,7 @@ include 'header.php';
   <?php if ($_GET): ?>
     <?php
           $see=$_GET["sen"];
-          $strSQL = "SELECT * FROM stock where name_stock like '%$see%' order by id_stock";
+          $strSQL = "SELECT * FROM stock where name_stock like '%$see%' order by id_stock LIMIT {$start},{$perpage}";
           $objQuery = mysql_query($strSQL,$connect1) or die("Error Query [".$strSQL."]");
           $num=mysql_num_rows($objQuery);
           if($num==0){
@@ -139,5 +146,20 @@ while ($objReSult = mysql_fetch_array($objQuery)) {
 </table>
 </div>
 
+<?php
+  $sql2 = "SELECT * FROM stock";
+  $query2 = mysql_query($sql2, $connect1);
+  $total_record = mysql_num_rows($query2);
+  $total_page = ceil($total_record / $perpage);
+ ?>
+<nav align="center" aria-label="Page navigation example">
+  <ul class="pagination">
+    <li class="page-item"><a class="page-link" href="insert_stock.php?page=<?php echo ($page-1); ?>" aria-label="Previous"><span aria-hidden="true"><<</span></a></li>
+    <?php for($i=1;$i<=$total_page;$i++){ ?>
+     <li><a href="insert_stock.php?page=<?php echo $i; ?>"><?php echo $i; ?></a></li>
+    <?php } ?>
+    <li class="page-item"><a class="page-link" href="insert_stock.php?page=<?php echo ($page+1); ?>" aria-label="Next"><span aria-hidden="true">>></span></a></li>
+  </ul>
+</nav>
 
 <?php include 'footer.php'; ?>

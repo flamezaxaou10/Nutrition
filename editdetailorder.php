@@ -29,38 +29,19 @@ if(isset($_POST["submit2"])){
   <div id="print_table">
   <div style="float:left; font-size: 16px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;วันที่ : &nbsp;</div><div style="float:left; font-size: 16px;">&nbsp;
     <?php
-    $dayy = substr($_POST['daytime'],-2);
-    $mon =substr($_POST['daytime'],-5,2);
-    if($mon == '01' ){
-      $mon = 'มกราคม';
-    }else if($mon == '02'){
-      $mon = 'กุมภาพันธ์';
-    }else if($mon == '03'){
-      $mon = 'มีนาคม';
-    }else if($mon == '04'){
-      $mon = 'เมษายน';
-    }else if($mon == '05'){
-      $mon = 'พฤษภาคม';
-    }else if($mon == '06'){
-      $mon = 'มิถุนายน';
-    }else if($mon == '07'){
-      $mon = 'กรกฏาคม';
-    }else if($mon == '08'){
-      $mon = 'สิงหาคม';
-    }else if($mon == '09'){
-      $mon = 'กันยายน';
-    }else if($mon == '10'){
-      $mon = 'ตุลาคม';
-    }else if($mon == '11'){
-      $mon = 'พฤศจิกายน';
-    }else if($mon == '12'){
-      $mon = 'ธันวาคม';
-    }
-    $year = substr($_POST['daytime'],-10,4);
-    $year += 543;
+    $strDate=$day;
+      $strYear = date("Y",strtotime($strDate))+543;
+      $strMonth= date("n",strtotime($strDate));
+      $strDay= date("j",strtotime($strDate));
+      $strDays= date("l",strtotime($strDate));
+      $strDayCut = Array("Monday"=>"วันจันทรที่","Tuesday"=>"วันอังคารที่","Wednesday"=>"วันพุธที่","Thursday"=>"วันพฤหัสบดีที่","Friday"=>"วันศุกรที่","Saturday"=>"วันเสารที่","Sunday"=>"วันอาทิตย์ที่");
+      $strMonthCut = Array("","มกราคม","กุมภาพันธ์","มีนาคม","เมษายน","พฤษภาคม","มิถุนายน","กรกฎาคม","สิงหาคม","กันยายน","ตุลาคม","พฤษจิกายน","ธันวาคม");
+      $strMonthThai=$strMonthCut[$strMonth];
+      $strDaysThai = $strDayCut[$strDays];
+      $date=$strDaysThai." ".$strDay." ".$strMonthThai." ".$strYear;
 
   ?>
-      <? echo $dayy." ".$mon." ".$year;?></div>
+      <? echo $date;?></div>
       <br />
       <br />
   <div style="float:left; font-size: 16px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;เจ้าหน้าที่ : &nbsp;</div><div style="float:left; font-size: 16px;">&nbsp;
@@ -430,19 +411,19 @@ $comment=$objReSult['comment'];
         </table>
         <h4>หมายเหตุ</h4>
         <textarea class="form-control" rows="3" id="detail" name="deta"  readonly=""><?php echo $comment; ?></textarea><br />
+        <div class="text-right"><input type="submit" class="btn btn-success" value="แก้ไขข้อมูล" name = "submit"> </div>
       </div>
       </div>
-      <br><br>
-        <div style="float: right;"><input type="submit" class="btn btn-success" value="แก้ไขข้อมูล" name = "submit"> </div>
+
       </form>
 
 <?php
 }
  ?>
+      </div>
+    </div>
   </div>
- </div>
-  </div>
-
+</div>
 
 <footer class="text-center">
   <a class="up-arrow" href="#myPage" data-toggle="tooltip" title="TO TOP">

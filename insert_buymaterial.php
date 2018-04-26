@@ -31,7 +31,7 @@ include 'header.php';
       <p>ข้อมูลการสั่งซื้อวัตถุดิบ</p>
 
             <div class="modal-body">
-          	<form method="post" action="#" >
+          	<form method="post" action="#">
 							<table>
 								<tr><td><h4>รหัสการสั่งซื้อวัตถุดิบ</td><td><h4>: <?php echo $id ; ?>
 								<input type="hidden" name="idmat" value="<?php echo $id ; ?>"></h4></td>

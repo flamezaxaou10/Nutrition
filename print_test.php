@@ -36,43 +36,22 @@ exit();
        <br />
 
         <p>ข้อมูลการจัดเมนูอาหาร</p>
-      <h5 align=right>พิมพ์ครั้งที : 1</h5>่
-      <div style="float:left; font-size: 1.2em;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;วันที่ : &nbsp; </div><div style="float:left; font-size: 1.2em;">&nbsp;
+      <h5 align=right>พิมพ์ครั้งที : 1</h5>
+      <div style="float:left; font-size: 1.2em;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;วันที่ : </div>
       <?php
 
-         $m1=$m2=$m3=$m4=$m5=$m6=$m7=$m8=$m9=$m10=$m11=$m12=$m13=$m14=$m15="";
-
-    $dayy = substr($_POST['daytime'],-2);
-    $mon =substr($_POST['daytime'],-5,2);
-    if($mon == '01' ){
-      $mon = 'มกราคม';
-    }else if($mon == '02'){
-      $mon = 'กุมภาพันธ์';
-    }else if($mon == '03'){
-      $mon = 'มีนาคม';
-    }else if($mon == '04'){
-      $mon = 'เมษายน';
-    }else if($mon == '05'){
-      $mon = 'พฤษภาคม';
-    }else if($mon == '06'){
-      $mon = 'มิถุนายน';
-    }else if($mon == '07'){
-      $mon = 'กรกฏาคม';
-    }else if($mon == '08'){
-      $mon = 'สิงหาคม';
-    }else if($mon == '09'){
-      $mon = 'กันยายน';
-    }else if($mon == '10'){
-      $mon = 'ตุลาคม';
-    }else if($mon == '11'){
-      $mon = 'พฤศจิกายน';
-    }else if($mon == '12'){
-      $mon = 'ธันวาคม';
-    }
-    $year = substr($_POST['daytime'],-10,4);
-    $year += 543;
+      $strDate=$_POST['daytime'];
+        $strYear = date("Y",strtotime($strDate))+543;
+        $strMonth= date("n",strtotime($strDate));
+        $strDay= date("j",strtotime($strDate));
+        $strDays= date("l",strtotime($strDate));
+        $strDayCut = Array("Monday"=>"วันจันทรที่","Tuesday"=>"วันอังคารที่","Wednesday"=>"วันพุธที่","Thursday"=>"วันพฤหัสบดีที่","Friday"=>"วันศุกรที่","Saturday"=>"วันเสารที่","Sunday"=>"วันอาทิตย์ที่");
+        $strMonthCut = Array("","มกราคม","กุมภาพันธ์","มีนาคม","เมษายน","พฤษภาคม","มิถุนายน","กรกฎาคม","สิงหาคม","กันยายน","ตุลาคม","พฤษจิกายน","ธันวาคม");
+        $strMonthThai=$strMonthCut[$strMonth];
+        $strDaysThai = $strDayCut[$strDays];
+        $date=$strDaysThai." ".$strDay." ".$strMonthThai." ".$strYear;
   ?>
-      <? echo $dayy." ".$mon." ".$year;?></div>
+      <div style="float:left; font-size: 1.2em;"><? echo $date;?></div>
       <br />
       <br />
       <div style="float:left; font-size: 1.2em;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;เจ้าหน้าที่ : &nbsp; </div><div style="float:left; font-size: 1.2em;">&nbsp;

@@ -291,7 +291,7 @@ if(!$insert){
 
     </div>
    </div>
-   <p style="text-align:center;"><button class="btn btn-success" OnClick="printTable('print_table');">พิมพ์ใบสั่งอาหาร</button></p>
+   <p style="text-align:center;"><button class="btn btn-success" OnClick="prints('print_table');">พิมพ์ใบสั่งอาหาร</button></p>
   </div>
 
 
@@ -334,7 +334,19 @@ $(document).ready(function(){
   });
 })
 </script>
+<script type="text/javascript">
+  function prints(divName) {
+    var printContents = document.getElementById(divName).innerHTML;
+   var originalContents = document.body.innerHTML;
 
+   document.body.innerHTML = printContents;
+
+   window.print();
+
+   document.body.innerHTML = originalContents;
+   location.reload();
+  }
+</script>
 
 
 

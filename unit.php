@@ -42,8 +42,14 @@ if($flag==0){
   }
 }
   }
-    @include('conn.php');
-    $strSQL = "SELECT MAX(unit_id) FROM unit";
+    $perpage = 20;
+    if (isset($_GET['page']) && $_GET['page'] != 0) {
+      $page = $_GET['page'];
+    } else {
+      $page = 1;
+    }
+    $start = ($page - 1) * $perpage;
+    $strSQL = "SELECT MAX(unit_id) FROM unit LIMIT {$start},{$perpage}";
     $objQuery = mysql_query($strSQL, $connect1);
     while ($objReSult = mysql_fetch_array($objQuery)) {
      $result= $objReSult["MAX(unit_id)"];
@@ -79,9 +85,15 @@ if($flag==0){
 </form>
 <br>
 <?php
-@include('conn.php');
+$perpage = 20;
+if (isset($_GET['page']) && $_GET['page'] != 0) {
+  $page = $_GET['page'];
+} else {
+  $page = 1;
+}
+$start = ($page - 1) * $perpage;
 $see=$_POST["sen"];
-$strSQL = "SELECT * FROM unit where unit_name like '%$see%' order by unit_id";
+$strSQL = "SELECT * FROM unit where unit_name like '%$see%' order by unit_id LIMIT {$start},{$perpage}";
 $objQuery = mysql_query($strSQL,$connect1) or die("Error Query [".$strSQL."]");
 $num=mysql_num_rows($objQuery);
 if($num==0){
@@ -122,6 +134,21 @@ while ($objReSult = mysql_fetch_array($objQuery)) {
 </table>
 </div>
 
+<?php
+  $sql2 = "SELECT * FROM unit";
+  $query2 = mysql_query($sql2, $connect1);
+  $total_record = mysql_num_rows($query2);
+  $total_page = ceil($total_record / $perpage);
+ ?>
+<nav align="center" aria-label="Page navigation example">
+  <ul class="pagination">
+    <li class="page-item"><a class="page-link" href="unit.php?page=<?php echo ($page-1); ?>" aria-label="Previous"><span aria-hidden="true"><<</span></a></li>
+    <?php for($i=1;$i<=$total_page;$i++){ ?>
+     <li><a href="unit.php?page=<?php echo $i; ?>"><?php echo $i; ?></a></li>
+    <?php } ?>
+    <li class="page-item"><a class="page-link" href="unit.php?page=<?php echo ($page+1); ?>" aria-label="Next"><span aria-hidden="true">>></span></a></li>
+  </ul>
+</nav>
 
 
 

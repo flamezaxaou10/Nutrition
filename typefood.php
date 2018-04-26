@@ -18,8 +18,14 @@ include 'header.php';
 <?php
 $flag=0;
 if(isset($_POST['submit'])){
-  @include('conn.php');
-  $strSQL = "SELECT * FROM type_food";
+  $perpage = 20;
+  if (isset($_GET['page']) && $_GET['page'] != 0) {
+    $page = $_GET['page'];
+  } else {
+    $page = 1;
+  }
+  $start = ($page - 1) * $perpage;
+  $strSQL = "SELECT * FROM type_food LIMIT {$start},{$perpage}";
   $objQuery = mysql_query($strSQL, $connect1);
   while ($objReSult = mysql_fetch_array($objQuery)) {
    $gname= $objReSult["type_name"];
@@ -40,8 +46,15 @@ if($flag==0){
   }
 }
 }
-@include('conn.php');
-$strSQL = "SELECT MAX(id_type) FROM type_food";
+
+$perpage = 20;
+if (isset($_GET['page']) && $_GET['page'] != 0) {
+  $page = $_GET['page'];
+} else {
+  $page = 1;
+}
+$start = ($page - 1) * $perpage;
+$strSQL = "SELECT MAX(id_type) FROM type_food LIMIT {$start},{$perpage}";
 $objQuery = mysql_query($strSQL, $connect1);
 while ($objReSult = mysql_fetch_array($objQuery)) {
  $result= $objReSult["MAX(id_type)"];
@@ -72,9 +85,16 @@ while ($objReSult = mysql_fetch_array($objQuery)) {
   </form>
 
   <?php
-  @include('conn.php');
+  $perpage = 20;
+  if (isset($_GET['page']) && $_GET['page'] != 0) {
+    $page = $_GET['page'];
+  } else {
+    $page = 1;
+  }
+  $start = ($page - 1) * $perpage;
+  
   $see=$_POST["sen"];
-  $strSQL = "SELECT * FROM type_food where type_name like '%$see%'";
+  $strSQL = "SELECT * FROM type_food where type_name like '%$see%' LIMIT {$start},{$perpage}";
   $objQuery = mysql_query($strSQL,$connect1) or die("Error Query [".$strSQL."]");
   $num=mysql_num_rows($objQuery);
   if($num==0){
@@ -113,6 +133,23 @@ while ($objReSult = mysql_fetch_array($objQuery)) {
 
 ?>
 </table>
+</div>
+
+<?php
+  $sql2 = "SELECT * FROM type_food";
+  $query2 = mysql_query($sql2, $connect1);
+  $total_record = mysql_num_rows($query2);
+  $total_page = ceil($total_record / $perpage);
+ ?>
+<nav align="center" aria-label="Page navigation example">
+  <ul class="pagination">
+    <li class="page-item"><a class="page-link" href="typefood.php?page=<?php echo ($page-1); ?>" aria-label="Previous"><span aria-hidden="true"><<</span></a></li>
+    <?php for($i=1;$i<=$total_page;$i++){ ?>
+     <li><a href="typefood.php?page=<?php echo $i; ?>"><?php echo $i; ?></a></li>
+    <?php } ?>
+    <li class="page-item"><a class="page-link" href="typefood.php?page=<?php echo ($page+1); ?>" aria-label="Next"><span aria-hidden="true">>></span></a></li>
+  </ul>
+</nav>
 </div>
 
 
