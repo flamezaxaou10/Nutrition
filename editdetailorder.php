@@ -27,23 +27,22 @@ include 'header.php';
 if(isset($_POST["submit2"])){
   $day= $_POST["daytime"];?>
   <div id="print_table">
-  <div style="float:left; font-size: 16px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;วันที่ : &nbsp;</div><div style="float:left; font-size: 16px;">&nbsp;
+
     <?php
-    $strDate=$day;
+  $strDate=$day;
       $strYear = date("Y",strtotime($strDate))+543;
       $strMonth= date("n",strtotime($strDate));
       $strDay= date("j",strtotime($strDate));
       $strDays= date("l",strtotime($strDate));
-      $strDayCut = Array("Monday"=>"วันจันทรที่","Tuesday"=>"วันอังคารที่","Wednesday"=>"วันพุธที่","Thursday"=>"วันพฤหัสบดีที่","Friday"=>"วันศุกรที่","Saturday"=>"วันเสารที่","Sunday"=>"วันอาทิตย์ที่");
+      $strDayCut = Array("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Monday"=>"วันจันทรที่","Tuesday"=>"วันอังคารที่","Wednesday"=>"วันพุธที่","Thursday"=>"วันพฤหัสบดีที่","Friday"=>"วันศุกรที่","Saturday"=>"วันเสารที่","Sunday"=>"วันอาทิตย์ที่");
       $strMonthCut = Array("","มกราคม","กุมภาพันธ์","มีนาคม","เมษายน","พฤษภาคม","มิถุนายน","กรกฎาคม","สิงหาคม","กันยายน","ตุลาคม","พฤษจิกายน","ธันวาคม");
       $strMonthThai=$strMonthCut[$strMonth];
       $strDaysThai = $strDayCut[$strDays];
       $date=$strDaysThai." ".$strDay." ".$strMonthThai." ".$strYear;
 
   ?>
-      <? echo $date;?></div>
-      <br />
-      <br />
+    <div style="float:left; font-size: 16px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;วันที่ : &nbsp;</div>  <? echo $date;?></div>
+<br />
   <div style="float:left; font-size: 16px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;เจ้าหน้าที่ : &nbsp;</div><div style="float:left; font-size: 16px;">&nbsp;
     <?php echo $_SESSION["fnname"];?>&nbsp;<?php echo $_SESSION["lnname"];?>
   </div>
