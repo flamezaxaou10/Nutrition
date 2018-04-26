@@ -22,6 +22,7 @@ include 'header.php';
   $name=$_GET['feed_name'];
   $id_stock = $_GET['id_stock'];
   $price = $_GET['price'];
+  $res_id = $_GET['res_id'];
   $flag=0;
   if(isset($_POST['submit'])){
     $id=$_POST['id'];
@@ -61,21 +62,6 @@ if($flag==0){
                     <h4>ประเภทวัตถุดิบ&nbsp; :  &nbsp;&nbsp;
                       <select name="stock" required>
                         <option value="MT-06"  selected>อาหารทางสายยาง</option>
-                    <!-- <?php
-                      $sql = "SELECT * FROM stock";
-                      $result = mysql_query($sql, $connect1);
-                      while ($row = mysql_fetch_array($result)){
-                        if ($row['id_stock'] = $id_stock) {
-                          $select = "selected";
-                        }
-                        else {
-                          $select = "";
-                        }
-                    ?>
-                      <option value="<?php echo $row['id_stock']; ?>" <?php echo $select; ?>><?php echo $row['name_stock']; ?></option>
-                    <?php
-                      }
-                     ?> -->
                      </select>
                      <font color="red">&nbsp;*</font>
                     </h4>
@@ -87,7 +73,7 @@ if($flag==0){
                       <select name = "store" required>
                         <option value=""  disabled selected>------กรุณาเลือกร้านค้า-----</option>
                       <?php while ($objReSult = mysql_fetch_array($objQuery)) {
-                        if ($row['id_stock'] = $id_stock) {
+                        if ($objReSult['res_id'] == $res_id) {
                           $select = "selected";
                         }
                         else {

@@ -183,7 +183,7 @@ while ($objReSult = mysql_fetch_array($objQuery)) {
   <td><div align = "left"><? echo $objReSult["name_stock"];?></div></td>
   <td><? echo $objReSult["price"];?></td>
   <td><div align = "center">
-    <a href=edit_feed2.php?feed_id=<?php echo $objReSult['feed_id']; ?>&feed_name=<?php echo $objReSult['feed_name']; ?>&id_stock=<?php echo $objReSult['id_stock']; ?>&price=<?php echo $objReSult['price']; ?>
+    <a href=edit_feed2.php?res_id=<?php echo $objReSult['res_id']; ?>&feed_id=<?php echo $objReSult['feed_id']; ?>&feed_name=<?php echo $objReSult['feed_name']; ?>&id_stock=<?php echo $objReSult['id_stock']; ?>&price=<?php echo $objReSult['price']; ?>
     onclick="return confirm('ต้องการแก้ไขข้อมูลนี้?')"><b><font color="blue"><img src='img/edit.png' width=25></font></b>
     </a>
   </td>
