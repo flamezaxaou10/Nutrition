@@ -119,3 +119,7 @@
     </div>
   </div>
 </nav>
+
+<?php
+  date_default_timezone_set("Asia/Bangkok");
+?>
