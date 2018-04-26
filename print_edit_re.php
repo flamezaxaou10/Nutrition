@@ -40,7 +40,7 @@ $p=$_POST["print"]+1;
       <H3>ข้อมูลเมนูอาหาร</H3>
       <br />
       <h5 align=right>พิมพ์ครั้งที : <?php echo $p ;?></h5>
-      <div style="float:left; font-size: 1.5em;">วันที่</div><div style="float:left; font-size: 1.5em;">&nbsp;
+      <div style="float:left; font-size: 1.3em;">วันที่</div><div style="float:left; font-size: 1.3em;">&nbsp;
       <?php
 
 
@@ -55,10 +55,10 @@ $p=$_POST["print"]+1;
            $strDaysThai = $strDayCut[$strDays];
            $date=$strDaysThai." ".$strDay." ".$strMonthThai." ".$strYear;
   ?>
-      <? echo $strDate;?></div>
+      <? echo $date;?></div>
       <br />
       <br />
-      <div style="float:left; font-size: 1.5em;">เจ้าหน้าที่</div><div style="float:left; font-size: 1.5em;">&nbsp;
+      <div style="float:left; font-size: 1.3em;">เจ้าหน้าที่</div><div style="float:left; font-size: 1.3em;">&nbsp;
         <?php echo $_SESSION["fnname"];?>&nbsp;<?php echo $_SESSION["lnname"];?>
       </div>
       <br />
