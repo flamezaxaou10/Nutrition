@@ -79,8 +79,8 @@ include 'header.php';
     <tr class="warning">
       <th><div align="center">ลำดับ</div></th>
       <th><div align="center">วันที่ขาย</th>
-      <th><div align="center">รหัสการขาย</div></th>
-      <th><div align="center">ผู้ป่วย</div></th>
+      <th><div align="center">รหัสการขายอาหารทางสายยาง</div></th>
+      <th><div align="center">ชื่อผู้ป่วย</div></th>
       <th><div align = "center">ดูข้อมูล</div></th>
       <th><div align = "center">พิมพ์ใบสั่งยา</div></th>
     </tr>
