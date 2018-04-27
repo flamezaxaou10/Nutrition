@@ -41,8 +41,8 @@ if(isset($_POST["submit2"])){
       $date=$strDaysThai." ".$strDay." ".$strMonthThai." ".$strYear;
 
   ?>
-    <div style="float:left; font-size: 16px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;วันที่ : &nbsp;</div>  <? echo $date;?></div>
-<br />
+    <div style="float:left; font-size: 16px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;วันที่ : &nbsp;</div>  <div style="float:left; font-size: 16px;">&nbsp;<? echo $date;?></div>
+<br /><br />
   <div style="float:left; font-size: 16px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;เจ้าหน้าที่ : &nbsp;</div><div style="float:left; font-size: 16px;">&nbsp;
     <?php echo $_SESSION["fnname"];?>&nbsp;<?php echo $_SESSION["lnname"];?>
   </div>

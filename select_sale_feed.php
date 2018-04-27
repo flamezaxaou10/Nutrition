@@ -46,11 +46,11 @@
   <table class="table table-striped table-bordered">
     <tr class="warning">
        <td align=center><b>ลำดับ</td>
-       <td align=center><b>รหัสวัตถุดิบ</td>
-       <td align=center><b>ชื่อวัตถุดิบ</td>
+       <td align=center><b>รหัสอาหารทางสายยาง</td>
+       <td align=center><b>ชื่ออาหารทางสายยาง</td>
      <td align=center><b>จำนวน</td>
        <td align=center><b>หน่วยนับ</td>
-       <td align=center><b>ราคารวม</td>
+       <td align=center><b>ราคารวม(บาท)</td>
     </tr>
   <?php
     $table = "SELECT d.feed_id,f.feed_name,SUM(d.count),u.unit_name,d.price FROM detail_sale_feed d

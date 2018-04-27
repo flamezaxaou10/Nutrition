@@ -79,7 +79,7 @@
                    <td align=center><b>ชื่ออาหารทางสายยาง</td>
                    <td align=center><b>จำนวน</td>
                    <td align=center><b>หน่วยนับ</td>
-                   <td align=center colspan="2"><b>ราคา(บาท)</td>
+                   <td align=center colspan="2"><b>ราคาต่อหน่วย(บาท)</td>
 
                  </tr>
    							<?php

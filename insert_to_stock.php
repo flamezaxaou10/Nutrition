@@ -63,8 +63,8 @@ include 'header.php';
             <td><div align = "left"><? echo $objReSult["mat_id"];?></div></td>
             <td><div align = "left"><? echo $objReSult["mat_name"];?></div></td>
           <?php endif; ?>
-          <td><div align = "left"><? echo $objReSult["count"];?></div></td>
-          <td><div align = "left"><? echo $objReSult["balance"];?></div></td>
+          <td><div align = "right"><? echo $objReSult["count"];?></div></td>
+          <td><div align = "right"><? echo $objReSult["balance"];?></div></td>
           <td><div align = "left"><? echo $objReSult["unit_name"];?></div></td>
           <form class="" action="update_detail_inputmat.php" method="GET">
           <td align="center">

@@ -51,7 +51,7 @@ include 'header.php';
               <?php else: ?>
                 <td><div align = "left"><? echo $objReSult["mat_name"];?></div></td>
               <?php endif; ?>
-              <td><div align = "left"><? echo $objReSult["count"];?></div></td>
+              <td><div align = "right"><? echo $objReSult["count"];?></div></td>
               <td><div align = "left"><? echo $objReSult["unit_name"];?></div></td>
               <?php if ($objReSult['feed_id'] != NULL): ?>
                 <input type="hidden" name="mat_id<?php echo $i; ?>" value="<?php echo $objReSult['feed_id']; ?>">

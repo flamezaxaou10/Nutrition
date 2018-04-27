@@ -39,7 +39,7 @@ $p=$_POST["print"]+1;
  ?>
       <p>ข้อมูลการจัดเมนูอาหาร</p>
       <h5 align=right>พิมพ์ครั้งที่ : <?php echo $p ;?></h5>
-      <div style="float:left; font-size: 16px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;วันที่ : &nbsp;</div><div style="float:left; font-size: 1.3em;">&nbsp;
+      <div style="float:left; font-size: 16px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;วันที่ : &nbsp;</div><div style="float:left; font-size: 1.2em;">&nbsp;
       <?php
 
 
@@ -57,7 +57,7 @@ $p=$_POST["print"]+1;
       <? echo $date;?></div>
       <br />
       <br />
-      <div style="float:left; font-size: 16px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;เจ้าหน้าที่ : &nbsp;</div><div style="float:left; font-size: 1.3em;">&nbsp;
+      <div style="float:left; font-size: 16px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;เจ้าหน้าที่ : &nbsp;</div><div style="float:left; font-size: 1.2em;">&nbsp;
         <?php echo $_SESSION["fnname"];?>&nbsp;<?php echo $_SESSION["lnname"];?>
       </div>
       <br />
