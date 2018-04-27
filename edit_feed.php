@@ -113,7 +113,7 @@ include 'header.php';
 								error_reporting(0);
 								?>
 								</select><font color="red"> &nbsp;*</font></td>
-              <td><h4>&nbsp;ราคาต่อหน่วย</td><td><h4> : <input type="text" name="price" value="<?php echo ($price/$count); ?>" required="" onKeyUp="if(isNaN(this.value)){ alert('กรุณากรอกตัวเลข'); this.value='';}">&nbsp;(บาท)<font color="red"> &nbsp;*</font></h4></td></tr>
+              <td><h4>&nbsp;ราคาต่อหน่วย</td><td><h4> : <input type="text" name="price" value="<?php echo ($price/$count); ?> " disabled required="" onKeyUp="if(isNaN(this.value)){ alert('กรุณากรอกตัวเลข'); this.value='';}">&nbsp;(บาท)<font color="red"> &nbsp;*</font></h4></td></tr>
 </table>
                   <tr><div class="modal-footer"><td colspan=2 align=center><br><input type="submit" class="btn btn-success" name="submit" value="แก้ไขข้อมูล" >&nbsp;&nbsp;
     							<a href="select_feed.php?id=<?php echo $id2; ?>"><button type="button" class="btn btn-danger" data-dismiss="modal" onclick="return confirm('ต้องการยกเลิกการแก้ไข?')">ยกเลิก</button></a>
