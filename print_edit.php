@@ -1,4 +1,4 @@
- <label style="font-size: 13px;"><?php
+<?php
 include ('conn.php');
 session_start();
 if($_SESSION["Username"]=="") // ตรวจสอบว่าผ่านการ login หรือไม่
@@ -11,9 +11,9 @@ include 'header.php';
 
 
 <div class="container">
-    <div class="jumbotron">
+  <div class="jumbotron">
        <!--<h1><font face ="JasmineUPC">โรงพยาบาลเจ้าพระยาอภัยภูเบศร</font></h1>-->
-       <br>
+      <br>
       <p>แก้ไขข้อมูลการจัดเมนูอาหาร</p>
       <br>
 
@@ -35,9 +35,8 @@ include 'header.php';
 
 
 <br />
-<br />
-
-<div style="float:left; font-size: 1.2em;">เจ้าหน้าที่</div><div style="float:left; font-size: 1.2em;">&nbsp;
+<div style="float:left; font-size: 1.2em;">เจ้าหน้าที่</div>
+<div style="float:left; font-size: 1.2em;">&nbsp;
   <?php echo $_SESSION["fnname"];?>&nbsp;<?php echo $_SESSION["lnname"];?>
 </div>
 <br />
@@ -307,7 +306,7 @@ $comment=$objReSult['comment'];
 
                 <?php
             } ?>
-            <th></th><th></th><th><div align="center">พิเศษ</th><th><div align="center">สามัญ</th><th><div align="center">เจ้าหน้าที่</th>
+            <th></th><th></th><th><div align="center">พิเศษ</div></th><th><div align="center">สามัญ</div</th><th><div align="center">เจ้าหน้าที่</div</th>
           </tr>
           <tr class ="info">
             <td align="center"><b>เช้า</td>
@@ -463,59 +462,15 @@ $comment=$objReSult['comment'];
         </table>
         <h4>หมายเหตุ</h4>
         <textarea class="form-control" rows="3" id="detail" name="deta"  data-validation="required"><?php echo $comment; ?></textarea><br />
-        <div style="float: right;"><input type="submit" class="btn btn-success" value="แก้ไขข้อมูล" name = "submit"> <a href="insert_order_menu.php"><button type="button" class="btn btn-danger" data-dismiss="modal">ย้อนกลับ</button></a></div>
+        <div class="text-right">
+          <input type="submit" class="btn btn-success" value="แก้ไขข้อมูล" name = "submit"> <a href="insert_order_menu.php">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">ย้อนกลับ</button></a>
+        </div>
 
       </form>
-<?php
 
- ?>
-  </div>
+    </div>
+   </div>
  </div>
-  </div>
 
-
-<footer class="text-center">
-  <a class="up-arrow" href="#myPage" data-toggle="tooltip" title="TO TOP">
-    <span class="glyphicon glyphicon-chevron-up"></span>
-  </a><br><br>
-  <p>จัดทำโดย <a href="http://www.cpa.go.th" data-toggle="tooltip">นายนนธวัฒน์  จันทร์กระจ่าง</a></p>
-</footer>
-
-<script>
-$(document).ready(function(){
-  // Initialize Tooltip
-  $('[data-toggle="tooltip"]').tooltip();
-
-  // Add smooth scrolling to all links in navbar + footer link
-  $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
-
-    // Make sure this.hash has a value before overriding default behavior
-    if (this.hash !== "") {
-
-      // Prevent default anchor click behavior
-      event.preventDefault();
-
-      // Store hash
-      var hash = this.hash;
-
-      // Using jQuery's animate() method to add smooth page scroll
-      // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
-      $('html, body').animate({
-        scrollTop: $(hash).offset().top
-      }, 900, function(){
-
-        // Add hash (#) to URL when done scrolling (default click behavior)
-        window.location.hash = hash;
-      });
-    } // End if
-  });
-})
-</script>
-
-
-
-
-
-
-</body>
-</html>
+ <?php include 'footer.php'; ?>
