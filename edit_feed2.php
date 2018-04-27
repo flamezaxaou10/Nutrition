@@ -57,9 +57,9 @@ if($flag==0){
     ?>
          <form method="POST" action="#" onsubmit="return confirm('ต้องการแก้ไขข้อมูลนี้?');">
 
-                    <h4> รหัสอาหารทางสายยาง &nbsp;: &nbsp;<input type="text" name="id" value="<?php echo $id ; ?>" readonly ></h4>
-                    <h4> ชื่ออาหารทางสายยาง &nbsp;: &nbsp;<input type="text" name="name" required oninvalid="this.setCustomValidity('กรุณากรอกข้อมูล')" onKeyUp="if(!(isNaN(this.value))) { alert('กรุณากรอกอักษร'); this.value='';}" value="<?php echo $name; ?>"><font color="red"> &nbsp;*</font><?php if($flag==1)echo "<font color=red>ชื่อนี้มีในระบบแล้ว</font>"; ?></h4>
-                    <h4>ประเภทวัตถุดิบ&nbsp; :  &nbsp;&nbsp;
+                    <h4> รหัสอาหารทางสายยาง &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;&nbsp;&nbsp;<input type="text" name="id" value="<?php echo $id ; ?>" readonly ></h4>
+                    <h4> ชื่ออาหารทางสายยาง &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="name" required oninvalid="this.setCustomValidity('กรุณากรอกข้อมูล')" onKeyUp="if(!(isNaN(this.value))) { alert('กรุณากรอกอักษร'); this.value='';}" value="<?php echo $name; ?>"><font color="red"> &nbsp;*</font><?php if($flag==1)echo "<font color=red>ชื่อนี้มีในระบบแล้ว</font>"; ?></h4>
+                    <h4>ประเภทวัตถุดิบ&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;
                       <select name="stock" required>
                         <option value="MT-06"  selected>อาหารทางสายยาง</option>
                      </select>
@@ -69,7 +69,7 @@ if($flag==0){
                        $strSQL = "SELECT * FROM restaurant where type = 'FYST02'";
                        $objQuery = mysql_query($strSQL, $connect1);
                     ?>
-                    <h4> ตัวแทนจำหน่ายอาหารทางสายยาง &nbsp;: &nbsp;
+                    <h4> ตัวแทนจำหน่ายอาหารทางสายยาง &nbsp;:&nbsp;&nbsp;
                       <select name = "store" required>
                         <option value=""  disabled selected>------กรุณาเลือกร้านค้า-----</option>
                       <?php while ($objReSult = mysql_fetch_array($objQuery)) {
@@ -87,7 +87,8 @@ if($flag==0){
                       </select><font color="red"> &nbsp;*</font>
                     </h4>
                     <h4>
-                      ราคาต่อหน่วย : <input type="number" name="price" value="<?php echo $price; ?>"> บาท<font color="red"> &nbsp;*</font>
+                      ราคาต่อหน่วย &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      : &nbsp;&nbsp;<input type="number" name="price" value="<?php echo $price; ?>"> บาท<font color="red"> &nbsp;*</font>
                     </h4>
 
          <div class="modal-footer">
@@ -111,7 +112,7 @@ $objQuery = mysql_query($strSQL,$connect1) or die("Error Query [".$strSQL."]");
     <th><div align="center">ชื่ออาหารทางสายยาง</div></th>
     <th><div align="center">ร้านค้า</div></th>
     <th><div align="center">ประเภทวัตถุดิบ</div></th>
-    <th><div align="center">ราคาต่อหน่วย</div></th>
+    <th><div align="center">ราคาต่อหน่วย(บาท)</div></th>
    <!-- <th><div align="center">แก้ไข</div></th>-->
 
   </tr>
@@ -125,7 +126,7 @@ while ($objReSult = mysql_fetch_array($objQuery)) {
   <td><div align = "left"><? echo $objReSult["feed_name"];?></div></td>
   <td><div align = "left"><? echo $objReSult["res_name"];?></div></td>
   <td><div align = "left"><? echo $objReSult["name_stock"];?></div></td>
-  <td><div align = "left"><? echo $objReSult["price"];?></div></td>
+  <td><div align = "right"><? echo $objReSult["price"];?></div></td>
   <!--<td><div align = "center"><a href='edit_mat.php?id="<? echo $objReSult['mat_id']?>"&id2="<? echo $objReSult['mat_name']?>"' onclick="return confirm('ต้องการแก้ไขข้อมูลนี้?')"><b><font color="blue"><img src='img/edit.png' width=25></font></b></a></td>-->
 
     </tr>

@@ -87,7 +87,7 @@ include 'header.php';
                  ?>
                 <form action="" method="post">
                  <tr class ="info">
-                   <td><?php echo $row['feed_id']; ?></td>
+                   <td><div align = "center"><?php echo $row['feed_id']; ?></div></td>
                    <td><?php echo $row['feed_name']; ?></td>
                    <td><div align = "right"><?php echo $row['SUM(s.count)']; ?></div></td>
                    <td><input type="number" name="count" min="0" max="<?php echo $row['SUM(s.count)']; ?>" style="width:100px;" required value="0"></td>
@@ -147,8 +147,8 @@ include 'header.php';
       $i++;
     ?>
     <tr class ="info">
-      <td><?php echo $i; ?></td>
-      <td><?php echo $row['feed_id']; ?></td>
+      <td><div align = "center"><?php echo $i; ?></div></td>
+      <td><div align = "center"><?php echo $row['feed_id']; ?></td>
       <td><?php echo $row['feed_name']; ?></td>
       <td><div align = "right"><?php echo $row['SUM(d.count)']; ?></div></td>
       <td><?php echo $row['unit_name']; ?></td>

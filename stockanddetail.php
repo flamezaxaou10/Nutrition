@@ -8,6 +8,37 @@ exit();
 }
 include 'header.php';
 ?>
+<script type="text/javascript">
+    $(document).ready(function(){
+      $('#img1').width(83);
+      $('#img1').mouseover(function()
+      {
+         $(this).css("cursor","pointer");
+         $(this).animate({width: "150px"}, 'slow');
+      });
+
+      $('#img1').mouseout(function()
+       {
+           $(this).animate({width: "103px"}, 'slow');
+        });
+    });
+
+    ////////////////////////////////////
+    $(document).ready(function(){
+      $('#img2').width(83);
+      $('#img2').mouseover(function()
+      {
+         $(this).css("cursor","pointer");
+         $(this).animate({width: "150px"}, 'slow');
+      });
+
+      $('#img2').mouseout(function()
+       {
+           $(this).animate({width: "103px"}, 'slow');
+        });
+    });
+    ////////////////////////////////////
+    </script>
 
 <div class="container">
     <div class="jumbotron">
@@ -18,10 +49,9 @@ include 'header.php';
   <div class="modal-body">
 <table align=center>
   <tr>
-      <td align=center style="width:50%;"><a href="checkstock.php"><img src="img/logo_search.png" class="img-responsive" width=80 height=80></a></td>
-    <!--  <a href="checkstock.php"><img class="img-responsive" src="img/logo_search.png" width=150 height=150></a>-->
-      <td align=center style="width:50%;"><a href="mat_to_stock.php"><img src="img/logo_stock2.png" class="img-responsive" width=80 height=80></a></td>
-      <!--  <a href="mat_to_stock.php"><img class="img-responsive" src="img/logo_stock2.png" width=150 height=150></a>-->
+      <td align=center style="width:50%;"><a href="checkstock.php"><img id="img1" src="img/logo_search.png" class="img-responsive" width=80 height=80></a></td>
+      <td align=center style="width:50%;"><a href="mat_to_stock.php"><img id="img2" src="img/logo_stock2.png" class="img-responsive" width=80 height=80></a></td>
+
   </tr>
     <tr>
       <td align=center width=300><strong><h4>ตรวจสอบสต๊อก</h4></strong></td>

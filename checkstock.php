@@ -77,7 +77,7 @@ while ($objReSult = mysql_fetch_array($objQuery)) {
     <?php else: ?>
       <td><div align = "left"><? echo $objReSult["mat_name"];?></div></td>
     <?php endif; ?>
-    <td><div align = "left"><? echo $objReSult["SUM(count)"];?></div></td>
+    <td><div align = "right"><? echo $objReSult["SUM(count)"];?></div></td>
     <td><div align = "left"><? echo $objReSult["unit_name"];?></div></td>
     </tr>
   <?

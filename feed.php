@@ -71,15 +71,15 @@ if($flag==0){
             <table style="font-size: 14px; font-weight: bold; ">
                 <tr style="height:35px;">
                   <td >รหัสอาหารทางสายยาง</td>
-                  <td> : <input type="text" name="id" value="<?php echo $id; ?>" readonly=""></td>
+                  <td> : &nbsp;&nbsp;&nbsp;<input type="text" name="id" value="<?php echo $id; ?>" readonly=""></td>
                 </tr>
                 <tr style="height:35px;">
                   <td>ชื่ออาหารทางสายยาง</td>
-                  <td>: <input type="text" name="name" required oninvalid="this.setCustomValidity('กรุณากรอกข้อมูล')" onKeyUp="if(!(isNaN(this.value))) { alert('กรุณากรอกอักษร'); this.value='';}"><font color="red">*</font><?php if($flag==1)echo "<font color=red>ชื่ออาหารทางสายยางนี้มีในระบบแล้ว</font>"; ?></td>
+                  <td>: &nbsp;&nbsp;&nbsp;<input type="text" name="name" required oninvalid="this.setCustomValidity('กรุณากรอกข้อมูล')" onKeyUp="if(!(isNaN(this.value))) { alert('กรุณากรอกอักษร'); this.value='';}"><font color="red">*</font><?php if($flag==1)echo "<font color=red>ชื่ออาหารทางสายยางนี้มีในระบบแล้ว</font>"; ?></td>
                 </tr>
                 <tr style="height:35px;">
                   <td>ประเภทวัตถุดิบ</td>
-                  <td>:
+                  <td>:&nbsp;&nbsp;&nbsp;
                     <select name="stock" required>
                       <option value="MT-06"  selected>อาหารทางสายยาง</option>
                   <!-- <?php
@@ -97,7 +97,7 @@ if($flag==0){
                 </tr>
                 <tr style="height:35px;">
                   <td>ตัวแทนจำหน่ายอาหารทางสายยาง &nbsp;</td>
-                  <td>:
+                  <td>:&nbsp;&nbsp;&nbsp;
                     <select name = "store" required>
                       <option value=""  disabled selected>------กรุณาเลือกตัวแทนจำหน่าย-----</option>
                           <?
@@ -125,7 +125,7 @@ if($flag==0){
                 </tr style="height:35px;">
                 <tr>
                   <td>ราคาต่อหน่วย</td>
-                  <td>: <input type="number" name="price" value=""> บาท<font color="red">&nbsp;*</font></td>
+                  <td>: &nbsp;&nbsp;&nbsp;<input type="number" name="price" value=""> บาท<font color="red">&nbsp;*</font></td>
                 </tr>
             </table>
          <div class="modal-footer">
@@ -166,7 +166,7 @@ echo"</script>";
     <th><div align="center">ชื่ออาหารทางสายยาง</div></th>
     <th><div align="center">ตัวแทนจำหน่ายอาหารทางสายยาง</div></th>
     <th><div align="center">ประเภทวัตถุดิบ</div></th>
-    <th><div align="center">ราคาต่อหน่วย</div></th>
+    <th><div align="center">ราคาต่อหน่วย(บาท)</div></th>
     <th><div align="center">แก้ไขข้อมูล</div></th>
     <th><div align="center">ลบข้อมูล</div></th>
 
@@ -181,7 +181,7 @@ while ($objReSult = mysql_fetch_array($objQuery)) {
   <td><div align = "left"><? echo $objReSult["feed_name"];?></div></td>
   <td><div align = "left"><? echo $objReSult["res_name"];?></div></td>
   <td><div align = "left"><? echo $objReSult["name_stock"];?></div></td>
-  <td><? echo $objReSult["price"];?></td>
+  <td><div align = "right"><? echo $objReSult["price"];?></div></td>
   <td><div align = "center">
     <a href=edit_feed2.php?res_id=<?php echo $objReSult['res_id']; ?>&feed_id=<?php echo $objReSult['feed_id']; ?>&feed_name=<?php echo $objReSult['feed_name']; ?>&id_stock=<?php echo $objReSult['id_stock']; ?>&price=<?php echo $objReSult['price']; ?>
     onclick="return confirm('ต้องการแก้ไขข้อมูลนี้?')"><b><font color="blue"><img src='img/edit.png' width=25></font></b>

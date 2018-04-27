@@ -68,21 +68,21 @@ while ($objReSult = mysql_fetch_array($objQuery)) {
             <div class="modal-body">
             <input type='hidden' name='id' value=''>
               <tr>
-								<td style="width:12%"><h4> รหัสร้านค้า </td>
+								<td style="width:12%"><h4>&nbsp;&nbsp;&nbsp; รหัสร้านค้า </td>
 								<td style="width:40%"><h4>: <input type="text" name ='res_id' readonly value='<?php echo $id ; ?>'></h4></td>
-								<td style="width:12%"><h4> ชื่อร้านค้า  </td>
+								<td style="width:12%"><h4> &nbsp;&nbsp;&nbsp;ชื่อร้านค้า  </td>
 								<td><h4>: <input type='text' name ='res_name' required value="<?php echo $bb; ?>" onKeyUp="if(!(isNaN(this.value))) { alert('กรุณากรอกอักษร'); this.value='';}" ><font color="red"> &nbsp;*</font><?php if($error==1)echo "<font color=red>ชื่อร้านนี้มีอยู่ในระบบแล้ว</font>"; ?></h4></td>
 							</tr>
               <tr>
-								<td><h4> ชื่อผู้ติดต่อ  </td>
+								<td><h4>&nbsp;&nbsp;&nbsp; ชื่อผู้ติดต่อ  </td>
 								<td><h4>: <input type='text' name ='id_name' required value="<?php echo $cc; ?>" onKeyUp="if(!(isNaN(this.value))) { alert('กรุณากรอกอักษร'); this.value='';}"><font color="red"> &nbsp;*</font></h4></td>
-								<td><h4> โทรศัพท์  </td>
+								<td><h4> &nbsp;&nbsp;&nbsp;โทรศัพท์  </td>
 								<td><h4>: <input type='text' name ='res_phone'  value="<?php echo $dd; ?>" onKeyUp="if(isNaN(this.value)){ alert('กรุณากรอกตัวเลข'); this.value='';}"/><font color="red"> &nbsp;*</font></h4></td>
 							</tr>
               <tr>
-								<td><h4> มือถือ  </td>
+								<td><h4> &nbsp;&nbsp;&nbsp;&nbsp;มือถือ  </td>
 								<td><h4>: <input type='tel' name ='phone' required value="<?php echo $ee; ?>" onKeyUp="if(isNaN(this.value)){ alert('กรุณากรอกตัวเลข'); this.value='';}"><font color="red"> &nbsp;*</font></h4></td>
-								<td><h4 align="left"> ประเภทร้านค้า  </td>
+								<td><h4 align="left"> &nbsp;&nbsp;ประเภทร้านค้า  </td>
 								<td>
 									<h4>:
 									<select name="type" required>
@@ -100,7 +100,7 @@ while ($objReSult = mysql_fetch_array($objQuery)) {
 								</td>
 							</tr>
               <tr>
-								<td><h4 align="left"> ที่อยู่ : </td>
+								<td><h4 align="left">&nbsp;&nbsp;&nbsp; ที่อยู่ : </td>
 								<td>
                 	<textarea class="form-control" rows="3" id="detail" name="res_address" required data-validation="required"><?php echo $ff; ?></textarea></h4>
               	</td>

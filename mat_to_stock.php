@@ -42,8 +42,8 @@ include 'header.php';
     <div class="modal-body">
            <form method="POST" action="#" >
                       <h4> รหัสการรับเข้า &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;<?php echo $id_input; ?><input type="hidden" name="id" value="<?php echo $id_input; ?>" readonly="" required></h4>
-                      <h4> วันที่การรับเข้า &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <?php echo $date; ?><input type="hidden" name="date" required value="<?php echo $datethis; ?>" readonly></h4>
-                      <h4> รหัสเจ้าหน้าที่ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;<? echo $_SESSION["Username"];?>&nbsp;<input type="hidden" name="username" value="<? echo $_SESSION["Username"];?>" readonly="" required></h4>
+                      <h4> วันที่การรับเข้า &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp; <?php echo $date; ?><input type="hidden" name="date" required value="<?php echo $datethis; ?>" readonly></h4>
+                      <h4> รหัสเจ้าหน้าที่ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;<? echo $_SESSION["Username"];?>&nbsp;<input type="hidden" name="username" value="<? echo $_SESSION["Username"];?>" readonly="" required></h4>
                       <h4>
                         รหัสการสั่งซื้อ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;
                         <select class="" name="id_mat" required id="id_mat">
@@ -140,7 +140,7 @@ include 'header.php';
           $date=$strDay." ".$strMonthThai." ".$strYear;
       ?>
       <tr class ="info">
-        <td><?php echo $i; ?></td>
+        <td><div align = "center"><?php echo $i; ?></div></td>
         <td><?php echo $date; ?></td>
         <td><?php echo $row['id_inputmat']; ?></td>
         <td><?php echo $row['id_mat']; ?></td>

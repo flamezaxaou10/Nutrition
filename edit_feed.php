@@ -134,7 +134,7 @@ include 'header.php';
                 <td align=center><b>ชื่ออาหารทางสายยาง</td>
                 <td align=center><b>จำนวน</td>
                 <td align=center><b>หน่วยนับ</td>
-                <td align=center><b>ราคารวม(บาท)</td>
+                <td align=center><b>ราคาต่อหน่วย(บาท)</td>
                 <td align=center><b>แก้ไขข้อมูล</td>
                 <td align=center><b>ลบ</td>
               </tr>
