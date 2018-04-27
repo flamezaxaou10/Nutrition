@@ -37,10 +37,9 @@ include 'header.php';
 <?php
 $p=$_POST["print"]+1;
  ?>
-      <H3>ข้อมูลเมนูอาหาร</H3>
-      <br />
-      <h5 align=right>พิมพ์ครั้งที : <?php echo $p ;?></h5>
-      <div style="float:left; font-size: 1.3em;">วันที่</div><div style="float:left; font-size: 1.3em;">&nbsp;
+      <p>ข้อมูลการจัดเมนูอาหาร</p>
+      <h5 align=right>พิมพ์ครั้งที่ : <?php echo $p ;?></h5>
+      <div style="float:left; font-size: 16px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;วันที่ : &nbsp;</div><div style="float:left; font-size: 1.3em;">&nbsp;
       <?php
 
 
@@ -58,7 +57,7 @@ $p=$_POST["print"]+1;
       <? echo $date;?></div>
       <br />
       <br />
-      <div style="float:left; font-size: 1.3em;">เจ้าหน้าที่</div><div style="float:left; font-size: 1.3em;">&nbsp;
+      <div style="float:left; font-size: 16px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;เจ้าหน้าที่ : &nbsp;</div><div style="float:left; font-size: 1.3em;">&nbsp;
         <?php echo $_SESSION["fnname"];?>&nbsp;<?php echo $_SESSION["lnname"];?>
       </div>
       <br />
@@ -273,7 +272,7 @@ if(!$insert){
    </div>
    <p style="text-align:right;">
      <button class="btn btn-success" OnClick="prints('print_table');">พิมพ์ใบสั่งอาหาร</button>
-     <button class="btn btn-danger" >ย้อนกลับ</button>
+     <a href="print_edit.php"><button class="btn btn-danger" >ย้อนกลับ</button></a>
    </p>
   </div>
 

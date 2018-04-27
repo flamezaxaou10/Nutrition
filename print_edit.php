@@ -17,7 +17,7 @@ include 'header.php';
       <p>แก้ไขข้อมูลการจัดเมนูอาหาร</p>
       <br>
 
-      <div style="float:left; font-size: 1.2em;">วันที่</div><div style="float:left; font-size: 1.2em;">&nbsp;
+      <div style="float:left; font-size: 16px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;วันที่ : &nbsp;</div><div style="float:left; font-size: 1.2em;">&nbsp;
            <?php
            $strDate=$_POST['daytime'];
              $strYear = date("Y",strtotime($strDate))+543;
@@ -31,13 +31,10 @@ include 'header.php';
              $date=$strDaysThai." ".$strDay." ".$strMonthThai." ".$strYear;
  ?>
      <? echo $date;?></div>
-     <br><br>
-
-
 <br />
 <br />
 
-<div style="float:left; font-size: 1.2em;">เจ้าหน้าที่</div><div style="float:left; font-size: 1.2em;">&nbsp;
+<div style="float:left; font-size: 16px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;เจ้าหน้าที่ : &nbsp; </div><div style="float:left; font-size: 1.2em;">&nbsp;
   <?php echo $_SESSION["fnname"];?>&nbsp;<?php echo $_SESSION["lnname"];?>
 </div>
 <br />

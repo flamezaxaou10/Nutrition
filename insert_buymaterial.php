@@ -33,12 +33,12 @@ include 'header.php';
             <div class="modal-body">
           	<form method="post" action="#">
 							<table>
-								<tr><td><h4>รหัสการสั่งซื้อวัตถุดิบ</td><td><h4>: <?php echo $id ; ?>
+								<tr><td><h4>รหัสการสั่งซื้อวัตถุดิบ</td><td><h4>: &nbsp;&nbsp;<?php echo $id ; ?>
 								<input type="hidden" name="idmat" value="<?php echo $id ; ?>"></h4></td>
-								<td width=150 align=center><h4>เจ้าหน้าที่ผู้สั่งซื้อ</td><td><h4>: <?php echo $username ; ?>
+								<td width=150 align=center><h4>เจ้าหน้าที่ผู้สั่งซื้อ</td><td><h4>:&nbsp;&nbsp; <?php echo $username ; ?>
 								<input type="hidden" name="idname" value="<?php echo $username ; ?>"></h4></td>
 
-								<tr><td><h4>เลือกชื่อร้านค้าวัตถุดิบ</td><td><h4>: <select id="dep" required name="dep" onchange="document.getElementById('selected_text').value=this.options[this.selectedIndex].text">
+								<tr><td><h4>เลือกชื่อร้านค้าวัตถุดิบ</td><td><h4>: &nbsp;&nbsp;<select id="dep" required name="dep" onchange="document.getElementById('selected_text').value=this.options[this.selectedIndex].text">
 								  <option value="" disabled selected>-------กรุณาเลือกร้านค้า-------</option>
 
 								  <?
