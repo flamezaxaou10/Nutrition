@@ -42,7 +42,7 @@ include 'header.php';
 							$matid=$_POST['matid2'];
 
               @include('conn.php');
-              $sql  = "update `cpa`.`detail_buymat` set `mat_id`='".$matid."',`count`='".$count."',`unit_id`='".$unit."',`price`='".$count*$price."' where id_detail = '".$id."'";
+              $sql  = "update `cpa`.`detail_buymat` set `mat_id`='".$matid."',`count`='".$count."',`unit_id`='".$unit."',`price`='".$count*$price."',`balance`='".$count."' where id_detail = '".$id."'";
 
 							$result  = mysql_query($sql);
               if(!$result){
