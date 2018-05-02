@@ -99,13 +99,13 @@ include 'header.php';
      ?>
       <table  class="table table-striped table-bordered">
         <tr class="warning">
-          <th>ลำดับ</th>
-          <th>รหัสการเบิกวัตถุดิบ</th>
-          <th>วันที่เบิก</th>
-          <th>ชื่อเมนูอาหาร</th>
-          <th>รายละเอียด</th>
-          <th>แก้ไข</th>
-          <th>ลบ</th>
+          <th><div align="center">ลำดับ</th>
+          <th><div align="center">รหัสการเบิกวัตถุดิบ</th>
+          <th><div align="center">วันที่เบิก</th>
+          <th><div align="center">ชื่อเมนูอาหาร</th>
+          <th><div align="center">รายละเอียด</th>
+          <th><div align="center">แก้ไข</th>
+          <th><div align="center">ลบ</th>
         </tr>
         <?php
           $result = mysql_query($sql,$connect1);
@@ -122,7 +122,7 @@ include 'header.php';
         ?>
         <?php if ($row['date'] == $datethis): ?>
           <tr class="success">
-            <td style="width:10%;"><?php echo $i; ?></td>
+            <td style="width:10%;"><div align="center"><?php echo $i; ?></td>
             <td style="width:15%;"><?php echo $row['id_raw']; ?></td>
             <td><?php echo $date ?></td>
             <td style="width:35%;"><?php echo $row['name_raw']; ?></td>

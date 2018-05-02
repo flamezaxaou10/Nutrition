@@ -43,7 +43,7 @@ include 'header.php';
           }
         </style>
          <table>
-           <tr >
+           <tr>
              <td>รหัสการขายอาหารทางสายยาง </td>
              <td>&nbsp;&nbsp; : &nbsp;&nbsp;</td>
              <td> <?php echo $salefeed_id; ?></td>

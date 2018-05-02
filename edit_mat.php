@@ -117,7 +117,7 @@ while ($objReSult = mysql_fetch_array($objQuery)) {
 ?>
   <tr class ="info">
   <td><div align = "center"><?php echo $objReSult["mat_id"];?></div></td>
-  <td><div align = "center"><?php echo $objReSult["name_stock"];?></div></td>
+  <td><div align = "left"><?php echo $objReSult["name_stock"];?></div></td>
   <td><div align = "left"><? echo $objReSult["mat_name"];?></div></td>
   <td><div align = "left"><? echo $objReSult["res_name"];?></div></td>
   <!--<td><div align = "center"><a href='edit_mat.php?id="<? echo $objReSult['mat_id']?>"&id2="<? echo $objReSult['mat_name']?>"' onclick="return confirm('ต้องการแก้ไขข้อมูลนี้?')"><b><font color="blue"><img src='img/edit.png' width=25></font></b></a></td>-->

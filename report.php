@@ -55,7 +55,7 @@ include 'header.php';
 <center><h4><label type="text"  value="การสั่งอาหาร" display="">ฝ่ายโภชนาการ&nbsp;โรงพยาบาลเจ้าพระยาอภัยภูเบศร</label></h4></center><br>
 <div class="row text-center">
   <strong>
-  <div class="col-md-3"><value="แผนก" display="">มื้ออาหาร : <?if ($eats == 4) {
+  <div class="col-md-3" align = "left"><value="แผนก" display="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;มื้ออาหาร : <?if ($eats == 4) {
     # code...
     echo "เช้า";
     }
@@ -99,8 +99,8 @@ include 'header.php';
     $year = substr($day,-10,4);
     $year += 543;
   ?>
-  <div class="col-md-3"><value="แผนก" display="">ประจำวันที่ : <? echo $dayy.' '.$mon.' '.$year; ?></label></font></div>
-  <div class="col-md-3"><value="แผนก" display="">เจ้าหน้าที่พยาบาล : <? echo $_SESSION["fnname"].' '.$_SESSION["lnname"]; ?></label></font></div>
+  <div class="col-md-3" align = "left"><value="แผนก" display="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ประจำวันที่ : <? echo $dayy.' '.$mon.' '.$year; ?></label></font></div>
+  <div class="col-md-3" align = "left"><value="แผนก" display="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;เจ้าหน้าที่ : <? echo $_SESSION["fnname"].' '.$_SESSION["lnname"]; ?></label></font></div>
     </strong>
   </div><br>
 

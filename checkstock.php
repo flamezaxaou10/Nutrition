@@ -28,7 +28,7 @@ include 'header.php';
          ?>
     <div class="modal-body">
            <form method="GET" action="#">
-                        รหัสการรับเข้า &nbsp;: &nbsp;
+                        รหัสสต๊อกและชื่อสต๊อก &nbsp;: &nbsp;
                         <select class="" name="id_stock" required>
                           <?php
                               $sql = "SELECT * FROM stock";
@@ -42,7 +42,7 @@ include 'header.php';
                         </select>
                       </h4>
            <div class="modal-footer">
-            <input type="submit" class="btn btn-success" value="ตรวจสอบสต๊อก" name = "submit" onclick=""> &nbsp;&nbsp;&nbsp;
+            <input type="submit" class="btn btn-success" value="ตรวจสอบ" name = "submit" onclick=""> &nbsp;&nbsp;&nbsp;
            &nbsp;&nbsp; <a href="stockanddetail.php"><button type="button" class="btn btn-danger" data-dismiss="modal" onclick="return confirm('ต้องการยกเลิกการเพิ่มข้อมูลนี้?')">ยกเลิก</button></a>
           </div>
           </form>
@@ -55,7 +55,7 @@ include 'header.php';
   </tr>
   <tr class="warning">
     <th><div align="center">ลำดับ</div></th>
-    <th><div align="center">วัสถุดิบ</div></th>
+    <th><div align="center">วัตถุดิบ</div></th>
     <th><div align="center">จำนวน</div></th>
     <th><div align="center">หน่วยนับ</div></th>
   </tr>

@@ -16,9 +16,9 @@ include 'header.php';
       <div class="row">
         <form action="#" method="post">
           <div class="col-md-9">
-            <label style="width:20%;">
-              กรุกรุณาเลือกวันที่ :
-            </label>
+          <!--  <label style="width:20%;"> -->
+             กรุณาเลือกวันที่ :
+          <!--  </label> -->
             <input type="date" name="start" value="" style="width:35%;" required>
             <label style="width:5%;" class="text-center">ถึง</label>
             <input type="date" name="end" value="" style="width:35%;" required>
@@ -89,7 +89,7 @@ include 'header.php';
             $i++;
         ?>
         <tr>
-          <td><?php echo "$i"; ?></td>
+          <td><div align = "center"><?php echo "$i"; ?></td>
           <td><?php echo $result['mat_name']; ?><?php echo $result['feed_name']; ?></td>
           <td><div align = "right"><?php echo $result['SUM(d.count)']; ?><div align = "right"></td>
           <td><?php echo $result['unit_name']; ?></td>

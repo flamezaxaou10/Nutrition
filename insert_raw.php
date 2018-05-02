@@ -97,13 +97,13 @@ include 'header.php';
                <th><div align="center"><?php echo $ID; ?> : <?php echo $st['name_stock']; ?></div></th>
              </tr>
              <tr class="warning">
-               <th>ลำดับ</th>
-               <th>รหัสวัตถุดิบ</th>
-               <th>ชื่อวัตถุดิบ</th>
-               <th>จำนวน</th>
-               <th>หน่วยนับ</th>
-               <th>จำนวนที่เบิก</th>
-               <th>เบิก</th>
+               <th><div align="center">ลำดับ</th>
+               <th><div align="center">รหัสวัตถุดิบ</th>
+               <th><div align="center">ชื่อวัตถุดิบ</th>
+               <th><div align="center">จำนวน</th>
+               <th><div align="center">หน่วยนับ</th>
+               <th><div align="center">จำนวนที่เบิก</th>
+               <th><div align="center">เบิก</th>
              </tr>
              <?php
                $sql = "SELECT SUM(count),stock_detail.mat_id,mat_name,feed_name,unit_name,stock_detail.unit_id FROM stock_detail LEFT JOIN material ON stock_detail.mat_id = material.mat_id

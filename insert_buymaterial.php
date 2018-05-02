@@ -146,7 +146,6 @@ $aa = $objReSult["id_mat"];
 		$strMonthCut = Array("","ม.ค.","ก.พ.","มี.ค.","เม.ย.","พ.ค.","มิ.ย.","ก.ค.","ส.ค.","ก.ย.","ต.ค.","พ.ย.","ธ.ค.");
 		$strMonthThai=$strMonthCut[$strMonth];
 		$date=$strDay." ".$strMonthThai." ".$strYear;
-
 			  ?>
 				<tr class ="info">
 				  <td><div align = "center"><?php echo $date;?></div></td>

@@ -8,20 +8,20 @@
 ?>
 <table class="table table-striped table-bordered" border="1" width="100%">
 	<tr class="warning">
-		<th>รหัสผู้ป่วย</th>
-		<th>ชื่อ - นามสกุล</th>
-		<th>ห้อง</th>
-		<th>เตียง</th>
-		<th>ชนิดของอาหาร</th>
-		<th>พิมพ์</th>
+		<th><div align="center">รหัสผู้ป่วย</th>
+		<th><div align="center">ชื่อ - นามสกุล</th>
+		<th><div align="center">ห้อง</th>
+		<th><div align="center">เตียง</th>
+		<th><div align="center">ชนิดของอาหาร</th>
+		<th><div align="center">พิมพ์</th>
 	</tr>
 			<?php
       while ($row = mysql_fetch_array($res)) { ?>
 				<tr class="info">
-          <td><?php echo $row['HN']; ?></td>
+          <td><div align="center"><?php echo $row['HN']; ?></td>
           <td><?php echo $row['fname']; ?> <?php echo $row['lname']; ?></td>
-          <td><?php echo $row['roomno']; ?></td>
-          <td><?php echo $row['bedno']; ?></td>
+          <td><div align="right"><?php echo $row['roomno']; ?></td>
+          <td><div align="right"><?php echo $row['bedno']; ?></td>
           <td><?php echo $row['type_food']; ?></td>
 					<td><a target="_blank" href="print_order_food.php?hn=<?php echo $row['HN']; ?>&date=<?php echo $date; ?>&eats=<?php echo $eats; ?>"><img src="img/print.png" width="30px" height="30px"></a></td>
 				</tr>
