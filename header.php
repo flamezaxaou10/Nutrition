@@ -24,7 +24,7 @@
 
 <style type="text/css">
   body{
-    font-family: 'Kanit', sans-serif;
+    font-family: 'Leelawadee', sans-serif;
   }
   .navbar {
       font-family: Montserrat, sans-serif;
