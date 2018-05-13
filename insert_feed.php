@@ -159,7 +159,8 @@ while ($objReSult = mysql_fetch_array($objQuery)) {
 					<td><div align = "center"><a href="select_feed.php?id=<? echo $objReSult['id_mat'];?>" onclick="return confirm('ต้องการแก้ไขข้อมูลนี้?')"><b><font color="blue"><img src='img/edit.png' width=25></font></b></a></div></td>
 					<td><div align = "center"><a href="success_feed.php?id=<? echo $objReSult['id_mat'];?>"><b><font color="blue"><img src='img/print.png' width=25></font></b></a></div></td>
 				<?php elseif($objReSult["status"]==2): ?>
-					<td colspan=2><div align = "center" class="text-success">รับสินค้าแล้ว</div></td>
+					<td ><div align = "center" class="text-success">รับสินค้าแล้ว</div></td>
+					<td><div align = "center"><a href="success_feed.php?id=<? echo $objReSult['id_mat'];?>"><b><font color="blue"><img src='img/print.png' width=25></font></b></a></div></td>
 				<?php else: ?>
 					<td colspan=2><div align = "center"><img src='img/close.png' width=25></div></td>
 				<?php endif; ?>

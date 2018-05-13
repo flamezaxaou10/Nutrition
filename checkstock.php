@@ -34,8 +34,14 @@ include 'header.php';
                               $sql = "SELECT * FROM stock";
                               $select = mysql_query($sql,$connect1);
                               while ($row = mysql_fetch_array($select)) {
+                                if ($_GET['id_stock'] == $row['id_stock']) {
+                                  $selected = "selected";
+                                }
+                                else {
+                                  $selected = "";
+                                }
                           ?>
-                                <option value="<?php echo $row['id_stock'] ?>"><?php echo $row['id_stock'] ?> <?php echo $row['name_stock'] ?></option>
+                                <option value="<?php echo $row['id_stock']; ?>" <?php echo $selected; ?> ><?php echo $row['id_stock'] ?> <?php echo $row['name_stock'] ?></option>
                           <?php
                               }
                            ?>
@@ -49,9 +55,16 @@ include 'header.php';
     </div>
   </div>
 <?php if ($_GET): ?>
+
+<?php
+    $ID = $_GET['id_stock'];
+    $sql = "SELECT * FROM stock WHERE id_stock = '$ID'";
+    $query = mysql_query($sql,$connect1);
+    $result = mysql_fetch_array($query);
+ ?>
 <table class="table table-striped table-bordered">
   <tr class="warning">
-    <th colspan="4"><div class="text-center">รหัสสต๊อก <?php echo $_GET['id_stock']; ?></div></th>
+    <th colspan="4"><div class="text-center">รหัสสต๊อก <?php echo $_GET['id_stock']; ?> : <?php echo $result['name_stock']; ?></div></th>
   </tr>
   <tr class="warning">
     <th><div align="center">ลำดับ</div></th>
@@ -61,7 +74,6 @@ include 'header.php';
   </tr>
 
 <?
-  $ID = $_GET['id_stock'];
   $sql = "SELECT SUM(count),stock_detail.mat_id,mat_name,feed_name,unit_name FROM stock_detail LEFT JOIN material ON stock_detail.mat_id = material.mat_id
                                       LEFT JOIN feed ON stock_detail.mat_id = feed.feed_id JOIN unit ON unit.unit_id = stock_detail.unit_id
                                       WHERE stock_id = '$ID' GROUP BY stock_detail.mat_id";
