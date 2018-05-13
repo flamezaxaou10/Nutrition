@@ -123,7 +123,7 @@ error_reporting(0);
    $day = "วันอาทิตยที่์";
  }
  elseif ($day == "Sunday"){
-   $day = "วันจันทรที่์";
+   $day = "วันจันทรที่";
  }
  $year = substr($todate,6,4);
  $year += 543;
