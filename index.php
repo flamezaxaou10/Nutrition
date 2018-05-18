@@ -8,6 +8,25 @@ exit();
 }
 ?>
 
+
+<?php
+    $user = $_SESSION['Username'];
+    if ($user == 'director') {
+      for ($i=1; $i <= 17 ; $i++) {
+        $menu[$i] = "onclick='return false'"." class='isDisabled'";
+      }
+      $menu[1] = '';
+      $menu[2] = '';
+      $menu[3] = '';
+      $menu[4] = '';
+      $menu[17] = '';
+    } else {
+      for ($i=1; $i <= 17 ; $i++) {
+        $menu[$i] = "";
+      }
+    }
+ ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,6 +56,13 @@ exit();
     background-image:url(img/backg.jpg);
     background-repeat: no-repeat;
     background-attachment : fixed;
+  }
+  .isDisabled {
+    color: currentColor;
+    cursor: not-allowed;
+    opacity: 0.4;
+    text-decoration: none;
+    display: inline-block;
   }
 </style>
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
@@ -399,8 +425,8 @@ exit();
 
 </script>
   <div class="row">
-     <div class="col-sm-3">
-          <a href="HN_patient.php">
+     <div class="col-sm-3"  >
+          <a href="HN_patient.php" <?php echo $menu[1]; ?>>
             <center><img id="img1"  src="img/logo14.png" class="img-circle person img-responsive" alt="Random Name" width="" height=""></center>
           </a>
           <p class="text-center"><strong>ข้อมูลผู้ป่วย</strong></p>
@@ -408,20 +434,20 @@ exit();
 
         </div>
      <div class="col-sm-3">
-          <a href="user.php">
+          <a href="user.php" <?php echo $menu[2]; ?>  >
             <center><img id="img2"  src="img/logo2.png" class="img-circle person img-responsive" alt="Random Name" width="" height=""></center>
           </a>
           <p class="text-center"><strong>ข้อมูลเจ้าหน้าที่</strong></p>
       </div>
 
-      <div class="col-sm-3">
-          <a href="department.php">
+      <div class="col-sm-3"  >
+          <a href="department.php" <?php echo $menu[3]; ?> >
             <center><img id="img3"  src="img/logo11.png" class="img-circle person img-responsive" alt="Random Name" width="" height=""></center>
           </a>
           <p class="text-center"><strong>ข้อมูลแผนก</strong></p>
       </div>
-        <div class="col-sm-3">
-            <a href="matandunit.php">
+        <div class="col-sm-3"  >
+            <a href="matandunit.php" <?php echo $menu[4]; ?> >
               <center><img id="img4"  src="img/logo7.png" class="img-circle person img-responsive" alt="Random Name" width="" height=""></center>
             </a>
             <p class="text-center"><strong>ข้อมูลพื้นฐาน</strong></p>
@@ -430,26 +456,26 @@ exit();
       <hr>
     <div class="row">
      <div class="col-sm-3">
-          <a href="insert_restaurant.php">
+          <a href="insert_restaurant.php" <?php echo $menu[5]; ?> >
             <center><img id="img5"  src="img/logoshop.png" class="img-circle person img-responsive" alt="Random Name" width="" height=""></center>
           </a>
           <p class="text-center"><strong>ข้อมูลร้านค้า</strong></p>
       </div>
      <div class="col-sm-3">
-          <a href="mat.php">
+          <a href="mat.php" <?php echo $menu[6]; ?> >
             <center><img id="img6"  src="img/logo9999.png" class="img-circle person img-responsive" alt="Random Name" width="" height=""></center>
           </a>
           <p class="text-center"><strong>ข้อมูลวัตถุดิบ</strong></p>
       </div>
      <div class="col-sm-3">
-          <a href="feed.php">
+          <a href="feed.php" <?php echo $menu[7]; ?>>
             <center><img id="img7"  src="img/logofeed.png" class="img-circle person img-responsive" alt="Random Name" width="" height=""></center>
           </a>
           <p class="text-center"><strong>ข้อมูลอาหารทางสายยาง</strong></p>
       </div>
 
       <div class="col-sm-3">
-          <a href="insert_order_menu.php">
+          <a href="insert_order_menu.php" <?php echo $menu[8]; ?> >
             <center><img id="img8"  src="img/logomenu.png" class="img-circle person" alt="Random Name" width="" height=""></center>
           </a>
           <p class="text-center"><strong>ข้อมูลการจัดเมนูอาหาร</strong></p>
@@ -458,14 +484,14 @@ exit();
     <hr>
     <div class="row">
       <div class="col-sm-3">
-        <a href="raw.php">
+        <a href="raw.php" <?php echo $menu[9]; ?> >
           <center><img id="img9" src="img/make01.png" class="img-circle person img-responsive" alt="Random Name" width="" height=""></center>
         </a>
         <p class="text-center"><strong>เบิกวัตถุดิบที่ใช้ทำอาหาร</strong></p>
       </div>
 
       <div class="col-sm-3">
-          <a href="patient.php">
+          <a href="patient.php" <?php echo $menu[10]; ?> >
             <center><img id="img10" src="img/logo10.png" class="img-circle person img-responsive" alt="Random Name" width="" height=""></center>
           </a>
           <p class="text-center"><strong>การจัดส่งอาหารให้ผู้ป่วย</strong></p>
@@ -473,14 +499,14 @@ exit();
 
 
       <div class="col-sm-3">
-          <a href="insert_buymaterial.php">
+          <a href="insert_buymaterial.php" <?php echo $menu[11]; ?>>
           <center>  <img id="img11" src="img/logobuy.png" class="img-circle person img-responsive" alt="Random Name" width="" height=""></center>
           </a>
           <p class="text-center"><strong>สั่งซื้อวัตถุดิบ</strong></p>
         </div>
 
         <div class="col-sm-3">
-            <a href="insert_feed.php">
+            <a href="insert_feed.php" <?php echo $menu[12]; ?>>
               <center><img id="img12" src="img/logo3.png" class="img-circle person img-responsive" alt="Random Name" width="" height=""></center>
             </a>
             <p class="text-center"><strong>สั่งซื้ออาหารทางสายยาง</strong></p>
@@ -489,28 +515,28 @@ exit();
       <hr>
       <div class="row">
         <div class="col-sm-3">
-          <a href="report.php">
+          <a href="report.php" <?php echo $menu[13]; ?>>
             <center><img id="img13" src="img/logo9.png" class="img-circle person img-responsive" alt="Random Name" width="" height=""></center>
           </a>
           <p class="text-center"><strong>รายงานการจัดส่งอาหาร</strong></p>
         </div>
 
         <div class="col-sm-3">
-          <a href="report2.php">
+          <a href="report2.php" <?php echo $menu[14]; ?>>
             <center><img id="img14" src="img/logoss.png" class="img-circle person img-responsive" alt="Random Name" width="" height=""></center>
           </a>
           <p class="text-center"><strong>รายงานการสั่งอาหาร</strong></p>
         </div>
 
         <div class="col-sm-3">
-          <a href="stockanddetail.php">
+          <a href="stockanddetail.php" <?php echo $menu[15]; ?>>
             <center><img id="img15" src="img/logo_stock.png" class="img-circle person img-responsive" alt="Random Name" width="" height=""></center>
           </a>
           <p class="text-center"><strong>การรับวัตถุดิบเข้าคลัง</strong></p>
         </div>
 
         <div class="col-sm-3">
-          <a href="sale_feed.php">
+          <a href="sale_feed.php" <?php echo $menu[16]; ?>>
             <center><img id="img16" src="img/logosell.png" class="img-circle person img-responsive" alt="Random Name" width="" height=""></center>
           </a>
           <p class="text-center"><strong>ขายอาหารทางสายยาง</strong></p>
@@ -520,7 +546,7 @@ exit();
         <hr>
       <div class="row">
        <div class="col-sm-3">
-            <a href="report_all.php">
+            <a href="report_all.php" <?php echo $menu[17]; ?>>
               <center><img id="img55"  src="img/graph.png" class="img-circle person img-responsive" alt="Random Name" width="" height=""></center>
             </a>
             <p class="text-center"><strong>รายงานสรุป</strong></p>
