@@ -57,8 +57,8 @@ include 'header.php';
         <tr class ="info">
           <td><div align = "center"><?php echo $i; ?></div></td>
           <?php if ($objReSult['feed_id'] != NULL): ?>
-            <td><div align = "left"><? echo $objReSult["feed_id"];?></div></td>
-            <td><div align = "left"><? echo $objReSult["feed_name"];?></div></td>
+            <td><div align = "center"><? echo $objReSult["feed_id"];?></div></td>
+          <td><div align = "center"><? echo $objReSult["feed_name"];?></div></td>
           <?php else: ?>
             <td><div align = "left"><? echo $objReSult["mat_id"];?></div></td>
             <td><div align = "left"><? echo $objReSult["mat_name"];?></div></td>
@@ -108,7 +108,7 @@ include 'header.php';
       </form>
       </table>
       <form  action="insert_to_stock_con.php?id=<?php echo $id_mat; ?>&idinputmat=<?php echo $id_input; ?>" method="post">
-        <a href="delete_inputmat.php?idinputmat=<?php echo $id_input; ?>"><input type="button" class="btn btn-danger" value="ยกเลิก"></a>
+        <div align = "right"><a href="delete_inputmat.php?idinputmat=<?php echo $id_input; ?>"><input type="button" class="btn btn-danger" value="ยกเลิก"></a>
         <input type="submit" class="btn btn-success" value="เสร็จสิ้น">
       </form>
     </div>
