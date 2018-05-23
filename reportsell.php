@@ -72,7 +72,7 @@ include 'header.php';
 
       <table class="table table-striped table-bordered" >
         <tr>
-          <th><div align = "center">รายการการขาย</div></th>
+          <th><div align = "center">รหัสการขาย</div></th>
           <th><div align = "center">ชื่อผู้ป่วย</div></th>
           <th><div align = "center">ชื่ออาหารทางสายยาง</div></th>
           <th><div align = "center">จำนวน</div></th>
@@ -96,7 +96,7 @@ include 'header.php';
               $queryin = mysql_query($sql, $connect1);
               $i = mysql_num_rows($queryin);
             ?>
-              <td rowspan="<?php echo $i; ?>"><?php echo $result['salefeed_id']; ?></td>
+              <td rowspan="<?php echo $i; ?>"><div align = "center"><?php echo $result['salefeed_id']; ?></div></td>
               <td rowspan="<?php echo $i; ?>"><?php echo $result['customer']; ?></td>
             <?php
               while ($resultin = mysql_fetch_array($queryin)) {

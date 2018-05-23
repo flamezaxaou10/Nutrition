@@ -11,7 +11,7 @@ exit();
 <style media="screen,print" >
   td{
     padding: 5px;
-    font-size: 12px;
+    font-size: 11px;
   }
   .card{
     border: 2px black solid;
@@ -34,11 +34,11 @@ exit();
   $i = 1;
   while ($row = mysql_fetch_array($res)){
 ?>
-  <?php if ($i % 10 == 0): ?>
-    <div class="card" style="margin-bottom:120px;">
+  <?php if ($i % 12 == 0): ?>
+    <div class="card" style="margin-bottom:100px;">
       <div class="text-right">อาหารเฉพาะโรค</div></td>
       <center>
-        <table width="80%">
+        <table width="100%">
           <tr>
             <td><b>ตึก</b> <?php echo $row['dep_name']; ?></td>
             <td><b>ห้อง</b> <?php echo $row['roomno']; ?></td>

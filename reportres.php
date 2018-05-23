@@ -121,7 +121,7 @@ include 'header.php';
             $i++;
         ?>
           <tr>
-            <td><?php echo "$i"; ?></td>
+            <td><div align = "center"><?php echo "$i"; ?></div></td>
             <td><?php echo $result['mat_name']; ?><?php echo $result['feed_name']; ?></td>
             <td><div align = "right"><?php echo $result['SUM(d.count)']; ?></div></td>
             <td><?php echo $result['unit_name']; ?></td>
