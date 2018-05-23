@@ -27,12 +27,22 @@ include 'header.php';
           $objQuery = mysql_query($sql,$connect1);
           date_default_timezone_set("Asia/Bangkok") ;
           $datethis = date("Y-m-d H:i:s");
+          $strDate=date('d-m-Y');
+            $strYear = date("Y",strtotime($strDate))+543;
+            $strMonth= date("n",strtotime($strDate));
+            $strDay= date("j",strtotime($strDate));
+            $strDays= date("l",strtotime($strDate));
+            $strDayCut = Array("Monday"=>"วันจันทร์ที่","Tuesday"=>"วันอังคารที่","Wednesday"=>"วันพุธที่","Thursday"=>"วันพฤหัสบดีที่","Friday"=>"วันศุกร์ที่","Saturday"=>"วันเสาร์ที่","Sunday"=>"วันอาทิตย์ที่");
+            $strMonthCut = Array("","มกราคม","กุมภาพันธ์","มีนาคม","เมษายน","พฤษภาคม","มิถุนายน","กรกฎาคม","สิงหาคม","กันยายน","ตุลาคม","พฤษจิกายน","ธันวาคม");
+            $strMonthThai=$strMonthCut[$strMonth];
+            $strDaysThai = $strDayCut[$strDays];
+            $date=$strDaysThai." ".$strDay." ".$strMonthThai." ".$strYear;
          ?>
     <div class="modal-body">
            <form method="POST" action="#" onsubmit="return confirm('ต้องการเพิ่มข้อมูลนี้?');">
                       <h4> รหัสการเบิก &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : <?php echo $id_output; ?><input type="hidden" name="id" value="<?php echo $id_output; ?>" readonly=""></h4>
-                      <h4> วันที่การเบิก &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : <?php echo $datethis; ?><input type="hidden" name="date" required value="<?php echo $datethis; ?>" > </h4>
-                      <h4> รหัสเจ้าหน้าที่ &nbsp;&nbsp; : <? echo $_SESSION["Username"];?><input type="hidden" name="username" value="<? echo $_SESSION["Username"];?>" readonly=""></h4>
+                      <h4> วันที่การเบิก &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : <?php echo $date; ?><input type="hidden" name="date" required value="<?php echo $datethis; ?>" > </h4>
+                      <h4> รหัสเจ้าหน้าที่ &nbsp;&nbsp; : <? echo $_SESSION["fnname"];?><input type="hidden" name="username" value="<? echo $_SESSION["fnname"];?>" readonly=""></h4>
 
            <div class="modal-footer" style="padding-bottom : 0px;">
               <input type="submit" class="btn btn-success" value="เพิ่มข้อมูล" name = "submit" > &nbsp;&nbsp;&nbsp;

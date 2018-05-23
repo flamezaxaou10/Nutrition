@@ -22,7 +22,7 @@ include 'header.php';
        <div class="modal-body">
                   <form class="" action="#" method="get">
                       <h4> รหัสการเบิก &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;<?php echo $id_output; ?><input type="hidden" name="idoutputmat" value="<?php echo $id_output; ?>" readonly=""></h4>
-                      <h4> รหัสเจ้าหน้าที่ &nbsp;&nbsp;: &nbsp;<? echo $_SESSION["Username"];?></h4>
+                      <h4> รหัสเจ้าหน้าที่ &nbsp;&nbsp;: &nbsp;<? echo $_SESSION["fnname"];?></h4>
                       <h4>
                         รหัสวัตถุดิบ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;
                         <select class="" name="id_stock" required >

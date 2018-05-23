@@ -21,10 +21,19 @@ $id_output = $_GET['id'];
             $sql = "SELECT * FROM output_material WHERE id_outputmat = '$id_output'";
             $query = mysql_query($sql,$connect1);
             $row = mysql_fetch_array($query);
-
+            $strDate=$row['date'];
+              $strYear = date("Y",strtotime($strDate))+543;
+              $strMonth= date("n",strtotime($strDate));
+              $strDay= date("j",strtotime($strDate));
+              $strDays= date("l",strtotime($strDate));
+              $strDayCut = Array("Monday"=>"วันจันทรที่","Tuesday"=>"วันอังคารที่","Wednesday"=>"วันพุธที่","Thursday"=>"วันพฤหัสบดีที่","Friday"=>"วันศุกรที่","Saturday"=>"วันเสารที่","Sunday"=>"วันอาทิตย์ที่");
+              $strMonthCut = Array("","มกราคม","กุมภาพันธ์","มีนาคม","เมษายน","พฤษภาคม","มิถุนายน","กรกฎาคม","สิงหาคม","กันยายน","ตุลาคม","พฤษจิกายน","ธันวาคม");
+              $strMonthThai=$strMonthCut[$strMonth];
+              $strDaysThai = $strDayCut[$strDays];
+              $date=$strDaysThai." ".$strDay." ".$strMonthThai." ".$strYear;
          ?>
              <h4> รหัสการเบิก &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : <?php echo $id_output; ?></h4>
-             <h4> วันที่การเบิก &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : <?php echo $row['date']; ?></h4>
+             <h4> วันที่การเบิก &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : <?php echo $date; ?></h4>
              <h4> รหัสเจ้าหน้าที่ &nbsp;&nbsp; : <? echo $row['user'];?></h4>
        <div class="modal-body">
          <table  class="table table-striped table-bordered">

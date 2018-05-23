@@ -100,7 +100,7 @@ include 'header.php';
     $year += 543;
   ?>
   <div class="col-md-3" align = "left"><value="แผนก" display="" align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ประจำวันที่ : <? echo $dayy.' '.$mon.' '.$year; ?></label></font></div>
-  <div class="col-md-3" align = "left"><value="แผนก" display="" align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;เจ้าหน้าที่พยาบาล : <? echo $_SESSION["Username"].' '.$_SESSION["lnname"]; ?></label></font></div>
+  <div class="col-md-3" align = "left"><value="แผนก" display="" align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;เจ้าหน้าที่พยาบาล : <? echo $_SESSION["fnname"].' '.$_SESSION["lnname"]; ?></label></font></div>
     </strong>
   </div><br>
 

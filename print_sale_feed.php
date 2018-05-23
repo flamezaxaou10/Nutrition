@@ -19,6 +19,16 @@ include 'header.php';
         $sql = "SELECT * FROM sale_feed WHERE salefeed_id = '$salefeed_id'";
         $result = mysql_query($sql,$connect1);
         $row = mysql_fetch_array($result);
+        $strDate=$row['date'];
+          $strYear = date("Y",strtotime($strDate))+543;
+          $strMonth= date("n",strtotime($strDate));
+          $strDay= date("j",strtotime($strDate));
+          $strDays= date("l",strtotime($strDate));
+          $strDayCut = Array("Monday"=>"วันจันทรที่","Tuesday"=>"วันอังคารที่","Wednesday"=>"วันพุธที่","Thursday"=>"วันพฤหัสบดีที่","Friday"=>"วันศุกรที่","Saturday"=>"วันเสารที่","Sunday"=>"วันอาทิตย์ที่");
+          $strMonthCut = Array("","มกราคม","กุมภาพันธ์","มีนาคม","เมษายน","พฤษภาคม","มิถุนายน","กรกฎาคม","สิงหาคม","กันยายน","ตุลาคม","พฤษจิกายน","ธันวาคม");
+          $strMonthThai=$strMonthCut[$strMonth];
+          $strDaysThai = $strDayCut[$strDays];
+          $date=$strDaysThai." ".$strDay." ".$strMonthThai." ".$strYear;
      ?>
   <div class="modal-body">
     <h4>
@@ -37,7 +47,7 @@ include 'header.php';
          <tr>
            <td>วันที่ขาย </td>
            <td>&nbsp;&nbsp; : &nbsp;&nbsp;</td>
-           <td> <?php echo $row['date']; ?></td>
+           <td> <?php echo $date; ?></td>
          </tr>
          <tr>
            <td>ชื่อผู้ซื้อ </td>

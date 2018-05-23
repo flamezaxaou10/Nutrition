@@ -23,12 +23,23 @@ include 'header.php';
               $sql = "SELECT * FROM input_material WHERE id_inputmat = '$id_input'";
               $result = mysql_query($sql,$connect1);
               $row = mysql_fetch_array($result);
+              $strDate=$row['date'];
+                $strYear = date("Y",strtotime($strDate))+543;
+                $strMonth= date("n",strtotime($strDate));
+                $strDay= date("j",strtotime($strDate));
+                $strDays= date("l",strtotime($strDate));
+                $strDayCut = Array("Monday"=>"วันจันทรที่","Tuesday"=>"วันอังคารที่","Wednesday"=>"วันพุธที่","Thursday"=>"วันพฤหัสบดีที่","Friday"=>"วันศุกรที่","Saturday"=>"วันเสารที่","Sunday"=>"วันอาทิตย์ที่");
+                $strMonthCut = Array("","มกราคม","กุมภาพันธ์","มีนาคม","เมษายน","พฤษภาคม","มิถุนายน","กรกฎาคม","สิงหาคม","กันยายน","ตุลาคม","พฤษจิกายน","ธันวาคม");
+                $strMonthThai=$strMonthCut[$strMonth];
+                $strDaysThai = $strDayCut[$strDays];
+                $date=$strDaysThai." ".$strDay." ".$strMonthThai." ".$strYear;
+              ?>
              ?>
            <form method="POST" action="#" onsubmit="return confirm('ต้องการเพิ่มข้อมูลนี้?');">
                       <h4> รหัสการรับเข้า &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;<?php echo $id_input; ?></h4>
                       <h4> รหัสการสั่งซื้อ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: &nbsp; <?php echo $row['id_mat']; ?> </h4>
-                      <h4> รหัสเจ้าหน้าที่ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;<? echo $_SESSION["Username"];?></h4>
-                      <h4> วันที่การรับเข้า &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <?php echo $row['date']; ?></h4>
+                      <h4> รหัสเจ้าหน้าที่ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;<? echo $_SESSION["fnname"];?></h4>
+                      <h4> วันที่การรับเข้า &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <?php echo $date; ?></h4>
           </form>
       </div>
       <table class="table table-striped table-bordered">
