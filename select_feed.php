@@ -95,7 +95,7 @@ include 'header.php';
 
 							<table>
 								<tr><td align= right width=100><h4>รหัสใบเสร็จ</td><td><h4>: <?php echo $id; ?></h4></td>
-                <td align= right width=150><h4>ชื่อเจ้าหน้าที่</td><td><h4> : <?php echo $username; ?></h4></td>
+                <td align= right width=150><h4>ชื่อเจ้าหน้าที่</td><td><h4> : <?php echo  $_SESSION['fnname']; ?></h4></td>
                 <td align= right width=100><h4>ชื่อร้าน</td><td><h4>: <?php echo $resname; ?></h4></td>
                 <td align= right width=150><h4>ชื่อเจ้าของร้าน</td><td><h4> : <?php echo $keeper; ?></h4></td></tr>
 							</table><br>

@@ -34,7 +34,6 @@ include 'header.php';
                 $strDaysThai = $strDayCut[$strDays];
                 $date=$strDaysThai." ".$strDay." ".$strMonthThai." ".$strYear;
               ?>
-             ?>
            <form method="POST" action="#" onsubmit="return confirm('ต้องการเพิ่มข้อมูลนี้?');">
                       <h4> รหัสการรับเข้า &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;<?php echo $id_input; ?></h4>
                       <h4> รหัสการสั่งซื้อ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: &nbsp; <?php echo $row['id_mat']; ?> </h4>
