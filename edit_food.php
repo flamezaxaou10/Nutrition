@@ -25,11 +25,18 @@ include 'header.php';
 <?php
 $flag=0;
 if(isset($_POST['submit'])){
+	$perpage = 20;
+  if (isset($_GET['page']) && $_GET['page'] != 0) {
+    $page = $_GET['page'];
+  } else {
+    $page = 1;
+  }
+  $start = ($page - 1) * $perpage;
 	$idfood  = $_POST['idfood'];
 	$name = $_POST['name'];
 	$id = $_POST['id'];
 	@include('conn.php');
-	$strSQL = "SELECT * FROM type_food WHERE id <> '$id'";
+	$strSQL = "SELECT * FROM type_food WHERE id <> '$id' LIMIT {$start},{$perpage}";
 	$objQuery = mysql_query($strSQL, $connect1);
 	while ($objReSult = mysql_fetch_array($objQuery)) {
 	 $gname= $objReSult["type_name"];
@@ -74,7 +81,14 @@ if($flag==0){
 
   <?php
 @include('conn.php');
-$strSQL = "SELECT * FROM type_food";
+$perpage = 20;
+if (isset($_GET['page']) && $_GET['page'] != 0) {
+	$page = $_GET['page'];
+} else {
+	$page = 1;
+}
+$start = ($page - 1) * $perpage;
+$strSQL = "SELECT * FROM type_food LIMIT {$start},{$perpage}";
 $objQuery = mysql_query($strSQL,$connect1) or die("Error Query [".$strSQL."]");
 ?>
 
@@ -94,14 +108,14 @@ while ($objReSult = mysql_fetch_array($objQuery)) {
   <td><div align = "center"><?php echo $objReSult["id_type"];?></div></td>
   <td><div align = "left"><? echo $objReSult["type_name"];?></div></td>
 
-    </tr>
+  </tr>
   <?
 }
 
 ?>
-
 </body>
 </html>
+
 
 <!--<div class="modal-footer">
         <input type="submit" onclick="submitModal()" name="submit" class="btn btn-success" value = "ตกลง">

@@ -92,7 +92,6 @@ while ($objReSult = mysql_fetch_array($objQuery)) {
     $page = 1;
   }
   $start = ($page - 1) * $perpage;
-  
   $see=$_POST["sen"];
   $strSQL = "SELECT * FROM type_food where type_name like '%$see%' LIMIT {$start},{$perpage}";
   $objQuery = mysql_query($strSQL,$connect1) or die("Error Query [".$strSQL."]");

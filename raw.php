@@ -122,7 +122,7 @@ include 'header.php';
         ?>
         <?php if ($row['date'] == $datethis): ?>
           <tr class="success">
-            <td style="width:10%;"><div align="center"><?php echo $i; ?></td>
+            <td style="width:10%;"><div align="center"><?php echo $i; ?></div></td>
             <td style="width:15%;"><?php echo $row['id_raw']; ?></td>
             <td><?php echo $date ?></td>
             <td style="width:35%;"><?php echo $row['name_raw']; ?></td>
@@ -132,7 +132,7 @@ include 'header.php';
           </tr>
         <?php else: ?>
           <tr class="info">
-            <td style="width:10%;"><?php echo $i; ?></td>
+            <td style="width:10%;"><div align="center"><?php echo $i; ?></div></td>
             <td style="width:15%;"><?php echo $row['id_raw']; ?></td>
             <td><?php echo $date ?></td>
             <td style="width:35%;"><?php echo $row['name_raw']; ?></td>
