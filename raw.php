@@ -98,7 +98,7 @@ include 'header.php';
         }
      ?>
       <table  class="table table-striped table-bordered">
-        <tr class="info">
+        <tr class=" success" >
           <th><div align="center">ลำดับ</th>
           <th><div align="center">รหัสการเบิกวัตถุดิบ</th>
           <th><div align="center">วันที่เบิก</th>
@@ -121,7 +121,7 @@ include 'header.php';
             		$date=$strDay." ".$strMonthThai." ".$strYear;
         ?>
         <?php if ($row['date'] == $datethis): ?>
-          <tr class="warning">
+          <tr class="warning ">
             <td style="width:10%;"><div align="center"><?php echo $i; ?></div></td>
             <td style="width:15%;"><?php echo $row['id_raw']; ?></td>
             <td><?php echo $date ?></td>
@@ -131,7 +131,7 @@ include 'header.php';
             <td style="width:10%;"><div align="center"><a href="delete_raw.php?id_raw=<?php echo $row['id_raw']; ?>" onclick="return confirm('ต้องการลบข้อมูลนี้?')"><img src="img/delete.png" width="30px" hieght="30px" alt=""></a></div></td>
           </tr>
         <?php else: ?>
-          <tr class="success">
+          <tr class=" info">
             <td style="width:10%;"><div align="center"><?php echo $i; ?></div></td>
             <td style="width:15%;"><?php echo $row['id_raw']; ?></td>
             <td><?php echo $date ?></td>
