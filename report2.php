@@ -55,7 +55,7 @@ include 'header.php';
 <center><h4><label type="text"  value="การสั่งอาหาร" display="">ฝ่ายโภชนาการ&nbsp;โรงพยาบาลเจ้าพระยาอภัยภูเบศร</label></h4></center><br>
 <div class="row text-center">
   <strong>
-  <div class="col-md-3" align = "left"><value="แผนก" display="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;มื้ออาหาร: <?if ($eats == 4) {
+  <div class="col-md-3" align = "left"><value="แผนก" display="">&nbsp;&nbsp;&nbsp;มื้ออาหาร: <?if ($eats == 4) {
     # code...
     echo "เช้า";
     }
@@ -99,8 +99,8 @@ include 'header.php';
     $year = substr($day,-10,4);
     $year += 543;
   ?>
-  <div class="col-md-3" align = "left"><value="แผนก" display="" align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ประจำวันที่ : <? echo $dayy.' '.$mon.' '.$year; ?></label></font></div>
-  <div class="col-md-3" align = "left"><value="แผนก" display="" align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;เจ้าหน้าที่พยาบาล : <? echo $_SESSION["fnname"].' '.$_SESSION["lnname"]; ?></label></font></div>
+  <div class="col-md-3" align = "left"><value="แผนก" display="" align="left">&nbsp;&nbsp;&nbsp;ประจำวันที่ : <? echo $dayy.' '.$mon.' '.$year; ?></label></font></div>
+  <div class="col-md-3" align = "left"><value="แผนก" display="" align="left">&nbsp;&nbsp;&nbsp;เจ้าหน้าที่พยาบาล : <? echo $_SESSION["fnname"].' '.$_SESSION["lnname"]; ?></label></font></div>
     </strong>
   </div><br>
 
@@ -115,8 +115,8 @@ include 'header.php';
 <table class="table table-striped table-bordered" border="1" width="100%">
 <thead>
   <tr class="warning">
-    <th width = ""><div align="center">ลำดับ</th>
-    <th width = ""><div align="center">แผนก</th>
+    <th width = "5%"><div align="center">ลำดับ</th>
+    <th width = "30%"><div align="center">แผนก</th>
     <th width = ""><div align="center">HN</div></th>
     <th width = ""><div align="center">AN</div></th>
     <th width = ""><div align="center">ชื่อ - นามสกุล</div></th>

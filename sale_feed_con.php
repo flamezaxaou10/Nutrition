@@ -14,7 +14,7 @@ include 'header.php';
 <form class="" action="#" method="post">
 <div class="container">
   <div class="jumbotron">
-      <p>การขายอาหารทางสายยาง</p>
+      <p>รายละเอียดการขายอาหารทางสายยาง</p>
       <?php
           $salefeed_id = $_GET['salefeed_id'];
           $sql = "SELECT * FROM sale_feed WHERE salefeed_id = '$salefeed_id'";
