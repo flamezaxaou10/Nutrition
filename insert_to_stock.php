@@ -17,6 +17,9 @@ include 'header.php';
  ?>
 <div class="container">
   <div class="jumbotron">
+    <br>
+   <p>ข้อมูลรายละเอียดการรับวัตถุดิบเข้าคลัง</p>
+   
     <div class="modal-body">
        <div class="modal-body">
             <?php
