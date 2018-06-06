@@ -6,12 +6,9 @@ if($_SESSION["Username"]=="") // ตรวจสอบว่าผ่านก�
 header('location:login.php');
 exit();
 }
+
 include 'header.php';
-?>
-
-<?php
 if(isset($_POST['submit'])) {
-
   $sql  = "update `cpa`.`restaurant` set `res_name`='".$_POST['res_name']."',`shopkeeper`='".$_POST['id_name']."',`res_tel`='".$_POST['res_phone']."',`res_tel`='".$_POST['res_phone']."',`res_telkeeper`='".$_POST['phone']."',`address`='".$_POST['res_address']."',`type`='".$_POST['type']."' where res_id = '".$_POST['res_id']."'";
   $result  = mysql_query($sql);
   if(!$result){
@@ -41,7 +38,7 @@ $gid=$_GET['id'];
 	while($sql  = mysql_fetch_array($query))
 	{
 	?>
-
+<form method="POST">
 <p align="left">แก้ไขข้อมูลร้านค้า</p>
 <table>
             <div class="modal-body">

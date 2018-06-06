@@ -83,7 +83,8 @@ include 'header.php';
       <td><?php echo $row['feed_name']; ?></td>
       <td><?php echo $row['SUM(d.count)']; ?></td>
       <td><?php echo $row['unit_name']; ?></td>
-      <td align="right"><?php echo $row['SUM(d.count)']*$row['price']; ?></td>
+      <td align="right"><?php echo number_format(($row['SUM(d.count)']*$row['price']),2) ?></td>
+
     </tr>
     <?php
      $total += $row['SUM(d.count)']*$row['price'];

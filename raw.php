@@ -33,7 +33,7 @@ include 'header.php';
             <td style="padding-bottom : 10px;">รหัสการเบิกวัตถุดิบ </td>
             <td style="padding-bottom : 10px;">&nbsp; : &nbsp;</td>
             <td style="padding-bottom : 10px;"> <input type="hidden" name="id_raw" value="<?php echo $id_raw; ?>"><?php echo $id_raw; ?></td>
-            <td> <input type="hidden" name="date" value="<?php echo $datethis; ?>"> </td>
+            <td> <input type="hidden" name="date" value="<?php echo $datethis; ?>"></td>
           <tr>
             <td style="padding-bottom : 10px;">เลือกเมนูอาหาร </td>
             <td style="padding-bottom : 10px;">&nbsp; : &nbsp;</td>
@@ -59,12 +59,27 @@ include 'header.php';
                     <option value="<?php echo $raw_name; ?>" <?php echo $hide ?>><?php echo $raw_name; ?></option>
                 <?php
                   }
+
                 ?>
 
               </select><font color="red">&nbsp;*</font>
             </td>
           </tr>
         </table>
+        <?php
+        date_default_timezone_set("Asia/Bangkok") ;
+        $strDate=date('d-m-Y');
+          $strYear = date("Y",strtotime($strDate))+543;
+          $strMonth= date("n",strtotime($strDate));
+          $strDay= date("j",strtotime($strDate));
+          $strDays= date("l",strtotime($strDate));
+          $strDayCut = Array("Monday"=>"วันจันทร์ที่","Tuesday"=>"วันอังคารที่","Wednesday"=>"วันพุธที่","Thursday"=>"วันพฤหัสบดีที่","Friday"=>"วันศุกร์ที่","Saturday"=>"วันเสาร์ที่","Sunday"=>"วันอาทิตย์ที่");
+          $strMonthCut = Array("","มกราคม","กุมภาพันธ์","มีนาคม","เมษายน","พฤษภาคม","มิถุนายน","กรกฎาคม","สิงหาคม","กันยายน","ตุลาคม","พฤษจิกายน","ธันวาคม");
+          $strMonthThai=$strMonthCut[$strMonth];
+          $strDaysThai = $strDayCut[$strDays];
+          $date=$strDaysThai." ".$strDay." ".$strMonthThai." ".$strYear;
+        ?>
+        <?php echo "วันที่เบิก : " .$date; ?>
         </h4>
 
       </div>

@@ -35,7 +35,7 @@ include 'header.php';
        $flag=1;
      }
 }
-if($flag==0){
+if($flag==0 || $flag == 1){
   @include('conn.php');
   $insert = "UPDATE material  SET  mat_name='$name',res_id='$rest' , id_stock = '$stock' WHERE mat_id='$id'";
        $query = mysql_query($insert,$connect1);

@@ -151,7 +151,7 @@ include 'header.php';
 								    while ($objReSult = mysql_fetch_array($objQuery)) {
 
 								  ?>
-								<option value="<? echo $objReSult["unit_id"];?>" <? echo $sel; ?> > <? echo $objReSult["unit_name"];?></option>
+								<option value="<? echo $objReSult["unit_id"];?>" <? echo $sel; ?> <?php if ($objReSult["unit_name"] == "ถุง"): echo "selected"; ?> <?php endif; ?> > <? echo $objReSult["unit_name"];?></option>
 								<?
 								}
 								error_reporting(0);
