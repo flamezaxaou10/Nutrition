@@ -90,6 +90,7 @@ $gid=$_GET['id'];
                <div class="modal-footer text-right">
 								<input type="submit" name="submit" class="btn btn-success" value="แก้ไขข้อมูล" onclick="return confirm('ต้องการแก้ไขข้อมูลนี้?')">&nbsp;&nbsp;
             	<a href="insert_restaurant.php"><button type="button" class="btn btn-danger" data-dismiss="modal" onclick="return confirm('ต้องการยกเลิกการแก้ไขข้อมูลนี้?')">ยกเลิก</button></a>
+
               </div>
               </form>
 <?
