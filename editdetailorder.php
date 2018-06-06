@@ -13,7 +13,7 @@ include 'header.php';
     <div class="jumbotron">
        <!--<h1><font face ="JasmineUPC">โรงพยาบาลเจ้าพระยาอภัยภูเบศร</font></h1>-->
        <br>
-      <p>ข้อมูลการจัดเมนูอาหาร</p>
+      <p>ข้อมูลการจัดรายการอาหาร</p>
       <br>
 <form method="post" action="#">
       <div style="float:left; font-size: 16px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;วันที่ : &nbsp;</div><div style="float:left; font-size: 16px;">&nbsp;<input type="date" name="daytime" size = "8" value="<?php echo $_POST['daytime']; ?>"><font color="red"> &nbsp;</font><br></div><input type="submit" class="btn btn-success" value="ค้นหา" name = "submit2">

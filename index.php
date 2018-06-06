@@ -478,7 +478,7 @@ exit();
           <a href="insert_order_menu.php" <?php echo $menu[8]; ?> >
             <center><img id="img8"  src="img/logomenu.png" class="img-circle person" alt="Random Name" width="" height=""></center>
           </a>
-          <p class="text-center"><strong>ข้อมูลการจัดเมนูอาหาร</strong></p>
+          <p class="text-center"><strong>จัดรายการอาหาร</strong></p>
       </div>
     </div>
     <hr>

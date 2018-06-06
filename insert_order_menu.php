@@ -14,7 +14,7 @@ include 'header.php';
     <div class="jumbotron">
        <!--<h1><font face ="JasmineUPC">โรงพยาบาลเจ้าพระยาอภัยภูเบศร</font></h1>-->
        <br>
-      <p>ข้อมูลการจัดเมนูอาหาร</p>
+      <p>ข้อมูลการจัดรายการอาหาร</p>
       <br>
       <?php
 
