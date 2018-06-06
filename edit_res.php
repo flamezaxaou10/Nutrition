@@ -15,7 +15,7 @@ if(isset($_POST['submit'])) {
   $sql  = "update `cpa`.`restaurant` set `res_name`='".$_POST['res_name']."',`shopkeeper`='".$_POST['id_name']."',`res_tel`='".$_POST['res_phone']."',`res_tel`='".$_POST['res_phone']."',`res_telkeeper`='".$_POST['phone']."',`address`='".$_POST['res_address']."',`type`='".$_POST['type']."' where res_id = '".$_POST['res_id']."'";
   $result  = mysql_query($sql);
   if(!$result){
-    die('ไม่สามารแก้ไขข้อมูลได้ เกิดข้อผิิดพลาดบางประการ'.mysql_error());
+    die('ไม่สามารแก้ไขข้อมูลได้ เกิดข้อผิดพลาดบางประการ'.mysql_error());
   }
   else {
     echo "<script>

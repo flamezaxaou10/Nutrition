@@ -53,8 +53,8 @@ if($flag==0){
     ?>
          <form method="POST" action="#" onsubmit="return confirm('ต้องการแก้ไขข้อมูลนี้?');">
 
-                    <h4> รหัสวัตถุดิบ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp; &nbsp;<input type="text" name="id" value="<?php echo $id ; ?>" readonly ></h4>
-                    <h4> ชื่อวัตถุดิบ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp; &nbsp;<input type="text" name="name" required oninvalid="this.setCustomValidity('กรุณากรอกข้อมูล')" onKeyUp="if(!(isNaN(this.value))) { alert('กรุณากรอกอักษร'); this.value='';}" value="<?php echo $name; ?>"><font color="red"> &nbsp;*</font><?php if($flag==1)echo "<font color=red>ชื่อวัตถุดิบนี้มีในระบบแล้ว</font>"; ?></h4>
+                    <h4> รหัสวัตถุดิบ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp; &nbsp;<input type="text" name="id" value="<?php echo $id ; ?>" readonly ></h4>
+                    <h4> ชื่อวัตถุดิบ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<input type="text" name="name" required oninvalid="this.setCustomValidity('กรุณากรอกข้อมูล')" onKeyUp="if(!(isNaN(this.value))) { alert('กรุณากรอกอักษร'); this.value='';}" value="<?php echo $name; ?>"><font color="red"> &nbsp;*</font><?php if($flag==1)echo "<font color=red>ชื่อวัตถุดิบนี้มีในระบบแล้ว</font>"; ?></h4>
                     <h4>ประเภทวัตถุดิบ &nbsp;&nbsp;: &nbsp;&nbsp;
                       <select name="stock" required>
                         <option value=""  disabled selected>------กรุณาเลือกประเภทวัตถุดิบ-----</option>
