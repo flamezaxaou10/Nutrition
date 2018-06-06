@@ -20,20 +20,23 @@ include 'header.php';
   $sql = "SELECT * FROM raw_system WHERE id_raw = '$id_raw'";
   $res = mysql_query($sql,$connect1);
   $row = mysql_fetch_array($res);
-  $raw = $row['name_raw'];
-
-  //Snap
-  $sql2 = "SELECT * FROM raw_system WHERE name_raw = '$raw' ORDER BY id_raw";
-  $res2 = mysql_query($sql2,$connect1);
-  $row2 = mysql_fetch_array($res2);
-  $id_raw2 = $row2['id_raw'];
-  $sel = "SELECT * FROM detail_raw WHERE id_raw = '$id_raw2'";
-  $res3 = mysql_query($sel,$connect1);
-  while ($row3 = mysql_fetch_array($res3)){
-    $mat_id = $row3['mat_id'];
-    $unit_id = $row3['unit_id'];
-    $insert = "INSERT INTO detail_raw (id_raw,mat_id,count,unit_id) VALUES('$id_raw','$mat_id','0','$unit_id')";
-    mysql_query($insert,$connect1);
+  $sel0 = "SELECT * FROM detail_raw WHERE id_raw = '$id_raw'";
+  $res0 = mysql_query($sel0,$connect1);
+  $num_rows = mysql_num_rows($res0);
+  if ($num_rows == 0) {
+    $raw = $row['name_raw'];
+    $sql2 = "SELECT * FROM raw_system WHERE name_raw = '$raw' ORDER BY id_raw";
+    $res2 = mysql_query($sql2,$connect1);
+    $row2 = mysql_fetch_array($res2);
+    $id_raw2 = $row2['id_raw'];
+    $sel = "SELECT * FROM detail_raw WHERE id_raw = '$id_raw2'";
+    $res3 = mysql_query($sel,$connect1);
+    while ($row3 = mysql_fetch_array($res3)){
+      $mat_id = $row3['mat_id'];
+      $unit_id = $row3['unit_id'];
+      $insert = "INSERT INTO detail_raw (id_raw,mat_id,count,unit_id) VALUES('$id_raw','$mat_id','0','$unit_id')";
+      mysql_query($insert,$connect1);
+    }
   }
 
 ?>
