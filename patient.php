@@ -183,15 +183,15 @@ $objQuery = mysql_query($strSQL) or die("Error Query [".$strSQL."]");
     </td>
   </tr>
   <tr class="warning">
-    <th><div align="center">ลำดับ</div></th>
+    <th width="13%"><div align="center">ลำดับ</div></th>
     <th><div align="center">ชื่อแผนก</div></th>
     <th><div align="center">HN</div></th>
     <th><div align="center">AN</div></th>
     <th><div align="center">ชื่อ</div></th>
     <th><div align="center">นามสกุล</div></th>
-    <th><div align="center">สามัญ</div></th>
-    <th><div align="center">พิเศษ</div></th>
-    <th><div align="center">อาหารเฉพาะโรค</div></th>
+    <th width="5%"><div align="center">สามัญ</div></th>
+    <th width="5%"><div align="center">พิเศษ</div></th>
+    <th width="13%"><div align="center">อาหารเฉพาะโรค</div></th>
   </tr>
 
 <?

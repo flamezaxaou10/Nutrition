@@ -100,13 +100,13 @@ include 'header.php';
                <th><div align="center"><?php echo $ID; ?> : <?php echo $st['name_stock']; ?></div></th>
              </tr>
              <tr class="warning">
-               <th><div align="center">ลำดับ</th>
+               <th width = "20%"><div align="center">ลำดับ</th>
                <th><div align="center">รหัสวัตถุดิบ</th>
                <th><div align="center">ชื่อวัตถุดิบ</th>
                <th><div align="center">จำนวน</th>
                <th><div align="center">หน่วยนับ</th>
-               <th><div align="center">จำนวนที่เบิก</th>
-               <th><div align="center">เบิก</th>
+               <th width="10%"><div align="center">จำนวนที่เบิก</th>
+               <th width="10%"><div align="center">เบิก</th>
              </tr>
              <?php
                $sql = "SELECT SUM(count),stock_detail.mat_id,mat_name,feed_name,unit_name,stock_detail.unit_id FROM stock_detail LEFT JOIN material ON stock_detail.mat_id = material.mat_id
@@ -120,15 +120,15 @@ include 'header.php';
            <form class="" action="update_detail_raw.php" method="GET">
              <tr class ="info">
                <td><div class="text-center"><?php echo $i++; ?></div></td>
-               <td><div class="text-center"><?php echo $objReSult['mat_id']; ?></div></td>
+               <td><div class="text-left"><?php echo $objReSult['mat_id']; ?></div></td>
                <?php if ($objReSult["feed_name"] != NULL): ?>
                  <td><div align = "left"><? echo $objReSult["feed_name"];?></div></td>
                <?php else: ?>
                  <td><div align = "left"><? echo $objReSult["mat_name"];?></div></td>
                <?php endif; ?>
-               <td><div align = "left"><? echo $objReSult["SUM(count)"];?></div></td>
+               <td><div align = "right"><? echo $objReSult["SUM(count)"];?></div></td>
                <td><div align = "left"><? echo $objReSult["unit_name"];?></div></td>
-               <td><div align = "center"><input type="number" name="count" min="1" max="<? echo $objReSult["SUM(count)"];?>" required></div></td>
+               <td><div align = "right"><input type="number" name="count" min="1" max="<? echo $objReSult["SUM(count)"];?>" required></div></td>
                <td><div align = "center">
                        <button type="submit" name="button" class = "btn btn-success">เพิ่มในรายการ +</button>
                        <input type="hidden" name="mat_id" value="<?php echo $objReSult['mat_id']; ?>">
@@ -153,13 +153,13 @@ include 'header.php';
       <input type="hidden" name="stat" value="show">
     <table class="table table-striped table-bordered">
       <tr class="warning">
-        <th width="10%"><div align="center">ลำดับ</div></th>
-        <th width="15%"><div align="center">ประเภทวัตถุดิบ</div></th>
-        <th width="30%"><div align="center">ชื่อวัตถุดิบ</div></th>
+        <th width="4%"><div align="center">ลำดับ</div></th>
+        <th width="10%"><div align="center">ประเภทวัตถุดิบ</div></th>
+        <th width="15%"><div align="center">ชื่อวัตถุดิบ</div></th>
         <th width="7.5%"><div align="center">จำนวนที่เบิก</div></th>
         <th width="7.5%"><div align="center">จำนวนคงเหลือ</div></th>
-        <th width="15%"><div align="center">หน่วยนับ</div></th>
-        <th width="15%"><div align="center">ลบ</div></th>
+        <th width="10%"><div align="center">หน่วยนับ</div></th>
+        <th width="10%"><div align="center">ลบ</div></th>
       </tr>
 
     <?
@@ -181,7 +181,7 @@ include 'header.php';
            $row = mysql_fetch_array($query);
          ?>
         <td><div align = "center"><?php echo $i; ?></div></td>
-        <td><div align = "center"><? echo $row["name_stock"];?></div></td>
+        <td><div align = "left"><? echo $row["name_stock"];?></div></td>
         <?php if ($objReSult['feed_id'] != NULL): ?>
           <td><div align = "left"><? echo $objReSult["feed_name"];?></div></td>
         <?php else: ?>
@@ -191,11 +191,11 @@ include 'header.php';
             <?php if ($row['SUM(stock_detail.count)'] < $objReSult["SUM(count)"]): ?>
                 <input type="number" name="count<?php echo $i; ?>" value="<? echo $objReSult["SUM(count)"];?>" min="0" max="<?php echo $objReSult['SUM(count)']; ?>" required>
             <?php else: ?>
-                <input type="number" name="count<?php echo $i; ?>" value="<? echo $objReSult["SUM(count)"];?>" min="0" max="<?php echo $row['SUM(stock_detail.count)']; ?>" required>
-            <?php endif; ?>
+              <div align = "right">  <input type="number" name="count<?php echo $i; ?>" value="<? echo $objReSult["SUM(count)"];?>" min="0" max="<?php echo $row['SUM(stock_detail.count)']; ?>" required>
+            </div><?php endif; ?>
         </td>
         <td>
-          <div align = "left">
+          <div align = "right">
             <?php if ($row['SUM(stock_detail.count)'] < $objReSult["SUM(count)"]): ?>
                <?php echo $objReSult['SUM(count)']; ?>
             <?php else: ?>
