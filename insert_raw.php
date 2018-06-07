@@ -23,7 +23,7 @@ include 'header.php';
   $sel0 = "SELECT * FROM detail_raw WHERE id_raw = '$id_raw'";
   $res0 = mysql_query($sel0,$connect1);
   $num_rows = mysql_num_rows($res0);
-  if ($num_rows == 0) {
+  if ($num_rows <= 0) {
     $raw = $row['name_raw'];
     $sql2 = "SELECT * FROM raw_system WHERE name_raw = '$raw' ORDER BY id_raw";
     $res2 = mysql_query($sql2,$connect1);
@@ -68,7 +68,6 @@ include 'header.php';
                <select class="" name="id_stock" required >
                  <option value=""  disabled selected>เลือกประเภทวัตถุดิบ</option>
                  <?php
-
                      $sql = "SELECT DISTINCT * FROM stock";
                      $select = mysql_query($sql,$connect1);
                      while ($row = mysql_fetch_array($select)) {
