@@ -110,7 +110,7 @@ include 'header.php';
              <?php
                $sql = "SELECT SUM(count),stock_detail.mat_id,mat_name,feed_name,unit_name,stock_detail.unit_id FROM stock_detail LEFT JOIN material ON stock_detail.mat_id = material.mat_id
                                                    LEFT JOIN feed ON stock_detail.mat_id = feed.feed_id JOIN unit ON unit.unit_id = stock_detail.unit_id
-                                                   WHERE stock_id = '$ID' GROUP BY stock_detail.mat_id";
+                                                   WHERE stock_id = '$ID' GROUP BY mat_name";
                $objQuery = mysql_query($sql,$connect1);
                $i = 1;
              while ($objReSult = mysql_fetch_array($objQuery)) {
