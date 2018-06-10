@@ -74,9 +74,15 @@ include 'header.php';
   </tr>
 
 <?
+
   $sql = "SELECT SUM(count),stock_detail.mat_id,mat_name,feed_name,unit_name FROM stock_detail LEFT JOIN material ON stock_detail.mat_id = material.mat_id
                                       LEFT JOIN feed ON stock_detail.mat_id = feed.feed_id JOIN unit ON unit.unit_id = stock_detail.unit_id
                                       WHERE stock_id = '$ID' GROUP BY mat_name";
+  if ($ID == 'MT-06') {
+    $sql = "SELECT SUM(count),stock_detail.mat_id,mat_name,feed_name,unit_name FROM stock_detail LEFT JOIN material ON stock_detail.mat_id = material.mat_id
+                                        LEFT JOIN feed ON stock_detail.mat_id = feed.feed_id JOIN unit ON unit.unit_id = stock_detail.unit_id
+                                        WHERE stock_id = '$ID' GROUP BY feed_name";
+  }
   $objQuery = mysql_query($sql,$connect1);
   $i = 1;
 while ($objReSult = mysql_fetch_array($objQuery)) {
