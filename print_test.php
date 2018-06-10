@@ -35,7 +35,7 @@ exit();
       <div id="print_table">
        <br />
 
-        <p>ข้อมูลการจัดเมนูอาหาร</p>
+        <p>ข้อมูลการจัดรายการอาหาร</p>
       <h5 align=right>พิมพ์ครั้งที : 1</h5>
       <div style="float:left; font-size: 1.2em;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;วันที่ : </div>
       <?php

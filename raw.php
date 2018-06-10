@@ -79,7 +79,7 @@ include 'header.php';
           $strDaysThai = $strDayCut[$strDays];
           $date=$strDaysThai." ".$strDay." ".$strMonthThai." ".$strYear;
         ?>
-        <?php echo "วันที่เบิกวัตถุดิบ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: &nbsp; : " .$date; ?>
+        <?php echo "วันที่เบิกวัตถุดิบ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: &nbsp; " .$date; ?>
         </h4>
 
       </div>

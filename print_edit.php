@@ -32,8 +32,7 @@ include 'header.php';
  ?>
      <? echo $date;?></div>
 <br />
-<div style="float:left; font-size: 1.2em;">เจ้าหน้าที่</div>
-<div style="float:left; font-size: 1.2em;">&nbsp;</div>
+
 <br />
 
 <div style="float:left; font-size: 16px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;เจ้าหน้าที่ : &nbsp; </div>
