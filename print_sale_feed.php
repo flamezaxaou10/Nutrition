@@ -92,7 +92,7 @@ include 'header.php';
     ?>
     <tr class ="info">
       <td colspan="5" align="right"><b>ราคาทั้งหมด : </b></td>
-      <td align="right"><b><?php echo $total; ?></b> <b>บาท</b></td>
+      <td align="right"><b><?php echo number_format($total, 2); ?></b> <b>บาท</b></td>
     </tr>
   </table>
   </div>
