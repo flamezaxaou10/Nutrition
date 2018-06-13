@@ -13,7 +13,11 @@ include 'header.php';
 ?>
 <div class="container">
   <div class="jumbotron">
-    <p>การขายอาหารทางสายยาง</p>
+    <center>
+    <p>กระทรวงสาธารณสุข</p>
+    <p>ใบสั่งยา</p>
+    <p>โรงพยาบาลเจ้าพระยาอภัยภูเบศร</p>
+  </center>
     <?php
         $salefeed_id = $_GET['salefeed_id'];
         $sql = "SELECT * FROM sale_feed WHERE salefeed_id = '$salefeed_id'";
@@ -59,8 +63,8 @@ include 'header.php';
   <table class="table table-striped table-bordered">
     <tr class="warning">
       <th>ลำดับ</th>
-      <th>รหัสวัตถุดิบ</th>
-      <th>ชื่อวัตถุดิบ</th>
+      <th>รหัสอาหารทางสายยาง</th>
+      <th>ชื่ออาหารทางสายยาง</th>
       <th>จำนวน</th>
       <th>หน่วยนับ</th>
       <th>ราคารวม</th>
@@ -81,7 +85,7 @@ include 'header.php';
       <td><?php echo $i; ?></td>
       <td><?php echo $row['feed_id']; ?></td>
       <td><?php echo $row['feed_name']; ?></td>
-      <td><?php echo $row['SUM(d.count)']; ?></td>
+      <td align="right"><?php echo $row['SUM(d.count)']; ?></td>
       <td><?php echo $row['unit_name']; ?></td>
       <td align="right"><?php echo number_format(($row['SUM(d.count)']*$row['price']),2) ?></td>
 
@@ -98,7 +102,9 @@ include 'header.php';
   </div>
 </div>
   <div class="col-md-3" align="right">
+    <p>.......................................... แพทย์ผู้สั่ง</p>
     <p>.............................................. ผู้จ่ายยา</p>
+    <p>.............................................. ผู้รับเงิน</p>
   </div>
 <script type="text/javascript">
   window.print();
