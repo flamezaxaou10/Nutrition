@@ -82,7 +82,7 @@ include 'header.php';
                       JOIN detail_raw d ON r.id_raw = d.id_raw
                       LEFT JOIN material m ON d.mat_id = m.mat_id
                       JOIN unit u ON d.unit_id = u.unit_id
-                      where (date between '$start' and '$end') GROUP BY d.mat_id";
+                      where (date between '$start' and '$end') GROUP BY m.mat_name";
           $query = mysql_query($select, $connect1);
           $i = 0;
           while ($result = mysql_fetch_array($query)) {

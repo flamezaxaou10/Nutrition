@@ -19,7 +19,7 @@ include 'header.php';
   <div class="jumbotron">
     <br>
    <p>ข้อมูลรายละเอียดการรับวัตถุดิบเข้าคลัง</p>
-   
+
     <div class="modal-body">
        <div class="modal-body">
             <?php
@@ -67,40 +67,42 @@ include 'header.php';
           while ($objReSult = mysql_fetch_array($objQuery)) {
 
       ?>
-        <tr class ="info">
-          <td><div align = "center"><?php echo $i; ?></div></td>
-          <?php if ($objReSult['feed_id'] != NULL): ?>
-            <td><div align = "center"><? echo $objReSult["feed_id"];?></div></td>
-          <td><div align = "center"><? echo $objReSult["feed_name"];?></div></td>
-          <?php else: ?>
-            <td><div align = "left"><? echo $objReSult["mat_id"];?></div></td>
-            <td><div align = "left"><? echo $objReSult["mat_name"];?></div></td>
-          <?php endif; ?>
-          <td><div align = "right"><? echo $objReSult["count"];?></div></td>
-          <td><div align = "right"><? echo $objReSult["balance"];?></div></td>
-          <td><div align = "left"><? echo $objReSult["unit_name"];?></div></td>
-          <form class="" action="update_detail_inputmat.php" method="GET">
-          <td align="center">
-            <?php if ($objReSult["balance"] <= 0): ?>
-              <input type="number" name="count" min="1" max="<?php echo $objReSult["balance"];?>" disabled>
+        <?php if ($objReSult["balance"] > 0): ?>
+          <tr class ="info">
+            <td><div align = "center"><?php echo $i; ?></div></td>
+            <?php if ($objReSult['feed_id'] != NULL): ?>
+              <td><div align = "center"><? echo $objReSult["feed_id"];?></div></td>
+            <td><div align = "center"><? echo $objReSult["feed_name"];?></div></td>
             <?php else: ?>
-              <input type="number" name="count" min="1" max="<?php echo $objReSult["balance"];?>" required>
+              <td><div align = "left"><? echo $objReSult["mat_id"];?></div></td>
+              <td><div align = "left"><? echo $objReSult["mat_name"];?></div></td>
             <?php endif; ?>
-          </td>
-          <?php if ($objReSult['feed_id'] != NULL): ?>
-            <input type="hidden" name="mat_id" value="<?php echo $objReSult['feed_id']; ?>">
+            <td><div align = "right"><? echo $objReSult["count"];?></div></td>
+            <td><div align = "right"><? echo $objReSult["balance"];?></div></td>
+            <td><div align = "left"><? echo $objReSult["unit_name"];?></div></td>
+            <form class="" action="update_detail_inputmat.php" method="GET">
             <td align="center">
-              <input type="submit" class="btn btn-success" value="รับ +">
+              <?php if ($objReSult["balance"] <= 0): ?>
+                <input type="number" name="count" min="1" max="<?php echo $objReSult["balance"];?>" disabled>
+              <?php else: ?>
+                <input type="number" name="count" min="1" max="<?php echo $objReSult["balance"];?>" required>
+              <?php endif; ?>
             </td>
-          <?php else: ?>
-            <input type="hidden" name="mat_id" value="<?php echo $objReSult['mat_id']; ?>">
-            <td align="center">
-              <input type="submit" class="btn btn-success" value="รับ +">
-            </td>
-          <?php endif; ?>
-            <input type="hidden" name="id" value="<?php echo $id_input; ?>">
-            <input type="hidden" name="idbuy" value="<?php echo $id_mat; ?>">
-        </tr>
+            <?php if ($objReSult['feed_id'] != NULL): ?>
+              <input type="hidden" name="mat_id" value="<?php echo $objReSult['feed_id']; ?>">
+              <td align="center">
+                <input type="submit" class="btn btn-success" value="รับ +">
+              </td>
+            <?php else: ?>
+              <input type="hidden" name="mat_id" value="<?php echo $objReSult['mat_id']; ?>">
+              <td align="center">
+                <input type="submit" class="btn btn-success" value="รับ +">
+              </td>
+            <?php endif; ?>
+              <input type="hidden" name="id" value="<?php echo $id_input; ?>">
+              <input type="hidden" name="idbuy" value="<?php echo $id_mat; ?>">
+          </tr>
+        <?php endif; ?>
         </form>
         <?
         $i++;

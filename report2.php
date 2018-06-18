@@ -137,6 +137,7 @@ while ($objReSult = mysql_fetch_array($objQuery)) {
     <td><div align = "center"><?php echo $objReSult['an'];?></div></td>
     <td><?php echo $objReSult['fname']." ".$objReSult['lname'];;  ?></td>
     <td>
+
         <?php
             switch ($objReSult['type_order']) {
               case '1':
@@ -146,13 +147,14 @@ while ($objReSult = mysql_fetch_array($objQuery)) {
                   echo "พิเศษ";
                 break;
               case '3':
-                  echo "เฉพาะโรค";
+                  echo "<a href='#myModal' data-toggle='modal' onclick='setHn($objReSult[HN],$eats)'>เฉพาะโรค</a>";
                 break;
               default:
                 # code...
                 break;
             }
          ?>
+
     </td>
   </tr>
 
@@ -230,7 +232,85 @@ function setCl(name,clinic,date,eats){
   $('#test').load('loadReport.php?clinic='+clinic+'&date='+date+'&eats='+eats);
 }
 
+function setHn(id,eats){
+  $('#hnModal').html(id);
+  $.ajax({
+  type: "GET",
+  url: "loadPatient.php",
+  data: { 'hn': id},
+  success:function(response){
+    var data = JSON.parse(response);
+    $('#clinic').html(data.clinicdescribe);
+    $('#fname_modal').html(data.fname);
+    $('#lname_modal').html(data.lname);
+    console.log(data);
+  }
+  });
+  $.ajax({
+  type: "GET",
+  url: "loadOrderfood.php",
+  data: {
+          'hn': id,
+          'eats': eats
+        },
+  success:function(response){
+    var data = JSON.parse(response);
+    $('#roomno').html(data.roomno);
+    $('#bedno').html(data.bedno);
+    $('#idfood').html(data.type_food);
+    console.log(data);
+  }
+  });
+}
+
 </script>
+
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">การสั่งอาหารเฉพาะโรค</h4>
+      </div>
+
+      <div class="modal-body">
+
+       รหัสผู้ป่วย : <label id="hnModal"></label> <br><br>
+       แผนก : <span id="clinic"></span> <br><br>
+       ชื่อผู้ป่วย :&nbsp;<span id="fname_modal"></span> &nbsp;<span id="lname_modal"></span></b> <br><br>
+      มื้ออาหาร :
+  <? if ($eats == 4) {
+    # code...
+    echo "เช้า";
+    ?>
+    <?
+    }
+      elseif ($eats == 5) {
+      echo "กลางวัน";
+      ?>
+    <?
+    }
+    elseif ($eats == 6) {
+      # code...
+      echo "เย็น";
+      ?>
+      <?
+    }
+  ?>
+    <br><br>
+    ห้อง : <span id="roomno"></span> <br><br>
+    เตียง : <span id="bedno"></span> <br><br>
+    ชนิดของอาหาร : <span id="idfood"></span> <br><br>
+      </div>
+
+      <div class="modal-footer">
+        <input type="button"  name= "submit" class="btn btn-success" value = "เพิ่มข้อมูล" onclick="submitModal();">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">ยกเลิก</button>
+      </div>
+    </div>
+
+  </div>
+</div>
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">

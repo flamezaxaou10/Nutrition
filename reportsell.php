@@ -104,7 +104,7 @@ include 'header.php';
               <td><?php echo $resultin['feed_name']; ?></td>
               <td><div align = "right"><?php echo $resultin['count']; ?></div></td>
               <td><?php echo $resultin['unit_name']; ?></td>
-              <td><div align = "right"><?php echo $resultin['price']; ?></div></td>
+              <td><div align = "right"><?php echo number_format($resultin['price'],2); ?></div></td>
           </tr>
         <?php
               $sum += $resultin['price'];

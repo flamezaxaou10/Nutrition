@@ -114,7 +114,7 @@ include 'header.php';
                       LEFT JOIN material m ON d.mat_id = m.mat_id
                       JOIN unit u ON d.unit_id = u.unit_id
                       LEFT JOIN feed f ON d.mat_id = f.feed_id
-                      where res_name = '$res' AND (date between '$start' and '$end') GROUP BY d.mat_id";
+                      where res_name = '$res' AND (date between '$start' and '$end') GROUP BY m.mat_name ORDER BY m.mat_name";
           $query = mysql_query($select, $connect1);
           $i = 0;
           while ($result = mysql_fetch_array($query)) {

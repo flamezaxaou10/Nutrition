@@ -86,17 +86,19 @@ include 'header.php';
                  while ($row = mysql_fetch_array($result)){
                  ?>
                 <form action="" method="post">
-                 <tr class ="info">
-                   <td><div align = "center"><?php echo $row['feed_id']; ?></div></td>
-                   <td><?php echo $row['feed_name']; ?></td>
-                   <td><div align = "right"><?php echo $row['SUM(s.count)']; ?></div></td>
-                   <td><input type="number" name="count" min="0" max="<?php echo $row['SUM(s.count)']; ?>" style="width:100px;" required value="0"></td>
-                   <td><div align = "right"><?php echo $row['price']; ?></div></td>
-                   <td><?php echo $row['unit_name']; ?></td>
-                   <td align="center">
-                      <input type="submit" class="btn btn-success" value="เพิ่มในรายการ">
-                   </td>
-                  </tr>
+                  <?php if ($row['SUM(s.count)'] > 0): ?>
+                     <tr class ="info">
+                       <td><div align = "center"><?php echo $row['feed_id']; ?></div></td>
+                       <td><?php echo $row['feed_name']; ?></td>
+                       <td><div align = "right"><?php echo $row['SUM(s.count)']; ?></div></td>
+                       <td><input type="number" name="count" min="0" max="<?php echo $row['SUM(s.count)']; ?>" style="width:100px;" required value="0"></td>
+                       <td><div align = "right"><?php echo $row['price']; ?></div></td>
+                       <td><?php echo $row['unit_name']; ?></td>
+                       <td align="center">
+                          <input type="submit" class="btn btn-success" value="เพิ่มในรายการ">
+                       </td>
+                      </tr>
+                  <?php endif; ?>
                   <input type="hidden" name="feed_id" value="<?php echo $row['feed_id']; ?>">
                   <input type="hidden" name="unit_id" value="<?php echo $row['unit_id']; ?>">
                   <input type="hidden" name="price" value="<?php echo $row['price']; ?>">

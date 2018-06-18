@@ -79,25 +79,27 @@ include 'header.php';
                                       LEFT JOIN feed ON stock_detail.mat_id = feed.feed_id JOIN unit ON unit.unit_id = stock_detail.unit_id
                                       WHERE stock_id = '$ID' GROUP BY mat_name";
   if ($ID == 'MT-06') {
-    $sql = "SELECT SUM(count),stock_detail.mat_id,mat_name,feed_name,unit_name FROM stock_detail LEFT JOIN material ON stock_detail.mat_id = material.mat_id
-                                        LEFT JOIN feed ON stock_detail.mat_id = feed.feed_id JOIN unit ON unit.unit_id = stock_detail.unit_id
-                                        WHERE stock_id = '$ID' GROUP BY feed_name";
+    $sql = "SELECT SUM(count),stock_detail.mat_id,feed_name,unit_name FROM stock_detail
+                                        JOIN feed ON stock_detail.mat_id = feed.feed_id JOIN unit ON unit.unit_id = stock_detail.unit_id
+                                        GROUP BY feed_name";
   }
   $objQuery = mysql_query($sql,$connect1);
   $i = 1;
 while ($objReSult = mysql_fetch_array($objQuery)) {
 
 ?>
-  <tr class ="info">
-    <td><div class="text-center"><?php echo $i++; ?></div></td>
-    <?php if ($objReSult["feed_name"] != NULL): ?>
-      <td><div align = "left"><? echo $objReSult["feed_name"];?></div></td>
-    <?php else: ?>
-      <td><div align = "left"><? echo $objReSult["mat_name"];?></div></td>
-    <?php endif; ?>
-    <td><div align = "right"><? echo $objReSult["SUM(count)"];?></div></td>
-    <td><div align = "left"><? echo $objReSult["unit_name"];?></div></td>
+  <?php if ($objReSult["SUM(count)"] > 0): ?>
+    <tr class ="info">
+      <td><div class="text-center"><?php echo $i++; ?></div></td>
+      <?php if ($objReSult["feed_name"] != NULL): ?>
+        <td><div align = "left"><? echo $objReSult["feed_name"];?></div></td>
+      <?php else: ?>
+        <td><div align = "left"><? echo $objReSult["mat_name"];?></div></td>
+      <?php endif; ?>
+      <td><div align = "right"><? echo $objReSult["SUM(count)"];?></div></td>
+      <td><div align = "left"><? echo $objReSult["unit_name"];?></div></td>
     </tr>
+  <?php endif; ?>
   <?
 }
 

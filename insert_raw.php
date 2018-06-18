@@ -72,9 +72,11 @@ include 'header.php';
                      $select = mysql_query($sql,$connect1);
                      while ($row = mysql_fetch_array($select)) {
                  ?>
+                    <?php if ($row['id_stock'] != 'MT-06'): ?>
                        <option value="<?php echo $row['id_stock']; ?>" >
                          <?php echo $row['id_stock']; ?> // <?php echo $row['name_stock']; ?>
                        </option>
+                     <?php endif; ?>
                  <?php
                      }
                   ?>
@@ -108,13 +110,13 @@ include 'header.php';
                <th width="10%"><div align="center">เบิก</th>
              </tr>
              <?php
-               $sql = "SELECT SUM(count),stock_detail.mat_id,mat_name,feed_name,unit_name,stock_detail.unit_id FROM stock_detail LEFT JOIN material ON stock_detail.mat_id = material.mat_id
-                                                   LEFT JOIN feed ON stock_detail.mat_id = feed.feed_id JOIN unit ON unit.unit_id = stock_detail.unit_id
+               $sql = "SELECT SUM(count),stock_detail.mat_id,mat_name,unit_name,stock_detail.unit_id FROM stock_detail JOIN material ON stock_detail.mat_id = material.mat_id
+                                                   JOIN unit ON unit.unit_id = stock_detail.unit_id
                                                    WHERE stock_id = '$ID' GROUP BY mat_name";
                 if ($ID == 'MT-06') {
-                  $sql = "SELECT SUM(count),stock_detail.mat_id,mat_name,feed_name,unit_name FROM stock_detail LEFT JOIN material ON stock_detail.mat_id = material.mat_id
-                                                    LEFT JOIN feed ON stock_detail.mat_id = feed.feed_id JOIN unit ON unit.unit_id = stock_detail.unit_id
-                                                    WHERE stock_id = '$ID' GROUP BY feed_name";
+                  $sql = "SELECT SUM(count),stock_detail.mat_id,feed_name,unit_name FROM stock_detail
+                                                      JOIN feed ON stock_detail.mat_id = feed.feed_id JOIN unit ON unit.unit_id = stock_detail.unit_id
+                                                      GROUP BY feed_name";
                 }
                $objQuery = mysql_query($sql,$connect1);
                $i = 1;
@@ -122,28 +124,30 @@ include 'header.php';
 
            ?>
            <form class="" action="update_detail_raw.php" method="GET">
-             <tr class ="info">
-               <td><div class="text-center"><?php echo $i++; ?></div></td>
-               <td><div class="text-left"><?php echo $objReSult['mat_id']; ?></div></td>
-               <?php if ($objReSult["feed_name"] != NULL): ?>
-                 <td><div align = "left"><? echo $objReSult["feed_name"];?></div></td>
-               <?php else: ?>
-                 <td><div align = "left"><? echo $objReSult["mat_name"];?></div></td>
-               <?php endif; ?>
-               <td><div align = "right"><? echo $objReSult["SUM(count)"];?></div></td>
-               <td><div align = "left"><? echo $objReSult["unit_name"];?></div></td>
-               <td><div align = "right"><input type="number" name="count" min="1" max="<? echo $objReSult["SUM(count)"];?>" required></div></td>
-               <td><div align = "center">
-                       <button type="submit" name="button" class = "btn btn-success">เพิ่มในรายการ +</button>
-                       <input type="hidden" name="mat_id" value="<?php echo $objReSult['mat_id']; ?>">
-                       <input type="hidden" name="id_stock" value="<?php echo $ID; ?>">
-                       <input type="hidden" name="unit_id" value="<?php echo $objReSult["unit_id"]; ?>">
-                       <input type="hidden" name="id_raw" value="<?php echo $id_raw; ?>">
-                       <input type="hidden" name="raw" value="<?php echo $raw; ?>">
-                       <input type="hidden" name="date" value="<?php echo $date; ?>">
-                   </div>
-               </td>
-             </tr>
+             <?php if ($objReSult["SUM(count)"] > 0): ?>
+               <tr class ="info">
+                 <td><div class="text-center"><?php echo $i++; ?></div></td>
+                 <td><div class="text-left"><?php echo $objReSult['mat_id']; ?></div></td>
+                 <?php if ($objReSult["feed_name"] != NULL): ?>
+                   <td><div align = "left"><? echo $objReSult["feed_name"];?></div></td>
+                 <?php else: ?>
+                   <td><div align = "left"><? echo $objReSult["mat_name"];?></div></td>
+                 <?php endif; ?>
+                 <td><div align = "right"><? echo $objReSult["SUM(count)"];?></div></td>
+                 <td><div align = "left"><? echo $objReSult["unit_name"];?></div></td>
+                 <td><div align = "right"><input type="number" name="count" min="1" max="<? echo $objReSult["SUM(count)"];?>" required></div></td>
+                 <td><div align = "center">
+                         <button type="submit" name="button" class = "btn btn-success">เพิ่มในรายการ +</button>
+                         <input type="hidden" name="mat_id" value="<?php echo $objReSult['mat_id']; ?>">
+                         <input type="hidden" name="id_stock" value="<?php echo $ID; ?>">
+                         <input type="hidden" name="unit_id" value="<?php echo $objReSult["unit_id"]; ?>">
+                         <input type="hidden" name="id_raw" value="<?php echo $id_raw; ?>">
+                         <input type="hidden" name="raw" value="<?php echo $raw; ?>">
+                         <input type="hidden" name="date" value="<?php echo $date; ?>">
+                     </div>
+                 </td>
+               </tr>
+             <?php endif; ?>
              </form>
              <?
            }
@@ -168,19 +172,21 @@ include 'header.php';
 
     <?
 
-        $sql = "SELECT d.mat_id,f.feed_id,f.feed_name,m.mat_name,SUM(count),u.unit_name,u.unit_id FROM detail_raw d LEFT JOIN material m ON d.mat_id = m.mat_id
-                                                 LEFT JOIN feed f ON d.mat_id = f.feed_id
+        $sql = "SELECT d.mat_id,m.mat_name,SUM(count),u.unit_name,u.unit_id FROM detail_raw d LEFT JOIN material m ON d.mat_id = m.mat_id
                                                  JOIN unit u ON d.unit_id = u.unit_id
-                                                 WHERE d.id_raw = '$id_raw' GROUP BY mat_id";
+                                                 WHERE d.id_raw = '$id_raw' GROUP BY m.mat_name";
         $objQuery = mysql_query($sql,$connect1);
         $i = 1;
         while ($objReSult = mysql_fetch_array($objQuery)) {
 
     ?>
       <tr class ="info">
-         <?php $mat = $objReSult["mat_id"]; ?>
+         <?php $mat = $objReSult["mat_name"]; ?>
         <?php
-           $sqlb = "SELECT stock_detail.stock_id,stock.name_stock,SUM(stock_detail.count) FROM stock_detail JOIN stock ON stock_detail.stock_id = stock.id_stock WHERE mat_id = '$mat' GROUP BY mat_id";
+           $sqlb = "SELECT stock_detail.mat_id,stock_detail.stock_id,stock.name_stock,SUM(stock_detail.count) FROM stock_detail
+                            JOIN stock ON stock_detail.stock_id = stock.id_stock
+                            JOIN material ON stock_detail.mat_id = material.mat_id
+                            WHERE material.mat_name = '$mat' GROUP BY material.mat_name";
            $query = mysql_query($sqlb,$connect1);
            $row = mysql_fetch_array($query);
          ?>
@@ -209,7 +215,7 @@ include 'header.php';
       </td>
         <td><div align = "left"><? echo $objReSult["unit_name"];?></div></td>
           <td align="center">
-            <a href="delete_detail_raw.php?id_raw=<?php echo $id_raw; ?>&mat_id=<?php echo $mat; ?>&count=<?php echo $objReSult['SUM(count)']; ?>
+            <a href="delete_detail_raw.php?id_raw=<?php echo $id_raw; ?>&mat_id=<?php echo $objReSult["mat_id"]; ?>&count=<?php echo $objReSult['SUM(count)']; ?>
               &stock_id=<?php echo $row['stock_id']; ?>&unit_id=<?php echo $objReSult['unit_id']; ?>
               &date=<?php echo $date; ?>&raw=<?php echo $raw; ?>"
             onclick="return confirm('ยืนยันการลบข้อมูล')"><b><font color="red"><img src='img/delete.png' width=25></font></b></a>
