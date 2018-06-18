@@ -54,7 +54,7 @@ include 'header.php';
            <td> <?php echo $date; ?></td>
          </tr>
          <tr>
-           <td>ชื่อผู้ซื้อ </td>
+           <td>ชื่อผู้ป่วย </td>
            <td>&nbsp;&nbsp; : &nbsp;&nbsp;</td>
            <td> <?php echo $row['customer']; ?></td>
          </tr>

@@ -102,7 +102,7 @@ include 'header.php';
                <th width = "20%"><div align="center">ลำดับ</th>
                <th><div align="center">รหัสวัตถุดิบ</th>
                <th><div align="center">ชื่อวัตถุดิบ</th>
-               <th><div align="center">จำนวน</th>
+               <th width="15%"><div align="center">จำนวนคงเหลือ</th>
                <th><div align="center">หน่วยนับ</th>
                <th width="10%"><div align="center">จำนวนที่เบิก</th>
                <th width="10%"><div align="center">เบิก</th>
@@ -115,7 +115,7 @@ include 'header.php';
                   $sql = "SELECT SUM(count),stock_detail.mat_id,mat_name,feed_name,unit_name FROM stock_detail LEFT JOIN material ON stock_detail.mat_id = material.mat_id
                                                     LEFT JOIN feed ON stock_detail.mat_id = feed.feed_id JOIN unit ON unit.unit_id = stock_detail.unit_id
                                                     WHERE stock_id = '$ID' GROUP BY feed_name";
-                }                                      
+                }
                $objQuery = mysql_query($sql,$connect1);
                $i = 1;
              while ($objReSult = mysql_fetch_array($objQuery)) {
