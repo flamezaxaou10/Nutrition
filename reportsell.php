@@ -82,12 +82,12 @@ include 'header.php';
         <?php
           $select = "SELECT * FROM sale_feed where (date between '$start' and '$end')";
           $query = mysql_query($select, $connect1);
+          $total = 0;
           while ($result = mysql_fetch_array($query)) {
             $salefeed_id = $result['salefeed_id'];
             $sum = 0;
         ?>
           <tr>
-
             <?php
               $sql = "SELECT * FROM detail_sale_feed d
                       JOIN unit u ON d.unit_id = u.unit_id
@@ -108,6 +108,7 @@ include 'header.php';
           </tr>
         <?php
               $sum += $resultin['price'];
+              $total += $sum;
             }
         ?>
             <tr>
@@ -118,6 +119,9 @@ include 'header.php';
         ?>
       </table>
       <br>
+      <div class="text-right">
+        <h4><b >ยอดขายรวม <?php echo number_format ($total,2); ?> บาท</b></h4>
+      </div>
     </div>
   </div>
   <div class="text-center">

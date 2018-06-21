@@ -32,11 +32,28 @@ exit();
   $sql = "SELECT * FROM order_food WHERE clinic = '$clinic' AND date_order = '$date' AND eats = '$eats' AND type_order = '3'";
   $res = mysql_query($sql,$connect1);
   $i = 1;
+  $strDate=date('d-m-Y', strtotime($date));
+    $strYear = date("Y",strtotime($strDate))+543;
+    $strMonth= date("n",strtotime($strDate));
+    $strDay= date("j",strtotime($strDate));
+    $strMonthCut = Array("","ม.ค.","ก.พ.","มี.ค.","เม.ย.","พ.ค.","มิ.ย.","ก.ค.","ส.ค.","ก.ย.","ต.ค.","พ.ย.","ธ.ค.");
+    $strMonthThai=$strMonthCut[$strMonth];
+    $dates=$strDay." ".$strMonthThai." ".$strYear;
+  switch ($eats) {
+    case '4':
+      $eat = "มื้อเช้า / $dates";
+      break;
+    case '5':
+      $eat = "มื้อกลางวัน / $dates";
+      break;
+    case '6':
+      $eat = "มื้อเย็น / $dates";
+      break;
+  }
   while ($row = mysql_fetch_array($res)){
 ?>
   <?php if ($i % 12 == 0): ?>
     <div class="card" style="margin-bottom:100px;">
-      <div class="text-right">อาหารเฉพาะโรค</div></td>
       <center>
         <table width="100%">
           <tr>
@@ -59,7 +76,10 @@ exit();
     </div>
   <?php else: ?>
     <div class="card">
-      <div class="text-right">อาหารเฉพาะโรค</div></td>
+      <div class="text-left">
+          <span >อาหารเฉพาะโรค</span>
+          <span style="float:right;"><?php echo $eat; ?></span>
+      </div>
       <center>
         <table width="80%">
           <tr>

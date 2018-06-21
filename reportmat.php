@@ -68,37 +68,56 @@ include 'header.php';
       <div class="top">
         ประจำวันที่ : <?php echo thDate($start); ?> ถึง <?php echo thDate($end); ?>
       </div> <br>
-
-      <table class="table table-striped table-bordered" >
-        <tr>
-          <th><div align = "center">ลำดับ</div></th>
-          <th><div align = "center">ชื่อวัตถุดิบ</div></th>
-          <th><div align = "center">จำนวน</div></th>
-          <th><div align = "center">หน่วยนับ</div></th>
-        </tr>
-        <?php
-          $select = "SELECT SUM(d.count),d.mat_id,d.unit_id,m.mat_name,u.unit_name
-                      FROM raw_system r
-                      JOIN detail_raw d ON r.id_raw = d.id_raw
-                      LEFT JOIN material m ON d.mat_id = m.mat_id
-                      JOIN unit u ON d.unit_id = u.unit_id
-                      where (date between '$start' and '$end') GROUP BY m.mat_name";
-          $query = mysql_query($select, $connect1);
-          $i = 0;
-          while ($result = mysql_fetch_array($query)) {
-            $i++;
-        ?>
-        <tr>
-          <td><div align = "center"><?php echo "$i"; ?></td>
-          <td><?php echo $result['mat_name']; ?><?php echo $result['feed_name']; ?></td>
-          <td><div align = "right"><?php echo $result['SUM(d.count)']; ?><div align = "right"></td>
-          <td><?php echo $result['unit_name']; ?></td>
-        </tr>
       <?php
-        }
-      ?>
+        $setst = "SELECT m.id_stock
+                    FROM raw_system r
+                    JOIN detail_raw d ON r.id_raw = d.id_raw
+                    LEFT JOIN material m ON d.mat_id = m.mat_id
+                    where (date between '$start' and '$end') GROUP BY m.id_stock";
+        $qst = mysql_query($setst, $connect1);
+        while ($rest = mysql_fetch_array($qst)) {
+          $setidStock = $rest['id_stock'];
+          $selectst = "SELECT * FROM stock WHERE id_stock = '$setidStock'";
+          $queryst = mysql_query($selectst, $connect1);
+          $i = 0;
+          while ($resultst = mysql_fetch_array($queryst)) {
+            $id_stock =  $resultst['id_stock'];
+        ?>
+          <h4><?php echo $resultst['id_stock'].' : '. $resultst['name_stock'] ?></h4>
+          <table class="table table-striped table-bordered" >
+            <tr>
+              <th><div align = "center">ลำดับ</div></th>
+              <th><div align = "center">ชื่อวัตถุดิบ</div></th>
+              <th><div align = "center">จำนวน</div></th>
+              <th><div align = "center">หน่วยนับ</div></th>
+            </tr>
+            <?php
+              $select = "SELECT SUM(d.count),d.mat_id,d.unit_id,m.mat_name,u.unit_name
+                          FROM raw_system r
+                          JOIN detail_raw d ON r.id_raw = d.id_raw
+                          LEFT JOIN material m ON d.mat_id = m.mat_id
+                          JOIN unit u ON d.unit_id = u.unit_id
+                          where (date between '$start' and '$end') AND m.id_stock = '$id_stock' GROUP BY m.mat_name";
+              $query = mysql_query($select, $connect1);
+              $i = 0;
+              while ($result = mysql_fetch_array($query)) {
+                $i++;
+            ?>
+            <tr>
+              <td><div align = "center"><?php echo "$i"; ?></td>
+              <td><?php echo $result['mat_name']; ?><?php echo $result['feed_name']; ?></td>
+              <td><div align = "right"><?php echo $result['SUM(d.count)']; ?><div align = "right"></td>
+              <td><?php echo $result['unit_name']; ?></td>
+            </tr>
+          <?php
+            }
+          ?>
 
-      </table>
+          </table>
+        <?php
+          }
+        }
+        ?>
       <br>
     </div>
   </div>

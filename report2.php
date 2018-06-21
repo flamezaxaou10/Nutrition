@@ -243,7 +243,6 @@ function setHn(id,eats){
     $('#clinic').html(data.clinicdescribe);
     $('#fname_modal').html(data.fname);
     $('#lname_modal').html(data.lname);
-    console.log(data);
   }
   });
   $.ajax({

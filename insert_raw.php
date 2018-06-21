@@ -181,7 +181,10 @@ include 'header.php';
 
     ?>
       <tr class ="info">
-         <?php $mat = $objReSult["mat_name"]; ?>
+         <?php
+            $mat = $objReSult["mat_name"];
+            $matID = $objReSult["mat_id"];
+          ?>
         <?php
            $sqlb = "SELECT stock_detail.mat_id,stock_detail.stock_id,stock.name_stock,SUM(stock_detail.count) FROM stock_detail
                             JOIN stock ON stock_detail.stock_id = stock.id_stock
@@ -222,7 +225,7 @@ include 'header.php';
           </td>
       </tr>
           <input type="hidden" name="id_raw<?php echo $i; ?>" value="<?php echo $id_raw; ?>">
-          <input type="hidden" name="mat_id<?php echo $i; ?>" value="<?php echo $mat; ?>">
+          <input type="hidden" name="mat_id<?php echo $i; ?>" value="<?php echo $matID; ?>">
           <input type="hidden" name="id_stock<?php echo $i; ?>" value="<?php echo $row['stock_id']; ?>">
           <input type="hidden" name="unit_id<?php echo $i; ?>" value="<?php echo $objReSult["unit_id"]; ?>">
       <?

@@ -3,7 +3,7 @@
 	 $hn = $_GET['hn'];
    $eats = $_GET['eats'];
 	 if(isset($hn)){
-	  $strSQL5 = "SELECT * FROM order_food where hn = $hn AND eats = $eats" ;
+	  $strSQL5 = "SELECT * FROM order_food where hn = $hn AND eats = $eats ORDER BY id DESC" ;
       $objQuery5 = mysql_query($strSQL5, $connect1)or die(mysql_error());
       $objReSult5 = mysql_fetch_array($objQuery5);
 
