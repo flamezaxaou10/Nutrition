@@ -303,8 +303,7 @@ function setHn(id,eats){
       </div>
 
       <div class="modal-footer">
-        <input type="button"  name= "submit" class="btn btn-success" value = "เพิ่มข้อมูล" onclick="submitModal();">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">ยกเลิก</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">ปิด</button>
       </div>
     </div>
 

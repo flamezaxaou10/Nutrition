@@ -54,6 +54,10 @@ exit();
 ?>
   <?php if ($i % 12 == 0): ?>
     <div class="card" style="margin-bottom:100px;">
+      <div class="text-left">
+          <span >อาหารเฉพาะโรค</span>
+          <span style="float:right;"><?php echo $eat; ?></span>
+      </div>
       <center>
         <table width="100%">
           <tr>
