@@ -120,7 +120,7 @@ include 'header.php';
       </table>
       <br>
       <div class="text-right">
-        <h4><b >ยอดขายรวม <?php echo number_format ($total,2); ?> บาท</b></h4>
+        <h4><b >ราคารวมทั้งหมด <?php echo number_format ($total,2); ?> บาท</b></h4>
       </div>
     </div>
   </div>
