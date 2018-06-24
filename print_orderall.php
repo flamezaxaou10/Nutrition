@@ -32,6 +32,7 @@ exit();
   $sql = "SELECT * FROM order_food WHERE clinic = '$clinic' AND date_order = '$date' AND eats = '$eats' AND type_order = '3'";
   $res = mysql_query($sql,$connect1);
   $i = 1;
+  date_default_timezone_set("Asia/Bangkok");
   $strDate=date('d-m-Y', strtotime($date));
     $strYear = date("Y",strtotime($strDate))+543;
     $strMonth= date("n",strtotime($strDate));
